@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="X.-Z. CHEN">
+<meta name="dcterms.date" content="2024-02-21">
+
+<title>Basic knowledge of PostDoc project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Research_Plan_XC_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Research_Plan_XC_files/libs/quarto-html/quarto.js"></script>
+<script src="Research_Plan_XC_files/libs/quarto-html/popper.min.js"></script>
+<script src="Research_Plan_XC_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Research_Plan_XC_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Research_Plan_XC_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Research_Plan_XC_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Research_Plan_XC_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Research_Plan_XC_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Research_Plan_XC_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Basic knowledge of PostDoc project</h1>
+<p class="subtitle lead">A useful information collection local files</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>X.-Z. CHEN </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 21, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="majorana-zero-mode-mzm" class="level2">
+<h2 class="anchored" data-anchor-id="majorana-zero-mode-mzm">Majorana zero mode (MZM)</h2>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>Majorana fermions appear naturally as elementary particles, or emerge as charge-neutral and zero-energy quasi-particles in a superconductor.</p>
+</section>
+<section id="properties" class="level3">
+<h3 class="anchored" data-anchor-id="properties">Properties</h3>
+<ul>
+<li>Non-abelian statistics, particle exchange is not commute <span class="math display">\[\downarrow\]</span></li>
+<li>Highly error-tolerant topological qubits protected by topology <span class="math display">\[\downarrow\]</span></li>
+<li>Braiding and Fusion <span class="math inline">\(\rightarrow\)</span> Quantum gate</li>
+</ul>
+<p>Before the realization of topological quantum qubits, the experimental evidence is quite important!</p>
+</section>
+</section>
+<section id="experiments-and-challenges-in-nanowires" class="level2">
+<h2 class="anchored" data-anchor-id="experiments-and-challenges-in-nanowires">Experiments and Challenges in Nanowires</h2>
+<p><strong>Experiment Setup</strong></p>
+<p><img src="figures/majorana_setup.png" class="img-fluid"></p>
+<p>Figure of Majorana experimental setup: (A) Outline of theoretical proposal. Top: Conceptual device layout with a semiconductor nanowire in proximity to an s-wave superconductor. An external <span class="math inline">\(B\)</span>-field is aligned parallel to the wire. The Rashba spin-orbit interaction is indicated as an effective magnetic field, <span class="math inline">\(B_{so}\)</span>, pointing perpendicular to the nanowire. The red stars indicated the expected locations of a Majorana pair. Bottom: Energy, <span class="math inline">\(E\)</span>, versus momentum, <span class="math inline">\(k\)</span>, for a 1D wire with Rashba spin-orbit interaction, which shifts the spin-down band (bule) to the left and spin-up band (red) to the right. Blue and red parabola (抛物线) are for <span class="math inline">\(B=0\)</span>. Black curves are for <span class="math inline">\(B\neq 0\)</span>, illustrating the formation of a gap near <span class="math inline">\(k=0\)</span> of size <span class="math inline">\(g\mu_B B\)</span>. (<span class="math inline">\(\mu\)</span> is the Fermi energy with <span class="math inline">\(\mu=0\)</span> defined at crossing of parabolas at <span class="math inline">\(k=0\)</span>). The superconductor induces pairing between states of opposite momentum and opposite spin creating a gap of size <span class="math inline">\(\Delta\)</span>. (B) Implemented version of theoretical proposals. Scanning electron microscopy image of the device with normal (N) and superconductor (S) contacts. The S-contact only covers the right part of the nanowire. The underlying gates, numbered 1 to 4, are covered with a dieletric (电镀). (Note that gate 1 connects two gates and gate 4 connects four narrow gates; see (C).) (C) Top: Schematic of our device. Down: illustration of energy states. Green indicates the tunnel barrier separating the normal part of the nanowire on the left from the wire section with induced superconducting gap, <span class="math inline">\(\Delta\)</span>. (In (B) the barrier gate is also marked green.) An external voltage, <span class="math inline">\(V\)</span>, applied between N and S drops across the tunnel barrier. Red stars again indicate the idealized locations of the Majorana pair. Only the left Majorana is probed in this experiment. (D) Example of differential conductance, <span class="math inline">\(dI/dV\)</span>, versus <span class="math inline">\(V\)</span> at <span class="math inline">\(B=0\)</span> and 65 mK, serving as a spectroscopic measurement on the density of states in the nanowire region below the superconductor. Data from device 1. The two large peaks, separated by <span class="math inline">\(2\Delta\)</span>, correspond to the quasi-particle singularities above the induced gap. Two smaller subgap peaks, indicated by arrows, likely correspond to Andreev bound states located symmetrically around zero energy. Measurements are performed in dilution (稀释) refrigeration (制冷) using standard low-frequency lock-in technique (frequency 77 Hz, excitation 3 <span class="math inline">\(\mu\)</span>V) in the four-terminal (device 1 and 3) or two-terminal (device 2) current-voltage geometry.</p>
+<ul>
+<li>The starting point is a one-dimensional nanowire made of semiconducting material with strong spin-orbit interaction. In the presence of a magnetic field, <span class="math inline">\(B\)</span>, along the axis of the nanowire (i.e.&nbsp;a Zeeman field), a gap is opened at the crossing between the two spin-orbit bands. If the Fermi energy, <span class="math inline">\(\mu\)</span>, is inside this gap, the degeneracy is two-fold whereas outside the gap it is four fold.</li>
+<li>The next ingredient is to connect the semiconducting nanowire to an ordinary s-wave superconductor. The proximity (邻近) of the superconductor induces pairing in the nanowire between electron states of opposite momentum and opposite spins and induces a gap, <span class="math inline">\(\Delta\)</span>. Combining this two-fold degeneracy with an induced gap creates a topological superconductor.</li>
+<li>The condition for a topological phase is <span class="math inline">\(E_Z&gt;(\Delta^2+\mu^2)^{1/2}\)</span>, with the Zeeman energy, <span class="math inline">\(E_Z=g\mu_B B/2\)</span> (<span class="math inline">\(g\)</span> is the Land{'e} <span class="math inline">\(g-\)</span> factor; <span class="math inline">\(\mu_B\)</span> the Bohr magneton).</li>
+<li>Near the end of the wire, the electron density is reduced to zero and subsequently <span class="math inline">\(\mu\)</span> will drop below the subband energies such that <span class="math inline">\(\mu^{2}\)</span> becomes large. At the points in space where <span class="math inline">\(E_Z=(\Delta^2+\mu^2)^{1/2}\)</span> Majoranas arise as zero-energy (i.e.&nbsp;mid-gap) bound states - one at each end of the wire.</li>
+</ul>
+<p><strong>Majoranas Measurement</strong></p>
+<ul>
+<li>Despite their zero charge and energy (one of the properties of Majoranas), Majoranas can be detected in electrical measurements. Tunneling spectroscopy from a normal conductor into the end of the wire should reveal a state at zero energy. The zero-energy peaks rigidly stick to zero-energy while changing <span class="math inline">\(B\)</span> and gate voltages over large ranges. And they show if they remove any elements which necessary to generate Majoranas, then the zero-bias-conductance-peak won’t appear.</li>
+</ul>
+<p><strong>Experiment materials’ parameters</strong></p>
+<p>They use a InSb nanowire, which are known to have strong-orbit interaction and a large <span class="math inline">\(g-\)</span>factor.</p>
+<ul>
+<li>The spin-orbit length <span class="math inline">\(l_{so}\approx 200 \,\mathrm{nm}\)</span> corresponding to a Rashba parameter <span class="math inline">\(\alpha\approx 0.2\,\mathrm{eV\cdot \dot{A}} = 20\,\mathrm{meV\cdot nm}\)</span>. This translates to a spin-orbit energy scale <span class="math inline">\(\alpha^2 m^{*}/(2\hbar^2)\approx 50\mathrm{\mu eV} = 0.05 \mathrm{meV}\)</span> (<span class="math inline">\(m^{*}=0.015m_e\)</span> is the effective electron mass in InSb, <span class="math inline">\(m_e\)</span> is the bare electron mass).</li>
+<li>Importantly, the <span class="math inline">\(g-\)</span>factor in bulk InSb is very large, <span class="math inline">\(g\approx50\)</span>, yielding <span class="math inline">\(E_Z/B\approx 1.5\,\mathrm{meV/T}\)</span>.</li>
+<li>The induced superconducting gap <span class="math inline">\(\Delta\approx 250\,\mathrm{\mu eV}=0.25\,\mathrm{meV}\)</span>. For <span class="math inline">\(\mu=0\)</span>, we thus expecte to enter the topological phase for <span class="math inline">\(B\sim 0.15\,\mathrm{T}\)</span> where <span class="math inline">\(E_Z\)</span> starts to exceed <span class="math inline">\(\Delta\)</span>.</li>
+<li>The mean free path of <span class="math inline">\(\sim 300\,\mathrm{nm}\)</span>, temperature below 1 K, and the Majorana zero-mode become observable when magnetic field around <span class="math inline">\(0.15\,\mathrm{T}\)</span>.</li>
+</ul>
+<p><strong>Zero Bias Conductance Peak (ZBCP)</strong></p>
+<ul>
+<li>V. Mourik, el at., <a href="https://www.science.org/doi/10.1126/science.1222360">Science 336, 1003 (2012)</a>; <a href="https://arxiv.org/pdf/1204.2792.pdf">PDF</a></li>
+<li>L. P. Rokhinson, et al., <a href="https://www.nature.com/articles/nphys2429">Nat. Phys. 8, 795 (2012)</a></li>
+<li>M. T. Deng et al., <a href="https://www.science.org/doi/10.1126/science.aaf3961">Science 354, 1557 (2016)</a></li>
+<li>P. Yu et al., <a href="https://www.nature.com/articles/s41567-020-01107-w">Nat. Phys. 17, 482 (2021)</a> <!-- * K. Sengupta et al., [Phys. Rev. B 63, 144351](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.63.144531) --></li>
+</ul>
+<p>Possible ZBCP origin: MZM, Andreev bound states, Knodo Effect, Disorder<br>
+Majoranas can be misdiagnosed in ZBCP</p>
+<section id="quantization-neq-majorana" class="level3">
+<h3 class="anchored" data-anchor-id="quantization-neq-majorana">Quantization <span class="math inline">\(\neq\)</span> “Majorana”</h3>
+<p><strong>Experiments:</strong></p>
+<ul>
+<li>Z. Wang et al., <a href="https://link.aps.org/doi/10.1103/PhysRevLett.129.167702">Phys. Rev.&nbsp;Lett. 129 167702 (2023)</a>, plateu regions for Zero-Bias-Peaks within 5% of the conductance value <span class="math inline">\(2{e}^2/h\)</span>.</li>
+<li>S. Zhang et al., <a href="https://link.aps.org/doi/10.1103/PhysRevLett.128.076803">Phys. Rev.&nbsp;Lett. 128 076803 (2023)</a>, suppressing Andreev bound state Zero-Bias-Peaks Using a strongly dissipative lead. <!-- ![](figures/mzm-quantization-2023-fig1e.png) --></li>
+</ul>
+<p><strong>Theory:</strong></p>
+<ul>
+<li>S. Das Sarma, H. Pan, <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.103.195158">Phys. Rev.&nbsp;B 103, 195158 (2021)</a></li>
+</ul>
+<p>How to get conclusive evidence for Majoranas?</p>
+</section>
+</section>
+<section id="experimant-detection-of-mzm" class="level2">
+<h2 class="anchored" data-anchor-id="experimant-detection-of-mzm">Experimant detection of MZM</h2>
+<p>The properties of MZM:</p>
+<ul>
+<li>Self-Conjugation</li>
+<li>non-local <span class="math inline">\(\rightarrow\)</span> Non-local conductance</li>
+<li>Zero-energy <span class="math inline">\(\rightarrow\)</span> ZBCP</li>
+<li>Non-ablian statistics <span class="math inline">\(\rightarrow\)</span> Current-phase relationship</li>
+</ul>
+<section id="experiments" class="level3">
+<h3 class="anchored" data-anchor-id="experiments">Experiments</h3>
+<ul>
+<li>Sigatures of Majorana fermions
+<ul>
+<li>V. Mourik et al., <a href="https://www.science.org/doi/10.1126/science.1222360">Science 336, 6084 (2012)</a>;</li>
+</ul></li>
+</ul>
+<p>Reviews:</p>
+<ul>
+<li>Z. Cao et al., <a href="https://doi.org/10.1007/s11433-022-1999-x">Sci. China Phys. Mech. Astron. 6 267003 (2023)</a>;</li>
+<li>H. Zhang et al., <a href="https://www.nature.com/articles/s41467-019-13133-1">Nat. Commun. 10 5128 (2019)</a></li>
+<li>P. Marra, <a href="http://arxiv.org/abs/2206.14828">J. Appl. Phys. 132 231101 (2022)</a></li>
+</ul>
+</section>
+</section>
+<section id="scanning-gate-microscopy-sgm-technology" class="level2">
+<h2 class="anchored" data-anchor-id="scanning-gate-microscopy-sgm-technology">Scanning Gate Microscopy (SGM) technology</h2>
+<p><img src="figures/sgm_art.png" class="absolute img-fluid" data-top="300" data-left="250" width="600"></p>
+<ul>
+<li>Additional spatial dimension of conductance or distribution</li>
+<li>Manipulate quantum properties of the sample by SGM tip</li>
+</ul>
+</section>
+<section id="imaging-and-manipulation-of-mesoscopic-system" class="level2">
+<h2 class="anchored" data-anchor-id="imaging-and-manipulation-of-mesoscopic-system">Imaging and manipulation of Mesoscopic system</h2>
+<p><strong>Two-dimensional electron gas</strong>:</p>
+<!-- * Electron flow (M. A. Eriksson et al., 1999) -->
+<ul>
+<li>Conductance quantization (M. A. Topinka et al., 2000; A. Iagallo et al., 2015) <!-- * Quantum interference effects (50-55) --> <!-- * Abnormal conductivity (57-59) --></li>
+<li>Quantum Hall Effect (60-67)</li>
+<li>Coulomb blocking (68-71)</li>
+<li>Disorder (72-73) <!-- * Charge concentration (74) --></li>
+<li><mark>Nanowire</mark> (A. C. Bleszynski-Jayich et al., <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.245327">Phys. Rev.&nbsp;B (2008)</a>)</li>
+<li><mark>Planar Josephson junction</mark> (K. Kaperek et al., <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.035432">Phys. Rev.&nbsp;B (2022)</a>)</li>
+</ul>
+</section>
+<section id="graphene" class="level2">
+<h2 class="anchored" data-anchor-id="graphene">Graphene</h2>
+<ul>
+<li>Conductance fluctuations</li>
+<li><mark>Superconductor-contact Andreev reflection</mark> (S. Bhandari et al., <a href="https://pubs.acs.org/doi/10.1021/acs.nanolett.0c00903">Nano Lett., 2020</a>)</li>
+<li><mark>Topological insulator edge states</mark> (M. K<span class="math inline">\(\ddot{o}\)</span>nig et al., <a href="https://link.aps.org/doi/10.1103/PhysRevX.3.021003">Phys. Rev.&nbsp;X, (2013)</a> )</li>
+</ul>
+<p>Conductance response <span class="math inline">\(\delta G\)</span> Vs. SGM tip strength <span class="math inline">\(\mu_{T}\)</span> gives a criterion of conductance quantization. (R. Jalabert et al., <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.105.166802">Phys. Rev.&nbsp;Lett. (2010)</a>; X.-Z. Chen et al., <a href="http://dx.doi.org/%2010.1103/PhysRevB.107.085420">Phys. Rev.&nbsp;B (2023)</a>)</p>
+<!-- ## Conductance quantization Or Majorana in ZBCP -->
+<!-- ### SGM may give an answer -->
+<!-- ## Fractional Josephson effect -->
+<!-- ### Current-phase relationship (CPR) or Energy-phase relationship (EPR) -->
+</section>
+<section id="computation-methods" class="level2">
+<h2 class="anchored" data-anchor-id="computation-methods">Computation methods</h2>
+<section id="tight-binding-model" class="level3">
+<h3 class="anchored" data-anchor-id="tight-binding-model">Tight-binding model</h3>
+<p>Python package:</p>
+<ul>
+<li><a href="https://kwant-project.org/">Kwant</a></li>
+<li><a href="https://docs.pybinding.site/en/stable/">pybinding</a></li>
+<li><a href="https://github.com/joselado/pyqula/tree/master">pyqula</a></li>
+</ul>
+</section>
+</section>
+<section id="kwant" class="level2">
+<h2 class="anchored" data-anchor-id="kwant">Kwant</h2>
+</section>
+<section id="pybinding" class="level2">
+<h2 class="anchored" data-anchor-id="pybinding">pybinding</h2>
+</section>
+<section id="pyqula" class="level2">
+<h2 class="anchored" data-anchor-id="pyqula">pyqula</h2>
+<p><strong>Functions</strong>:</p>
+<ul>
+<li>Single particle Hamiltonians</li>
+<li>Interacting mean field Hamiltonians</li>
+<li>Topological characterization</li>
+<li>Spectral functions</li>
+<li>Quantum transport</li>
+</ul>
+</section>
+<section id="useful-links" class="level2">
+<h2 class="anchored" data-anchor-id="useful-links">Useful links</h2>
+<ul>
+<li><p>Basic knowledge of topology and quantum computing</p>
+<ul>
+<li><a href="https://topocondmat.org/w2_majorana/nanowire.html">Online course on topology in condensed matter</a><br>
+</li>
+<li><a href="https://gitlab.kwant-project.org/kwant/minicourse/-/tree/master">minicourse of Kwant</a></li>
+<li><a href="https://phy.ntnu.edu.tw/~changmc/Teach/Topo/Topo.html">Topology in condensed matter physics</a></li>
+</ul></li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
