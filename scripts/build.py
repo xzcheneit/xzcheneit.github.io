@@ -143,6 +143,69 @@ def canon_link(raw_link, feed_url, doi):
         return urljoin(base, raw_link)
     if doi: return "https://doi.org/" + doi
     return ""
+def _strip_authors_prefix(text: str, authors: list[str]) -> str:
+    """
+    去掉摘要开头的 'Author(s): ...' 块。优先根据作者名单定位到最后一个作者后切断；
+    若定位不到，则退化为去掉 'Author(s):' 直到第一个句点或两个以上空格。
+    """
+    s = text.lstrip()
+    if not re.match(r'^(?:authors?|author\(s\))\s*:', s, re.I):
+        return text
+
+    # 尝试用作者名单来截断
+    last_end = -1
+    low = s.lower()
+    for name in (authors or []):
+        nm = (name or "").strip()
+        if not nm:
+            continue
+        pos = low.find(nm.lower())
+        if 0 <= pos < 300:  # 只看开头一段
+            last_end = max(last_end, pos + len(nm))
+    if last_end > 0:
+        rest = s[last_end:]
+        # 去掉紧随其后的逗号/and/标点/空格
+        rest = re.sub(r'^[\s,.;:–—-]*(?:and)?\s*', '', rest, flags=re.I)
+        return rest
+
+    # 兜底：去到第一个句点或两个以上空格
+    m = re.search(r'\.\s+| {2,}', s)
+    return s[m.end():] if m else s
+
+def clean_summary(raw, authors=None, src_key: str = "") -> str:
+    """
+    统一清洗摘要：去 HTML / 合并空白 / 去掉 arXiv 和 APS 的前缀块 / 去掉起始 DOI / 去尾部括号注
+    """
+    # 1) 取字符串
+    s = raw or ""
+    if isinstance(s, dict):
+        s = s.get("value") or ""
+    if isinstance(s, list) and s:
+        s = s[0].get("value") or ""
+
+    # 2) 先去 arXiv 头部（常见：arXiv:xxxx Announce Type: new Abstract:）
+    s = re.sub(
+        r'^\s*arXiv:\d{4}\.\d{4,5}(?:v\d+)?(?:\s+\[[^\]]+\])?'
+        r'(?:\s+Announce Type:\s*\w+)?(?:\s*New)?\s*(?:Abstract:)?\s*',
+        '',
+        s,
+        flags=re.I
+    )
+
+    # 3) 去 HTML 标签、压缩空白
+    s = TAG_PAT.sub(" ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+
+    # 4) 去掉 APS 等放在摘要开头的 Author(s) 块
+    s = _strip_authors_prefix(s, authors or [])
+
+    # 5) 去掉摘要起始位置多余的 DOI 提示
+    s = re.sub(r'^\s*DOI:\s*\S+\s*', '', s, flags=re.I)
+
+    # 6) 去掉摘要末尾的书目尾注，如 [Phys. Rev. Lett. ...]
+    s = re.sub(r'\s*\[[^]]+\]\s*$', '', s)
+
+    return s
 
 # ---------------- main ----------------
 now_local = datetime.now(ASIA_TAIPEI)
