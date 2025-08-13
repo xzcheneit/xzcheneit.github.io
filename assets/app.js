@@ -14,11 +14,20 @@ const LEGEND = [
 let ALL_ITEMS = [];
 let SERVER_WINDOW = 3;
 
-const isAbs = (u)=> /^https?:\/\//i.test(u||"");
+// const isAbs = (u)=> /^https?:\/\//i.test(u||"");
+// const bestLink = (it)=>{
+//   if(isAbs(it.link)) return it.link;
+//   if(it.doi) return `https://doi.org/${it.doi}`;
+//   if(isAbs(it.arxiv)) return it.arxiv;
+//   return '#';
+// };
+
+const isAbs = u => /^https?:\/\//i.test(u||"");
 const bestLink = (it)=>{
-  if(isAbs(it.link)) return it.link;
-  if(it.doi) return `https://doi.org/${it.doi}`;
-  if(isAbs(it.arxiv)) return it.arxiv;
+  if (it.journalKey === 'arXivCM' && isAbs(it.arxiv)) return it.arxiv; // 纯 arXiv
+  if (isAbs(it.arxiv)) return it.arxiv;                                 // 有预印本则优先
+  if (isAbs(it.link)) return it.link;                                   // 否则官网
+  if (it.doi) return `https://doi.org/${it.doi}`;                       // 再退到 DOI
   return '#';
 };
 
