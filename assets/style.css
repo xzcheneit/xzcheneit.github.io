@@ -2,7 +2,7 @@
   --bg:#f6f7fb; --fg:#0f172a; --muted:#475569; --card:#ffffff; --ring:#e2e8f0;
   --brand:#6b7280; --accent:#2563eb; --danger:#ef4444;
 
-  /* 柔和期刊色 */
+  /* 期刊配色（保持不变，略） */
   --c-prl:#fde2e4; --t-prl:#9f1d2d;
   --c-prb:#e0f2fe; --t-prb:#0b4f71;
   --c-pre:#dcfce7; --t-pre:#166534;
@@ -44,56 +44,31 @@ h1{margin:0;font-size:28px}
 .legend .swatch{width:14px;height:14px;border-radius:4px;border:1px solid var(--ring)}
 .meta-line{color:var(--muted);font-size:14px}
 
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px}
-.card{border:1px solid var(--ring);border-radius:18px;padding:14px;display:grid;gap:10px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+.card{border:1px solid var(--ring);border-radius:20px;padding:18px;display:grid;gap:12px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .card-head{display:flex;align-items:center;gap:10px}
 .badge{font-weight:700;padding:4px 10px;border-radius:999px;background:#fff}
-.type{font-size:12px;color:var(--muted)}
+.type{font-size:12px;color:#334155}
 .time{margin-left:auto;font-size:12px;color:#334155}
 .title{margin:0;font-size:20px}
 .meta{margin:0;color:#1f2937;font-size:14px}
 .abs{margin:0;color:#334155;font-size:14px}
+.meta strong,.abs strong{font-weight:700;margin-right:6px}
 .links{display:flex;gap:12px;flex-wrap:wrap}
 .links a{font-size:14px}
 .star{background:transparent;border:none;font-size:18px;cursor:pointer}
 .star.on{color:#f59e0b}
 
-/* 卡片背景按期刊着色（tone 类） */
-.tone.PRL{background:var(--c-prl)}
-.tone.PRB{background:var(--c-prb)}
-.tone.PRE{background:var(--c-pre)}
-.tone.PRResearch{background:var(--c-prr)}
-.tone.PRX{background:var(--c-prx)}
-.tone.PRXQ{background:var(--c-prxq)}
-.tone.Nature{background:var(--c-nature)}
-.tone.NatPhys{background:var(--c-nphys)}
-.tone.NatCommun{background:var(--c-ncomms)}
-.tone.NatMater{background:var(--c-nmat)}
-.tone.NatNano{background:var(--c-nnano)}
-.tone.Science{background:var(--c-science)}
-.tone.SciAdv{background:var(--c-sciadv)}
-.tone.NanoLett{background:var(--c-nalett)}
-.tone.NJP{background:var(--c-njp)}
-.tone.CPL{background:var(--c-cpl)}
-.tone.CPB{background:var(--c-cpb)}
-.tone.NSR{background:var(--c-nsr)}
+/* 卡片背景按期刊着色 */
+.tone.PRL{background:var(--c-prl)} .tone.PRB{background:var(--c-prb)} .tone.PRE{background:var(--c-pre)}
+.tone.PRResearch{background:var(--c-prr)} .tone.PRX{background:var(--c-prx)} .tone.PRXQ{background:var(--c-prxq)}
+.tone.Nature{background:var(--c-nature)} .tone.NatPhys{background:var(--c-nphys)} .tone.NatCommun{background:var(--c-ncomms)}
+.tone.NatMater{background:var(--c-nmat)} .tone.NatNano{background:var(--c-nnano)}
+.tone.Science{background:var(--c-science)} .tone.SciAdv{background:var(--c-sciadv)}
+.tone.NanoLett{background:var(--c-nalett)} .tone.NJP{background:var(--c-njp)}
+.tone.CPL{background:var(--c-cpl)} .tone.CPB{background:var(--c-cpb)} .tone.NSR{background:var(--c-nsr)}
 .tone.arXivCM{background:var(--c-arxiv)}
 
 .badge.PRL{color:var(--t-prl)} .badge.PRB{color:var(--t-prb)} .badge.PRE{color:var(--t-pre)}
 .badge.PRResearch{color:var(--t-prr)} .badge.PRX{color:var(--t-prx)} .badge.PRXQ{color:var(--t-prxq)}
-.badge.Nature{color:var(--t-nature)} .badge.NatPhys{color:var(--t-nphys)} .badge.NatCommun{color:var(--t-ncomms)}
-.badge.NatMater{color:var(--t-nmat)} .badge.NatNano{color:var(--t-nnano)}
-.badge.Science{color:var(--t-science)} .badge.SciAdv{color:var(--t-sciadv)}
-.badge.NanoLett{color:var(--t-nalett)} .badge.NJP{color:var(--t-njp)}
-.badge.CPL{color:var(--t-cpl)} .badge.CPB{color:var(--t-cpb)} .badge.NSR{color:var(--t-nsr)}
-.badge.arXivCM{color:var(--t-arxiv)}
-
-dialog{border:none;border-radius:16px;max-width:900px;width:90vw}
-dialog::backdrop{background:rgba(0,0,0,.24)}
-#fav-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:8px}
-.fav-controls{display:flex;gap:8px}
-
-@media (prefers-color-scheme: dark){
-  :root{--bg:#0b1220;--fg:#e5e7eb;--card:#0f172a;--ring:#1f2937;--brand:#9ca3af}
-  .toolbar input,.toolbar select,.toolbar button{background:#0f172a;color:var(--fg)}
-}
+.badge.Nature{color:var(--t-nature)} .badge.NatPhys{color:var(--t-nphys)} .badge.NatCommun{color:var(--t-nc
