@@ -14,20 +14,13 @@ const LEGEND = [
 let ALL_ITEMS = [];
 let SERVER_WINDOW = 3;
 
-// const isAbs = (u)=> /^https?:\/\//i.test(u||"");
-// const bestLink = (it)=>{
-//   if(isAbs(it.link)) return it.link;
-//   if(it.doi) return `https://doi.org/${it.doi}`;
-//   if(isAbs(it.arxiv)) return it.arxiv;
-//   return '#';
-// };
-
 const isAbs = u => /^https?:\/\//i.test(u||"");
+
+// ⭐ arXiv 优先，其次 link，再次 DOI
 const bestLink = (it)=>{
-  if (it.journalKey === 'arXivCM' && isAbs(it.arxiv)) return it.arxiv; // 纯 arXiv
-  if (isAbs(it.arxiv)) return it.arxiv;                                 // 有预印本则优先
-  if (isAbs(it.link)) return it.link;                                   // 否则官网
-  if (it.doi) return `https://doi.org/${it.doi}`;                       // 再退到 DOI
+  if (isAbs(it.arxiv)) return it.arxiv;
+  if (isAbs(it.link))  return it.link;
+  if (it.doi)          return `https://doi.org/${it.doi}`;
   return '#';
 };
 
@@ -51,46 +44,19 @@ function safeMakeSourceSelect(){
     LEGEND.map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
 }
 
-function fmtAuthorsList(authors){
-  if(!authors || !authors.length) return [];
-  return authors.map(a => typeof a === 'string' ? a : (a.name || `${a.given||''} ${a.family||''}`.trim()));
-}
+function fmtAuthorsList(authors){ if(!authors||!authors.length) return []; return authors.map(a=>typeof a==='string'?a:(a.name||`${a.given||''} ${a.family||''}`.trim())); }
 function authorsCondensed(authors){
-  const list = fmtAuthorsList(authors);
-  const n = list.length;
-  if(n === 0) return '';
-  if(n <= 3) return list.join(', ');
+  const list = fmtAuthorsList(authors), n=list.length;
+  if(n===0) return ''; if(n<=3) return list.join(', ');
   return `${list[0]} … ${list[n-1]}（共 ${n} 人）`;
 }
-function formatDate(iso){
-  if(!iso) return ""; const d = new Date(iso);
-  const p = n => String(n).padStart(2,'0');
-  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
-}
-function withinDays(iso, days){
-  if(days==='all') return true;
-  const dt = new Date(iso); const now = new Date();
-  return (now - dt)/(1000*60*60*24) <= Number(days)+0.01;
-}
-function filterByQuery(items, q){
-  if(!q) return items;
-  const s = q.toLowerCase();
-  return items.filter(x =>
-    (x.title||'').toLowerCase().includes(s) ||
-    (x.journal||'').toLowerCase().includes(s) ||
-    (x.doi||'').toLowerCase().includes(s) ||
-    (x.summary||'').toLowerCase().includes(s) ||
-    (x.authors||[]).join(' ').toLowerCase().includes(s)
-  );
-}
-function normalize(item){
-  const uid = `${item.journalKey}|${item.doi||item.link||item.arxiv}|${item.date}`;
-  return {...item, uid};
-}
+function formatDate(iso){ if(!iso) return ""; const d=new Date(iso); const p=n=>String(n).padStart(2,'0'); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`; }
+function withinDays(iso, days){ if(days==='all') return true; const dt=new Date(iso), now=new Date(); return (now-dt)/(1000*60*60*24) <= Number(days)+0.01; }
+function filterByQuery(items, q){ if(!q) return items; const s=q.toLowerCase(); return items.filter(x => (x.title||'').toLowerCase().includes(s) || (x.journal||'').toLowerCase().includes(s) || (x.doi||'').toLowerCase().includes(s) || (x.summary||'').toLowerCase().includes(s) || (x.authors||[]).join(' ').toLowerCase().includes(s)); }
+function normalize(item){ const uid = `${item.journalKey}|${item.doi||item.arxiv||item.link}|${item.date}`; return {...item, uid}; }
 
 function cardFromItem(item){
-  const tpl = $("#card-tpl")?.content?.cloneNode(true);
-  if(!tpl) return document.createTextNode('');
+  const tpl = $("#card-tpl")?.content?.cloneNode(true); if(!tpl) return document.createTextNode('');
   const root  = tpl.querySelector('.card');
   const badge = tpl.querySelector('.badge');
   const type  = tpl.querySelector('.type');
@@ -103,6 +69,7 @@ function cardFromItem(item){
 
   const link = bestLink(item);
   const arxiv = isAbs(item.arxiv) ? item.arxiv : '';
+  const pdfLink = arxiv && arxiv.includes('/abs/') ? (arxiv.replace('/abs/','/pdf/') + '.pdf') : '';
 
   root.classList.add(item.journalKey);
   badge.classList.add(item.journalKey);
@@ -115,7 +82,6 @@ function cardFromItem(item){
   meta.innerHTML = `<strong>作者：</strong>${authorsLine}${item.doi?`　·　DOI: ${item.doi}`:''}`;
   abs.innerHTML  = `<strong>摘要：</strong>${item.summary || '（无摘要）'}`;
 
-  const pdfLink = arxiv && arxiv.includes('/abs/') ? (arxiv.replace('/abs/','/pdf/') + '.pdf') : '';
   links.innerHTML = `
     <a href="${link}" target="_blank" rel="noopener noreferrer nofollow">页面</a>
     ${arxiv?`<a href="${arxiv}" target="_blank" rel="noopener noreferrer nofollow">arXiv</a>`:''}
@@ -155,7 +121,7 @@ function render(){
   items = items.filter(it => withinDays(it.date, win));
   items = filterByQuery(items, q);
 
-  const box = $('#cards'); if(!box) return;
+  const box = $('#cards'); if(!box) return 0;
   box.innerHTML='';
   items.forEach(it=> box.appendChild(cardFromItem(it)) );
   $("#total") && ($("#total").textContent = items.length);
@@ -163,10 +129,7 @@ function render(){
 }
 
 async function load(){
-  // 这些节点缺失时也不会报错
-  const legend = $("#legend"); const srcSel = $("#src");
-  if(legend) safeApplyLegend();
-  if(srcSel) safeMakeSourceSelect();
+  safeApplyLegend(); safeMakeSourceSelect();
   $("#fav-count") && ($("#fav-count").textContent = (JSON.parse(localStorage.getItem('pj_favs_v1')||'[]')).length);
 
   let json = null;
@@ -186,54 +149,15 @@ async function load(){
   if (SERVER_WINDOW > 3 && $("#win")) $("#win").value = 'all';
 
   const n = render();
-  if(n===0 && $("#win") && $("#win").value !== 'all'){
-    $("#win").value = 'all';
-    render();
-  }
+  if(n===0 && $("#win") && $("#win").value !== 'all'){ $("#win").value = 'all'; render(); }
 }
 
-/* 事件绑定 */
+/* 事件绑定（存在性判断） */
 $('#btn-refresh')?.addEventListener('click', load);
 $('#src')?.addEventListener('change', render);
 $('#win')?.addEventListener('change', render);
 $('#stat')?.addEventListener('change', render);
-$('#q')?.addEventListener('keydown', (e)=>{
-  if(e.key==='Enter'){
-    const v=e.target.value.trim(); const u=new URL(location.href);
-    if(v) u.searchParams.set('q',v); else u.searchParams.delete('q');
-    location.href = u.toString();
-  }
-});
-$('#btn-favs')?.addEventListener('click', ()=>{
-  $('#fav-dialog')?.showModal();
-  const key='pj_favs_v1';
-  const list = JSON.parse(localStorage.getItem(key)||'[]');
-  const box = $("#fav-list");
-  if(!box) return;
-  if(!list.length){ box.innerHTML = '<p class="meta">尚未收藏任何文章。</p>'; return; }
-  box.innerHTML = list.map(item => `
-    <article class="card tone ${item.journalKey}">
-      <div class="card-head">
-        <span class="badge ${item.journalKey}">${item.journalShort||item.journalKey}</span>
-        <span class="type">${item.type==='accepted'?'Accepted':(item.type==='preprint'?'Preprint':'Published')}</span>
-        <span class="time">${formatDate(item.date)}</span>
-        <button class="star on" data-uid="${item.uid}">★</button>
-      </div>
-      <h3 class="title"><a href="${bestLink(item)}" target="_blank" rel="noopener noreferrer nofollow">${item.title}</a></h3>
-      <p class="meta"><strong>作者：</strong>${authorsCondensed(item.authors)}${item.doi?`　·　DOI: ${item.doi}`:''}</p>
-      ${item.summary?`<p class="abs"><strong>摘要：</strong>${item.summary}</p>`:''}
-    </article>`).join("");
-  $$(".star", box).forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const uid = btn.dataset.uid;
-      const l = JSON.parse(localStorage.getItem(key)||'[]');
-      const i = l.findIndex(x=>x.uid===uid);
-      if(i>=0) l.splice(i,1);
-      localStorage.setItem(key, JSON.stringify(l));
-      btn.closest('article').remove();
-      $("#fav-count") && ($("#fav-count").textContent = l.length);
-    });
-  });
-});
+$('#q')?.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ const v=e.target.value.trim(); const u=new URL(location.href); if(v) u.searchParams.set('q',v); else u.searchParams.delete('q'); location.href = u.toString(); }});
+$('#btn-favs')?.addEventListener('click', ()=>{ $('#fav-dialog')?.showModal(); });
 
 load();
