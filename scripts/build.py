@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import json, re, time, sys, html, urllib.parse
+from urllib.parse import urlparse, urljoin
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 import feedparser, httpx
 
-# -------- Config --------
 ASIA_TAIPEI = ZoneInfo("Asia/Taipei")
 PRIMARY_WINDOW_DAYS = 3
 FALLBACK_WINDOW_DAYS = 14
@@ -32,18 +32,7 @@ def iso(dt): return dt.astimezone(timezone.utc).isoformat() if isinstance(dt, da
 DOI_PAT   = re.compile(r"10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.I)
 ARXIV_ID  = re.compile(r"arxiv\.org/(?:abs|pdf)/([0-9]+\.[0-9]+)(?:v\d+)?", re.I)
 TAG_PAT   = re.compile(r"<[^>]+>")
-DATE_CAND_KEYS = [
-    # feedparser 常见扩展键
-    "dc_date","date","prism_publicationdate","prism_publicationDate","issued","dc_issued"
-]
-DATE_RX = [
-    # 2025-08-12T14:33:00Z / 2025-08-12T14:33:00+00:00
-    re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$"),
-    # 2025-08-12
-    re.compile(r"^\d{4}-\d{2}-\d{2}$"),
-    # Tue, 12 Aug 2025 14:33:00 GMT
-    re.compile(r"^[A-Z][a-z]{2},\s\d{1,2}\s[A-Z][a-z]{2}\s\d{4}\s\d{2}:\d{2}:\d{2}\sGMT$")
-]
+DATE_CAND_KEYS = ["dc_date","date","prism_publicationdate","prism_publicationDate","issued","dc_issued"]
 
 def clean_summary(s):
     if not s: return ""
@@ -62,15 +51,12 @@ def extract_doi(entry):
         if isinstance(v, dict): v = v.get("value")
         if isinstance(v, list) and v: v = v[0].get("value")
         if isinstance(v, str):
-            m = DOI_PAT.search(v)
-            if m: return m.group(0)
+            m = DOI_PAT.search(v);  if m: return m.group(0)
     for L in entry.get("links",[]):
-        m = DOI_PAT.search(L.get("href","") or "")
-        if m: return m.group(0)
-    m = DOI_PAT.search(entry.get("link","") or "")
-    return m.group(0) if m else None
+        m = DOI_PAT.search(L.get("href","") or "");  if m: return m.group(0)
+    m = DOI_PAT.search(entry.get("link","") or "");  return m.group(0) if m else None
 
-def parse_date_strict(entry):
+def parse_date(entry):
     for k in ("updated_parsed","published_parsed","created_parsed"):
         t = entry.get(k)
         if t: return datetime(*t[:6], tzinfo=timezone.utc)
@@ -79,47 +65,18 @@ def parse_date_strict(entry):
         if isinstance(s,str):
             try: return datetime.fromisoformat(s.replace("Z","+00:00"))
             except Exception: pass
-    return None
-
-def try_parse_any_datestr(s):
-    s = s.strip()
-    # 尝试 RFC822 / ISO8601
-    if DATE_RX[0].match(s):  # ISO8601 完整
-        return datetime.fromisoformat(s.replace("Z","+00:00"))
-    if DATE_RX[1].match(s):  # 只有日期
-        return datetime.fromisoformat(s + "T00:00:00+00:00")
-    if DATE_RX[2].match(s):  # RFC822 GMT
-        try: 
-            # 手写解析（避免依赖 dateutil）
-            import email.utils as eut
-            tup = eut.parsedate_tz(s)
-            if tup:
-                from time import mktime
-                ts = mktime(tup[:9]) - (tup[9] or 0)
-                return datetime.fromtimestamp(ts, tz=timezone.utc)
-        except Exception:
-            pass
-    # 尝试把末尾的时区缺省补成 UTC
-    try:
-        return datetime.fromisoformat(s + "+00:00")
-    except Exception:
-        return None
-
-def parse_date_loose(entry):
-    # 扩展键里找字符串
     for k in DATE_CAND_KEYS:
         v = entry.get(k)
         if isinstance(v, dict): v = v.get("value")
         if isinstance(v, list) and v: v = v[0].get("value")
         if isinstance(v, str):
-            dt = try_parse_any_datestr(v)
-            if dt: return dt
+            try:
+                if len(v)==10:   # YYYY-MM-DD
+                    return datetime.fromisoformat(v+"T00:00:00+00:00")
+                return datetime.fromisoformat(v.replace("Z","+00:00"))
+            except Exception:
+                pass
     return None
-
-def parse_date(entry):
-    dt = parse_date_strict(entry)
-    if dt: return dt
-    return parse_date_loose(entry)
 
 def find_arxiv_by_title(title):
     title = re.sub(r"\s+"," ", title).strip()
@@ -156,6 +113,20 @@ def discover_feed_from_html(url, host_hint=""):
 def fetch_feed(url):
     return feedparser.parse(client.get(url, headers=UA).text)
 
+# ⭐ 关键：把相对链接变成绝对链接，必要时用 DOI 兜底
+def canon_link(raw_link: str, feed_url: str, doi: str|None):
+    if raw_link and re.match(r"^https?://", raw_link):  # 绝对
+        return raw_link
+    if raw_link and raw_link.startswith("//"):          # 协议相对
+        return "https:" + raw_link
+    if raw_link:
+        p = urlparse(feed_url)
+        base = f"{p.scheme}://{p.netloc}/"
+        return urljoin(base, raw_link)                  # 相对 → 绝对
+    if doi:
+        return "https://doi.org/" + doi                 # 没有 link → DOI 兜底
+    return ""
+
 # -------- Main --------
 now_local = datetime.now(ASIA_TAIPEI)
 now_utc = now_local.astimezone(timezone.utc)
@@ -183,23 +154,20 @@ for src in SOURCES:
         found = discover_feed_from_html(src["recentDiscover"], src["recentDiscover"])
         if found: feeds.append(("published", found))
 
-    for typ, url in feeds:
+    for typ, feed_url in feeds:
         try:
-            fp = fetch_feed(url)
+            fp = fetch_feed(feed_url)
         except Exception as e:
-            log("feed fetch failed:", key, url, e)
+            log("feed fetch failed:", key, feed_url, e)
             continue
 
-        # 用于“无日期时”给个递减的伪时间，避免被窗口直接清零
         fallback_idx = 0
         for e in fp.entries[:200]:
-            dt = parse_date(e)
-            if not dt:
-                dt = now_utc - timedelta(hours=fallback_idx)  # 伪时间
-                fallback_idx += 1
-
+            dt = parse_date(e) or (now_utc - timedelta(hours=fallback_idx)); fallback_idx += 1
             doi   = extract_doi(e)
-            link  = e.get("link") or (e.get("links",[{}])[0].get("href") if e.get("links") else "")
+            raw   = e.get("link") or (e.get("links",[{}])[0].get("href") if e.get("links") else "")
+            link  = canon_link(raw, feed_url, doi)
+
             s_key = seen_key(doi, link)
             if s_key in seen: continue
             seen.add(s_key)
@@ -232,16 +200,19 @@ for src in SOURCES:
             push(dt, item)
 
 # 2) arXiv cond-mat（API + RSS 兜底）
-def add_arxiv_from_feed(fp):
+def add_arxiv_from_feed(fp, feed_url_hint):
     for e in fp.entries:
-        dt = parse_date(e) or now_utc  # arXiv 基本都有时间；保险起见
+        dt = parse_date(e) or now_utc
         title   = html.unescape(e.get("title","")).strip()
         authors = [a.get("name") for a in e.get("authors",[]) if a.get("name")]
-        abs_url = e.get("id") or e.get("link") or ""
+        raw     = e.get("id") or e.get("link") or ""
         doi     = getattr(e, "arxiv_doi", None) or extract_doi(e)
-        s_key   = seen_key(doi, abs_url)
+        link    = canon_link(raw, feed_url_hint, doi)
+
+        s_key   = seen_key(doi, link)
         if s_key in seen: continue
         seen.add(s_key)
+
         push(dt, {
             "journalKey": "arXivCM",
             "journal": "arXiv: cond-mat",
@@ -250,23 +221,22 @@ def add_arxiv_from_feed(fp):
             "title": title,
             "authors": authors,
             "date": iso(dt),
-            "link": abs_url,
-            "arxiv": abs_url,
+            "link": link,
+            "arxiv": link if "arxiv.org/abs/" in link else raw,
             "doi": doi,
             "summary": clean_summary(e.get("summary",""))
         })
 
 try:
-    r = client.get(ARXIV_COND_MAT_API, headers=UA); add_arxiv_from_feed(feedparser.parse(r.text))
+    r = client.get(ARXIV_COND_MAT_API, headers=UA); add_arxiv_from_feed(feedparser.parse(r.text), ARXIV_COND_MAT_API)
 except Exception as e:
     log("arXiv API failed:", e)
 try:
-    # 用 RSS 作为补充（不会重复，因为我们做了去重）
-    add_arxiv_from_feed(fetch_feed(ARXIV_COND_MAT_RSS))
+    add_arxiv_from_feed(fetch_feed(ARXIV_COND_MAT_RSS), ARXIV_COND_MAT_RSS)  # 兜底并去重
 except Exception as e:
     log("arXiv RSS fallback failed:", e)
 
-# 3) 统一窗口过滤（3d → 14d 回退）
+# 3) 窗口过滤（3d→无则14d）
 def filter_by_days(pairs, days):
     cutoff = now_utc - timedelta(days=days)
     return [it for dt, it in pairs if dt >= cutoff]
@@ -283,5 +253,4 @@ out = {"generatedAt": iso(now_utc), "windowDays": window_days, "items": items}
 with open("data/articles.json","w",encoding="utf-8") as f:
     json.dump(out, f, ensure_ascii=False, indent=2)
 
-log("counts per journal:", count_by_key)
 log("done. items =", len(items), "windowDays =", window_days)
