@@ -22,14 +22,17 @@ function cssVarName(k){
   }[k] || k.toLowerCase());
 }
 
-function applyLegend(){
-  $("#legend").innerHTML = LEGEND.map(([k,v]) =>
+function safeApplyLegend(){
+  const el = $("#legend");
+  if(!el) return;
+  el.innerHTML = LEGEND.map(([k,v]) =>
     `<span class="legend-item"><span class="swatch" style="background: var(--c-${cssVarName(k)});"></span>${v}</span>`
   ).join("");
 }
 
-function makeSourceSelect(){
+function safeMakeSourceSelect(){
   const sel = $("#src");
+  if(!sel) return;
   sel.innerHTML = `<option value="">全部来源</option>` +
     LEGEND.map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
 }
@@ -79,8 +82,9 @@ function normalize(item){
 function toBib(item){
   const type = (item.type==='preprint') || (item.arxiv && (!item.doi || item.type==='accepted')) ? 'misc' : 'article';
   const au = fmtAuthorsList(item.authors).join(' and ');
+  const ky = (fmtAuthorsList(item.authors)[0]||'na') + (item.date?new Date(item.date).getFullYear():'');
   const lines = [];
-  lines.push(`@${type}{${(fmtAuthorsList(item.authors)[0]||'na')}${new Date(item.date).getFullYear() || ''},`);
+  lines.push(`@${type}{${ky},`);
   lines.push(`  title={${item.title||''}},`);
   if(au) lines.push(`  author={${au}},`);
   if(item.journal) lines.push(`  journal={${item.journal}},`);
@@ -98,7 +102,8 @@ function toBib(item){
 }
 
 function cardFromItem(item){
-  const tpl = $("#card-tpl").content.cloneNode(true);
+  const tpl = $("#card-tpl")?.content?.cloneNode(true);
+  if(!tpl) return document.createTextNode('');
   const root  = tpl.querySelector('.card');
   const badge = tpl.querySelector('.badge');
   const type  = tpl.querySelector('.type');
@@ -109,19 +114,17 @@ function cardFromItem(item){
   const links = tpl.querySelector('.links');
   const star  = tpl.querySelector('.star');
 
-  root.classList.add(item.journalKey);  // 背景着色
+  root.classList.add(item.journalKey);
   badge.classList.add(item.journalKey);
   badge.textContent = item.journalShort || item.journalKey;
   type.textContent  = item.type==='accepted' ? 'Accepted' : (item.type==='preprint' ? 'Preprint' : 'Published');
   time.textContent  = formatDate(item.date);
   title.innerHTML   = `<a href="${item.link}" target="_blank" rel="noopener">${item.title}</a>`;
 
-  // 作者单独一行
+  // 作者、摘要分行
   const authorsLine = authorsCondensed(item.authors);
   meta.innerHTML = `<strong>作者：</strong>${authorsLine}${item.doi?`　·　DOI: ${item.doi}`:''}`;
-
-  // 摘要单独一行
-  abs.innerHTML = `<strong>摘要：</strong>${item.summary || '（无摘要）'}`;
+  abs.innerHTML  = `<strong>摘要：</strong>${item.summary || '（无摘要）'}`;
 
   const pdfLink = (item.arxiv && item.arxiv.includes('/abs/')) ? (item.arxiv.replace('/abs/','/pdf/') + '.pdf') : '';
   links.innerHTML = `
@@ -130,67 +133,84 @@ function cardFromItem(item){
     ${pdfLink?`<a href="${pdfLink}" target="_blank" rel="noopener">PDF</a>`:''}
   `;
 
-  if(localStorage.getItem('pj_favs_v1')){
-    const list = JSON.parse(localStorage.getItem('pj_favs_v1')||'[]');
-    if(list.some(x=>x.uid===item.uid)) { star.classList.add('on'); star.textContent='★'; }
-  }
-  star.addEventListener('click', ()=>{
-    const key='pj_favs_v1';
-    const list = JSON.parse(localStorage.getItem(key)||'[]');
-    const i = list.findIndex(x=>x.uid===item.uid);
-    if(i>=0){ list.splice(i,1); star.classList.remove('on'); star.textContent='☆'; }
-    else { list.push(item); star.classList.add('on'); star.textContent='★'; }
-    localStorage.setItem(key, JSON.stringify(list));
-    $("#fav-count").textContent = list.length;
+  const key='pj_favs_v1';
+  const list = JSON.parse(localStorage.getItem(key)||'[]');
+  if(list.some(x=>x.uid===item.uid)) { star.classList.add('on'); star.textContent='★'; }
+  star?.addEventListener('click', ()=>{
+    const l = JSON.parse(localStorage.getItem(key)||'[]');
+    const i = l.findIndex(x=>x.uid===item.uid);
+    if(i>=0){ l.splice(i,1); star.classList.remove('on'); star.textContent='☆'; }
+    else { l.push(item); star.classList.add('on'); star.textContent='★'; }
+    localStorage.setItem(key, JSON.stringify(l));
+    $("#fav-count") && ($("#fav-count").textContent = l.length);
   });
 
   return tpl;
 }
 
-function applyRender(){
+function readSelections(){
+  const src  = $("#src")?.value || "";
+  const win  = $("#win")?.value || "3";
+  const stat = $("#stat")?.value || "all";
   const url = new URL(location.href);
-  const query = url.searchParams.get('q') || '';
-  if(query) $('#q').value = query;
+  const q = url.searchParams.get('q') || '';
+  if(q) $('#q') && ($('#q').value = q);
+  return {src, win, stat, q};
+}
 
-  const src  = $("#src").value;
-  const win  = $("#win").value;
-  const stat = $("#stat").value;
-
+function render(){
+  const {src, win, stat, q} = readSelections();
   let items = ALL_ITEMS.slice(0);
   if(src) items = items.filter(it => it.journalKey === src);
   if(stat !== 'all') items = items.filter(it => it.type === stat);
   items = items.filter(it => withinDays(it.date, win));
-  items = filterByQuery(items, query);
+  items = filterByQuery(items, q);
 
-  const box = $('#cards'); box.innerHTML='';
+  const box = $('#cards'); if(!box) return;
+  box.innerHTML='';
   items.forEach(it=> box.appendChild(cardFromItem(it)) );
-  $("#total").textContent = items.length;
+  $("#total") && ($("#total").textContent = items.length);
+  return items.length;
 }
 
 async function load(){
-  applyLegend(); makeSourceSelect();
-  $("#fav-count").textContent = (JSON.parse(localStorage.getItem('pj_favs_v1')||'[]')).length;
+  safeApplyLegend();
+  safeMakeSourceSelect();
+  $("#fav-count") && ($("#fav-count").textContent = (JSON.parse(localStorage.getItem('pj_favs_v1')||'[]')).length);
 
-  const resp = await fetch('data/articles.json', {cache:'no-store'});
-  const json = await resp.json();
+  // 读取数据
+  let json = null;
+  try{
+    const resp = await fetch('data/articles.json', {cache:'no-store'});
+    if(!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    json = await resp.json();
+  }catch(err){
+    const box = $('#cards');
+    if(box) box.innerHTML = `<p class="meta">数据读取失败：${String(err)}</p>`;
+    console.error('load articles.json failed', err);
+    return;
+  }
+
   ALL_ITEMS = (json.items||[]).map(normalize);
   SERVER_WINDOW = json.windowDays || 3;
 
-  // 若服务端窗口>3，默认把前端时间窗口切到“全部时间”，避免只看见少数刊物
-  if (SERVER_WINDOW > 3) {
-    const winSel = $("#win");
-    if (winSel) winSel.value = 'all';
-  }
+  // 服务端窗口>3 ⇒ 默认把前端窗口切为“全部时间”
+  if (SERVER_WINDOW > 3 && $("#win")) $("#win").value = 'all';
 
-  applyRender();
+  // 首次渲染；若为 0 且窗口不是“全部”，自动切到“全部时间”再渲染一次
+  const n = render();
+  if(n===0 && $("#win") && $("#win").value !== 'all'){
+    $("#win").value = 'all';
+    render();
+  }
 }
 
-$('#btn-refresh').addEventListener('click', load);
-$('#src').addEventListener('change', applyRender);
-$('#win').addEventListener('change', applyRender);
-$('#stat').addEventListener('change', applyRender);
-
-$('#q').addEventListener('keydown', (e)=>{
+/* 事件注册（都做了存在性判断） */
+$('#btn-refresh')?.addEventListener('click', load);
+$('#src')?.addEventListener('change', render);
+$('#win')?.addEventListener('change', render);
+$('#stat')?.addEventListener('change', render);
+$('#q')?.addEventListener('keydown', (e)=>{
   if(e.key==='Enter'){
     const v=e.target.value.trim(); const u=new URL(location.href);
     if(v) u.searchParams.set('q',v); else u.searchParams.delete('q');
@@ -198,11 +218,12 @@ $('#q').addEventListener('keydown', (e)=>{
   }
 });
 
-$('#btn-favs').addEventListener('click', ()=>{
-  $('#fav-dialog').showModal();
+$('#btn-favs')?.addEventListener('click', ()=>{
+  $('#fav-dialog')?.showModal();
   const key='pj_favs_v1';
   const list = JSON.parse(localStorage.getItem(key)||'[]');
   const box = $("#fav-list");
+  if(!box) return;
   if(!list.length){ box.innerHTML = '<p class="meta">尚未收藏任何文章。</p>'; return; }
   box.innerHTML = list.map(item => `
     <article class="card tone ${item.journalKey}">
@@ -212,4 +233,31 @@ $('#btn-favs').addEventListener('click', ()=>{
         <span class="time">${formatDate(item.date)}</span>
         <button class="star on" data-uid="${item.uid}">★</button>
       </div>
-      <h3 class="title"><a href="${item.li
+      <h3 class="title"><a href="${item.link}" target="_blank" rel="noopener">${item.title}</a></h3>
+      <p class="meta"><strong>作者：</strong>${authorsCondensed(item.authors)}${item.doi?`　·　DOI: ${item.doi}`:''}</p>
+      ${item.summary?`<p class="abs"><strong>摘要：</strong>${item.summary}</p>`:''}
+    </article>`).join("");
+  $$(".star", box).forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const uid = btn.dataset.uid;
+      const l = JSON.parse(localStorage.getItem(key)||'[]');
+      const i = l.findIndex(x=>x.uid===uid);
+      if(i>=0) l.splice(i,1);
+      localStorage.setItem(key, JSON.stringify(l));
+      btn.closest('article').remove();
+      $("#fav-count") && ($("#fav-count").textContent = l.length);
+    });
+  });
+});
+
+$('#btn-export-bib')?.addEventListener('click', ()=>{
+  const list = JSON.parse(localStorage.getItem('pj_favs_v1')||'[]');
+  if(!list.length) return alert('还没有收藏任何文章');
+  const bib = list.map(toBib).join('\n\n');
+  const ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,'-');
+  const name = `favorites-${ts}.bib`;
+  const blob = new Blob([bib], {type:'text/plain;charset=utf-8'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; a.click(); URL.revokeObjectURL(a.href);
+});
+
+load();
