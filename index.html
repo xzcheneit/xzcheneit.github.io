@@ -3,49 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Physics Feeds – 最近三天物理期刊更新</title>
-  <meta name="description" content="PRL、PRB、PRE、PRX、PRX Quantum、PRResearch、Nature、Nature Physics、Nature Communications、Science、Nano Letters、NJP、arXiv cond-mat 最近三天更新聚合。">
+  <title>Physics Feeds – 最近更新</title>
+  <meta name="description" content="PRL、PRB、PRE、PRX、PRX Quantum、PRResearch、Nature 系列、Science/Science Advances、Nano Letters、NJP、CPL、CPB、NSR、arXiv cond-mat 等期刊与预印本聚合。">
   <link rel="preload" href="data/articles.json" as="fetch" crossorigin>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
   <header class="container">
-    <h1>Physics Feeds <span class="pill pill-brand">last 3 days</span></h1>
+    <h1>Physics Feeds <span class="pill pill-brand">last updates</span></h1>
+
     <div class="toolbar">
-      <input id="q" type="search" placeholder="搜索标题/作者/DOI/期刊… (回车)" />
+      <input id="q" type="search" placeholder="关键词（标题/作者/摘要）… 回车" />
+      <select id="src" title="期刊来源（单选）"></select>
+      <select id="win" title="日期窗口（单选）">
+        <option value="1">最近 1 天</option>
+        <option value="3" selected>最近 3 天</option>
+        <option value="7">最近 7 天</option>
+        <option value="14">最近 14 天</option>
+        <option value="all">全部时间</option>
+      </select>
+      <select id="stat" title="状态（单选）">
+        <option value="all" selected>全部状态</option>
+        <option value="published">Published</option>
+        <option value="accepted">Accepted</option>
+        <option value="preprint">Preprint</option>
+      </select>
       <button id="btn-refresh" title="重新加载数据">🔄 刷新</button>
       <button id="btn-favs" class="accent" title="打开收藏夹">⭐ 收藏夹 (<span id="fav-count">0</span>)</button>
       <button id="btn-export-bib" title="导出所选收藏为 BibTeX">📚 导出 .bib</button>
     </div>
 
-    <!-- 新增：筛选控件 -->
-    <section class="filters">
-      <div class="filters-row">
-        <div class="filters-col">
-          <div class="filters-label">期刊</div>
-          <div id="journals" class="chips"></div>
-        </div>
-        <div class="filters-col">
-          <div class="filters-label">日期</div>
-          <div class="dates">
-            <input type="date" id="date-start">
-            <span class="to">至</span>
-            <input type="date" id="date-end">
-            <button id="btn-apply" class="ghost">应用</button>
-            <button id="btn-reset" class="ghost">重置</button>
-          </div>
-        </div>
-        <div class="filters-col">
-          <div class="filters-label">状态</div>
-          <div class="status">
-            <label><input type="checkbox" class="status-check" value="published" checked> Published</label>
-            <label><input type="checkbox" class="status-check" value="accepted" checked> Accepted</label>
-            <label><input type="checkbox" class="status-check" value="preprint" checked> Preprint</label>
-          </div>
-        </div>
-      </div>
-      <div class="legend" id="legend"></div>
-    </section>
+    <div class="legend" id="legend"></div>
+    <div class="meta-line">共 <span id="total">0</span> 篇</div>
   </header>
 
   <main class="container">
@@ -56,9 +45,7 @@
     <form method="dialog">
       <header>
         <h2>⭐ 我的收藏</h2>
-        <menu>
-          <button value="close">关闭</button>
-        </menu>
+        <menu><button value="close">关闭</button></menu>
       </header>
       <div class="fav-controls">
         <button id="btn-clear-favs" class="danger" title="清空收藏">🗑️ 清空</button>
@@ -69,15 +56,16 @@
   </dialog>
 
   <template id="card-tpl">
-    <article class="card">
+    <article class="card tone">
       <div class="card-head">
         <span class="badge"></span>
         <span class="type"></span>
+        <span class="time"></span>
         <button class="star" title="加入收藏">☆</button>
       </div>
       <h3 class="title"></h3>
       <p class="meta"></p>
-      <p class="abs"></p>   <!-- 新增：摘要 -->
+      <p class="abs"></p>
       <div class="links"></div>
     </article>
   </template>
@@ -85,4 +73,3 @@
   <script src="assets/app.js" type="module"></script>
 </body>
 </html>
-
