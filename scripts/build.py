@@ -30,34 +30,85 @@ def log(*a): print("[build]", *a, file=sys.stderr)
 def iso(dt): return dt.astimezone(timezone.utc).isoformat() if isinstance(dt, datetime) else dt
 
 DOI_PAT   = re.compile(r"10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.I)
-ARXIV_ID  = re.compile(r"(\d{4}\.\d{4,5})(?:v\d+)?", re.I)       # 提取 2401.01234
+ARXIV_NUM = re.compile(r"(\d{4}\.\d{4,5})(?:v\d+)?", re.I)  # 2408.01234
 TAG_PAT   = re.compile(r"<[^>]+>")
 DATE_KEYS = ["dc_date","date","prism_publicationdate","prism_publicationDate","issued","dc_issued"]
 
 # ---------------- helpers ----------------
-def ensure_https(u: str|None) -> str|None:
+def ensure_https(u):
     if not u: return u
-    if u.startswith("//"): return "https:" + u
+    if u.startswith("//"):      return "https:" + u
     if u.startswith("http://"): return "https://" + u[7:]
     return u
 
-def normalize_arxiv_abs(raw: str|None) -> str:
+def normalize_arxiv_abs(raw):
     """把各种 arXiv 形式统一成 https://arxiv.org/abs/xxxx"""
     if not raw: return ""
     raw = ensure_https(raw) or ""
-    if "arxiv.org/abs/" in raw:       # 已是 abs 链接
+    if "arxiv.org/abs/" in raw:  # 已是 abs
         return raw
-    # 常见：给了 pdf 或只给了 id
-    m = ARXIV_ID.search(raw)
-    if m:
-        return f"https://arxiv.org/abs/{m.group(1)}"
+    m = ARXIV_NUM.search(raw)    # 可能是 pdf 或仅 id
+    if m: return f"https://arxiv.org/abs/{m.group(1)}"
     return raw
 
-def clean_summary(s):
-    if not s: return ""
+def _strip_authors_prefix(text, authors):
+    """
+    去掉摘要开头的 'Author(s): ...' 块。
+    优先用作者表定位到最后一位作者并截断；否则退化为去掉 'Author(s):' 至第一个句点/两个空格。
+    """
+    s = text.lstrip()
+    if not re.match(r'^(?:authors?|author\(s\))\s*:', s, re.I):
+        return text
+    last_end = -1
+    low = s.lower()
+    for name in (authors or []):
+        nm = (name or "").strip()
+        if not nm: continue
+        pos = low.find(nm.lower())
+        if 0 <= pos < 300:
+            last_end = max(last_end, pos + len(nm))
+    if last_end > 0:
+        rest = s[last_end:]
+        rest = re.sub(r'^[\s,.;:–—-]*(?:and)?\s*', '', rest, flags=re.I)
+        return rest
+    m = re.search(r'\.\s+| {2,}', s)
+    return s[m.end():] if m else s
+
+def clean_summary(raw, authors=None, src_key=""):
+    """
+    统一清洗摘要：
+    - 去掉 arXiv 的 'arXiv:xxxx … Abstract:' 前缀
+    - 去 HTML & 压缩空白
+    - 去掉 APS 等放在摘要前的 'Author(s): ...' 与起始 'DOI: ...'
+    - 去掉结尾的 [期刊引用] 尾注
+    """
+    # 取字符串
+    s = raw or ""
     if isinstance(s, dict): s = s.get("value") or ""
+    if isinstance(s, list) and s: s = s[0].get("value") or ""
+
+    # arXiv 头部
+    s = re.sub(
+        r'^\s*arXiv:\d{4}\.\d{4,5}(?:v\d+)?(?:\s+\[[^\]]+\])?'
+        r'(?:\s+Announce Type:\s*\w+)?(?:\s*New)?\s*(?:Abstract:)?\s*',
+        '',
+        s, flags=re.I
+    )
+
+    # 去 HTML & 压缩空白
     s = TAG_PAT.sub(" ", s)
-    return re.sub(r"\s+", " ", s).strip()
+    s = re.sub(r"\s+", " ", s).strip()
+
+    # APS 等的 'Author(s):'
+    s = _strip_authors_prefix(s, authors or [])
+
+    # 起始 DOI
+    s = re.sub(r'^\s*DOI:\s*\S+\s*', '', s, flags=re.I)
+
+    # 末尾 [引用]
+    s = re.sub(r'\s*\[[^]]+\]\s*$', '', s)
+
+    return s
 
 def extract_doi(entry):
     for k in ("prism_doi","doi","dc_identifier","id"):
@@ -96,7 +147,7 @@ def parse_date(entry):
         if isinstance(v, str):
             try:
                 if len(v) == 10:   # YYYY-MM-DD
-                    return datetime.fromisoformat(v+"T00:00:00+00:00")
+                    return datetime.fromisoformat(v + "T00:00:00+00:00")
                 return datetime.fromisoformat(v.replace("Z","+00:00"))
             except Exception: pass
     return None
@@ -143,81 +194,17 @@ def canon_link(raw_link, feed_url, doi):
         return urljoin(base, raw_link)
     if doi: return "https://doi.org/" + doi
     return ""
-def _strip_authors_prefix(text: str, authors: list[str]) -> str:
-    """
-    去掉摘要开头的 'Author(s): ...' 块。优先根据作者名单定位到最后一个作者后切断；
-    若定位不到，则退化为去掉 'Author(s):' 直到第一个句点或两个以上空格。
-    """
-    s = text.lstrip()
-    if not re.match(r'^(?:authors?|author\(s\))\s*:', s, re.I):
-        return text
-
-    # 尝试用作者名单来截断
-    last_end = -1
-    low = s.lower()
-    for name in (authors or []):
-        nm = (name or "").strip()
-        if not nm:
-            continue
-        pos = low.find(nm.lower())
-        if 0 <= pos < 300:  # 只看开头一段
-            last_end = max(last_end, pos + len(nm))
-    if last_end > 0:
-        rest = s[last_end:]
-        # 去掉紧随其后的逗号/and/标点/空格
-        rest = re.sub(r'^[\s,.;:–—-]*(?:and)?\s*', '', rest, flags=re.I)
-        return rest
-
-    # 兜底：去到第一个句点或两个以上空格
-    m = re.search(r'\.\s+| {2,}', s)
-    return s[m.end():] if m else s
-
-def clean_summary(raw, authors=None, src_key: str = "") -> str:
-    """
-    统一清洗摘要：去 HTML / 合并空白 / 去掉 arXiv 和 APS 的前缀块 / 去掉起始 DOI / 去尾部括号注
-    """
-    # 1) 取字符串
-    s = raw or ""
-    if isinstance(s, dict):
-        s = s.get("value") or ""
-    if isinstance(s, list) and s:
-        s = s[0].get("value") or ""
-
-    # 2) 先去 arXiv 头部（常见：arXiv:xxxx Announce Type: new Abstract:）
-    s = re.sub(
-        r'^\s*arXiv:\d{4}\.\d{4,5}(?:v\d+)?(?:\s+\[[^\]]+\])?'
-        r'(?:\s+Announce Type:\s*\w+)?(?:\s*New)?\s*(?:Abstract:)?\s*',
-        '',
-        s,
-        flags=re.I
-    )
-
-    # 3) 去 HTML 标签、压缩空白
-    s = TAG_PAT.sub(" ", s)
-    s = re.sub(r"\s+", " ", s).strip()
-
-    # 4) 去掉 APS 等放在摘要开头的 Author(s) 块
-    s = _strip_authors_prefix(s, authors or [])
-
-    # 5) 去掉摘要起始位置多余的 DOI 提示
-    s = re.sub(r'^\s*DOI:\s*\S+\s*', '', s, flags=re.I)
-
-    # 6) 去掉摘要末尾的书目尾注，如 [Phys. Rev. Lett. ...]
-    s = re.sub(r'\s*\[[^]]+\]\s*$', '', s)
-
-    return s
 
 # ---------------- main ----------------
 now_local = datetime.now(ASIA_TAIPEI)
 now_utc = now_local.astimezone(timezone.utc)
 
 items_raw = []
-def push(dt, item): items_raw.append((dt, item))
 
 seen = set()
 def seen_key(doi, link):
     if doi: return ("doi", doi.lower())
-    m = ARXIV_ID.search(link or "")
+    m = ARXIV_NUM.search(link or "")
     if m:  return ("arxiv", m.group(1).lower())
     return ("link", (link or "").lower())
 
@@ -258,7 +245,9 @@ for src in SOURCES:
                     nm = a.get("name") or ((a.get("given","")+" "+a.get("family","")).strip())
                     if nm: authors.append(nm)
             elif e.get("author"): authors = [e["author"]]
-            summary = clean_summary(e.get("summary") or (e.get("content",[{}])[0].get("value") if e.get("content") else ""))
+
+            raw_summary = e.get("summary") or (e.get("content",[{}])[0].get("value") if e.get("content") else "")
+            summary = clean_summary(raw_summary, authors, key)
 
             item = {
                 "journalKey": key,
@@ -279,7 +268,7 @@ for src in SOURCES:
                     item["arxiv"] = normalize_arxiv_abs(arx)
                     time.sleep(0.25)
 
-            push(dt, item)
+            items_raw.append((dt, item))
 
 # 2) arXiv cond-mat（API + RSS 兜底）
 def add_arxiv_from_feed(fp):
@@ -296,7 +285,9 @@ def add_arxiv_from_feed(fp):
         if s_key in seen: continue
         seen.add(s_key)
 
-        push(dt, {
+        summary = clean_summary(e.get("summary",""), authors, "arXivCM")
+
+        items_raw.append((dt, {
             "journalKey": "arXivCM",
             "journal": "arXiv: cond-mat",
             "journalShort": "arXiv cond-mat",
@@ -304,11 +295,11 @@ def add_arxiv_from_feed(fp):
             "title": title,
             "authors": authors,
             "date": iso(dt),
-            "link": link,               # ⭐ 标题/页面直接去 arXiv abs
+            "link": link,               # 标题/页面直接去 arXiv abs
             "arxiv": link,
             "doi": doi,
-            "summary": clean_summary(e.get("summary",""))
-        })
+            "summary": summary
+        }))
 
 try:
     r = client.get(ARXIV_COND_MAT_API, headers=UA)
