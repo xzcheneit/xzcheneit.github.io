@@ -1,6 +1,7 @@
 :root{
   --bg:#f9fafb; --fg:#0f172a; --muted:#475569; --card:#ffffff; --ring:#e2e8f0;
   --brand:#6b7280; --accent:#2563eb; --danger:#ef4444;
+  /* 柔和期刊色 */
   --c-prl:#fde2e4; --t-prl:#b4232b;
   --c-prb:#e0f2fe; --t-prb:#0b4f71;
   --c-pre:#dcfce7; --t-pre:#166534;
@@ -13,9 +14,10 @@
   --c-science:#fee2e2; --t-science:#991b1b;
   --c-nalett:#f0f9ff; --t-nalett:#075985;
   --c-njp:#fffbeb; --t-njp:#92400e;
+  --c-arxiv:#e6fffb; --t-arxiv:#0e7490; /* 新增：arXiv cond-mat */
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, PingFang SC, Noto Sans CJK SC, Microsoft YaHei, "Helvetica Neue", Arial}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,PingFang SC,Noto Sans CJK SC,Microsoft YaHei,"Helvetica Neue",Arial}
 .container{max-width:1100px;margin:0 auto;padding:16px}
 header.container{display:grid;gap:12px}
 h1{margin:0;font-size:28px}
@@ -26,9 +28,24 @@ h1{margin:0;font-size:28px}
 .toolbar button{padding:10px 12px;border:1px solid var(--ring);border-radius:10px;background:#fff;cursor:pointer}
 .toolbar button.accent{background:var(--accent);color:#fff;border-color:transparent}
 .toolbar button.danger{background:var(--danger);color:#fff;border-color:transparent}
-.legend{display:flex;gap:8px;flex-wrap:wrap}
+
+/* 筛选条 */
+.filters{background:#fff;border:1px solid var(--ring);border-radius:12px;padding:12px}
+.filters-row{display:grid;grid-template-columns:2fr 2fr 1fr;gap:12px}
+.filters-col{display:grid;gap:6px}
+.filters-label{font-size:12px;color:var(--muted)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{display:flex;align-items:center;gap:6px;border:1px solid var(--ring);border-radius:999px;padding:4px 8px;background:#fff;cursor:pointer}
+.chip input{accent-color:var(--accent)}
+.dates{display:flex;align-items:center;gap:8px}
+.dates .to{color:var(--muted)}
+.status{display:flex;gap:12px;flex-wrap:wrap}
+.ghost{border:1px solid var(--ring);background:#fff;border-radius:8px;padding:6px 10px;cursor:pointer}
+
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .legend .legend-item{display:flex;align-items:center;gap:6px;font-size:12px}
 .legend .swatch{width:14px;height:14px;border-radius:4px;border:1px solid var(--ring)}
+
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:12px;display:grid;gap:8px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
 .card-head{display:flex;align-items:center;gap:8px}
@@ -36,12 +53,13 @@ h1{margin:0;font-size:28px}
 .type{font-size:12px;color:var(--muted)}
 .title{margin:6px 0 0;font-size:18px}
 .meta{margin:0;color:var(--muted);font-size:14px}
+.abs{margin:0;color:#334155;font-size:14px}
 .links{display:flex;gap:10px;flex-wrap:wrap}
 .links a{font-size:14px}
 .star{margin-left:auto;background:transparent;border:none;font-size:18px;cursor:pointer}
 .star.on{color:#f59e0b}
 
-/* journal colors */
+/* 期刊颜色 */
 .badge.PRL{background:var(--c-prl);color:var(--t-prl)}
 .badge.PRB{background:var(--c-prb);color:var(--t-prb)}
 .badge.PRE{background:var(--c-pre);color:var(--t-pre)}
@@ -54,8 +72,9 @@ h1{margin:0;font-size:28px}
 .badge.Science{background:var(--c-science);color:var(--t-science)}
 .badge.NanoLett{background:var(--c-nalett);color:var(--t-nalett)}
 .badge.NJP{background:var(--c-njp);color:var(--t-njp)}
+.badge.arXivCM{background:var(--c-arxiv);color:var(--t-arxiv)} /* 新增 */
 
-/* dialog */
+/* 收藏对话框 */
 dialog{border:none;border-radius:16px;max-width:900px;width:90vw}
 dialog::backdrop{background:rgba(0,0,0,.24)}
 #fav-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:8px}
@@ -64,4 +83,5 @@ dialog::backdrop{background:rgba(0,0,0,.24)}
 @media (prefers-color-scheme: dark){
   :root{--bg:#0b1220;--fg:#e5e7eb;--card:#0f172a;--ring:#1f2937;--brand:#9ca3af}
   .toolbar input,.toolbar button{background:#0f172a;color:var(--fg)}
+  .filters{background:#0f172a}
 }
