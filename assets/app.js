@@ -14,6 +14,14 @@ const LEGEND = [
 let ALL_ITEMS = [];
 let SERVER_WINDOW = 3;
 
+const isAbs = (u)=> /^https?:\/\//i.test(u||"");
+const bestLink = (it)=>{
+  if(isAbs(it.link)) return it.link;
+  if(it.doi) return `https://doi.org/${it.doi}`;
+  if(isAbs(it.arxiv)) return it.arxiv;
+  return '#';
+};
+
 function cssVarName(k){
   return ({
     PRResearch:'prr', PRXQ:'prxq', NatPhys:'nphys', NatCommun:'ncomms',
@@ -23,16 +31,13 @@ function cssVarName(k){
 }
 
 function safeApplyLegend(){
-  const el = $("#legend");
-  if(!el) return;
+  const el = $("#legend"); if(!el) return;
   el.innerHTML = LEGEND.map(([k,v]) =>
     `<span class="legend-item"><span class="swatch" style="background: var(--c-${cssVarName(k)});"></span>${v}</span>`
   ).join("");
 }
-
 function safeMakeSourceSelect(){
-  const sel = $("#src");
-  if(!sel) return;
+  const sel = $("#src"); if(!sel) return;
   sel.innerHTML = `<option value="">全部来源</option>` +
     LEGEND.map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
 }
@@ -41,7 +46,6 @@ function fmtAuthorsList(authors){
   if(!authors || !authors.length) return [];
   return authors.map(a => typeof a === 'string' ? a : (a.name || `${a.given||''} ${a.family||''}`.trim()));
 }
-
 function authorsCondensed(authors){
   const list = fmtAuthorsList(authors);
   const n = list.length;
@@ -49,19 +53,16 @@ function authorsCondensed(authors){
   if(n <= 3) return list.join(', ');
   return `${list[0]} … ${list[n-1]}（共 ${n} 人）`;
 }
-
 function formatDate(iso){
   if(!iso) return ""; const d = new Date(iso);
   const p = n => String(n).padStart(2,'0');
   return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
 }
-
 function withinDays(iso, days){
   if(days==='all') return true;
   const dt = new Date(iso); const now = new Date();
   return (now - dt)/(1000*60*60*24) <= Number(days)+0.01;
 }
-
 function filterByQuery(items, q){
   if(!q) return items;
   const s = q.toLowerCase();
@@ -73,32 +74,9 @@ function filterByQuery(items, q){
     (x.authors||[]).join(' ').toLowerCase().includes(s)
   );
 }
-
 function normalize(item){
-  const uid = `${item.journalKey}|${item.doi||item.link}|${item.date}`;
+  const uid = `${item.journalKey}|${item.doi||item.link||item.arxiv}|${item.date}`;
   return {...item, uid};
-}
-
-function toBib(item){
-  const type = (item.type==='preprint') || (item.arxiv && (!item.doi || item.type==='accepted')) ? 'misc' : 'article';
-  const au = fmtAuthorsList(item.authors).join(' and ');
-  const ky = (fmtAuthorsList(item.authors)[0]||'na') + (item.date?new Date(item.date).getFullYear():'');
-  const lines = [];
-  lines.push(`@${type}{${ky},`);
-  lines.push(`  title={${item.title||''}},`);
-  if(au) lines.push(`  author={${au}},`);
-  if(item.journal) lines.push(`  journal={${item.journal}},`);
-  const y = (item.date? new Date(item.date).getFullYear(): undefined);
-  if(y) lines.push(`  year={${y}},`);
-  if(item.doi) lines.push(`  doi={${item.doi}},`);
-  if(item.arxiv){
-    const id = item.arxiv.replace(/^.*\//,'');
-    lines.push(`  eprint={${id}},`);
-    lines.push(`  archivePrefix={arXiv},`);
-  }
-  lines.push(`  url={${item.link}},`);
-  lines.push('}');
-  return lines.join('\n');
 }
 
 function cardFromItem(item){
@@ -114,23 +92,25 @@ function cardFromItem(item){
   const links = tpl.querySelector('.links');
   const star  = tpl.querySelector('.star');
 
+  const link = bestLink(item);
+  const arxiv = isAbs(item.arxiv) ? item.arxiv : '';
+
   root.classList.add(item.journalKey);
   badge.classList.add(item.journalKey);
   badge.textContent = item.journalShort || item.journalKey;
   type.textContent  = item.type==='accepted' ? 'Accepted' : (item.type==='preprint' ? 'Preprint' : 'Published');
   time.textContent  = formatDate(item.date);
-  title.innerHTML   = `<a href="${item.link}" target="_blank" rel="noopener">${item.title}</a>`;
+  title.innerHTML   = `<a href="${link}" target="_blank" rel="noopener noreferrer nofollow">${item.title}</a>`;
 
-  // 作者、摘要分行
   const authorsLine = authorsCondensed(item.authors);
   meta.innerHTML = `<strong>作者：</strong>${authorsLine}${item.doi?`　·　DOI: ${item.doi}`:''}`;
   abs.innerHTML  = `<strong>摘要：</strong>${item.summary || '（无摘要）'}`;
 
-  const pdfLink = (item.arxiv && item.arxiv.includes('/abs/')) ? (item.arxiv.replace('/abs/','/pdf/') + '.pdf') : '';
+  const pdfLink = arxiv && arxiv.includes('/abs/') ? (arxiv.replace('/abs/','/pdf/') + '.pdf') : '';
   links.innerHTML = `
-    <a href="${item.link}" target="_blank" rel="noopener">页面</a>
-    ${item.arxiv?`<a href="${item.arxiv}" target="_blank" rel="noopener">arXiv</a>`:''}
-    ${pdfLink?`<a href="${pdfLink}" target="_blank" rel="noopener">PDF</a>`:''}
+    <a href="${link}" target="_blank" rel="noopener noreferrer nofollow">页面</a>
+    ${arxiv?`<a href="${arxiv}" target="_blank" rel="noopener noreferrer nofollow">arXiv</a>`:''}
+    ${pdfLink?`<a href="${pdfLink}" target="_blank" rel="noopener noreferrer nofollow">PDF</a>`:''}
   `;
 
   const key='pj_favs_v1';
@@ -174,11 +154,12 @@ function render(){
 }
 
 async function load(){
-  safeApplyLegend();
-  safeMakeSourceSelect();
+  // 这些节点缺失时也不会报错
+  const legend = $("#legend"); const srcSel = $("#src");
+  if(legend) safeApplyLegend();
+  if(srcSel) safeMakeSourceSelect();
   $("#fav-count") && ($("#fav-count").textContent = (JSON.parse(localStorage.getItem('pj_favs_v1')||'[]')).length);
 
-  // 读取数据
   let json = null;
   try{
     const resp = await fetch('data/articles.json', {cache:'no-store'});
@@ -193,11 +174,8 @@ async function load(){
 
   ALL_ITEMS = (json.items||[]).map(normalize);
   SERVER_WINDOW = json.windowDays || 3;
-
-  // 服务端窗口>3 ⇒ 默认把前端窗口切为“全部时间”
   if (SERVER_WINDOW > 3 && $("#win")) $("#win").value = 'all';
 
-  // 首次渲染；若为 0 且窗口不是“全部”，自动切到“全部时间”再渲染一次
   const n = render();
   if(n===0 && $("#win") && $("#win").value !== 'all'){
     $("#win").value = 'all';
@@ -205,7 +183,7 @@ async function load(){
   }
 }
 
-/* 事件注册（都做了存在性判断） */
+/* 事件绑定 */
 $('#btn-refresh')?.addEventListener('click', load);
 $('#src')?.addEventListener('change', render);
 $('#win')?.addEventListener('change', render);
@@ -217,7 +195,6 @@ $('#q')?.addEventListener('keydown', (e)=>{
     location.href = u.toString();
   }
 });
-
 $('#btn-favs')?.addEventListener('click', ()=>{
   $('#fav-dialog')?.showModal();
   const key='pj_favs_v1';
@@ -233,7 +210,7 @@ $('#btn-favs')?.addEventListener('click', ()=>{
         <span class="time">${formatDate(item.date)}</span>
         <button class="star on" data-uid="${item.uid}">★</button>
       </div>
-      <h3 class="title"><a href="${item.link}" target="_blank" rel="noopener">${item.title}</a></h3>
+      <h3 class="title"><a href="${bestLink(item)}" target="_blank" rel="noopener noreferrer nofollow">${item.title}</a></h3>
       <p class="meta"><strong>作者：</strong>${authorsCondensed(item.authors)}${item.doi?`　·　DOI: ${item.doi}`:''}</p>
       ${item.summary?`<p class="abs"><strong>摘要：</strong>${item.summary}</p>`:''}
     </article>`).join("");
@@ -248,16 +225,6 @@ $('#btn-favs')?.addEventListener('click', ()=>{
       $("#fav-count") && ($("#fav-count").textContent = l.length);
     });
   });
-});
-
-$('#btn-export-bib')?.addEventListener('click', ()=>{
-  const list = JSON.parse(localStorage.getItem('pj_favs_v1')||'[]');
-  if(!list.length) return alert('还没有收藏任何文章');
-  const bib = list.map(toBib).join('\n\n');
-  const ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,'-');
-  const name = `favorites-${ts}.bib`;
-  const blob = new Blob([bib], {type:'text/plain;charset=utf-8'});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; a.click(); URL.revokeObjectURL(a.href);
 });
 
 load();
