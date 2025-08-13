@@ -8,9 +8,10 @@ import feedparser, httpx
 
 # ---------------- Config ----------------
 ASIA_TAIPEI = ZoneInfo("Asia/Taipei")
-WINDOW_DAYS = 3  # 只收最近 N 天
+PRIMARY_WINDOW_DAYS = 3         # 主窗口
+FALLBACK_WINDOW_DAYS = 14       # 若3天内无结果，自动回退到14天
 
-# arXiv API：按标题查（给 APS accepted 用）与 cond-mat “new”
+# arXiv API：按标题查（APS accepted 用）与 cond-mat “new”
 ARXIV_SEARCH_BY_TITLE = (
     "http://export.arxiv.org/api/query?search_query={query}&start=0&max_results=1"
 )
@@ -64,6 +65,7 @@ def extract_doi(entry):
     return m.group(0) if m else None
 
 def parse_date(entry):
+    # 优先 updated_parsed（更接近“最新”）
     for k in ("updated_parsed","published_parsed","created_parsed"):
         t = entry.get(k)
         if t: return datetime(*t[:6], tzinfo=timezone.utc)
@@ -130,13 +132,15 @@ def discover_oup_feed(url):
     return None
 
 def fetch_feed(url):
+    # 用 response.text 交给 feedparser 处理即可（它会自行猜测编码）
     return feedparser.parse(client.get(url, headers=UA).text)
 
 # ---------------- Main ----------------
 now_tpe = datetime.now(ASIA_TAIPEI)
-cutoff_utc = (now_tpe - timedelta(days=WINDOW_DAYS)).astimezone(timezone.utc)
+now_utc = now_tpe.astimezone(timezone.utc)
 
-items = []
+# 暂存“所有抓到的条目”，最后再统一做时间窗口过滤（避免早筛导致全空）
+items_raw = []
 
 # 1) 期刊（sources.json）+ 自动发现
 for src in SOURCES:
@@ -161,7 +165,8 @@ for src in SOURCES:
 
         for e in fp.entries[:200]:
             dt = parse_date(e)
-            if not dt or dt < cutoff_utc: continue
+            if not dt:  # 没有有效时间就跳过
+                continue
 
             doi    = extract_doi(e)
             title  = html.unescape(e.get("title","")).strip()
@@ -196,7 +201,8 @@ for src in SOURCES:
                     item["arxiv"] = arx
                     time.sleep(0.25)  # 轻微节流
 
-            items.append(item)
+            # 暂存（稍后统一按窗口过滤）
+            items_raw.append((dt, item))
 
 # 2) arXiv: cond-mat new
 try:
@@ -204,7 +210,8 @@ try:
     feed = feedparser.parse(r.text)
     for e in feed.entries:
         dt = parse_date(e)
-        if not dt or dt < cutoff_utc: continue
+        if not dt:
+            continue
 
         title   = html.unescape(e.get("title","")).strip()
         authors = [a.get("name") for a in e.get("authors",[]) if a.get("name")]
@@ -212,7 +219,7 @@ try:
         doi     = getattr(e, "arxiv_doi", None) or extract_doi(e)
         summary = clean_summary(e.get("summary",""))
 
-        items.append({
+        items_raw.append((dt, {
             "journalKey": "arXivCM",
             "journal": "arXiv: cond-mat",
             "journalShort": "arXiv cond-mat",
@@ -224,13 +231,31 @@ try:
             "arxiv": abs_url,
             "doi": doi,
             "summary": summary
-        })
+        }))
 except Exception as e:
     log("arXiv cond-mat fetch failed:", e)
 
+# 3) 统一时间过滤（主窗口→回退窗口）
+def filter_by_days(pairs, days):
+    cutoff = now_utc - timedelta(days=days)
+    return [it for dt, it in pairs if dt >= cutoff]
+
+items = filter_by_days(items_raw, PRIMARY_WINDOW_DAYS)
+if not items:  # 回退，避免页面空白
+    log(f"no items in {PRIMARY_WINDOW_DAYS}d window, fallback to {FALLBACK_WINDOW_DAYS}d")
+    items = filter_by_days(items_raw, FALLBACK_WINDOW_DAYS)
+    window_days = FALLBACK_WINDOW_DAYS
+else:
+    window_days = PRIMARY_WINDOW_DAYS
+
 # 输出
 items.sort(key=lambda x: x["date"], reverse=True)
-out = {"generatedAt": iso(datetime.now(timezone.utc)), "windowDays": WINDOW_DAYS, "items": items}
+out = {
+    "generatedAt": iso(now_utc),
+    "windowDays": window_days,
+    "items": items
+}
 with open("data/articles.json","w",encoding="utf-8") as f:
     json.dump(out, f, ensure_ascii=False, indent=2)
-log("done. items =", len(items))
+
+log("done. items =", len(items), "windowDays =", window_days)
