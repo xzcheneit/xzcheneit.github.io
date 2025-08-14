@@ -1,6 +1,6 @@
 # Physics Feeds (纯 HTML 静态站)
 
-- 预设期刊：PRL / PRB / PRE / PRResearch / PRX / PRX Quantum / Nature / Nature Physics / Nature Communications / Science / Nano Letters / New Journal of Physics
+- 预设期刊：PRL / PRB / PRE / PRResearch / PRX / PRX Quantum / Nature / Nature Physics / Nature Communications / Science / Nano Letters / New Journal of Physics 等主流期刊
 - APS 系列包含 “Accepted” 文章，并尝试为 Accepted 文章查找 arXiv 链接（若存在）
 - 仅显示最近 **3 天**（Asia/Taipei 时区计算）
 - 支持收藏（localStorage 持久化在浏览器本机）与一键导出 `.bib`

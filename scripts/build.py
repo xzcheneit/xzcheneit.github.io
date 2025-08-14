@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import json, re, time, sys, html, urllib.parse
+from urllib.parse import urlparse, urljoin
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 import feedparser, httpx
 
-# -------- Config --------
 ASIA_TAIPEI = ZoneInfo("Asia/Taipei")
 PRIMARY_WINDOW_DAYS = 3
 FALLBACK_WINDOW_DAYS = 14
@@ -30,31 +30,90 @@ def log(*a): print("[build]", *a, file=sys.stderr)
 def iso(dt): return dt.astimezone(timezone.utc).isoformat() if isinstance(dt, datetime) else dt
 
 DOI_PAT   = re.compile(r"10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.I)
-ARXIV_ID  = re.compile(r"arxiv\.org/(?:abs|pdf)/([0-9]+\.[0-9]+)(?:v\d+)?", re.I)
+ARXIV_NUM = re.compile(r"(\d{4}\.\d{4,5})(?:v\d+)?", re.I)  # 2408.01234
 TAG_PAT   = re.compile(r"<[^>]+>")
-DATE_CAND_KEYS = [
-    # feedparser 常见扩展键
-    "dc_date","date","prism_publicationdate","prism_publicationDate","issued","dc_issued"
-]
-DATE_RX = [
-    # 2025-08-12T14:33:00Z / 2025-08-12T14:33:00+00:00
-    re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$"),
-    # 2025-08-12
-    re.compile(r"^\d{4}-\d{2}-\d{2}$"),
-    # Tue, 12 Aug 2025 14:33:00 GMT
-    re.compile(r"^[A-Z][a-z]{2},\s\d{1,2}\s[A-Z][a-z]{2}\s\d{4}\s\d{2}:\d{2}:\d{2}\sGMT$")
-]
+DATE_KEYS = ["dc_date","date","prism_publicationdate","prism_publicationDate","issued","dc_issued"]
 
-def clean_summary(s):
-    if not s: return ""
+# ---------------- helpers ----------------
+def ensure_https(u):
+    if not u: return u
+    if u.startswith("//"):      return "https:" + u
+    if u.startswith("http://"): return "https://" + u[7:]
+    return u
+
+def normalize_arxiv_abs(raw):
+    """把各种 arXiv 形式统一成 https://arxiv.org/abs/xxxx"""
+    if not raw: return ""
+    raw = ensure_https(raw) or ""
+    if "arxiv.org/abs/" in raw:  # 已是 abs
+        return raw
+    m = ARXIV_NUM.search(raw)    # 可能是 pdf 或仅 id
+    if m: return f"https://arxiv.org/abs/{m.group(1)}"
+    return raw
+
+def _strip_authors_prefix(text, authors):
+    """
+    去掉摘要开头的 'Author(s): ...' 块。
+    优先用作者表定位到最后一位作者并截断；否则退化为去掉 'Author(s):' 至第一个句点/两个空格。
+    """
+    s = text.lstrip()
+    if not re.match(r'^(?:authors?|author\(s\))\s*:', s, re.I):
+        return text
+    last_end = -1
+    low = s.lower()
+    for name in (authors or []):
+        nm = (name or "").strip()
+        if not nm: continue
+        pos = low.find(nm.lower())
+        if 0 <= pos < 300:
+            last_end = max(last_end, pos + len(nm))
+    if last_end > 0:
+        rest = s[last_end:]
+        rest = re.sub(r'^[\s,.;:–—-]*(?:and)?\s*', '', rest, flags=re.I)
+        return rest
+    m = re.search(r'\.\s+| {2,}', s)
+    return s[m.end():] if m else s
+
+def clean_summary(raw, authors=None, src_key=""):
+    """
+    统一清洗摘要：
+    - 去掉 arXiv 的 'arXiv:xxxx … Abstract:' 前缀
+    - 去 HTML & 压缩空白
+    - 去掉 APS 等放在摘要前的 'Author(s): ...' 与起始 'DOI: ...'
+    - 去掉结尾的 [期刊引用] 尾注
+    """
+    # 取字符串
+    s = raw or ""
     if isinstance(s, dict): s = s.get("value") or ""
+    if isinstance(s, list) and s: s = s[0].get("value") or ""
+
+    # arXiv 头部
+    s = re.sub(
+        r'^\s*arXiv:\d{4}\.\d{4,5}(?:v\d+)?(?:\s+\[[^\]]+\])?'
+        r'(?:\s+Announce Type:\s*\w+)?(?:\s*New)?\s*(?:Abstract:)?\s*',
+        '',
+        s, flags=re.I
+    )
+
+    # 去 HTML & 压缩空白
     s = TAG_PAT.sub(" ", s)
-    return re.sub(r"\s+", " ", s).strip()
+    s = re.sub(r"\s+", " ", s).strip()
+
+    # APS 等的 'Author(s):'
+    s = _strip_authors_prefix(s, authors or [])
+
+    # 起始 DOI
+    s = re.sub(r'^\s*DOI:\s*\S+\s*', '', s, flags=re.I)
+
+    # 末尾 [引用]
+    s = re.sub(r'\s*\[[^]]+\]\s*$', '', s)
+
+    return s
 
 def extract_doi(entry):
     for k in ("prism_doi","doi","dc_identifier","id"):
         v = entry.get(k)
-        if isinstance(v,str):
+        if isinstance(v, str):
             m = DOI_PAT.search(v)
             if m: return m.group(0)
     for k in ("summary","summary_detail","content"):
@@ -64,13 +123,15 @@ def extract_doi(entry):
         if isinstance(v, str):
             m = DOI_PAT.search(v)
             if m: return m.group(0)
-    for L in entry.get("links",[]):
-        m = DOI_PAT.search(L.get("href","") or "")
+    for L in entry.get("links", []):
+        href = L.get("href", "") or ""
+        m = DOI_PAT.search(href)
         if m: return m.group(0)
-    m = DOI_PAT.search(entry.get("link","") or "")
+    link = entry.get("link", "") or ""
+    m = DOI_PAT.search(link)
     return m.group(0) if m else None
 
-def parse_date_strict(entry):
+def parse_date(entry):
     for k in ("updated_parsed","published_parsed","created_parsed"):
         t = entry.get(k)
         if t: return datetime(*t[:6], tzinfo=timezone.utc)
@@ -79,47 +140,17 @@ def parse_date_strict(entry):
         if isinstance(s,str):
             try: return datetime.fromisoformat(s.replace("Z","+00:00"))
             except Exception: pass
-    return None
-
-def try_parse_any_datestr(s):
-    s = s.strip()
-    # 尝试 RFC822 / ISO8601
-    if DATE_RX[0].match(s):  # ISO8601 完整
-        return datetime.fromisoformat(s.replace("Z","+00:00"))
-    if DATE_RX[1].match(s):  # 只有日期
-        return datetime.fromisoformat(s + "T00:00:00+00:00")
-    if DATE_RX[2].match(s):  # RFC822 GMT
-        try: 
-            # 手写解析（避免依赖 dateutil）
-            import email.utils as eut
-            tup = eut.parsedate_tz(s)
-            if tup:
-                from time import mktime
-                ts = mktime(tup[:9]) - (tup[9] or 0)
-                return datetime.fromtimestamp(ts, tz=timezone.utc)
-        except Exception:
-            pass
-    # 尝试把末尾的时区缺省补成 UTC
-    try:
-        return datetime.fromisoformat(s + "+00:00")
-    except Exception:
-        return None
-
-def parse_date_loose(entry):
-    # 扩展键里找字符串
-    for k in DATE_CAND_KEYS:
+    for k in DATE_KEYS:
         v = entry.get(k)
         if isinstance(v, dict): v = v.get("value")
         if isinstance(v, list) and v: v = v[0].get("value")
         if isinstance(v, str):
-            dt = try_parse_any_datestr(v)
-            if dt: return dt
+            try:
+                if len(v) == 10:   # YYYY-MM-DD
+                    return datetime.fromisoformat(v + "T00:00:00+00:00")
+                return datetime.fromisoformat(v.replace("Z","+00:00"))
+            except Exception: pass
     return None
-
-def parse_date(entry):
-    dt = parse_date_strict(entry)
-    if dt: return dt
-    return parse_date_loose(entry)
 
 def find_arxiv_by_title(title):
     title = re.sub(r"\s+"," ", title).strip()
@@ -130,7 +161,7 @@ def find_arxiv_by_title(title):
         r = client.get(url, headers=UA)
         if r.status_code != 200: return None
         m = re.search(r"<id>(https?://arxiv\.org/abs/[^<]+)</id>", r.text)
-        if m: return html.unescape(m.group(1))
+        if m: return ensure_https(html.unescape(m.group(1)))
     except Exception as e:
         log("arXiv title search failed:", e)
     return None
@@ -153,53 +184,56 @@ def discover_feed_from_html(url, host_hint=""):
         log("discover feed failed", url, e)
     return None
 
-def fetch_feed(url):
-    return feedparser.parse(client.get(url, headers=UA).text)
+def fetch_feed(url): return feedparser.parse(client.get(url, headers=UA).text)
 
-# -------- Main --------
+def canon_link(raw_link, feed_url, doi):
+    if raw_link and re.match(r"^https?://", raw_link): return raw_link
+    if raw_link and raw_link.startswith("//"):         return "https:" + raw_link
+    if raw_link:
+        p = urlparse(feed_url); base = f"{p.scheme}://{p.netloc}/"
+        return urljoin(base, raw_link)
+    if doi: return "https://doi.org/" + doi
+    return ""
+
+# ---------------- main ----------------
 now_local = datetime.now(ASIA_TAIPEI)
 now_utc = now_local.astimezone(timezone.utc)
 
 items_raw = []
-count_by_key = {}
-def push(dt, item):
-    items_raw.append((dt, item))
-    count_by_key[item["journalKey"]] = count_by_key.get(item["journalKey"], 0) + 1
 
 seen = set()
 def seen_key(doi, link):
     if doi: return ("doi", doi.lower())
-    m = ARXIV_ID.search(link or "")
-    if m: return ("arxiv", m.group(1).lower())
+    m = ARXIV_NUM.search(link or "")
+    if m:  return ("arxiv", m.group(1).lower())
     return ("link", (link or "").lower())
 
 # 1) sources.json
 for src in SOURCES:
     key, journal = src["key"], src["journal"]
     feeds = []
-    if src.get("recent"):   feeds.append(("published", src["recent"]))
-    if src.get("accepted"): feeds.append(("accepted", src["accepted"]))
+    if src.get("recent"):         feeds.append(("published", src["recent"]))
+    if src.get("accepted"):       feeds.append(("accepted", src["accepted"]))
     if src.get("recentDiscover"):
         found = discover_feed_from_html(src["recentDiscover"], src["recentDiscover"])
         if found: feeds.append(("published", found))
 
-    for typ, url in feeds:
+    for typ, feed_url in feeds:
         try:
-            fp = fetch_feed(url)
+            fp = fetch_feed(feed_url)
         except Exception as e:
-            log("feed fetch failed:", key, url, e)
-            continue
+            log("feed fetch failed:", key, feed_url, e); continue
 
-        # 用于“无日期时”给个递减的伪时间，避免被窗口直接清零
         fallback_idx = 0
         for e in fp.entries[:200]:
             dt = parse_date(e)
             if not dt:
-                dt = now_utc - timedelta(hours=fallback_idx)  # 伪时间
-                fallback_idx += 1
+                dt = now_utc - timedelta(hours=fallback_idx); fallback_idx += 1
 
-            doi   = extract_doi(e)
-            link  = e.get("link") or (e.get("links",[{}])[0].get("href") if e.get("links") else "")
+            doi = extract_doi(e)
+            raw = e.get("link") or (e.get("links",[{}])[0].get("href") if e.get("links") else "")
+            link = canon_link(raw, feed_url, doi)
+
             s_key = seen_key(doi, link)
             if s_key in seen: continue
             seen.add(s_key)
@@ -211,7 +245,9 @@ for src in SOURCES:
                     nm = a.get("name") or ((a.get("given","")+" "+a.get("family","")).strip())
                     if nm: authors.append(nm)
             elif e.get("author"): authors = [e["author"]]
-            summary = clean_summary(e.get("summary") or (e.get("content",[{}])[0].get("value") if e.get("content") else ""))
+
+            raw_summary = e.get("summary") or (e.get("content",[{}])[0].get("value") if e.get("content") else "")
+            summary = clean_summary(raw_summary, authors, key)
 
             item = {
                 "journalKey": key,
@@ -221,28 +257,37 @@ for src in SOURCES:
                 "title": title,
                 "authors": authors,
                 "date": iso(dt),
-                "link": link,
+                "link": ensure_https(link),
                 "doi": doi,
                 "summary": summary
             }
+            # APS accepted → 若能匹配到 arXiv，把链接也标准化成 abs
             if typ == "accepted" and key.startswith("PR"):
                 arx = find_arxiv_by_title(title)
-                if arx: item["arxiv"] = arx; time.sleep(0.25)
+                if arx:
+                    item["arxiv"] = normalize_arxiv_abs(arx)
+                    time.sleep(0.25)
 
-            push(dt, item)
+            items_raw.append((dt, item))
 
 # 2) arXiv cond-mat（API + RSS 兜底）
 def add_arxiv_from_feed(fp):
     for e in fp.entries:
-        dt = parse_date(e) or now_utc  # arXiv 基本都有时间；保险起见
+        dt = parse_date(e) or now_utc
         title   = html.unescape(e.get("title","")).strip()
         authors = [a.get("name") for a in e.get("authors",[]) if a.get("name")]
-        abs_url = e.get("id") or e.get("link") or ""
+        raw     = e.get("id") or e.get("link") or ""
         doi     = getattr(e, "arxiv_doi", None) or extract_doi(e)
-        s_key   = seen_key(doi, abs_url)
+        abs_url = normalize_arxiv_abs(raw)              # ⭐ 强制 abs
+        link    = abs_url or canon_link(raw, ARXIV_COND_MAT_RSS, doi)
+
+        s_key = seen_key(doi, link)
         if s_key in seen: continue
         seen.add(s_key)
-        push(dt, {
+
+        summary = clean_summary(e.get("summary",""), authors, "arXivCM")
+
+        items_raw.append((dt, {
             "journalKey": "arXivCM",
             "journal": "arXiv: cond-mat",
             "journalShort": "arXiv cond-mat",
@@ -250,23 +295,23 @@ def add_arxiv_from_feed(fp):
             "title": title,
             "authors": authors,
             "date": iso(dt),
-            "link": abs_url,
-            "arxiv": abs_url,
+            "link": link,               # 标题/页面直接去 arXiv abs
+            "arxiv": link,
             "doi": doi,
-            "summary": clean_summary(e.get("summary",""))
-        })
+            "summary": summary
+        }))
 
 try:
-    r = client.get(ARXIV_COND_MAT_API, headers=UA); add_arxiv_from_feed(feedparser.parse(r.text))
+    r = client.get(ARXIV_COND_MAT_API, headers=UA)
+    add_arxiv_from_feed(feedparser.parse(r.text))
 except Exception as e:
     log("arXiv API failed:", e)
 try:
-    # 用 RSS 作为补充（不会重复，因为我们做了去重）
     add_arxiv_from_feed(fetch_feed(ARXIV_COND_MAT_RSS))
 except Exception as e:
-    log("arXiv RSS fallback failed:", e)
+    log("arXiv RSS failed:", e)
 
-# 3) 统一窗口过滤（3d → 14d 回退）
+# 3) 时间窗口（3d→14d 回退）
 def filter_by_days(pairs, days):
     cutoff = now_utc - timedelta(days=days)
     return [it for dt, it in pairs if dt >= cutoff]
@@ -274,14 +319,11 @@ def filter_by_days(pairs, days):
 items = filter_by_days(items_raw, PRIMARY_WINDOW_DAYS)
 window_days = PRIMARY_WINDOW_DAYS
 if not items:
-    log(f"no items in {PRIMARY_WINDOW_DAYS}d window, fallback to {FALLBACK_WINDOW_DAYS}d")
     items = filter_by_days(items_raw, FALLBACK_WINDOW_DAYS)
     window_days = FALLBACK_WINDOW_DAYS
 
 items.sort(key=lambda x: x["date"], reverse=True)
-out = {"generatedAt": iso(now_utc), "windowDays": window_days, "items": items}
 with open("data/articles.json","w",encoding="utf-8") as f:
-    json.dump(out, f, ensure_ascii=False, indent=2)
+    json.dump({"generatedAt": iso(now_utc), "windowDays": window_days, "items": items}, f, ensure_ascii=False, indent=2)
 
-log("counts per journal:", count_by_key)
 log("done. items =", len(items), "windowDays =", window_days)
