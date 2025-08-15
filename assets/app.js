@@ -301,26 +301,50 @@ function exportBibForCategory(cid){
   const c=state.categories.find(x=>x.id===cid);
   downloadBlob(blob,`biblab-${(c?.name||'cat')}-${ts()}.bib`);
 }
-function toBib(it,seen){
+function toBib(it, seen){
+  // 条目类型：有期刊或 DOI 认为是 article，否则 misc
   const kind = (it.journal || it.doi) ? 'article' : 'misc';
-  const key  = citeKeyFor(it,seen);
+
+  // ------ 生成 bibkey：第一作者姓 + 年份 + 期刊最简缩写（PRL/PRB/NC/…） ------
+  // 依赖你文件里已有的工具：surnameOf()（取姓）、journalAbbrOf()（期刊缩写）
+  const first    = (it.authors && it.authors.length) ? it.authors[0] : '';
+  const surname  = first ? surnameOf(first) : 'anon';
+  const yearPart = it.year || (it.date ? new Date(it.date).getUTCFullYear() : '');
+  const jabbr    = journalAbbrOf(it.journal || (it.arxiv ? 'arXiv' : ''));
+
+  // 组合并清理非法字符
+  let baseKey = `${surname}${yearPart}${jabbr}`.replace(/[^A-Za-z0-9]+/g, '');
+
+  // 去重：同名冲突时追加 a/b/c…
+  let suffix = '';
+  let i = 0;
+  while (seen.has(baseKey + suffix)) { i++; suffix = String.fromCharCode(96 + i); } // 97 => 'a'
+  const key = baseKey + suffix;
+  seen.add(key);
+
+  // ------ BibTeX 字段 ------
   const fields = [];
-  fields.push(`  title = {${it.title||''}}`);
-  if ((it.authors||[]).length) fields.push(`  author = {${it.authors.join(' and ')}}`);
+  fields.push(`  title = {${it.title || ''}}`);
+  if ((it.authors || []).length) fields.push(`  author = {${it.authors.join(' and ')}}`);
   if (it.journal) fields.push(`  journal = {${it.journal}}`);
+
   const year = it.year || (it.date ? new Date(it.date).getUTCFullYear() : '');
   if (year) fields.push(`  year = {${year}}`);
   if (it.doi) fields.push(`  doi = {${it.doi}}`);
-  if (it.arxiv){ fields.push(`  eprint = {${it.arxiv}}`); fields.push(`  archivePrefix = {arXiv}`); }
+  if (it.arxiv) { fields.push(`  eprint = {${it.arxiv}}`); fields.push(`  archivePrefix = {arXiv}`); }
   if (it.url) fields.push(`  url = {${it.url}}`);
-  if (it.abstract) fields.push(`  abstract = {${String(it.abstract).replace(/[{}]/g,'')}}`);
-  const note = (state.notes[it.uid]||'').trim();
-  if (note) fields.push(`  note = {${note.replace(/[{}]/g,'')}}`);
-  return `@${kind}{${key},
-${fields.join(',
-')}
-}`;
+
+  // ✅ 新增：把摘要也输出到 .bib（优先 it.abstract，其次 it.summary），并去掉花括号防止 BibTeX 解析问题
+  const absText = (it.abstract ?? it.summary ?? '').toString().trim();
+  if (absText) fields.push(`  abstract = {${absText.replace(/[{}]/g, '')}}`);
+
+  // （保留原来的备注逻辑，如果你有 state.notes）
+  const note = (state?.notes?.[it.uid] || '').trim?.() || '';
+  if (note) fields.push(`  note = {${note.replace(/[{}]/g, '')}}`);
+
+  return `@${kind}{${key},\n${fields.join(',\n')}\n}`;
 }
+
 
 /* Utils */
 function ts(){ const d=new Date(); const pad=n=>String(n).padStart(2,'0'); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`; }
