@@ -165,27 +165,61 @@ const bestLink = (it)=>{
 };
 
 /* ---------- BibTeX ---------- */
-function toBib(item){
-  const type = (item.type==='preprint') || (item.arxiv && (!item.doi || item.type==='accepted')) ? 'misc' : 'article';
-  const au = fmtAuthorsList(item.authors).join(' and ');
-  const key = (fmtAuthorsList(item.authors)[0]||'na') + (item.date? new Date(item.date).getFullYear(): '');
-  const lines = [];
-  lines.push(`@${type}{${key},`);
-  lines.push(`  title={${item.title||''}},`);
-  if(au) lines.push(`  author={${au}},`);
-  if(item.journal) lines.push(`  journal={${item.journal}},`);
-  const y = (item.date? new Date(item.date).getFullYear(): undefined);
-  if(y) lines.push(`  year={${y}},`);
-  if(item.doi) lines.push(`  doi={${item.doi}},`);
-  if(item.arxiv){
-    const id = item.arxiv.replace(/^.*\//,'');
-    lines.push(`  eprint={${id}},`);
-    lines.push(`  archivePrefix={arXiv},`);
+// === 替换 assets/app.js 中原有的 toBib 函数 ===
+function toBib(it, seen){
+  // —— 辅助：从作者全名里取“姓”（支持 “姓, 名” 或 “名 姓”）
+  const surnameFrom = (full) => {
+    const s = String(full || '').trim();
+    if (!s) return 'anon';
+    if (s.includes(',')) return s.split(',')[0].trim().replace(/[^A-Za-z0-9]/g,'');
+    const parts = s.split(/\s+/);
+    return (parts[parts.length - 1] || 'anon').replace(/[^A-Za-z0-9]/g,'');
+  };
+  // —— 辅助：给定条目得到期刊最简缩写（优先 journalShort，再用 journalKey；arXiv 特判）
+  const abbrFromItem = (x) => {
+    if (!x) return 'J';
+    return (x.journalShort || x.journalKey || (x.arxiv ? 'arXiv' : 'J') || 'J')
+            .toString().replace(/[^A-Za-z0-9]/g,'');
+  };
+
+  // 条目类型：有期刊/DOI 视为 article，否则 misc
+  const kind = (it.journal || it.doi) ? 'article' : 'misc';
+
+  // ------ 生成 bibkey：第一作者姓 + 年份 + 期刊缩写 ------
+  const first   = Array.isArray(it.authors) && it.authors.length ? it.authors[0] : '';
+  const surname = surnameFrom(first);
+  const year    = it.year || (it.date ? new Date(it.date).getUTCFullYear() : '');
+  const jabbr   = abbrFromItem(it);
+
+  let baseKey = `${surname}${year}${jabbr}`.replace(/[^A-Za-z0-9]+/g,'');
+  let suffix = '', i = 0;
+  while (seen && seen.has(baseKey + suffix)) { i++; suffix = String.fromCharCode(96 + i); } // a, b, c...
+  const key = baseKey + suffix;
+  if (seen) seen.add(key);
+
+  // ------ BibTeX 字段 ------
+  const fields = [];
+  fields.push(`  title = {${it.title || ''}}`);
+  if (Array.isArray(it.authors) && it.authors.length) {
+    fields.push(`  author = {${it.authors.join(' and ')}}`);
   }
-  lines.push(`  url={${bestLink(item)}},`);
-  lines.push('}');
-  return lines.join('\n');
+  if (it.journal) fields.push(`  journal = {${it.journal}}`);
+  if (year)       fields.push(`  year = {${year}}`);
+  if (it.doi)     fields.push(`  doi = {${it.doi}}`);
+  if (it.arxiv){ fields.push(`  eprint = {${it.arxiv}}`); fields.push(`  archivePrefix = {arXiv}`); }
+  if (it.url)     fields.push(`  url = {${it.url}}`);
+
+  // —— 把摘要也写入 .bib（优先 it.abstract，其次 it.summary），并去掉花括号以避免 BibTeX 解析错误
+  const absText = (it.abstract ?? it.summary ?? '').toString().trim();
+  if (absText) fields.push(`  abstract = {${absText.replace(/[{}]/g,'')}}`);
+
+  // —— 如果条目自身带有 note 字段则写入（不依赖全局 state）
+  const note = (it.note || '').toString().trim();
+  if (note) fields.push(`  note = {${note.replace(/[{}]/g,'')}}`);
+
+  return `@${kind}{${key},\n${fields.join(',\n')}\n}`;
 }
+
 function exportBib(list){
   if(!list || !list.length){
     alert('还没有收藏任何文章'); return;
