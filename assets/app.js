@@ -165,7 +165,7 @@ const bestLink = (it)=>{
 };
 
 /* ---------- BibTeX ---------- */
-// === 替换 assets/app.js 中原有的 toBib 函数 ===
+// 生成 BibTeX 条目（含摘要；bibkey = 第一作者姓 + 年份 + 期刊缩写），不依赖全局 state
 function toBib(it, seen){
   // —— 辅助：从作者全名里取“姓”（支持 “姓, 名” 或 “名 姓”）
   const surnameFrom = (full) => {
@@ -208,6 +208,7 @@ function toBib(it, seen){
   if (it.doi)     fields.push(`  doi = {${it.doi}}`);
   if (it.arxiv){ fields.push(`  eprint = {${it.arxiv}}`); fields.push(`  archivePrefix = {arXiv}`); }
   if (it.url)     fields.push(`  url = {${it.url}}`);
+  else if (it.link) fields.push(`  url = {${it.link}}`); // 回退到 link，保证有 URL
 
   // —— 把摘要也写入 .bib（优先 it.abstract，其次 it.summary），并去掉花括号以避免 BibTeX 解析错误
   const absText = (it.abstract ?? it.summary ?? '').toString().trim();
@@ -224,7 +225,10 @@ function exportBib(list){
   if(!list || !list.length){
     alert('还没有收藏任何文章'); return;
   }
-  const bib = list.map(toBib).join('\n\n');
+  // 关键修复：传入 Set 去重，避免 Array.map 把索引当第二参传入导致崩溃
+  const seen = new Set();
+  const bib = list.map(it => toBib(it, seen)).join('\n\n');
+
   const ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,'-');
   const name = `favorites-${ts}.bib`;
   const blob = new Blob([bib], {type:'text/x-bibtex;charset=utf-8'});
