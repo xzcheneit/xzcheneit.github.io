@@ -183,25 +183,9 @@ function toBib(item){
     lines.push(`  archivePrefix={arXiv},`);
   }
   lines.push(`  url={${bestLink(item)}},`);
-
-  // 追加摘要（去掉大括号防止 BibTeX 解析出错）
-  if (item.summary || item.abstract) {
-    const abs = String(item.summary || item.abstract).replace(/[{}]/g, '');
-    lines.push(`  abstract={${abs}}`);
-  }
-
-  // 追加备注（来自 state.notes，如果有）
-  if (state && state.notes && state.notes[item.uid]) {
-    const note = String(state.notes[item.uid]).replace(/[{}]/g, '').trim();
-    if (note) {
-      lines.push(`  note={${note}}`);
-    }
-  }
-
   lines.push('}');
   return lines.join('\n');
 }
-
 function exportBib(list){
   if(!list || !list.length){
     alert('还没有收藏任何文章'); return;
