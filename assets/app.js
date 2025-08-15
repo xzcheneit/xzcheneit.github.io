@@ -165,7 +165,7 @@ const bestLink = (it)=>{
 };
 
 /* ---------- BibTeX ---------- */
-function toBib(item){
+/*function toBib(item){
   const type = (item.type==='preprint') || (item.arxiv && (!item.doi || item.type==='accepted')) ? 'misc' : 'article';
   const au = fmtAuthorsList(item.authors).join(' and ');
   const key = (fmtAuthorsList(item.authors)[0]||'na') + (item.date? new Date(item.date).getFullYear(): '');
@@ -185,7 +185,32 @@ function toBib(item){
   lines.push(`  url={${bestLink(item)}},`);
   lines.push('}');
   return lines.join('\n');
+}*/
+
+function toBib(it, seen){
+  const kind = (it.journal || it.doi) ? 'article' : 'misc';
+  const key  = citeKeyFor(it, seen);
+  const fields = [];
+
+  fields.push(`  title = {${it.title || ''}}`);
+  if ((it.authors || []).length) fields.push(`  author = {${it.authors.join(' and ')}}`);
+  if (it.journal) fields.push(`  journal = {${it.journal}}`);
+  const year = it.year || (new Date(it.date).getUTCFullYear());
+  if (year) fields.push(`  year = {${year}}`);
+  if (it.doi) fields.push(`  doi = {${it.doi}}`);
+  if (it.arxiv){ fields.push(`  eprint = {${it.arxiv}}`); fields.push(`  archivePrefix = {arXiv}`); }
+  if (it.url) fields.push(`  url = {${it.url}}`);
+
+  // >>> 新增摘要输出（放在 note 之前）
+  if (it.abstract) fields.push(`  abstract = {${String(it.abstract).replace(/[{}]/g,'')}}`);
+
+  const note = (state.notes[it.uid] || '').trim();
+  if (note) fields.push(`  note = {${note.replace(/[{}]/g,'')}}`);
+
+  return `@${kind}{${key},\n${fields.join(',\n')}\n}`;
 }
+
+
 function exportBib(list){
   if(!list || !list.length){
     alert('还没有收藏任何文章'); return;
