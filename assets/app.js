@@ -46,7 +46,7 @@ function citeKeyFor(it, seen){
   }
   seen.add(key + suffix);
   return key + suffix;
-}${year}${abbr}`; let suffix=''; let i=0; while(seen.has(key+suffix)){ i++; suffix=String.fromCharCode(96+i); } seen.add(key+suffix); return key+suffix; }
+} /*${year}${abbr}`; let suffix=''; let i=0; while(seen.has(key+suffix)){ i++; suffix=String.fromCharCode(96+i); } seen.add(key+suffix); return key+suffix; }*/
 
 /* Load/Save */
 function saveAll(){ localStorage.setItem(K_ITEMS, JSON.stringify(state.items)); localStorage.setItem(K_CATS, JSON.stringify(state.categories)); localStorage.setItem(K_ASG, JSON.stringify(state.assign)); localStorage.setItem(K_NOTES, JSON.stringify(state.notes)); localStorage.setItem(K_RATINGS, JSON.stringify(state.ratings)); localStorage.setItem(K_THEME, state.theme); }
