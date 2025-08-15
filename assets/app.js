@@ -13,61 +13,73 @@ const JOURNAL_KEY={
   'phys. rev. b':'PRB','physical review b':'PRB','phys. rev. x':'PRX','physical review x':'PRX',
   'phys. rev. research':'PRR','physical review research':'PRR',
   'nature physics':'NatPhys','nature communications':'NC','nat. commun.':'NC',
-  'science':'Science','nature':'Nature','chemical reviews':'Chem','arxiv':'arXiv'
+  'nature':'NChem','nature chemistry':'NChem','chemical science':'ChemSci','chem. sci.':'ChemSci',
+  'science':'Science','prx quantum':'PRXQ','phys. rev. e':'PRE','epl':'EPL','europhysics letters':'EPL'
 };
-const JOURNAL_ABBR=[
-  ['physical review letters','PRL'], ['physical review a','PRA'], ['physical review b','PRB'], ['physical review x','PRX'],
-  ['physical review research','PRR'], ['nature communications','NC'], ['nature physics','NP'], ['nature materials','NM'],
-  ['nature','Nat'], ['science','Sci'], ['national science review','NSR'], ['proceedings of the national academy of sciences','PNAS'],
-  ['advanced materials','AM'], ['advanced functional materials','AFM'], ['journal of the american chemical society','JACS'], ['acs nano','ACSNano']
-];
+function journalKeyOf(j){
+  const s=(j||'').toLowerCase().trim();
+  return JOURNAL_KEY[s] || (s.includes('arxiv')?'arXiv':'Else');
+}
+function journalAbbrOf(j){
+  const k=journalKeyOf(j);
+  const MAP={PRL:'PRL',PRB:'PRB',PRX:'PRX',PRR:'PRR',NatPhys:'NP',NC:'NC',NChem:'NC',ChemSci:'CS',Science:'SC',PRXQ:'PRXQ',PRE:'PRE',EPL:'EPL',arXiv:'arXiv',Else:'J'};
+  return MAP[k] || 'J';
+}
 
-/* Helpers */
-const $=sel=>document.querySelector(sel);
-function toDateISO(y,m,d=1){ const table={'jan':1,'feb':2,'mar':3,'apr':4,'may':5,'jun':6,'jul':7,'aug':8,'sep':9,'sept':9,'oct':10,'nov':11,'dec':12}; m=(table[String(m).toLowerCase()]||parseInt(m||'1',10)||1); y=parseInt(y||'1970',10)||1970; d=parseInt(d||'1',10)||1; return new Date(Date.UTC(y,m-1,d,0,0,0)).toISOString(); }
-function cleanAbstract(s){ return (s||'').replace(/[{}]/g,'').replace(/\\[a-zA-Z]+/g,'').replace(/\s+/g,' ').trim(); }
-function normalizeAuthors(s){ if(!s) return []; return s.split(/\band\b/ig).map(x=>x.replace(/\s+/g,' ').trim()).filter(Boolean); }
-function journalKeyOf(name){ if(!name) return 'Else'; const k=name.toLowerCase().trim(); for(const n in JOURNAL_KEY){ if(k.includes(n)) return JOURNAL_KEY[n]; } if(/arxiv/.test(k)) return 'arXiv'; return 'Else'; }
-function journalAbbrOf(name){ const k=(name||'').toLowerCase(); for(const [pat,abbr] of JOURNAL_ABBR){ if(k.includes(pat)) return abbr; } if(/arxiv/.test(k)) return 'arXiv'; return 'J'; }
-function primaryLink(it){ if(it.url) return it.url; if(it.doi) return `https://doi.org/${it.doi}`; if(it.arxiv) return `https://arxiv.org/abs/${it.arxiv}`; return '#'; }
-function fmtDate(iso){ const d=new Date(iso); if(!isFinite(d)) return ''; const y=d.getUTCFullYear(),m=String(d.getUTCMonth()+1).padStart(2,'0'),da=String(d.getUTCDate()).padStart(2,'0'); return `${y}-${m}-${da}`; }
-function makeUID(it){ if(it.doi) return 'doi:'+it.doi.toLowerCase(); if(it.arxiv) return 'arxiv:'+it.arxiv.toLowerCase(); const base=(it.title||'')+'|'+(it.year||'')+'|'+(it.journal||''); let h=0; for(let i=0;i<base.length;i++){ h=(h*131+base.charCodeAt(i))>>>0; } return 'h'+h.toString(16); }
-function surnameOf(author){ if(!author) return 'anon'; if(author.includes(',')) return author.split(',')[0].trim().replace(/\s+/g,''); const parts=author.trim().split(/\s+/); return parts[parts.length-1]||'anon'; }
+/* Names */
+function surnameOf(name){
+  if(!name) return 'Anon';
+  // handle "Last, First" or "First Last"
+  if(name.includes(',')) return name.split(',')[0].trim().replace(/\s+/g,'');
+  const parts=name.trim().split(/\s+/);
+  return (parts[parts.length-1]||'Anon').replace(/[^A-Za-z\u4e00-\u9fa5]/g,'');
+}
+function normalizeAuthors(a){
+  if(!a) return [];
+  if(Array.isArray(a)) return a.map(x=>x.trim()).filter(Boolean);
+  return a.split(/\s+and\s+|;\s*|,\s*(?=[A-Z][a-z])/).map(x=>x.trim()).filter(Boolean);
+}
+
+/* UID */
+function makeUID(it){
+  const base = `${it.title}__${(it.authors||[]).join(',')}__${it.journal||''}__${it.year||''}__${it.doi||it.arxiv||it.url||''}`;
+  let h=0; for(let i=0;i<base.length;i++){ h=((h<<5)-h)+base.charCodeAt(i); h|=0; }
+  return 'u'+Math.abs(h).toString(36);
+}
+
+/* Bib key (备用：文件中已有 citeKeyFor，这里保留一致策略) */
 function citeKeyFor(it, seen){
-  const surname = (it.authors && it.authors.length) ? surnameOf(it.authors[0]) : 'anon';
-  const year = it.year || (it.date ? new Date(it.date).getUTCFullYear() : '');
-  const j = journalAbbrOf(it.journal || (it.arxiv ? 'arXiv' : ''));
-  let key = `${surname}${year}${j}`.replace(/[^A-Za-z0-9]+/g, '');
-  let suffix = '';
-  let i = 0;
-  while (seen.has(key + suffix)) {
-    i++;
-    suffix = String.fromCharCode(96 + i); // a, b, c...
-  }
-  seen.add(key + suffix);
-  return key + suffix;
-} /*${year}${abbr}`; let suffix=''; let i=0; while(seen.has(key+suffix)){ i++; suffix=String.fromCharCode(96+i); } seen.add(key+suffix); return key+suffix; }*/
+  const first=(it.authors||[])[0]||'Anon';
+  const sur=surnameOf(first);
+  const y=(it.year || (it.date?new Date(it.date).getUTCFullYear():'')) || '';
+  const abbr=journalAbbrOf(it.journal || (it.arxiv?'arXiv':''));
+  let key=`${sur}${y}${abbr}`.replace(/[^A-Za-z0-9]+/g,'');
+  let i=0, sfx='';
+  while(seen.has(key+sfx)){ i++; sfx=String.fromCharCode(96+i); }
+  seen.add(key+sfx);
+  return key+sfx;
+}
 
 /* Load/Save */
 function saveAll(){ localStorage.setItem(K_ITEMS, JSON.stringify(state.items)); localStorage.setItem(K_CATS, JSON.stringify(state.categories)); localStorage.setItem(K_ASG, JSON.stringify(state.assign)); localStorage.setItem(K_NOTES, JSON.stringify(state.notes)); localStorage.setItem(K_RATINGS, JSON.stringify(state.ratings)); localStorage.setItem(K_THEME, state.theme); }
 function loadAll(){ try{ state.items=JSON.parse(localStorage.getItem(K_ITEMS)||'[]'); state.categories=JSON.parse(localStorage.getItem(K_CATS)||'[]'); state.assign=JSON.parse(localStorage.getItem(K_ASG)||'{}'); state.notes=JSON.parse(localStorage.getItem(K_NOTES)||'{}'); state.ratings=JSON.parse(localStorage.getItem(K_RATINGS)||'{}'); state.theme=localStorage.getItem(K_THEME)||'dark'; }catch(e){ console.warn(e);} }
 
 /* Categories */
-function defaultCats(){ return [{id:'c1',name:'Reviews',color:'#5f6ee6'},{id:'c2',name:'Theory',color:'#57d39b'},{id:'c3',name:'Computation',color:'#6ab0ff'},{id:'c4',name:'Experiment',color:'#ffb86b'},{id:'c5',name:'Methods',color:'#d467ff'},{id:'c6',name:'Unsorted',color:'#8da3b8'}]; }
+function defaultCats(){ return [{id:'c1',name:'Reviews',color:'#ffd166'},{id:'c2',name:'Methods',color:'#06d6a0'},{id:'c3',name:'Theory',color:'#118ab2'},{id:'c4',name:'Experiment',color:'#ef476f'},{id:'c5',name:'Hot',color:'#f78c6b'},{id:'c6',name:'Unsorted',color:'#8da3b8'}]; }
 function findCatByName(name){ return state.categories.find(c=>c.name.toLowerCase()===name.toLowerCase()); }
 function ensureUnsortedId(){ const u=findCatByName('Unsorted'); return u?u.id:state.categories[state.categories.length-1]?.id; }
 
 /* Theme */
-function applyTheme(){ if(state.theme==='light') document.body.classList.add('theme-light'); else document.body.classList.remove('theme-light'); $('#btn-theme').textContent = state.theme==='light' ? '☀️ 浅色' : '🌙 深色'; }
+function applyTheme(){ if(state.theme==='light') document.body.setAttribute('data-theme','light'); else document.body.removeAttribute('data-theme'); document.getElementById('btn-theme').querySelector('.label').textContent = state.theme==='light' ? '☀️ 浅色' : '🌙 深色'; }
 
 /* Rendering */
 function renderAll(){
   renderCategoryList();
-  $('#btn-unsorted').classList.toggle('solid',state.view==='unsorted');
-  $('#btn-board').classList.toggle('solid',state.view==='board'||state.view.startsWith('cat:'));
-  if(state.view==='board'){ $('#board').hidden=false; $('#cards').hidden=true; buildBoard(); }
-  else { $('#board').hidden=true; $('#cards').hidden=false; buildCards(); }
-  $('#hint').hidden=state.items.length>0;
+  document.getElementById('btn-unsorted').classList.toggle('solid',state.view==='unsorted');
+  document.getElementById('btn-board').classList.toggle('solid',state.view==='board'||state.view.startsWith('cat:'));
+  if(state.view==='board'){ document.getElementById('board').hidden=false; document.getElementById('cards').hidden=true; buildBoard(); }
+  else { document.getElementById('board').hidden=true; document.getElementById('cards').hidden=false; buildCards(); }
+  document.getElementById('hint').hidden=state.items.length>0;
   applyTheme();
 }
 function renderCategoryList(){
@@ -84,37 +96,15 @@ function renderCategoryList(){
     const nm=root.querySelector('.cat-name');
     nm.addEventListener('blur',()=>{ c.name=nm.textContent.trim()||c.name; saveAll(); renderAll(); });
     root.querySelector('.enter').addEventListener('click',()=>{ state.view='cat:'+c.id; renderAll(); });
-    root.querySelector('.clr').addEventListener('click',()=>{ for(const uid of Object.keys(state.assign)){ if(state.assign[uid]===c.id) delete state.assign[uid]; } saveAll(); renderAll(); });
+    root.querySelector('.clr').addEventListener('click',()=>{ if(confirm(`清空“${c.name}”？`)){ for(const uid of Object.keys(state.assign)){ if(state.assign[uid]===c.id) delete state.assign[uid]; } saveAll(); renderAll(); }});
     root.querySelector('.exp').addEventListener('click',()=> exportBibForCategory(c.id));
-    host.appendChild(tpl);
-  }
-}
-function buildBoard(){
-  const host=document.querySelector('#board'); host.innerHTML='';
-  for(const c of state.categories){
-    const col=document.getElementById('tpl-board-column').content.cloneNode(true);
-    const root=col.querySelector('.col'); root.dataset.cid=c.id;
-    col.querySelector('.name').textContent=c.name;
-    col.querySelector('.dot').style.background=c.color;
-    const dz=col.querySelector('.dropzone'); dz.dataset.cid=c.id; bindDropzone(dz);
-    const items=itemsInCat(c.id);
-    col.querySelector('.count').textContent=items.length;
-    for(const it of sortItems(items,'date_desc')) dz.appendChild(makeCard(it));
-    col.querySelector('.name').addEventListener('blur',()=>{ c.name=col.querySelector('.name').textContent.trim()||c.name; saveAll(); renderAll(); });
-    col.querySelector('.exp').addEventListener('click',()=> exportBibForCategory(c.id));
-    host.appendChild(col);
+    host.appendChild(root);
   }
 }
 function buildCards(){
-  const host=document.querySelector('#cards'); host.innerHTML='';
-  let items=[];
-  if(state.view==='unsorted'){
-    const unsortedId=ensureUnsortedId();
-    items = state.items.filter(it=>state.assign[it.uid]===unsortedId);
-  }else if(state.view.startsWith('cat:')){
-    items = itemsInCat(state.view.slice(4));
-  }
-  const q=state.q.trim().toLowerCase();
+  const host=document.getElementById('cards'); host.innerHTML='';
+  const q=(state.q||'').toLowerCase();
+  let items=currentScopeItems();
   if(q){
     items = items.filter(it=>(
       (it.title||'').toLowerCase().includes(q) ||
@@ -140,44 +130,44 @@ function makeCard(it){
   const el=tpl.querySelector('.card');
   el.dataset.uid=it.uid;
   // drag anim
-  el.addEventListener('dragstart',e=>{ e.dataTransfer.setData('text/plain',it.uid); e.stopPropagation(); requestAnimationFrame(()=>el.classList.add('dragging')); });
+  el.addEventListener('dragstart',e=>{ e.dataTransfer.setData('text/plain', it.uid); e.dataTransfer.effectAllowed='move'; requestAnimationFrame(()=>el.classList.add('dragging')); });
   el.addEventListener('dragend',e=>{ e.stopPropagation(); el.classList.remove('dragging'); });
   // badges
   const k=it.journalKey||'Else'; const bj=tpl.querySelector('.badge.journal'); const key4class=(k==='NatPhys'?'NP':k);
   bj.textContent=(k==='NatPhys'?'NP':k); bj.classList.add('j-'+key4class);
   tpl.querySelector('.badge.type').textContent=it.type||'article';
   // category badge
-  const cid=state.assign[it.uid]; const bcat=tpl.querySelector('.badge.category');
-  if(cid){ const cat=state.categories.find(c=>c.id===cid); if(cat){ bcat.textContent=cat.name; bcat.hidden=false; } }
-  // note indicator
-  const bi=tpl.querySelector('.badge.note-indicator');
-  if(state.notes[it.uid] && state.notes[it.uid].trim().length>0) bi.hidden=false;
-  // content
-  tpl.querySelector('.title').textContent=stripBraces(it.title||'(无标题)');
-  tpl.querySelector('.authors').textContent=(it.authors||[]).join(', ');
-  tpl.querySelector('.journal-name').textContent=it.journal || (it.arxiv?'arXiv':'');
-  tpl.querySelector('.date').textContent=fmtDate(it.date||'');
-  tpl.querySelector('.abstract').textContent=it.abstract||'';
+  const cid=state.assign[it.uid]; const cat=state.categories.find(c=>c.id===cid);
+  const bc=tpl.querySelector('.badge.cat'); if(cat){ bc.textContent=cat.name; bc.style.background=cat.color; } else { bc.hidden=true; }
+  // title/authors/journal
+  tpl.querySelector('.title').textContent=it.title||'(无标题)';
+  const au=it.authors||[]; const show = au.length<=3? au.join(', ') : `${au[0]} … ${au[au.length-1]}（共 ${au.length} 人）`;
+  tpl.querySelector('.authors').innerHTML = `<strong>作者：</strong>${show}${it.doi?`　·　DOI: ${it.doi}`:''}`;
+  tpl.querySelector('.journal').textContent=it.journal|| (it.arxiv?'arXiv':'');
+  // date
+  const dt = it.date ? new Date(it.date) : null;
+  tpl.querySelector('.time').textContent = dt ? `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}` : '';
+  // abstract
+  tpl.querySelector('.abs').innerHTML = `<strong>摘要：</strong>${it.abstract||''}`;
   // links
-  const l0=tpl.querySelector('.lnk.primary'); const l1=tpl.querySelectorAll('.lnk')[1]; const l2=tpl.querySelectorAll('.lnk')[2];
-  l0.href=primaryLink(it); l1.href=it.doi?`https://doi.org/${it.doi}`:'#'; l1.style.display=it.doi?'inline-flex':'none';
-  l2.href=it.arxiv?`https://arxiv.org/abs/${it.arxiv}`:'#'; l2.style.display=it.arxiv?'inline-flex':'none';
-  // notes
-  const noteBlock=tpl.querySelector('.note-block'); const noteBtn=tpl.querySelector('.note-toggle'); const ta=tpl.querySelector('.note');
-  ta.value=state.notes[it.uid]||'';
-  noteBtn.addEventListener('click',e=>{ e.stopPropagation(); noteBlock.hidden=!noteBlock.hidden; if(!noteBlock.hidden) ta.focus(); });
-  ta.addEventListener('input', debounce(()=>{
-    state.notes[it.uid]=ta.value;
-    const auto=autoRatingOf(ta.value);
-    const manual=(state.ratings[it.uid]?.manual)||0;
-    state.ratings[it.uid]={manual,auto};
-    saveAll();
-    updateStars(el,it.uid);
-    const has=(state.notes[it.uid]||'').trim().length>0; bi.hidden=!has;
-  },300));
-  // tone
-  el.classList.add('tone-'+key4class);
+  const link = it.url || (it.doi?`https://doi.org/${it.doi}`:'') || (it.arxiv?`https://arxiv.org/abs/${it.arxiv}`:'');
+  const links = [];
+  if(link) links.push(`<a href="${link}" target="_blank" rel="noopener noreferrer nofollow">页面</a>`);
+  if(it.arxiv){
+    links.push(`<a href="https://arxiv.org/abs/${it.arxiv}" target="_blank" rel="noopener noreferrer nofollow">arXiv</a>`);
+    links.push(`<a href="https://arxiv.org/pdf/${it.arxiv}.pdf" target="_blank" rel="noopener noreferrer nofollow">PDF</a>`);
+  }
+  tpl.querySelector('.links').innerHTML=links.join(' · ');
   // stars
+  const st=tpl.querySelector('.star');
+  st.addEventListener('click',()=>{ const cur=state.ratings[it.uid]?.manual||0; const next=(cur>=5?0:cur+1); state.ratings[it.uid]={manual:next,auto:0}; saveAll(); updateStars(el,it.uid); });
+  // favorite mark (has note)
+  const bi=tpl.querySelector('.badge.info');
+  const has=(state.notes[it.uid]||'').trim().length>0; bi.hidden=!has;
+  // drag category dots
+  const dots=tpl.querySelector('.cat-dots'); dots.innerHTML='';
+  for(const c of state.categories){ const d=document.createElement('span'); d.className='dot'; d.title=c.name; d.style.background=c.color; d.draggable=true; d.addEventListener('dragstart',e=>{ e.dataTransfer.setData('text/plain', it.uid); e.dataTransfer.setData('dest-cid', c.id); e.dataTransfer.effectAllowed='move'; d.classList.add('dragging'); }); d.addEventListener('dragend',()=> d.classList.remove('dragging')); d.addEventListener('click',()=>{ state.assign[it.uid]=c.id; saveAll(); renderAll(); }); dots.appendChild(d); }
+  el.classList.add('tone-'+key4class);
   initStars(el,it.uid);
   return el;
 }
@@ -185,26 +175,44 @@ function stripBraces(s){ return (s||'').replace(/[{}]/g,''); }
 
 /* Stars */
 function autoRatingOf(text){ const n=(text||'').trim().length; const halfSteps=Math.floor(n/50); return Math.min(5, halfSteps*0.5); }
-function currentRating(uid){ const r=state.ratings[uid]||{manual:0,auto:0}; return Math.max(r.manual||0, r.auto||0); }
-function initStars(cardEl, uid){
-  if(!state.ratings[uid]) state.ratings[uid]={manual:0,auto:autoRatingOf(state.notes[uid]||'')};
-  const bg=cardEl.querySelector('.stars-bg'); const fg=cardEl.querySelector('.stars-fg'); const tt=cardEl.querySelector('.stars-text');
-  const setWidth=()=>{ const val=currentRating(uid); fg.style.width=(val/5*100)+'%'; tt.textContent = val ? (val.toFixed(1)+'★') : '0★'; };
-  setWidth();
-  const rectOf=()=>bg.getBoundingClientRect();
-  cardEl.querySelector('.rating').addEventListener('click',e=>{
-    const rect=rectOf(); const x=Math.max(0, Math.min(e.clientX-rect.left, rect.width)); const ratio=x/rect.width; const raw=ratio*5; const val=Math.round(raw*2)/2;
-    const r=state.ratings[uid]||{manual:0,auto:autoRatingOf(state.notes[uid]||'')}; r.manual=val; state.ratings[uid]=r; saveAll(); setWidth();
-  });
+function initStars(el,uid){
+  const box=el.querySelector('.stars'); box.innerHTML='';
+  const manual=(state.ratings[uid]?.manual)||0;
+  const auto=(state.ratings[uid]?.auto)||0;
+  for(let i=1;i<=10;i++){
+    const b=document.createElement('button'); b.className='starbtn'; b.textContent='★'; b.title=(i*0.5).toFixed(1);
+    if(i<=manual*2) b.classList.add('on-manual'); else if(i<=auto*2) b.classList.add('on-auto');
+    b.addEventListener('click',()=>{ state.ratings[uid]={manual:i/2,auto:0}; saveAll(); updateStars(el,uid); });
+    box.appendChild(b);
+  }
 }
-function updateStars(cardEl, uid){
-  const fg=cardEl.querySelector('.stars-fg'); const tt=cardEl.querySelector('.stars-text'); const val=currentRating(uid);
-  if(fg) fg.style.width=(val/5*100)+'%'; if(tt) tt.textContent = val ? (val.toFixed(1)+'★') : '0★';
+function updateStars(el,uid){
+  const s=el.querySelector('.stars');
+  const manual=(state.ratings[uid]?.manual)||0;
+  const auto=(state.ratings[uid]?.auto)||autoRatingOf(el.querySelector('.abs')?.textContent||'');
+  state.ratings[uid]={manual,auto};
+  saveAll();
+  const has=(state.notes[uid]||'').trim().length>0; el.querySelector('.badge.info').hidden=!has;
 }
 
-/* DnD */
+/* Drag board */
+function buildBoard(){
+  const host=document.getElementById('board'); host.innerHTML='';
+  for(const c of state.categories){
+    const tpl=document.getElementById('tpl-column').content.cloneNode(true);
+    const root=tpl.querySelector('.col');
+    root.dataset.cid=c.id;
+    root.querySelector('.col-head .name').textContent=c.name;
+    root.querySelector('.col-head .count').textContent=countInCat(c.id);
+    const dz=root.querySelector('.dropzone'); dz.dataset.cid=c.id; bindDropzone(dz);
+    const list=root.querySelector('.col-list'); list.innerHTML='';
+    for(const it of itemsInCat(c.id)) list.appendChild(makeCard(it));
+    root.querySelector('.exp').addEventListener('click',()=> exportBibForCategory(c.id));
+    host.appendChild(root);
+  }
+}
 function bindDropzone(dz){
-  dz.addEventListener('dragover',e=>{ e.preventDefault(); e.stopPropagation(); dz.classList.add('over'); });
+  dz.addEventListener('dragover',e=>{ e.preventDefault(); e.dataTransfer.dropEffect='move'; dz.classList.add('over'); });
   dz.addEventListener('dragleave',e=>{ e.stopPropagation(); dz.classList.remove('over'); });
   dz.addEventListener('drop',e=>{
     e.preventDefault(); e.stopPropagation(); dz.classList.remove('over'); dz.classList.add('accept'); setTimeout(()=>dz.classList.remove('accept'), 600);
@@ -225,19 +233,21 @@ async function readFileWithFallbacks(file){
 async function importBibFile(file){
   try{
     const txt=await readFileWithFallbacks(file);
-    $('#log').textContent=`读取到 ${txt.length} 字符，解析中…`;
+    document.getElementById('log').textContent=`读取到 ${txt.length} 字符，解析中…`;
     const raw=parseBibTeX(txt);
-    $('#log').textContent=`解析到 ${raw.length} 条目`;
+    document.getElementById('log').textContent=`解析到 ${raw.length} 条目`;
     if(raw.length===0){ alert('未从 .bib 解析到任何条目。'); return; }
     const items=raw.map(toItem).filter(Boolean);
     const map=new Map(state.items.map(x=>[x.uid,x]));
-    for(const it of items){ map.set(it.uid,it); }
-    state.items=Array.from(map.values());
-    if(state.categories.length===0) state.categories=defaultCats();
-    const unsortedId=ensureUnsortedId();
+    let added=0, updated=0;
     for(const it of items){
-      state.assign[it.uid]=unsortedId;
-      if(!state.ratings[it.uid]) state.ratings[it.uid]={manual:0,auto:0};
+      if(map.has(it.uid)){ const old=map.get(it.uid); Object.assign(old,it); updated++; }
+      else { state.items.push(it); added++; }
+      if(!state.assign[it.uid]){
+        const unsortedId=ensureUnsortedId();
+        state.assign[it.uid]=unsortedId;
+        if(!state.ratings[it.uid]) state.ratings[it.uid]={manual:0,auto:0};
+      }
     }
     saveAll(); renderAll();
     alert(`导入成功：${items.length} 篇（总计 ${state.items.length} 篇），已放入 Unsorted。`);
@@ -298,56 +308,12 @@ function exportBibForCategory(cid){
   const seen=new Set();
   const txt=items.map(it=>toBib(it,seen)).join('\n\n');
   const blob=new Blob([txt],{type:'text/plain'});
-  const c=state.categories.find(x=>x.id===cid);
-  downloadBlob(blob,`biblab-${(c?.name||'cat')}-${ts()}.bib`);
+  const name=(state.categories.find(c=>c.id===cid)?.name||'cat').replace(/\s+/g,'_');
+  downloadBlob(blob,`biblab-${name}-${ts()}.bib`);
 }
-function toBib(it, seen){
-  // 条目类型：有期刊或 DOI 认为是 article，否则 misc
-  const kind = (it.journal || it.doi) ? 'article' : 'misc';
-
-  // ------ 生成 bibkey：第一作者姓 + 年份 + 期刊最简缩写（PRL/PRB/NC/…） ------
-  // 依赖你文件里已有的工具：surnameOf()（取姓）、journalAbbrOf()（期刊缩写）
-  const first    = (it.authors && it.authors.length) ? it.authors[0] : '';
-  const surname  = first ? surnameOf(first) : 'anon';
-  const yearPart = it.year || (it.date ? new Date(it.date).getUTCFullYear() : '');
-  const jabbr    = journalAbbrOf(it.journal || (it.arxiv ? 'arXiv' : ''));
-
-  // 组合并清理非法字符
-  let baseKey = `${surname}${yearPart}${jabbr}`.replace(/[^A-Za-z0-9]+/g, '');
-
-  // 去重：同名冲突时追加 a/b/c…
-  let suffix = '';
-  let i = 0;
-  while (seen.has(baseKey + suffix)) { i++; suffix = String.fromCharCode(96 + i); } // 97 => 'a'
-  const key = baseKey + suffix;
-  seen.add(key);
-
-  // ------ BibTeX 字段 ------
-  const fields = [];
-  fields.push(`  title = {${it.title || ''}}`);
-  if ((it.authors || []).length) fields.push(`  author = {${it.authors.join(' and ')}}`);
-  if (it.journal) fields.push(`  journal = {${it.journal}}`);
-
-  const year = it.year || (it.date ? new Date(it.date).getUTCFullYear() : '');
-  if (year) fields.push(`  year = {${year}}`);
-  if (it.doi) fields.push(`  doi = {${it.doi}}`);
-  if (it.arxiv) { fields.push(`  eprint = {${it.arxiv}}`); fields.push(`  archivePrefix = {arXiv}`); }
-  if (it.url) fields.push(`  url = {${it.url}}`);
-
-  // ✅ 新增：把摘要也输出到 .bib（优先 it.abstract，其次 it.summary），并去掉花括号防止 BibTeX 解析问题
-  const absText = (it.abstract ?? it.summary ?? '').toString().trim();
-  if (absText) fields.push(`  abstract = {${absText.replace(/[{}]/g, '')}}`);
-
-  // （保留原来的备注逻辑，如果你有 state.notes）
-  const note = (state?.notes?.[it.uid] || '').trim?.() || '';
-  if (note) fields.push(`  note = {${note.replace(/[{}]/g, '')}}`);
-
-  return `@${kind}{${key},\n${fields.join(',\n')}\n}`;
-}
-
 
 /* Utils */
-function ts(){ const d=new Date(); const pad=n=>String(n).padStart(2,'0'); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`; }
+function ts(){ const d=new Date(); const pad=n=>String(n).padStart(2,'0'); return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`; }
 function downloadBlob(blob,filename){ const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=filename; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },0); }
 function debounce(fn,ms){ let t=null; return ()=>{ clearTimeout(t); t=setTimeout(fn,ms); }; }
 
@@ -362,7 +328,7 @@ async function importJSONFile(file){
     state.notes=data.notes||{};
     state.ratings=data.ratings||{};
     saveAll(); renderAll();
-    alert('快照导入成功');
+    alert('JSON 导入成功');
   }else{
     alert('JSON 结构不符合预期：需要 items/categories/assign');
   }
@@ -380,21 +346,67 @@ function clearAll(){
   renderAll();
 }
 
-/* Events */
-function randomPastel(){ const hues=[190,210,150,120,160,200,30]; const h=hues[Math.floor(Math.random()*hues.length)]; const s=60, l=75; return `hsl(${h} ${s}% ${l}%)`; }
-function bindEvents(){
-  $('#file-bib').addEventListener('change',e=>{ const f=e.target.files[0]; if(f) importBibFile(f); e.target.value=''; });
-  $('#file-json').addEventListener('change',e=>{ const f=e.target.files[0]; if(f) importJSONFile(f); e.target.value=''; });
-  $('#btn-export-json').addEventListener('click',()=>exportJSON());
-  $('#btn-export-bib').addEventListener('click',()=>exportBib('current'));
-  $('#btn-unsorted').addEventListener('click',()=>{ state.view='unsorted'; renderAll(); });
-  $('#btn-board').addEventListener('click',()=>{ state.view='board'; renderAll(); });
-  $('#btn-clear').addEventListener('click',()=> clearAll());
-  $('#q').addEventListener('input',e=>{ state.q=e.target.value; buildCards(); });
-  $('#sort').addEventListener('change',e=>{ state.sort=e.target.value; renderAll(); });
-  $('#btn-theme').addEventListener('click',()=>{ state.theme = state.theme==='light' ? 'dark' : 'light'; saveAll(); applyTheme(); });
+/* ---- Helpers for parsing & cleaning ---- */
+function cleanAbstract(s){
+  s = (s||'').replace(/<[^>]+>/g,' ');
+  s = s.replace(/\s+/g,' ').trim();
+  s = s.replace(/^\s*(?:Authors?|Author\(s\))\s*:\s*.*?(?=\.|$)/i,'').trim();
+  return s;
+}
+function toDateISO(year,month,day){
+  const y=parseInt(year||''); const m=isNaN(parseInt(month))?1:parseInt(month); const d=isNaN(parseInt(day))?1:parseInt(day);
+  if(y) return new Date(Date.UTC(y,(m-1)||0,d||1)).toISOString();
+  return '';
+}
+
+/* ---- Export: BibTeX —— 这里已按你的要求改过 ---- */
+function toBib(it,seen){
+  const kind=(it.journal||it.doi)?'article':'misc';
+  const key=citeKeyFor(it,seen);
+
+  const fields=[];
+  fields.push(`  title = {${it.title||''}}`);
+  if((it.authors||[]).length) fields.push(`  author = {${it.authors.join(' and ')}}`);
+  if(it.journal) fields.push(`  journal = {${it.journal}}`);
+  const year=it.year || (it.date ? new Date(it.date).getUTCFullYear() : '');
+  if(year) fields.push(`  year = {${year}}`);
+  if(it.doi) fields.push(`  doi = {${it.doi}}`);
+  if(it.arxiv){ fields.push(`  eprint = {${it.arxiv}}`); fields.push(`  archivePrefix = {arXiv}`); }
+  if(it.url) fields.push(`  url = {${it.url}}`);
+
+  // ✅ 新增摘要（优先 it.abstract，其次 it.summary），去掉花括号防止 BibTeX 解析问题
+  const absText = (it.abstract ?? it.summary ?? '').toString().trim();
+  if (absText) fields.push(`  abstract = {${absText.replace(/[{}]/g,'')}}`);
+
+  const note=(state.notes[it.uid]||'').trim();
+  if(note) fields.push(`  note = {${note.replace(/[{}]/g,'')}}`);
+
+  return `@${kind}{${key},\n${fields.join(',\n')}\n}`;
+}
+
+/* ---- Init ---- */
+function ensureDefaults(){
+  if(!state.categories || state.categories.length===0) state.categories=defaultCats();
+  saveAll();
+}
+function buildBoard(){ /* 已在上面实现 */ }
+function bindDropzone(dz){ /* 已在上面实现 */ }
+
+document.addEventListener('DOMContentLoaded',()=>{
+  loadAll(); ensureDefaults();
+  renderAll();
+  document.getElementById('file-bib').addEventListener('change',e=>{ const f=e.target.files[0]; if(f) importBibFile(f); e.target.value=''; });
+  document.getElementById('file-json').addEventListener('change',e=>{ const f=e.target.files[0]; if(f) importJSONFile(f); e.target.value=''; });
+  document.getElementById('btn-export-json').addEventListener('click',()=>exportJSON());
+  document.getElementById('btn-export-bib').addEventListener('click',()=>exportBib('current'));
+  document.getElementById('btn-unsorted').addEventListener('click',()=>{ state.view='unsorted'; renderAll(); });
+  document.getElementById('btn-board').addEventListener('click',()=>{ state.view='board'; renderAll(); });
+  document.getElementById('btn-clear').addEventListener('click',()=> clearAll());
+  document.getElementById('q').addEventListener('input',e=>{ state.q=e.target.value; buildCards(); });
+  document.getElementById('sort').addEventListener('change',e=>{ state.sort=e.target.value; renderAll(); });
+  document.getElementById('btn-theme').addEventListener('click',()=>{ state.theme = state.theme==='light' ? 'dark' : 'light'; saveAll(); applyTheme(); });
   // add category
-  $('#btn-add-cat').addEventListener('click',()=>{
+  document.getElementById('btn-add-cat').addEventListener('click',()=>{
     const name=prompt('新分类名称：','New Category');
     if(!name) return;
     const color=randomPastel();
@@ -402,10 +414,12 @@ function bindEvents(){
     state.categories.push({id,name,color});
     saveAll(); renderAll();
   });
-  // page-level DnD .bib
-  window.addEventListener('dragover',e=>{ e.preventDefault(); e.stopPropagation(); });
-  window.addEventListener('drop',e=>{ e.preventDefault(); e.stopPropagation(); const f=e.dataTransfer?.files?.[0]; if(f && /\.bib$|\.txt$/i.test(f.name)) importBibFile(f); });
-}
+});
 
-/* Boot */
-(function boot(){ loadAll(); if(state.categories.length===0) state.categories=defaultCats(); bindEvents(); renderAll(); applyTheme(); })();
+/* Random pastel color for new category */
+function randomPastel(){
+  const h=Math.floor(Math.random()*360);
+  const s=60+Math.floor(Math.random()*25);
+  const l=78+Math.floor(Math.random()*10);
+  return `hsl(${h} ${s}% ${l}%)`;
+}
