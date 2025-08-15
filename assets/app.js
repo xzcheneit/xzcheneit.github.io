@@ -1,399 +1,387 @@
-/* ---------- 工具 ---------- */
-const $ = (sel, el=document) => el.querySelector(sel);
-const $$ = (sel, el=document) => [...el.querySelectorAll(sel)];
-const isAbs = u => /^https?:\/\//i.test(u||"");
+import { parseBibTeX } from './bibtex.js';
 
-/* ---------- 期刊列表（与样式色板一致） ---------- */
-const LEGEND = [
-  ["PRL","Phys. Rev. Lett."],["PRB","Phys. Rev. B"],["PRE","Phys. Rev. E"],
-  ["PRResearch","Phys. Rev. Research"],["PRX","Phys. Rev. X"],["PRXQ","PRX Quantum"],
-  ["Nature","Nature"],["NatPhys","Nature Physics"],["NatCommun","Nature Communications"],
-  ["NatMater","Nature Materials"],["NatNano","Nature Nanotechnology"],
-  ["Science","Science"],["SciAdv","Science Advances"],["NanoLett","Nano Letters"],
-  ["NJP","New Journal of Physics"],["CPL","Chinese Physics Letters"],["CPB","Chinese Physics B"],
-  ["NSR","National Science Review"],["arXivCM","arXiv cond-mat"]
+/* Storage keys */
+const K_ITEMS='biblab_items_v4', K_CATS='biblab_categories_v4', K_ASG='biblab_assign_v4';
+const K_NOTES='biblab_notes_v4', K_THEME='biblab_theme_v4', K_RATINGS='biblab_ratings_v4';
+
+/* State */
+let state={items:[],categories:[],assign:{},notes:{},ratings:{},view:'unsorted',q:'',sort:'date_desc',theme:'dark'};
+
+/* Journal map & abbreviations */
+const JOURNAL_KEY={
+  'phys. rev. lett.':'PRL','physical review letters':'PRL','phys. rev. a':'PRA','physical review a':'PRA',
+  'phys. rev. b':'PRB','physical review b':'PRB','phys. rev. x':'PRX','physical review x':'PRX',
+  'phys. rev. research':'PRR','physical review research':'PRR',
+  'nature physics':'NatPhys','nature communications':'NC','nat. commun.':'NC',
+  'science':'Science','nature':'Nature','chemical reviews':'Chem','arxiv':'arXiv'
+};
+const JOURNAL_ABBR=[
+  ['physical review letters','PRL'], ['physical review a','PRA'], ['physical review b','PRB'], ['physical review x','PRX'],
+  ['physical review research','PRR'], ['nature communications','NC'], ['nature physics','NP'], ['nature materials','NM'],
+  ['nature','Nat'], ['science','Sci'], ['national science review','NSR'], ['proceedings of the national academy of sciences','PNAS'],
+  ['advanced materials','AM'], ['advanced functional materials','AFM'], ['journal of the american chemical society','JACS'], ['acs nano','ACSNano']
 ];
 
-let ALL_ITEMS = [];
-let SERVER_WINDOW = 3;
-
-/* ---------- 收藏数据层（自动兼容旧版本 & 最小化存储） ---------- */
-const FavStore = {
-  keyNew: 'pj_favs_v2',
-  keyOld: 'pj_favs_v1',
-
-  _parse(raw){
-    try { const v = JSON.parse(raw||'[]'); return Array.isArray(v) ? v : []; }
-    catch { return []; }
-  },
-
-  minify(item){
-    // 只存必要字段，避免体积过大或结构差异
-    const uid = item.uid || `${item.journalKey}|${item.doi||item.arxiv||item.link}|${item.date||''}`;
-    return {
-      uid,
-      title: item.title||'',
-      authors: Array.isArray(item.authors)? item.authors.slice(0) : [],
-      date: item.date||'',
-      journalKey: item.journalKey||'',
-      journalShort: item.journalShort||item.journalKey||'',
-      journal: item.journal||'',
-      type: item.type||'',
-      link: item.link||'',
-      arxiv: item.arxiv||'',
-      doi: item.doi||'',
-      summary: item.summary||''
-    };
-  },
-
-  load(){
-    let list = this._parse(localStorage.getItem(this.keyNew));
-    if (list.length) return list;
-
-    // 兼容旧 key
-    const old = this._parse(localStorage.getItem(this.keyOld));
-    if (old.length){
-      list = old.map(x => this.minify(x));
-      this.save(list);  // 迁移
-    }
-    return list;
-  },
-
-  save(list){
-    const data = JSON.stringify(list);
-    localStorage.setItem(this.keyNew, data);
-    localStorage.setItem(this.keyOld, data); // 保持两个键一致，兼容历史按钮
-  },
-
-  has(uid){
-    return this.load().some(x => x.uid === uid);
-  },
-
-  add(item){
-    const list = this.load();
-    const m = this.minify(item);
-    if (!list.some(x => x.uid === m.uid)){
-      list.push(m);
-      this.save(list);
-    }
-    return list.length;
-  },
-
-  remove(uid){
-    const list = this.load().filter(x => x.uid !== uid);
-    this.save(list);
-    return list.length;
-  },
-
-  clear(){
-    this.save([]);
-    return 0;
+/* Helpers */
+const $=sel=>document.querySelector(sel);
+function toDateISO(y,m,d=1){ const table={'jan':1,'feb':2,'mar':3,'apr':4,'may':5,'jun':6,'jul':7,'aug':8,'sep':9,'sept':9,'oct':10,'nov':11,'dec':12}; m=(table[String(m).toLowerCase()]||parseInt(m||'1',10)||1); y=parseInt(y||'1970',10)||1970; d=parseInt(d||'1',10)||1; return new Date(Date.UTC(y,m-1,d,0,0,0)).toISOString(); }
+function cleanAbstract(s){ return (s||'').replace(/[{}]/g,'').replace(/\\[a-zA-Z]+/g,'').replace(/\s+/g,' ').trim(); }
+function normalizeAuthors(s){ if(!s) return []; return s.split(/\band\b/ig).map(x=>x.replace(/\s+/g,' ').trim()).filter(Boolean); }
+function journalKeyOf(name){ if(!name) return 'Else'; const k=name.toLowerCase().trim(); for(const n in JOURNAL_KEY){ if(k.includes(n)) return JOURNAL_KEY[n]; } if(/arxiv/.test(k)) return 'arXiv'; return 'Else'; }
+function journalAbbrOf(name){ const k=(name||'').toLowerCase(); for(const [pat,abbr] of JOURNAL_ABBR){ if(k.includes(pat)) return abbr; } if(/arxiv/.test(k)) return 'arXiv'; return 'J'; }
+function primaryLink(it){ if(it.url) return it.url; if(it.doi) return `https://doi.org/${it.doi}`; if(it.arxiv) return `https://arxiv.org/abs/${it.arxiv}`; return '#'; }
+function fmtDate(iso){ const d=new Date(iso); if(!isFinite(d)) return ''; const y=d.getUTCFullYear(),m=String(d.getUTCMonth()+1).padStart(2,'0'),da=String(d.getUTCDate()).padStart(2,'0'); return `${y}-${m}-${da}`; }
+function makeUID(it){ if(it.doi) return 'doi:'+it.doi.toLowerCase(); if(it.arxiv) return 'arxiv:'+it.arxiv.toLowerCase(); const base=(it.title||'')+'|'+(it.year||'')+'|'+(it.journal||''); let h=0; for(let i=0;i<base.length;i++){ h=(h*131+base.charCodeAt(i))>>>0; } return 'h'+h.toString(16); }
+function surnameOf(author){ if(!author) return 'anon'; if(author.includes(',')) return author.split(',')[0].trim().replace(/\s+/g,''); const parts=author.trim().split(/\s+/); return parts[parts.length-1]||'anon'; }
+function citeKeyFor(it, seen){
+  const surname = (it.authors && it.authors.length) ? surnameOf(it.authors[0]) : 'anon';
+  const year = it.year || (it.date ? new Date(it.date).getUTCFullYear() : '');
+  const j = journalAbbrOf(it.journal || (it.arxiv ? 'arXiv' : ''));
+  let key = `${surname}${year}${j}`.replace(/[^A-Za-z0-9]+/g, '');
+  let suffix = '';
+  let i = 0;
+  while (seen.has(key + suffix)) {
+    i++;
+    suffix = String.fromCharCode(96 + i); // a, b, c...
   }
-};
+  seen.add(key + suffix);
+  return key + suffix;
+}${year}${abbr}`; let suffix=''; let i=0; while(seen.has(key+suffix)){ i++; suffix=String.fromCharCode(96+i); } seen.add(key+suffix); return key+suffix; }
 
-function updateFavCount(){
-  const n = FavStore.load().length;
-  $("#fav-count") && ($("#fav-count").textContent = n);
-}
+/* Load/Save */
+function saveAll(){ localStorage.setItem(K_ITEMS, JSON.stringify(state.items)); localStorage.setItem(K_CATS, JSON.stringify(state.categories)); localStorage.setItem(K_ASG, JSON.stringify(state.assign)); localStorage.setItem(K_NOTES, JSON.stringify(state.notes)); localStorage.setItem(K_RATINGS, JSON.stringify(state.ratings)); localStorage.setItem(K_THEME, state.theme); }
+function loadAll(){ try{ state.items=JSON.parse(localStorage.getItem(K_ITEMS)||'[]'); state.categories=JSON.parse(localStorage.getItem(K_CATS)||'[]'); state.assign=JSON.parse(localStorage.getItem(K_ASG)||'{}'); state.notes=JSON.parse(localStorage.getItem(K_NOTES)||'{}'); state.ratings=JSON.parse(localStorage.getItem(K_RATINGS)||'{}'); state.theme=localStorage.getItem(K_THEME)||'dark'; }catch(e){ console.warn(e);} }
 
-/* ---------- 颜色映射（用于图例） ---------- */
-function cssVarName(k){
-  return ({
-    PRResearch:'prr', PRXQ:'prxq', NatPhys:'nphys', NatCommun:'ncomms',
-    NatMater:'nmat', NatNano:'nnano', NanoLett:'nalett', SciAdv:'sciadv',
-    CPL:'cpl', CPB:'cpb', NSR:'nsr', arXivCM:'arxiv'
-  }[k] || k.toLowerCase());
-}
+/* Categories */
+function defaultCats(){ return [{id:'c1',name:'Reviews',color:'#5f6ee6'},{id:'c2',name:'Theory',color:'#57d39b'},{id:'c3',name:'Computation',color:'#6ab0ff'},{id:'c4',name:'Experiment',color:'#ffb86b'},{id:'c5',name:'Methods',color:'#d467ff'},{id:'c6',name:'Unsorted',color:'#8da3b8'}]; }
+function findCatByName(name){ return state.categories.find(c=>c.name.toLowerCase()===name.toLowerCase()); }
+function ensureUnsortedId(){ const u=findCatByName('Unsorted'); return u?u.id:state.categories[state.categories.length-1]?.id; }
 
-function safeApplyLegend(){
-  const el = $("#legend"); if(!el) return;
-  el.innerHTML = LEGEND.map(([k,v]) =>
-    `<span class="legend-item"><span class="swatch" style="background: var(--c-${cssVarName(k)});"></span>${v}</span>`
-  ).join("");
-}
+/* Theme */
+function applyTheme(){ if(state.theme==='light') document.body.classList.add('theme-light'); else document.body.classList.remove('theme-light'); $('#btn-theme').textContent = state.theme==='light' ? '☀️ 浅色' : '🌙 深色'; }
 
-function safeMakeSourceSelect(){
-  const sel = $("#src"); if(!sel) return;
-  sel.innerHTML = `<option value="">全部来源</option>` +
-    LEGEND.map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
+/* Rendering */
+function renderAll(){
+  renderCategoryList();
+  $('#btn-unsorted').classList.toggle('solid',state.view==='unsorted');
+  $('#btn-board').classList.toggle('solid',state.view==='board'||state.view.startsWith('cat:'));
+  if(state.view==='board'){ $('#board').hidden=false; $('#cards').hidden=true; buildBoard(); }
+  else { $('#board').hidden=true; $('#cards').hidden=false; buildCards(); }
+  $('#hint').hidden=state.items.length>0;
+  applyTheme();
 }
-
-/* ---------- 文本/过滤工具 ---------- */
-function fmtAuthorsList(authors){
-  if(!authors || !authors.length) return [];
-  return authors.map(a => typeof a === 'string' ? a : (a.name || `${a.given||''} ${a.family||''}`.trim()));
-}
-function authorsCondensed(authors){
-  const list = fmtAuthorsList(authors);
-  const n = list.length;
-  if(n === 0) return '';
-  if(n <= 3) return list.join(', ');
-  return `${list[0]} … ${list[n-1]}（共 ${n} 人）`;
-}
-function formatDate(iso){
-  if(!iso) return ""; const d = new Date(iso);
-  const p = n => String(n).padStart(2,'0');
-  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
-}
-function withinDays(iso, days){
-  if(days==='all') return true;
-  const dt = new Date(iso); const now = new Date();
-  return (now - dt)/(1000*60*60*24) <= Number(days)+0.01;
-}
-function filterByQuery(items, q){
-  if(!q) return items;
-  const s = q.toLowerCase();
-  return items.filter(x =>
-    (x.title||'').toLowerCase().includes(s) ||
-    (x.journal||'').toLowerCase().includes(s) ||
-    (x.doi||'').toLowerCase().includes(s) ||
-    (x.summary||'').toLowerCase().includes(s) ||
-    (x.authors||[]).join(' ').toLowerCase().includes(s)
-  );
-}
-function normalize(item){
-  const uid = `${item.journalKey}|${item.doi||item.arxiv||item.link}|${item.date||''}`;
-  return {...item, uid};
-}
-
-/* ---------- 链接选择（arXiv 优先 → 期刊链接 → DOI） ---------- */
-const bestLink = (it)=>{
-  if (isAbs(it.arxiv)) return it.arxiv;
-  if (isAbs(it.link))  return it.link;
-  if (it.doi)          return `https://doi.org/${it.doi}`;
-  return '#';
-};
-
-/* ---------- BibTeX ---------- */
-/*function toBib(item){
-  const type = (item.type==='preprint') || (item.arxiv && (!item.doi || item.type==='accepted')) ? 'misc' : 'article';
-  const au = fmtAuthorsList(item.authors).join(' and ');
-  const key = (fmtAuthorsList(item.authors)[0]||'na') + (item.date? new Date(item.date).getFullYear(): '');
-  const lines = [];
-  lines.push(`@${type}{${key},`);
-  lines.push(`  title={${item.title||''}},`);
-  if(au) lines.push(`  author={${au}},`);
-  if(item.journal) lines.push(`  journal={${item.journal}},`);
-  const y = (item.date? new Date(item.date).getFullYear(): undefined);
-  if(y) lines.push(`  year={${y}},`);
-  if(item.doi) lines.push(`  doi={${item.doi}},`);
-  if(item.arxiv){
-    const id = item.arxiv.replace(/^.*\//,'');
-    lines.push(`  eprint={${id}},`);
-    lines.push(`  archivePrefix={arXiv},`);
+function renderCategoryList(){
+  const host=document.querySelector('#category-list');
+  const toolbar=host.querySelector('.cat-toolbar'); host.innerHTML=''; host.appendChild(toolbar);
+  for(const c of state.categories){
+    const tpl=document.getElementById('tpl-category-item').content.cloneNode(true);
+    const root=tpl.querySelector('.cat-item');
+    root.dataset.cid=c.id;
+    root.querySelector('.cat-name').textContent=c.name;
+    root.querySelector('.dot').style.background=c.color;
+    root.querySelector('.count').textContent=countInCat(c.id);
+    const dz=root.querySelector('.dropzone'); dz.dataset.cid=c.id; bindDropzone(dz);
+    const nm=root.querySelector('.cat-name');
+    nm.addEventListener('blur',()=>{ c.name=nm.textContent.trim()||c.name; saveAll(); renderAll(); });
+    root.querySelector('.enter').addEventListener('click',()=>{ state.view='cat:'+c.id; renderAll(); });
+    root.querySelector('.clr').addEventListener('click',()=>{ for(const uid of Object.keys(state.assign)){ if(state.assign[uid]===c.id) delete state.assign[uid]; } saveAll(); renderAll(); });
+    root.querySelector('.exp').addEventListener('click',()=> exportBibForCategory(c.id));
+    host.appendChild(tpl);
   }
-  lines.push(`  url={${bestLink(item)}},`);
-  lines.push('}');
-  return lines.join('\n');
-}*/
+}
+function buildBoard(){
+  const host=document.querySelector('#board'); host.innerHTML='';
+  for(const c of state.categories){
+    const col=document.getElementById('tpl-board-column').content.cloneNode(true);
+    const root=col.querySelector('.col'); root.dataset.cid=c.id;
+    col.querySelector('.name').textContent=c.name;
+    col.querySelector('.dot').style.background=c.color;
+    const dz=col.querySelector('.dropzone'); dz.dataset.cid=c.id; bindDropzone(dz);
+    const items=itemsInCat(c.id);
+    col.querySelector('.count').textContent=items.length;
+    for(const it of sortItems(items,'date_desc')) dz.appendChild(makeCard(it));
+    col.querySelector('.name').addEventListener('blur',()=>{ c.name=col.querySelector('.name').textContent.trim()||c.name; saveAll(); renderAll(); });
+    col.querySelector('.exp').addEventListener('click',()=> exportBibForCategory(c.id));
+    host.appendChild(col);
+  }
+}
+function buildCards(){
+  const host=document.querySelector('#cards'); host.innerHTML='';
+  let items=[];
+  if(state.view==='unsorted'){
+    const unsortedId=ensureUnsortedId();
+    items = state.items.filter(it=>state.assign[it.uid]===unsortedId);
+  }else if(state.view.startsWith('cat:')){
+    items = itemsInCat(state.view.slice(4));
+  }
+  const q=state.q.trim().toLowerCase();
+  if(q){
+    items = items.filter(it=>(
+      (it.title||'').toLowerCase().includes(q) ||
+      (it.journal||'').toLowerCase().includes(q) ||
+      (it.doi||'').toLowerCase().includes(q) ||
+      (it.abstract||'').toLowerCase().includes(q) ||
+      (it.authors||[]).join(' ').toLowerCase().includes(q)
+    ));
+  }
+  items = sortItems(items, state.sort);
+  for(const it of items) host.appendChild(makeCard(it));
+}
+function sortItems(items,by){
+  const arr=items.slice();
+  if(by==='date_desc') arr.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  else if(by==='date_asc') arr.sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+  else if(by==='title_asc') arr.sort((a,b)=>(a.title||'').localeCompare(b.title||''));
+  else if(by==='title_desc') arr.sort((a,b)=>(b.title||'').localeCompare(a.title||''));
+  return arr;
+}
+function makeCard(it){
+  const tpl=document.getElementById('tpl-card').content.cloneNode(true);
+  const el=tpl.querySelector('.card');
+  el.dataset.uid=it.uid;
+  // drag anim
+  el.addEventListener('dragstart',e=>{ e.dataTransfer.setData('text/plain',it.uid); e.stopPropagation(); requestAnimationFrame(()=>el.classList.add('dragging')); });
+  el.addEventListener('dragend',e=>{ e.stopPropagation(); el.classList.remove('dragging'); });
+  // badges
+  const k=it.journalKey||'Else'; const bj=tpl.querySelector('.badge.journal'); const key4class=(k==='NatPhys'?'NP':k);
+  bj.textContent=(k==='NatPhys'?'NP':k); bj.classList.add('j-'+key4class);
+  tpl.querySelector('.badge.type').textContent=it.type||'article';
+  // category badge
+  const cid=state.assign[it.uid]; const bcat=tpl.querySelector('.badge.category');
+  if(cid){ const cat=state.categories.find(c=>c.id===cid); if(cat){ bcat.textContent=cat.name; bcat.hidden=false; } }
+  // note indicator
+  const bi=tpl.querySelector('.badge.note-indicator');
+  if(state.notes[it.uid] && state.notes[it.uid].trim().length>0) bi.hidden=false;
+  // content
+  tpl.querySelector('.title').textContent=stripBraces(it.title||'(无标题)');
+  tpl.querySelector('.authors').textContent=(it.authors||[]).join(', ');
+  tpl.querySelector('.journal-name').textContent=it.journal || (it.arxiv?'arXiv':'');
+  tpl.querySelector('.date').textContent=fmtDate(it.date||'');
+  tpl.querySelector('.abstract').textContent=it.abstract||'';
+  // links
+  const l0=tpl.querySelector('.lnk.primary'); const l1=tpl.querySelectorAll('.lnk')[1]; const l2=tpl.querySelectorAll('.lnk')[2];
+  l0.href=primaryLink(it); l1.href=it.doi?`https://doi.org/${it.doi}`:'#'; l1.style.display=it.doi?'inline-flex':'none';
+  l2.href=it.arxiv?`https://arxiv.org/abs/${it.arxiv}`:'#'; l2.style.display=it.arxiv?'inline-flex':'none';
+  // notes
+  const noteBlock=tpl.querySelector('.note-block'); const noteBtn=tpl.querySelector('.note-toggle'); const ta=tpl.querySelector('.note');
+  ta.value=state.notes[it.uid]||'';
+  noteBtn.addEventListener('click',e=>{ e.stopPropagation(); noteBlock.hidden=!noteBlock.hidden; if(!noteBlock.hidden) ta.focus(); });
+  ta.addEventListener('input', debounce(()=>{
+    state.notes[it.uid]=ta.value;
+    const auto=autoRatingOf(ta.value);
+    const manual=(state.ratings[it.uid]?.manual)||0;
+    state.ratings[it.uid]={manual,auto};
+    saveAll();
+    updateStars(el,it.uid);
+    const has=(state.notes[it.uid]||'').trim().length>0; bi.hidden=!has;
+  },300));
+  // tone
+  el.classList.add('tone-'+key4class);
+  // stars
+  initStars(el,it.uid);
+  return el;
+}
+function stripBraces(s){ return (s||'').replace(/[{}]/g,''); }
 
-function toBib(it, seen){
+/* Stars */
+function autoRatingOf(text){ const n=(text||'').trim().length; const halfSteps=Math.floor(n/50); return Math.min(5, halfSteps*0.5); }
+function currentRating(uid){ const r=state.ratings[uid]||{manual:0,auto:0}; return Math.max(r.manual||0, r.auto||0); }
+function initStars(cardEl, uid){
+  if(!state.ratings[uid]) state.ratings[uid]={manual:0,auto:autoRatingOf(state.notes[uid]||'')};
+  const bg=cardEl.querySelector('.stars-bg'); const fg=cardEl.querySelector('.stars-fg'); const tt=cardEl.querySelector('.stars-text');
+  const setWidth=()=>{ const val=currentRating(uid); fg.style.width=(val/5*100)+'%'; tt.textContent = val ? (val.toFixed(1)+'★') : '0★'; };
+  setWidth();
+  const rectOf=()=>bg.getBoundingClientRect();
+  cardEl.querySelector('.rating').addEventListener('click',e=>{
+    const rect=rectOf(); const x=Math.max(0, Math.min(e.clientX-rect.left, rect.width)); const ratio=x/rect.width; const raw=ratio*5; const val=Math.round(raw*2)/2;
+    const r=state.ratings[uid]||{manual:0,auto:autoRatingOf(state.notes[uid]||'')}; r.manual=val; state.ratings[uid]=r; saveAll(); setWidth();
+  });
+}
+function updateStars(cardEl, uid){
+  const fg=cardEl.querySelector('.stars-fg'); const tt=cardEl.querySelector('.stars-text'); const val=currentRating(uid);
+  if(fg) fg.style.width=(val/5*100)+'%'; if(tt) tt.textContent = val ? (val.toFixed(1)+'★') : '0★';
+}
+
+/* DnD */
+function bindDropzone(dz){
+  dz.addEventListener('dragover',e=>{ e.preventDefault(); e.stopPropagation(); dz.classList.add('over'); });
+  dz.addEventListener('dragleave',e=>{ e.stopPropagation(); dz.classList.remove('over'); });
+  dz.addEventListener('drop',e=>{
+    e.preventDefault(); e.stopPropagation(); dz.classList.remove('over'); dz.classList.add('accept'); setTimeout(()=>dz.classList.remove('accept'), 600);
+    const uid=e.dataTransfer.getData('text/plain');
+    if(uid){ state.assign[uid]=dz.dataset.cid; saveAll(); renderAll(); }
+  });
+}
+function itemsInCat(cid){ return state.items.filter(it=>state.assign[it.uid]===cid); }
+function countInCat(cid){ return Object.values(state.assign).filter(x=>x===cid).length; }
+
+/* Import .bib */
+async function readFileWithFallbacks(file){
+  const buf=await file.arrayBuffer();
+  const enc=['utf-8','utf-16le','utf-16be','gb18030','gbk','windows-1252'];
+  for(const e of enc){ try{ const dec=new TextDecoder(e); const t=dec.decode(buf); if(t && t.trim().length>0) return t; }catch(err){} }
+  return await file.text();
+}
+async function importBibFile(file){
+  try{
+    const txt=await readFileWithFallbacks(file);
+    $('#log').textContent=`读取到 ${txt.length} 字符，解析中…`;
+    const raw=parseBibTeX(txt);
+    $('#log').textContent=`解析到 ${raw.length} 条目`;
+    if(raw.length===0){ alert('未从 .bib 解析到任何条目。'); return; }
+    const items=raw.map(toItem).filter(Boolean);
+    const map=new Map(state.items.map(x=>[x.uid,x]));
+    for(const it of items){ map.set(it.uid,it); }
+    state.items=Array.from(map.values());
+    if(state.categories.length===0) state.categories=defaultCats();
+    const unsortedId=ensureUnsortedId();
+    for(const it of items){
+      state.assign[it.uid]=unsortedId;
+      if(!state.ratings[it.uid]) state.ratings[it.uid]={manual:0,auto:0};
+    }
+    saveAll(); renderAll();
+    alert(`导入成功：${items.length} 篇（总计 ${state.items.length} 篇），已放入 Unsorted。`);
+  }catch(err){ console.error(err); alert('导入失败：'+err.message); }
+}
+function extractArxiv(fields){
+  const eprint=(fields['eprint']||'').trim();
+  const arch=(fields['archiveprefix']||'').toLowerCase();
+  const url=(fields['url']||'');
+  if(arch==='arxiv' && eprint) return eprint.replace(/^arxiv:/i,'').trim();
+  const m=url.match(/arxiv\.org\/abs\/([\w\.\-\/]+)/i);
+  if(m) return m[1];
+  return '';
+}
+function toItem(entry){
+  const f=entry.fields||{};
+  const title=f['title']||'';
+  const authors=normalizeAuthors(f['author']);
+  const journal=f['journal']||f['booktitle']||'';
+  const year=f['year']||'';
+  const month=f['month']||'';
+  const day=f['day']||'';
+  const date=f['date']?new Date(f['date']).toISOString():toDateISO(year,month,day);
+  const doi=(f['doi']||'').replace(/^https?:\/\/doi\.org\//i,'').trim();
+  const url=f['url']||(doi?`https://doi.org/${doi}`:'');
+  const arxiv=extractArxiv(f);
+  const abstract=cleanAbstract(f['abstract']||'');
+  const journalKey=journalKeyOf(journal || (arxiv?'arXiv':''));
+  let type=(entry.type || f['entrytype'] || '').toLowerCase();
+  if(!type) type = arxiv && !journal ? 'preprint' : 'article';
+  const it={title,authors,journal,journalKey,type,date,year,month,doi,url,arxiv,abstract};
+  it.uid=makeUID(it);
+  return it;
+}
+
+/* Export */
+function exportJSON(){
+  const data={items:state.items,categories:state.categories,assign:state.assign,notes:state.notes,ratings:state.ratings,exportedAt:new Date().toISOString()};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  downloadBlob(blob,`biblab-snapshot-${ts()}.json`);
+}
+function currentScopeItems(){
+  const unsortedId=ensureUnsortedId();
+  if(state.view==='unsorted') return state.items.filter(it=>state.assign[it.uid]===unsortedId);
+  if(state.view.startsWith('cat:')) return itemsInCat(state.view.slice(4));
+  return state.items.filter(it=>state.assign[it.uid]===unsortedId);
+}
+function exportBib(scope='current'){
+  let items=[];
+  if(scope==='current') items=currentScopeItems(); else items=state.items;
+  const seen=new Set();
+  const txt=items.map(it=>toBib(it,seen)).join('\n\n');
+  const blob=new Blob([txt],{type:'text/plain'});
+  downloadBlob(blob,`biblab-export-${ts()}.bib`);
+}
+function exportBibForCategory(cid){
+  const items=itemsInCat(cid);
+  const seen=new Set();
+  const txt=items.map(it=>toBib(it,seen)).join('\n\n');
+  const blob=new Blob([txt],{type:'text/plain'});
+  const c=state.categories.find(x=>x.id===cid);
+  downloadBlob(blob,`biblab-${(c?.name||'cat')}-${ts()}.bib`);
+}
+function toBib(it,seen){
   const kind = (it.journal || it.doi) ? 'article' : 'misc';
-  const key  = citeKeyFor(it, seen);
+  const key  = citeKeyFor(it,seen);
   const fields = [];
-
-  fields.push(`  title = {${it.title || ''}}`);
-  if ((it.authors || []).length) fields.push(`  author = {${it.authors.join(' and ')}}`);
+  fields.push(`  title = {${it.title||''}}`);
+  if ((it.authors||[]).length) fields.push(`  author = {${it.authors.join(' and ')}}`);
   if (it.journal) fields.push(`  journal = {${it.journal}}`);
-  const year = it.year || (new Date(it.date).getUTCFullYear());
+  const year = it.year || (it.date ? new Date(it.date).getUTCFullYear() : '');
   if (year) fields.push(`  year = {${year}}`);
   if (it.doi) fields.push(`  doi = {${it.doi}}`);
   if (it.arxiv){ fields.push(`  eprint = {${it.arxiv}}`); fields.push(`  archivePrefix = {arXiv}`); }
   if (it.url) fields.push(`  url = {${it.url}}`);
-
-  // >>> 新增摘要输出（放在 note 之前）
   if (it.abstract) fields.push(`  abstract = {${String(it.abstract).replace(/[{}]/g,'')}}`);
-
-  const note = (state.notes[it.uid] || '').trim();
+  const note = (state.notes[it.uid]||'').trim();
   if (note) fields.push(`  note = {${note.replace(/[{}]/g,'')}}`);
-
-  return `@${kind}{${key},\n${fields.join(',\n')}\n}`;
+  return `@${kind}{${key},
+${fields.join(',
+')}
+}`;
 }
 
+/* Utils */
+function ts(){ const d=new Date(); const pad=n=>String(n).padStart(2,'0'); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`; }
+function downloadBlob(blob,filename){ const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=filename; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },0); }
+function debounce(fn,ms){ let t=null; return ()=>{ clearTimeout(t); t=setTimeout(fn,ms); }; }
 
-function exportBib(list){
-  if(!list || !list.length){
-    alert('还没有收藏任何文章'); return;
-  }
-  const bib = list.map(toBib).join('\n\n');
-  const ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,'-');
-  const name = `favorites-${ts}.bib`;
-  const blob = new Blob([bib], {type:'text/x-bibtex;charset=utf-8'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = name; document.body.appendChild(a);
-  a.click();
-  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 0);
-}
-
-/* ---------- 卡片渲染 ---------- */
-function cardFromItem(item){
-  const tpl = $("#card-tpl")?.content?.cloneNode(true);
-  if(!tpl) return document.createTextNode('');
-  const root  = tpl.querySelector('.card');
-  const badge = tpl.querySelector('.badge');
-  const type  = tpl.querySelector('.type');
-  const time  = tpl.querySelector('.time');
-  const title = tpl.querySelector('.title');
-  const meta  = tpl.querySelector('.meta');
-  const abs   = tpl.querySelector('.abs');
-  const links = tpl.querySelector('.links');
-  const star  = tpl.querySelector('.star');
-
-  const link = bestLink(item);
-  const arxiv = isAbs(item.arxiv) ? item.arxiv : '';
-  const pdfLink = arxiv && arxiv.includes('/abs/') ? (arxiv.replace('/abs/','/pdf/') + '.pdf') : '';
-
-  root.classList.add(item.journalKey);
-  badge.classList.add(item.journalKey);
-  badge.textContent = item.journalShort || item.journalKey;
-  type.textContent  = item.type==='accepted' ? 'Accepted' : (item.type==='preprint' ? 'Preprint' : 'Published');
-  time.textContent  = formatDate(item.date);
-  title.innerHTML   = `<a href="${link}" target="_blank" rel="noopener noreferrer nofollow">${item.title}</a>`;
-
-  const authorsLine = authorsCondensed(item.authors);
-  meta.innerHTML = `<strong>作者：</strong>${authorsLine}${item.doi?`　·　DOI: ${item.doi}`:''}`;
-  abs.innerHTML  = `<strong>摘要：</strong>${item.summary || '（无摘要）'}`;
-
-  links.innerHTML = `
-    <a href="${link}" target="_blank" rel="noopener noreferrer nofollow">页面</a>
-    ${arxiv?`<a href="${arxiv}" target="_blank" rel="noopener noreferrer nofollow">arXiv</a>`:''}
-    ${pdfLink?`<a href="${pdfLink}" target="_blank" rel="noopener noreferrer nofollow">PDF</a>`:''}
-  `;
-
-  // 收藏状态 & 事件
-  if (FavStore.has(item.uid)){ star.classList.add('on'); star.textContent='★'; }
-  star?.addEventListener('click', ()=>{
-    if (FavStore.has(item.uid)){
-      FavStore.remove(item.uid);
-      star.classList.remove('on'); star.textContent='☆';
-    }else{
-      FavStore.add(item);
-      star.classList.add('on'); star.textContent='★';
-    }
-    updateFavCount();
-  });
-
-  return tpl;
-}
-
-/* ---------- 列表渲染 ---------- */
-function readSelections(){
-  const src  = $("#src")?.value || "";
-  const win  = $("#win")?.value || "3";
-  const stat = $("#stat")?.value || "all";
-  const url = new URL(location.href);
-  const q = url.searchParams.get('q') || '';
-  if(q) $('#q') && ($('#q').value = q);
-  return {src, win, stat, q};
-}
-
-function render(){
-  const {src, win, stat, q} = readSelections();
-  let items = ALL_ITEMS.slice(0);
-  if(src) items = items.filter(it => it.journalKey === src);
-  if(stat !== 'all') items = items.filter(it => it.type === stat);
-  items = items.filter(it => withinDays(it.date, win));
-  items = filterByQuery(items, q);
-
-  const box = $('#cards'); if(!box) return 0;
-  box.innerHTML='';
-  items.forEach(it=> box.appendChild(cardFromItem(it)) );
-  $("#total") && ($("#total").textContent = items.length);
-  return items.length;
-}
-
-/* ---------- 收藏夹弹窗 ---------- */
-function openFavs(){
-  const dlg = $('#fav-dialog'); const box = $("#fav-list");
-  if(!dlg || !box){ alert('收藏夹视图未找到'); return; }
-  const list = FavStore.load();
-  if(!list.length){
-    box.innerHTML = '<p class="meta">尚未收藏任何文章。</p>';
+/* Import JSON */
+async function importJSONFile(file){
+  const txt=await file.text();
+  const data=JSON.parse(txt);
+  if(data.items && data.categories && data.assign){
+    state.items=data.items;
+    state.categories=data.categories;
+    state.assign=data.assign;
+    state.notes=data.notes||{};
+    state.ratings=data.ratings||{};
+    saveAll(); renderAll();
+    alert('快照导入成功');
   }else{
-    box.innerHTML = list.map(item => `
-      <article class="card tone ${item.journalKey}">
-        <div class="card-head">
-          <span class="badge ${item.journalKey}">${item.journalShort||item.journalKey}</span>
-          <span class="type">${item.type==='accepted'?'Accepted':(item.type==='preprint'?'Preprint':'Published')}</span>
-          <span class="time">${formatDate(item.date)}</span>
-          <button class="star on" data-uid="${item.uid}">★</button>
-        </div>
-        <h3 class="title"><a href="${bestLink(item)}" target="_blank" rel="noopener noreferrer nofollow">${item.title}</a></h3>
-        <p class="meta"><strong>作者：</strong>${authorsCondensed(item.authors)}${item.doi?`　·　DOI: ${item.doi}`:''}</p>
-        ${item.summary?`<p class="abs"><strong>摘要：</strong>${item.summary}</p>`:''}
-      </article>`).join("");
-    // 取消收藏
-    $$(".star", box).forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const uid = btn.dataset.uid;
-        FavStore.remove(uid);
-        btn.closest('article').remove();
-        updateFavCount();
-        if (!FavStore.load().length){
-          box.innerHTML = '<p class="meta">尚未收藏任何文章。</p>';
-        }
-      });
-    });
+    alert('JSON 结构不符合预期：需要 items/categories/assign');
   }
-  dlg.showModal();
 }
 
-/* ---------- 数据加载 ---------- */
-async function load(){
-  safeApplyLegend(); safeMakeSourceSelect();
-  updateFavCount();
-
-  let json = null;
-  try{
-    const resp = await fetch('data/articles.json', {cache:'no-store'});
-    if(!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    json = await resp.json();
-  }catch(err){
-    const box = $('#cards');
-    if(box) box.innerHTML = `<p class="meta">数据读取失败：${String(err)}</p>`;
-    console.error('load articles.json failed', err);
-    return;
-  }
-
-  ALL_ITEMS = (json.items||[]).map(normalize);
-  SERVER_WINDOW = json.windowDays || 3;
-  if (SERVER_WINDOW > 3 && $("#win")) $("#win").value = 'all';
-
-  const n = render();
-  if(n===0 && $("#win") && $("#win").value !== 'all'){ $("#win").value = 'all'; render(); }
+/* Clear */
+function clearAll(){
+  if(!confirm('确认清空本地数据？')) return;
+  localStorage.removeItem(K_ITEMS);
+  localStorage.removeItem(K_CATS);
+  localStorage.removeItem(K_ASG);
+  localStorage.removeItem(K_NOTES);
+  localStorage.removeItem(K_RATINGS);
+  state={items:[],categories:[],assign:{},notes:{},ratings:{},view:'unsorted',q:'',sort:'date_desc',theme:state.theme};
+  renderAll();
 }
 
-/* ---------- 事件绑定（存在性判断） ---------- */
-$('#btn-refresh')?.addEventListener('click', load);
-$('#src')?.addEventListener('change', render);
-$('#win')?.addEventListener('change', render);
-$('#stat')?.addEventListener('change', render);
-$('#q')?.addEventListener('keydown', (e)=>{
-  if(e.key==='Enter'){
-    const v=e.target.value.trim(); const u=new URL(location.href);
-    if(v) u.searchParams.set('q',v); else u.searchParams.delete('q');
-    location.href = u.toString();
-  }
-});
-$('#btn-favs')?.addEventListener('click', openFavs);
-
-// 导出 .bib：工具栏按钮 & 弹窗按钮都支持
-function handleExport(){
-  const list = FavStore.load();
-  exportBib(list);
+/* Events */
+function randomPastel(){ const hues=[190,210,150,120,160,200,30]; const h=hues[Math.floor(Math.random()*hues.length)]; const s=60, l=75; return `hsl(${h} ${s}% ${l}%)`; }
+function bindEvents(){
+  $('#file-bib').addEventListener('change',e=>{ const f=e.target.files[0]; if(f) importBibFile(f); e.target.value=''; });
+  $('#file-json').addEventListener('change',e=>{ const f=e.target.files[0]; if(f) importJSONFile(f); e.target.value=''; });
+  $('#btn-export-json').addEventListener('click',()=>exportJSON());
+  $('#btn-export-bib').addEventListener('click',()=>exportBib('current'));
+  $('#btn-unsorted').addEventListener('click',()=>{ state.view='unsorted'; renderAll(); });
+  $('#btn-board').addEventListener('click',()=>{ state.view='board'; renderAll(); });
+  $('#btn-clear').addEventListener('click',()=> clearAll());
+  $('#q').addEventListener('input',e=>{ state.q=e.target.value; buildCards(); });
+  $('#sort').addEventListener('change',e=>{ state.sort=e.target.value; renderAll(); });
+  $('#btn-theme').addEventListener('click',()=>{ state.theme = state.theme==='light' ? 'dark' : 'light'; saveAll(); applyTheme(); });
+  // add category
+  $('#btn-add-cat').addEventListener('click',()=>{
+    const name=prompt('新分类名称：','New Category');
+    if(!name) return;
+    const color=randomPastel();
+    const id='c'+Math.random().toString(36).slice(2,8);
+    state.categories.push({id,name,color});
+    saveAll(); renderAll();
+  });
+  // page-level DnD .bib
+  window.addEventListener('dragover',e=>{ e.preventDefault(); e.stopPropagation(); });
+  window.addEventListener('drop',e=>{ e.preventDefault(); e.stopPropagation(); const f=e.dataTransfer?.files?.[0]; if(f && /\.bib$|\.txt$/i.test(f.name)) importBibFile(f); });
 }
-$('#btn-export-bib')?.addEventListener('click', handleExport);
-$('#btn-export-bib-2')?.addEventListener('click', handleExport);
 
-// 清空收藏（如页面有此按钮）
-$('#btn-clear-favs')?.addEventListener('click', ()=>{
-  if(confirm('确定清空所有收藏？')){
-    FavStore.clear();
-    updateFavCount();
-    const box = $("#fav-list");
-    if(box) box.innerHTML = '<p class="meta">尚未收藏任何文章。</p>';
-  }
-});
-
-load();
+/* Boot */
+(function boot(){ loadAll(); if(state.categories.length===0) state.categories=defaultCats(); bindEvents(); renderAll(); applyTheme(); })();
