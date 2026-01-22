@@ -4,23 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Physics Feeds – 最近更新</title>
-  <meta name="description" content="PRL、PRB、PRE、PRX、PRX Quantum、PRResearch、Nature 系列、Science/Science Advances、Nano Letters、NJP、CPL、CPB、NSR、arXiv cond-mat 等期刊与预印本聚合。">
+  <meta name="description" content="PRL、PRB、PRE、PRX、PRX Quantum、PRResearch、RMP、Nature 系列、Science/Science Advances、Nano Letters、NJP、CPL、CPB、NSR、arXiv cond-mat 等期刊与预印本聚合。">
   <link rel="preload" href="data/articles.json" as="fetch" crossorigin>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
   <header class="container">
-    <h1>Physics Feeds <span class="pill pill-brand">last updates</span></h1>
+    <div class="head-top">
+      <h1>Physics Feeds <span class="pill pill-brand">last updates</span></h1>
+      <div class="head-meta">
+        <span class="pill" id="coverage-pill">数据加载中…</span>
+        <span class="pill" id="new-pill" title="相对你上次访问新增的条目">新增 <b id="new-count">0</b></span>
+      </div>
+    </div>
 
     <div class="toolbar">
-      <input id="q" type="search" placeholder="关键词（标题/作者/摘要）… 回车" />
+      <input id="q" type="search" placeholder="关键词（标题/作者/摘要/DOI）… 回车" />
       <select id="src" title="期刊来源（单选）"></select>
       <select id="win" title="日期窗口（单选）">
         <option value="1">最近 1 天</option>
         <option value="3" selected>最近 3 天</option>
         <option value="7">最近 7 天</option>
         <option value="14">最近 14 天</option>
-        <option value="all">全部时间</option>
+        <option value="all">全部（受后端窗口限制）</option>
       </select>
       <select id="stat" title="状态（单选）">
         <option value="all" selected>全部状态</option>
@@ -28,30 +34,98 @@
         <option value="accepted">Accepted</option>
         <option value="preprint">Preprint</option>
       </select>
-      <button id="btn-refresh" title="重新加载数据">🔄 刷新</button>
-      <button id="btn-favs" class="accent" title="打开收藏夹">⭐ 收藏夹 (<span id="fav-count">0</span>)</button>
-      <button id="btn-export-bib" title="导出所选收藏为 BibTeX">📚 导出 .bib</button>
+      <select id="view" title="视图（单选）">
+        <option value="all" selected>全部</option>
+        <option value="new">只看新增</option>
+        <option value="kw">只看关键词命中</option>
+      </select>
+      <button id="btn-refresh" class="btn" title="重新加载数据">🔄 刷新</button>
+      <button id="btn-prefs" class="btn soft" title="设置关键词 / 高亮 / 过滤">⚙️ 关键词</button>
+      <button id="btn-digest" class="btn soft" title="基于你的阅读状态与笔记生成本周 digest">🗓️ 本周 digest</button>
+      <button id="btn-rss" class="btn soft" title="查看 RSS 抓取状态（构建报告）">🛰 RSS 状态</button>
+      <button id="btn-favs" class="btn accent" title="打开收藏夹">⭐ 收藏夹 (<span id="fav-count">0</span>)</button>
+      <button id="btn-copy-favs" class="btn" title="一键复制收藏条目的 BibTeX（含你的 note/status）">📋 复制收藏 BibTeX</button>
     </div>
 
     <div class="legend" id="legend"></div>
-    <div class="meta-line">共 <span id="total">0</span> 篇</div>
+    <div class="meta-line">共 <span id="total">0</span> 篇 · 生成于 <span id="generatedAt">—</span></div>
   </header>
 
   <main class="container">
     <section id="cards" class="cards" aria-live="polite"></section>
   </main>
 
+  <!-- Favorites -->
   <dialog id="fav-dialog">
     <form method="dialog">
-      <header>
+      <header class="dlg-head">
         <h2>⭐ 我的收藏</h2>
-        <menu><button value="close">关闭</button></menu>
+        <menu><button class="btn" value="close">关闭</button></menu>
       </header>
-      <div class="fav-controls">
-        <button id="btn-clear-favs" class="danger" title="清空收藏">🗑️ 清空</button>
-        <button id="btn-export-bib-2" class="accent" title="导出 BibTeX">📚 导出 .bib</button>
+      <div class="dlg-controls">
+        <button id="btn-clear-favs" class="btn danger" title="清空收藏" type="button">🗑️ 清空</button>
+        <button id="btn-copy-favs-2" class="btn accent" title="复制 BibTeX" type="button">📋 复制 BibTeX</button>
       </div>
       <div id="fav-list" class="fav-list"></div>
+    </form>
+  </dialog>
+
+  <!-- Preferences (keywords) -->
+  <dialog id="prefs-dialog">
+    <form method="dialog" class="dlg">
+      <header class="dlg-head">
+        <h2>⚙️ 关键词订阅 / 高亮</h2>
+        <menu><button class="btn" value="close">关闭</button></menu>
+      </header>
+
+      <div class="dlg-body">
+        <p class="hint">每行一个关键词或短语（不区分大小写）。用于 <b>高亮</b> 与 “只看关键词命中”。</p>
+        <textarea id="kw-text" rows="8" placeholder="例如：altermagnet\nSTM\nQPI\nskyrmion bag"></textarea>
+
+        <div class="row">
+          <label class="check"><input type="checkbox" id="kw-highlight" checked> 在标题/摘要中高亮关键词</label>
+          <label class="check"><input type="checkbox" id="kw-in-summary" checked> 在摘要中也高亮</label>
+        </div>
+
+        <div class="row">
+          <button id="btn-save-prefs" class="btn accent" type="button">保存设置</button>
+          <button id="btn-clear-prefs" class="btn" type="button">清空关键词</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Weekly digest -->
+  <dialog id="digest-dialog">
+    <form method="dialog" class="dlg">
+      <header class="dlg-head">
+        <h2>🗓️ 本周 digest</h2>
+        <menu><button class="btn" value="close">关闭</button></menu>
+      </header>
+      <div class="dlg-body">
+        <p class="hint">
+          统计范围：过去 7 天内你修改过 <b>阅读状态</b> 或 <b>笔记</b> 的条目（本地保存，不上传）。
+        </p>
+        <div class="row">
+          <button id="btn-copy-digest-md" class="btn accent" type="button">📋 复制 digest（Markdown）</button>
+          <button id="btn-copy-digest-bib" class="btn" type="button">📋 复制 digest（BibTeX）</button>
+        </div>
+        <pre id="digest-text" class="pre"></pre>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- RSS status -->
+  <dialog id="rss-dialog">
+    <form method="dialog" class="dlg">
+      <header class="dlg-head">
+        <h2>🛰 RSS 抓取状态</h2>
+        <menu><button class="btn" value="close">关闭</button></menu>
+      </header>
+      <div class="dlg-body">
+        <p class="hint">来自最近一次构建的 build report（用于排查某些 RSS 失效/被屏蔽）。</p>
+        <div id="rss-list" class="rss-list"></div>
+      </div>
     </form>
   </dialog>
 
@@ -61,14 +135,35 @@
         <span class="badge"></span>
         <span class="type"></span>
         <span class="time"></span>
-        <button class="star" title="加入收藏">☆</button>
+        <span class="newtag" title="相对你上次访问新增">NEW</span>
+        <button class="star" title="加入收藏" type="button">☆</button>
       </div>
+
       <h3 class="title"></h3>
       <p class="meta"></p>
       <p class="abs"></p>
+
+      <div class="user-row">
+        <select class="status" title="阅读状态">
+          <option value="">— 状态 —</option>
+          <option value="todo">To read</option>
+          <option value="reading">Reading</option>
+          <option value="done">Done</option>
+        </select>
+        <button class="btn-note btn soft" type="button" title="添加/编辑笔记（将写入 BibTeX 的 note 字段）">🗒️ Note</button>
+        <button class="btn-copy btn" type="button" title="一键复制此条目的 BibTeX（含你的 note/status）">📋 BibTeX</button>
+      </div>
+
+      <div class="note-box">
+        <textarea class="note" rows="3" placeholder="你的评述/要点…（会进入 BibTeX 的 note 字段）"></textarea>
+        <div class="hint small">提示：这里的内容本地保存。复制 BibTeX 时会自动合并 status + note。</div>
+      </div>
+
       <div class="links"></div>
     </article>
   </template>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="assets/app.js" type="module"></script>
 </body>
