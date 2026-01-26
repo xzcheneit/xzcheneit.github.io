@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-01-26T02:22:31.168267+00:00",
+  "generatedAt": "2026-01-26T03:33:25.298591+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-01-25T00:00:00+00:00",
     "earliest": "2026-01-12T10:00:00+00:00",
-    "count": 1074
+    "count": 1075
   },
   "sources": [
     {
@@ -148,6 +148,13 @@
       "fg": "#0f172a"
     },
     {
+      "key": "Newton",
+      "journal": "Newton",
+      "short": "Newton",
+      "bg": "#fde2e4",
+      "fg": "#9f1d2d"
+    },
+    {
       "key": "arXivCM",
       "journal": "arXiv: cond-mat",
       "short": "arXiv cond-mat",
@@ -156,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-01-26T02:22:31.168267+00:00",
+    "generatedAt": "2026-01-26T03:33:25.298591+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -446,12 +453,12 @@
         "origin": "recent"
       },
       {
-        "url": "https://pubs.acs.org/action/showFeed?type=etoc&feed=rss&jc=nalefd",
-        "ok": true,
+        "url": "https://pubs.acs.org/action/showFeed?type=asap&feed=rss&jc=nalefd",
+        "ok": false,
         "status": 200,
-        "contentType": "application/xml;charset=UTF-8",
-        "entries": 36,
-        "bozo": false,
+        "contentType": "text/html;charset=UTF-8",
+        "entries": 0,
+        "bozo": true,
         "error": "",
         "key": "NanoLett",
         "journal": "Nano Letters",
@@ -459,7 +466,7 @@
         "origin": "recent"
       },
       {
-        "url": "https://iopscience.iop.org/journal/1367-2630/rss",
+        "url": "https://iopscience.iop.org/1367-2630?rss=1/rss",
         "ok": false,
         "status": 200,
         "contentType": "text/html; charset=UTF-8",
@@ -472,10 +479,10 @@
         "origin": "heuristic"
       },
       {
-        "url": "https://iopscience.iop.org/journal/0256-307X/rss",
+        "url": "https://cpl.iphy.ac.cn/rss/current.xml/rss",
         "ok": false,
-        "status": 200,
-        "contentType": "text/html; charset=UTF-8",
+        "status": 404,
+        "contentType": "application/json",
         "entries": 0,
         "bozo": true,
         "error": "",
@@ -485,10 +492,10 @@
         "origin": "heuristic"
       },
       {
-        "url": "https://iopscience.iop.org/journal/1674-1056/rss",
+        "url": "https://cpb.iphy.ac.cn/rss/rss_lmqy.xml/rss",
         "ok": false,
         "status": 200,
-        "contentType": "text/html; charset=UTF-8",
+        "contentType": "text/html;charset=UTF-8",
         "entries": 0,
         "bozo": true,
         "error": "",
@@ -498,15 +505,28 @@
         "origin": "heuristic"
       },
       {
-        "url": "https://academic.oup.com/rss/site_5332/3198.xml",
+        "url": "https://academic.oup.com/rss/site_5332/advanceAccess_3198.xml",
         "ok": true,
         "status": 200,
         "contentType": "text/xml",
-        "entries": 12,
+        "entries": 4,
         "bozo": false,
         "error": "",
         "key": "NSR",
         "journal": "National Science Review",
+        "type": "published",
+        "origin": "recent"
+      },
+      {
+        "url": "https://www.cell.com/newton/rss",
+        "ok": false,
+        "status": 403,
+        "contentType": "text/html; charset=UTF-8",
+        "entries": 0,
+        "bozo": true,
+        "error": "",
+        "key": "Newton",
+        "journal": "Newton",
         "type": "published",
         "origin": "recent"
       },
@@ -743,12 +763,24 @@
       "journal": "National Science Review",
       "journalShort": "NSR",
       "type": "published",
-      "title": "Correction to: Advancements in superconducting quantum computing",
+      "title": "Electrochemical hydroxylation of alkenes with H2O",
       "authors": [],
       "date": "2026-01-24T00:00:00+00:00",
-      "link": "https://academic.oup.com/nsr/article/doi/10.1093/nsr/nwaf582/8440007?rss=1",
-      "doi": "10.1093/nsr/nwaf582",
-      "summary": ""
+      "link": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag047/8440146?rss=1",
+      "doi": "10.1093/nsr/nwag047",
+      "summary": "Abstract Alcohol is one of the most prevalent functional groups found in biologically active molecules with unparalleled abundance and structural diversity. The hydroxylation reaction of alkenes represents a convenient approach for synthesizing such molecules. However, a general and direct method featuring a broad substrate scope and good functional group tolerance remains elusive. Herein, we report our efforts in applying electrochemistry to accomplish the hydroxylation of alkenes utilizing H 2 O as the sole source of hydroxyl without the need for stoichiometric oxidants and strong acidic reagents. This process operates via the formation of a high-valence cobalt (IV) intermediate, which could readily be entrapped by water to deliver the desired alcohols product. Mechanistic studies, cyclic voltammetry analysis and density functional theory calculations have been conducted to verify the feasibility of cobalt valence changes, including the generation of cobalt hydride species, the formation of intermediates after hydrogen atom transfer, the reasonable oxidation potential from Co (III) to Co (IV), which substantiate the proposed reaction pathways. Furthermore, the late-stage modification of biorelevant molecules has demonstrated the promising potential applications of this approach in synthetic chemistry."
+    },
+    {
+      "journalKey": "NSR",
+      "journal": "National Science Review",
+      "journalShort": "NSR",
+      "type": "published",
+      "title": "Stacked-overlapped graphdiyne nano-iontronics enabling enhanced monovalent/divalent cation selectivity for single-cell pH detection",
+      "authors": [],
+      "date": "2026-01-24T00:00:00+00:00",
+      "link": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag050/8440139?rss=1",
+      "doi": "10.1093/nsr/nwag050",
+      "summary": "Abstract Developing nano-iontronic devices that minimize ionic interference is essential for precise measurements in complex physiological systems. Graphdiyne (GDY), a novel carbon allotrope featuring sub-nanometer pores, enables effective regulation of ionic transport and is therefore a promising material for high-performance iontronic applications. Here, we report a pH-responsive nano-iontronic device fabricated by stacking and overlapping graphdiyne (so-GDY) layers onto the tip of the nanopipette. This so-GDY-based pH nano-iontronic sensor exhibits a linear decrease in ionic current under negative potential as the pH decreases from 8.00 to 5.50. This response is attributed to protonation of the oxygen-containing functional groups on the so-GDY surface and edges, which diminishes the negative surface charge and thereby reduces ionic conductivity. A key advantage of this nano-iontronic device is its excellent selectivity, demonstrating robust resistance to interference from divalent cations (Mg²⁺, Ca²⁺) and small molecules within the pH range 8.00-5.50, while maintaining stable detection currents. The so-GDY-based pH nano-iontronic device achieves typical monovalent-to-divalent cation selectivity ratio (&lt;0.4), alongside excellent repeatability, reversibility, and stability. This combination of features yields a biocompatible, high-resolution tool for minimally invasive, real-time pH measurements at the single-cell and even at a single-organelle level, opening new avenues for investigating cellular dynamics and disease pathogenesis with enhanced clarity."
     },
     {
       "journalKey": "arXivCM",
@@ -4543,6 +4575,30 @@
       "link": "https://www.nature.com/articles/s41563-025-02469-3",
       "doi": "10.1038/s41563-025-02469-3",
       "summary": "Nature Materials, Published online: 23 January 2026; doi:10.1038/s41563-025-02469-3 Metasurfaces and metamaterials (or meta-optics) and their optoelectronic hybrid integration are set to drive the next era of computing, sensing and communications. As electronic systems reach fundamental limits, optical-enabled artificial intelligence emerges as a way forward, with meta-optics enabling speed, efficiency and scalability. We argue the need for comprehensive national innovation strategies to exploit the value of meta-optics in the photonics industry."
+    },
+    {
+      "journalKey": "NSR",
+      "journal": "National Science Review",
+      "journalShort": "NSR",
+      "type": "published",
+      "title": "Fabric topological haptic proxy for interactive virtual reality",
+      "authors": [],
+      "date": "2026-01-23T00:00:00+00:00",
+      "link": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag041/8439535?rss=1",
+      "doi": "10.1093/nsr/nwag041",
+      "summary": "Abstract Physical objects serving as haptic proxies offer a promising approach to enrich tactile experience in virtual reality. However, conventional haptic proxies are hampered by prohibitive costs, limited reusability, and the logistical burden of creating and storing numerous object-specific models. Here, we introduce a fabric-based topological haptic proxy (FTHP) that functions as a programmable and universal interface. Our approach synergistically integrates origami-inspired topological constraints with triboelectric sensor yarns. The engineered topological design, featuring heterogeneous rigid and flexible segments, restricts deformation pathways, ensuring structural stability and generating distinct, classifiable electrical signals for different interactions. This allows a single, reusable FTHP to be dynamically reconfigured into multiple functional states (e.g. a flat touchpad or various 3D geometric controllers), bypassing the need for a rigid one-to-one correspondence between physical props and pre-stored virtual assets. Integrated with a convolutional neural network (CNN), the system achieves a 92.4% recognition accuracy across 14 distinct actions and 3 interaction modes. The FTHP presents a scalable and versatile platform for high-fidelity haptic interaction, advancing the design of more immersive and accessible VR systems."
+    },
+    {
+      "journalKey": "NSR",
+      "journal": "National Science Review",
+      "journalShort": "NSR",
+      "type": "published",
+      "title": "A mantle assist for the early geodynamo and planetary shielding",
+      "authors": [],
+      "date": "2026-01-23T00:00:00+00:00",
+      "link": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag046/8439531?rss=1",
+      "doi": "10.1093/nsr/nwag046",
+      "summary": ""
     },
     {
       "journalKey": "arXivCM",
@@ -10539,30 +10595,6 @@
       "pages": "010314",
       "citation": "PRX Quantum 7, 010314",
       "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "NanoLett",
-      "journal": "Nano Letters",
-      "journalShort": "Nano Lett.",
-      "type": "published",
-      "title": "Issue Editorial Masthead",
-      "authors": [],
-      "date": "2026-01-21T08:01:08+00:00",
-      "link": "https://pubs.acs.org/doi/10.1021/nlv026i002_2031519?af=R",
-      "doi": "10.1021/nlv026i002_2031519",
-      "summary": "Nano Letters, Volume 26, Issue 2, January 21, 2026."
-    },
-    {
-      "journalKey": "NanoLett",
-      "journal": "Nano Letters",
-      "journalShort": "Nano Lett.",
-      "type": "published",
-      "title": "Issue Publication Information",
-      "authors": [],
-      "date": "2026-01-21T08:01:08+00:00",
-      "link": "https://pubs.acs.org/doi/10.1021/nlv026i002_2031518?af=R",
-      "doi": "10.1021/nlv026i002_2031518",
-      "summary": "Nano Letters, Volume 26, Issue 2, January 21, 2026."
     },
     {
       "journalKey": "SciAdv",
@@ -18715,22 +18747,6 @@
       "journal": "Phys. Rev. Applied",
       "journalShort": "PR Applied",
       "type": "accepted",
-      "title": "<span>Harnessing curvature for helical-wave generation in spiral-based metamaterial structures</span>",
-      "authors": [
-        "Mohamed Roshdy and Osama R. Bilal"
-      ],
-      "date": "2026-01-13T10:00:00+00:00",
-      "link": "https://journals.aps.org/prapplied/accepted/b5071A89S2315d0094142ee9129fd5330c7488a0f",
-      "doi": "10.1103/hc58-b5cr",
-      "summary": "Linearly polarized elastic waves propagating in a linear path have been extensively explored in numerous applications from biomedical imaging to structural health monitoring. However, elastic waves propagating in a circularly polarized helical path are less explored because of the challenges in thei…",
-      "citation": "Phys. Rev. Applied",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRApplied",
-      "journal": "Phys. Rev. Applied",
-      "journalShort": "PR Applied",
-      "type": "accepted",
       "title": "<span>Electrical detection and control of synthetic antiferromagnets via perpendicular nanoscale magnetic tunnel junctions</span>",
       "authors": [
         "D. Giuliano, B. B. Vermeulen, V. Kateel, G. Talmelli, M. Gama Monteiro, S. Rao, C. Fleischmann, K. Wostyn, S. Couet, K. Temst, and V. D. Nguyen"
@@ -18771,6 +18787,22 @@
       "link": "https://journals.aps.org/prapplied/accepted/1b070A35Ua315202f567189821857e8d0a5fe8750",
       "doi": "10.1103/5561-1vzc",
       "summary": "Phase-contrast X-ray imaging overcomes low contrast in lightweight materials but suffers from an inherent trade-off between spatial resolution (SR) and contrast-to-noise ratio (CNR). We resolve this conflict through a physics-constrained wavelet fusion framework. By integrating high-SR direct recons…",
+      "citation": "Phys. Rev. Applied",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRApplied",
+      "journal": "Phys. Rev. Applied",
+      "journalShort": "PR Applied",
+      "type": "accepted",
+      "title": "<span>Harnessing curvature for helical-wave generation in spiral-based metamaterial structures</span>",
+      "authors": [
+        "Mohamed Roshdy and Osama R. Bilal"
+      ],
+      "date": "2026-01-13T10:00:00+00:00",
+      "link": "https://journals.aps.org/prapplied/accepted/b5071A89S2315d0094142ee9129fd5330c7488a0f",
+      "doi": "10.1103/hc58-b5cr",
+      "summary": "Linearly polarized elastic waves propagating in a linear path have been extensively explored in numerous applications from biomedical imaging to structural health monitoring. However, elastic waves propagating in a circularly polarized helical path are less explored because of the challenges in thei…",
       "citation": "Phys. Rev. Applied",
       "publisher": "American Physical Society"
     },
