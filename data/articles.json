@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-02-16T04:19:44.098073+00:00",
+  "generatedAt": "2026-02-16T05:42:35.826581+00:00",
   "windowDays": 14,
   "coverage": {
-    "latest": "2026-02-16T00:00:00+00:00",
+    "latest": "2026-02-16T05:00:00+00:00",
     "earliest": "2026-02-02T10:00:00+00:00",
-    "count": 1159
+    "count": 1162
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-02-16T04:19:44.098073+00:00",
+    "generatedAt": "2026-02-16T05:42:35.826581+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -545,10 +545,10 @@
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
-        "ok": false,
+        "ok": true,
         "status": 200,
         "contentType": "application/rss+xml",
-        "entries": 0,
+        "entries": 135,
         "bozo": false,
         "error": "",
         "key": "arXivCM",
@@ -559,6 +559,74 @@
     ]
   },
   "items": [
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Resource-Scalable Fully Quantum Metropolis-Hastings for Integer Linear Programming",
+      "authors": [
+        "Gabriel Escrig, Roberto Campos, M. A. Martin-Delgado"
+      ],
+      "date": "2026-02-16T05:00:00+00:00",
+      "link": "https://arxiv.org/abs/2602.11285",
+      "arxiv": "https://arxiv.org/abs/2602.11285",
+      "doi": null,
+      "summary": "Integer linear programming (ILP) remains computationally challenging due to its NP-complete nature despite its central role in scheduling, logistics, and design optimization. We introduce a fully quantum Metropolis-Hastings algorithm for ILP that implements a coherent random walk over the discrete feasible region using only reversible quantum circuits, without quantum-RAM assumptions or classical pre/post-processing. Each walk step is a unitary update that prepares coherent candidate moves, evaluates the objective and constraints reversibly -- including a constraint-satisfaction counter to enforce feasibility -- and encodes Metropolis acceptance amplitudes via a low-overhead linearized rule. At the logical level, the construction uses $\\mathcal{O}(n\\log_2 N)$ qubits to represent $n$ integer variables over the interval $[-N,\\,N-1]$, and the Toffoli-equivalent cost per Metropolis step grows linearly with the total logical qubit count. Using explicit ripple-carry adder constructions, we support linear objectives and mixed equality/inequality constraints. Numerical circuit-level simulations on a broad ensemble of randomly generated instances validate the predicted linear resource scaling and exhibit progressive thermalization toward low-cost feasible solutions under the annealing schedule. Overall, the method provides a coherent, resource-characterized baseline for fully quantum constraint programming and a foundation for incorporating additional quantum speedups in combinatorial optimization."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Accelerated Markov Chain Monte Carlo Simulation via Neural Network-Driven Importance Sampling",
+      "authors": [
+        "Michael Kim, Wei Cai"
+      ],
+      "date": "2026-02-16T05:00:00+00:00",
+      "link": "https://arxiv.org/abs/2602.12294",
+      "arxiv": "https://arxiv.org/abs/2602.12294",
+      "doi": null,
+      "summary": "Atomistic simulations provide valuable insights into the physical processes governing material behavior. However, their applicability is fundamentally constrained by the limited time scales accessible to brute-force simulations. This bottleneck often stems from complex energy landscapes where the systems stay trapped in metastable states for long periods of time. Yet, the long-term evolution is controlled by the transitions between the metastable states, which are rare events and difficult to observe. We present an importance sampling method designed to accelerate the time scale of Markov chain Monte Carlo (MCMC) simulations. By employing a bias potential, our approach enhances the sampling of rare transition events while preserving the relative probabilities of distinct transition pathways. The bias potential is represented by a neural network which enables the flexibility needed for high-dimensional systems. We propose a rigorous formulation to obtain the original transition rates between metastable states using transition paths obtained from the biased simulation. We further use a branching random walk (BRW) technique to enhance efficiency and to reduce variance. The proposed methodology is validated on 2-dimensional and 14-dimensional systems, demonstrating its accuracy and scalability."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "When Stein-Type Test Detects Equilibrium Distributions of Finite N-Body Systems",
+      "authors": [
+        "Jae Wan Shim"
+      ],
+      "date": "2026-02-16T05:00:00+00:00",
+      "link": "https://arxiv.org/abs/2602.12297",
+      "arxiv": "https://arxiv.org/abs/2602.12297",
+      "doi": null,
+      "summary": "Starting from the probability distribution of finite N-body systems, which maximises the Havrda--Charv\\'at entropy, we build a Stein-type goodness-of-fit test. The Maxwell--Boltzmann distribution is exact only in the thermodynamic limit, where the system is composed of infinitely many particles as N approaches infinity. For an isolated system with a finite number of particles, the equilibrium velocity distribution is compact and markedly non-Gaussian, being restricted by the fixed total energy. Using Stein's method, we first obtain a differential operator that characterises the target density. Its eigenfunctions are symmetric Jacobi polynomials, whose orthogonality yields a simple, parameter-free statistic. Under the null hypothesis that the data follows the finite-N distribution, the statistic converges to a chi-squared law, so critical values are available in closed form. Large-scale Monte Carlo experiments confirm exact size control and give a clear picture of the power. These findings quantify how quickly a finite system approaches the classical limit and provide a practical tool for testing kinetic models in regimes where normality cannot be assumed."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Molecular electronic chirality in copper phthalocyanine induced via twisted <i>π</i>-<i>π</i> stacking on bilayer graphene",
+      "authors": [
+        "Hao-Jun Qin",
+        "Rui-Jing Sun",
+        "Jia-Jun Liu",
+        "Wen-Ao Liao",
+        "Dao-Bo Wang",
+        "Jiang Yu",
+        "Tian-Hao Leng",
+        "Chao-Fei Liu",
+        "Wen-hao Zhang",
+        "Ying-Shuang Fu"
+      ],
+      "date": "2026-02-16T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-69713-5",
+      "doi": "10.1038/s41467-026-69713-5",
+      "summary": "Nature Communications, Published online: 16 February 2026; doi:10.1038/s41467-026-69713-5 Electronic chirality is a fascinating but still poorly understood phenomenon. Here, the authors show that CuPc molecules on bilayer graphene exhibit electronic chirality driven by twisted π–π interactions, which can be reversibly switched using an STM tip."
+    },
     {
       "journalKey": "NatCommun",
       "journal": "Nature Communications",
@@ -579,6 +647,47 @@
       "link": "https://www.nature.com/articles/s41467-026-69504-y",
       "doi": "10.1038/s41467-026-69504-y",
       "summary": "Nature Communications, Published online: 16 February 2026; doi:10.1038/s41467-026-69504-y Mussels are masters of sticking on wet surfaces. Here, authors discover a histidine-rich coiled coil protein in mussel glue that challenges the prevailing understanding of how mussel stick tight, with the findings relevant to the design of improved glues."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Quantitative analysis of small RNA pseudouridylation reveals interplay of PUS enzymes in tRNA anticodon stem-loop",
+      "authors": [
+        "Wenqing Liu",
+        "Yichen Ma",
+        "Liping Wang",
+        "Bo Lu",
+        "Yuyang Dong",
+        "Yuan Zhuang",
+        "Bo He",
+        "Meiling Zhang",
+        "Chengqi Yi"
+      ],
+      "date": "2026-02-16T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-69177-7",
+      "doi": "10.1038/s41467-026-69177-7",
+      "summary": "Nature Communications, Published online: 16 February 2026; doi:10.1038/s41467-026-69177-7 Pseudouridine (Ψ) is an abundant modification in human small RNA but the substrate specificity of its synthesis enzymes (PUSs) remains elusive. Here, the authors quantitatively profile Ψ map in small RNA, identify the substrates of PUSs and reveal unexpected PUSs interplay in tRNA pseudouridylation."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Deciphering DEL pocket patterns through contrastive learning",
+      "authors": [
+        "Wenyi Zhang",
+        "Yuxing Wang",
+        "Rui Zhan",
+        "Runtong Qian",
+        "Qi Hu",
+        "Jing Huang"
+      ],
+      "date": "2026-02-16T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-69663-y",
+      "doi": "10.1038/s41467-026-69663-y",
+      "summary": "Nature Communications, Published online: 16 February 2026; doi:10.1038/s41467-026-69663-y DNA-encoded libraries (DELs) hold promises for drug discovery but often underperform due to limited understanding of target compatibility. Here, authors present ErePOC, a pocket representation model that identifies protein pockets suitable for DEL screening."
     },
     {
       "journalKey": "NatCommun",
@@ -682,72 +791,6 @@
       "link": "https://www.nature.com/articles/s41467-026-69447-4",
       "doi": "10.1038/s41467-026-69447-4",
       "summary": "Nature Communications, Published online: 14 February 2026; doi:10.1038/s41467-026-69447-4 The roles of orbitofrontal and cingulate cortex in emotional decisions remain unclear. Here the authors show distinct timing between caudal orbitofrontal and cingulate signals, that orbitofrontal stimulation increases avoidance, and that physiological responses mirror behavior."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "ATRX loss couples genome instability at a G-rich repeat to dysregulation of human alpha-globin expression",
-      "authors": [
-        "Yuqi Shen",
-        "Kinam Gupta",
-        "Sue Mei Tan-Wong",
-        "Sean Wen",
-        "Christopher A. Fisher",
-        "Liezel Tamon",
-        "Nicholas J. Proudfoot",
-        "Richard J. Gibbons",
-        "Douglas R. Higgs"
-      ],
-      "date": "2026-02-14T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-69169-7",
-      "doi": "10.1038/s41467-026-69169-7",
-      "summary": "Nature Communications, Published online: 14 February 2026; doi:10.1038/s41467-026-69169-7 ATRX mutations are associated with developmental disorders and cancer, but how they affect gene regulation is unclear. Here, the authors report that ATRX loss can perturb alpha-globin gene expression by promoting G4- and R-loop-associated DNA damage via a G-rich repeat."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Enabling global-scale nucleic acid repositories through versatile, scalable biochemical selection from room-temperature archives",
-      "authors": [
-        "Joseph D. Berleant",
-        "James L. Banal",
-        "Dhriti K. Rao",
-        "Mark Bathe"
-      ],
-      "date": "2026-02-14T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-69402-3",
-      "doi": "10.1038/s41467-026-69402-3",
-      "summary": "Nature Communications, Published online: 14 February 2026; doi:10.1038/s41467-026-69402-3 Large biospecimen banks are limited by a lack of fast, flexible, database-like retrieval. Here, authors encode metadata as DNA barcodes on silica-encapsulated samples and demonstrate numerical range, categorical, and Boolean queries, enabling rapid, precise recall from pooled DNA/RNA archives."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Single-crystal 2D covalent organic frameworks for high-capacity methane storage",
-      "authors": [
-        "Baoqiu Yu",
-        "Felipe L. Oliveira",
-        "Wenliang Li",
-        "Qingmei Xu",
-        "Xu Ding",
-        "Shangwei Yuan",
-        "Yucheng Jin",
-        "Hua Liu",
-        "Hailong Wang",
-        "Xin Xiao",
-        "Jingping Zhang",
-        "Guillaume Maurin",
-        "Banglin Chen",
-        "Jianzhuang Jiang"
-      ],
-      "date": "2026-02-14T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-69614-7",
-      "doi": "10.1038/s41467-026-69614-7",
-      "summary": "Nature Communications, Published online: 14 February 2026; doi:10.1038/s41467-026-69614-7 2D covalent organic frameworks usually possess a polycrystalline nature as well as lower porosity and surface area than 3D counterparts, limiting their gas storage application. Here, the authors report the formation of single-crystal 2D covalent organic frameworks isomers with atom-resolution structures for methane storage."
     },
     {
       "journalKey": "NSR",
@@ -14302,22 +14345,6 @@
       "journal": "Phys. Rev. Applied",
       "journalShort": "PR Applied",
       "type": "accepted",
-      "title": "<span>Harmonic and subharmonic magnon generation in a surface-acoustic-wave resonator</span>",
-      "authors": [
-        "Yunyoung Hwang, Liyang Liao, Jorge Puebla, Marco Brühlmann, Carlos Gonzalez-Ballestero, Kouta Kondou, Naoki Ogawa, Sadamichi Maekawa, and Yoshichika Otani"
-      ],
-      "date": "2026-02-10T10:00:00+00:00",
-      "link": "https://journals.aps.org/prapplied/accepted/83075Y61W1a1e09e642d4381c137149105f006f7c",
-      "doi": "10.1103/mm21-ctsb",
-      "summary": "We experimentally observe the generation of magnon harmonics and subharmonics in an on-chip surface acoustic wave resonator incorporating a thin Co20Fe60B20 film, using micro-focused Brillouin light scattering. In our devices, rotating the in-plane magnetic field allows continuous tuning of the magn…",
-      "citation": "Phys. Rev. Applied",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRApplied",
-      "journal": "Phys. Rev. Applied",
-      "journalShort": "PR Applied",
-      "type": "accepted",
       "title": "<span>On-chip frequency-noise cancellation in nanomechanical resonators using cavity optomechanics</span>",
       "authors": [
         "Bhavesh Kharbanda, Geena Benga, Christian L. Degen, Alexander Eichler, Amirali Arabmoheghi, Mohammad Bereyhi, Alessio Zicoschi, Tobias J. Kippenberg, Nils J. Engelsen, and Letizia Catalini"
@@ -14326,6 +14353,22 @@
       "link": "https://journals.aps.org/prapplied/accepted/b8071K5cUe419907c9dc0936b7cfa16a2614cd4f8",
       "doi": "10.1103/l59w-nvcy",
       "summary": "Understanding and minimizing the sources of frequency noise in nanomechanical resonators is crucial for many sensing applications. In this work, we report an ultracoherent perimeter-mode nanomechanical resonator co-integrated with an on-chip optical cavity. This device combines low thermomechanical …",
+      "citation": "Phys. Rev. Applied",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRApplied",
+      "journal": "Phys. Rev. Applied",
+      "journalShort": "PR Applied",
+      "type": "accepted",
+      "title": "<span>Harmonic and subharmonic magnon generation in a surface-acoustic-wave resonator</span>",
+      "authors": [
+        "Yunyoung Hwang, Liyang Liao, Jorge Puebla, Marco Brühlmann, Carlos Gonzalez-Ballestero, Kouta Kondou, Naoki Ogawa, Sadamichi Maekawa, and Yoshichika Otani"
+      ],
+      "date": "2026-02-10T10:00:00+00:00",
+      "link": "https://journals.aps.org/prapplied/accepted/83075Y61W1a1e09e642d4381c137149105f006f7c",
+      "doi": "10.1103/mm21-ctsb",
+      "summary": "We experimentally observe the generation of magnon harmonics and subharmonics in an on-chip surface acoustic wave resonator incorporating a thin Co20Fe60B20 film, using micro-focused Brillouin light scattering. In our devices, rotating the in-plane magnetic field allows continuous tuning of the magn…",
       "citation": "Phys. Rev. Applied",
       "publisher": "American Physical Society"
     },
