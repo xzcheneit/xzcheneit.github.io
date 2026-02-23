@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-02-23T04:18:35.224602+00:00",
+  "generatedAt": "2026-02-23T05:41:04.444253+00:00",
   "windowDays": 14,
   "coverage": {
-    "latest": "2026-02-22T00:00:00+00:00",
+    "latest": "2026-02-23T05:00:00+00:00",
     "earliest": "2026-02-09T10:00:00+00:00",
-    "count": 1117
+    "count": 1123
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-02-23T04:18:35.224602+00:00",
+    "generatedAt": "2026-02-23T05:41:04.444253+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -545,10 +545,10 @@
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
-        "ok": false,
+        "ok": true,
         "status": 200,
         "contentType": "application/rss+xml",
-        "entries": 0,
+        "entries": 125,
         "bozo": false,
         "error": "",
         "key": "arXivCM",
@@ -559,6 +559,118 @@
     ]
   },
   "items": [
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Higher-Dimensional Information Lattice: Quantum State Characterization through Inclusion-Exclusion Local Information",
+      "authors": [
+        "Ian Matthias Fl\\'or, Claudia Artiaco, Thomas Klein Kvorning, Jens H. Bardarson"
+      ],
+      "date": "2026-02-23T05:00:00+00:00",
+      "link": "https://arxiv.org/abs/2512.20793",
+      "arxiv": "https://arxiv.org/abs/2512.20793",
+      "doi": null,
+      "summary": "We generalize the information lattice, originally defined for one-dimensional open-boundary chains, to characterize quantum many-body states in higher-dimensional geometries. In one dimension, the information lattice provides a position- and scale-resolved decomposition of von Neumann information. Its generalization is nontrivial because overlapping subsystems can form loops, allowing multiple regions to encode the same information. This prevents information from being assigned uniquely to any one of them. We address this by introducing a higher-dimensional information lattice in which local information is defined through an inclusion-exclusion principle. The inclusion-exclusion local information is assigned to the lattice vertices, each labeled by subsystem position and scale. We implement this construction explicitly in two dimensions and apply it to a range of many-body ground states with distinct entanglement structures. Within this position- and scale-resolved framework, we extract information-based localization lengths, direction-dependent critical exponents, characteristic edge mode information, long-range information patterns due to topological order, and signatures of non-Abelian fusion channels. Our work establishes a general information-theoretic framework for isolating the universal scale-resolved features of quantum many-body states in higher-dimensional geometries."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Liouvillian Gap in Dissipative Haar-Doped Clifford Circuits",
+      "authors": [
+        "Ha Eum Kim, Andrew D. Kim, Jong Yeon Lee"
+      ],
+      "date": "2026-02-23T05:00:00+00:00",
+      "link": "https://arxiv.org/abs/2602.03234",
+      "arxiv": "https://arxiv.org/abs/2602.03234",
+      "doi": null,
+      "summary": "Quantum chaos is commonly assessed through probe-dependent signatures such as spectral statistics, OTOCs, and entanglement growth, which need not coincide. Recently, a dissipative diagnostic of chaos has been proposed, in which an infinitesimal coupling to a bath yields a finite Liouvillian gap in chaotic systems, marking the onset of intrinsic relaxation. This raises a conceptual question: what is the minimal departure from Clifford dynamics needed for this intrinsically relaxing behavior to emerge? In this work, we investigate the dynamics under the Floquet two-qubit Clifford circuit interleaved with a finite density of Haar-random single-site gates, followed by a depolarizing channel with strength $\\gamma$. For Floquet Clifford circuits built from an \\textit{i}SWAP-class two-qubit gate, our analysis identifies two distinct regimes for the Liouvillian gap in the thermodynamic limit, exemplified by the undoped and fully doped extreme cases. In both regimes, the dissipative diagnostic signals chaotic behavior, differing only in how the gap scales with system size. In the undoped circuit, the gap scales as $\\Delta \\sim \\gamma N$, whereas in the fully doped circuit it remains finite as $N\\to\\infty$. We find that the doping density $p_h$ governs the crossover: as $p_h\\to 0$, any spatial structure remains undoped-like, whereas for finite $p_h$ certain structures can enter a finite-gap regime. These results are analytically established in the strongly dissipative regime $\\gamma\\gg 1$ by deriving lower bounds on the gap as a function of $p_h$ and explicit finite-gap constructions, and their extension toward $\\gamma\\to 0$ is supported by numerics. Importantly, our analytic treatment depends only on the spatial doping structure, so the same gap scaling persists even when the Haar rotations are independently resampled each Floquet period."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Spin Splitter and Inverse Effects in Altermagnetic Hybrid Structures",
+      "authors": [
+        "Nicol\\'as Sigales, Tim Kokkeler, Gonzalo de Polsi, Sebastian Bergeret"
+      ],
+      "date": "2026-02-23T05:00:00+00:00",
+      "link": "https://arxiv.org/abs/2602.07779",
+      "arxiv": "https://arxiv.org/abs/2602.07779",
+      "doi": null,
+      "summary": "We provide a theoretical description of diffusive charge and spin transport in hybrid devices containing altermagnets. Based on recently derived drift--diffusion equations for coupled charge and spin dynamics and general boundary conditions, our approach provides a unified description of the spin-splitter effect, i.e., the conversion of charge currents into spin currents, and its inverse in terms of experimentally accessible parameters. We analyze, analytically and numerically, the spin-splitter effect, demonstrating that an injected spin accumulation generates a measurable voltage difference across the transverse direction in the altermagnet. Motivated by a recent experiment, we also analyze a nonlocal spin-valve geometry in which an altermagnetic strip injects spin into a diffusive normal metal. We derive the resulting nonlocal voltage detected by a ferromagnetic electrode as a function of the relative orientation of the N'eel vector and the ferromagnetic polarization, accounting for the main experimental findings. For this setup, we further address spin precession during diffusive transport by analyzing the spin Hanle effect. Our results provide theoretical explanations and predictions for several altermagnet hybrid structures."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Neural Network Discovery of Paired Wigner Crystals in Artificial Graphene",
+      "authors": [
+        "Conor Smith, Yubo Yang, Zhou-Quan Wan, Yixiao Chen, Miguel A. Morales, Shiwei Zhang"
+      ],
+      "date": "2026-02-23T05:00:00+00:00",
+      "link": "https://arxiv.org/abs/2602.16798",
+      "arxiv": "https://arxiv.org/abs/2602.16798",
+      "doi": null,
+      "summary": "Moir\\'e systems have emerged as an exciting tunable platform for engineering and probing quantum matter. A large number of exotic states have been observed, stimulating intense efforts in experiment, theory, and simulation. Utilizing a neural-network-based quantum Monte Carlo approach, we discover a new ground state of the two-dimensional electron gas in a honeycomb moire potential at a filling factor of $\\nu_m =1/4$ (one electron every four moir\\'e minima). In this state, two opposite-spin electrons pair to form a singlet-like valence bond state which restores local $C_6$ symmetry in hexagonal molecules each spanning $6$ moir\\'e minima. These molecules of pairs then form a molecular Wigner crystal, leaving one quarter of the moir\\'e minima mostly depleted. The formation of such a paired Wigner crystal, absent any confining potential or attractive interaction to facilitate \"pre-assembling\" the molecule, provides a fascinating case of collective phenomena in strongly interacting quantum many-body systems, and opportunities to engineer exotic properties."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Identification of Solid-Electrolyte Interphase Species by Joint Characterization of Li-ion Battery Chemistry by Mass Spectrometry and Electro-Chemical Reaction Networks",
+      "authors": [
+        "Mona Abdelgaid, Oliver Hvidsten, Theo Sombret, Egon Kherchiche, Julien Maillard, Antonin Gajan, Patrick Bernard, Kamila Kazmierczak, Mauricio Araya-Polo, Germain Salvato Vallverdu, Carlos Afonso, Pierre Giusti, Kristin A. Persson"
+      ],
+      "date": "2026-02-23T05:00:00+00:00",
+      "link": "https://arxiv.org/abs/2602.17722",
+      "arxiv": "https://arxiv.org/abs/2602.17722",
+      "doi": null,
+      "summary": "The formation and stability of the solid electrolyte interphase (SEI) play a central role in determining the long-term performance and safety of modern electrochemical energy storage systems. Despite decades of research, the SEI's heterogeneous, dynamic, and multi-phase nature has defied comprehensive molecular-level characterization, creating a critical knowledge gap that limits rational battery design. In this work, we introduce a computational-experimental framework that integrates high-throughput quantum chemistry calculations, data-driven electro-chemical reaction networks (eCRNs), stochastic algorithms, and Laser Desorption/Ionization Fourier Transform Ion Cyclotron Resonance Mass Spectrometry (LDI-FTICR-MS) to unravel SEI formation in carbonate-based electrolytes without imposing predefined mechanisms. We constructed the most comprehensive eCRN to date, spanning over 10,000 species and 209 million reactions. Through stochastic network analysis, we successfully recovered 27 species that were previously reported in literature and predicted 28 novel SEI species, nearly doubling our scientific knowledge in this area. Each new species was rigorously confirmed through advanced mass spectra analysis of its distinct molecular and isotopic signatures. We kinetically refined the formation pathways for a select set of both previously reported and novel SEI products, revealing kinetically feasible elementary reaction mechanisms with activation barriers below 1 eV. This computational-experimental approach deepens our molecular-level understanding of SEI chemistry and supports the rational design of advanced electrolytes and engineered interphases for next-generation lithium-based batteries."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Clever Materials: When Models Identify Good Materials for the Wrong Reasons",
+      "authors": [
+        "Kevin Maik Jablonka"
+      ],
+      "date": "2026-02-23T05:00:00+00:00",
+      "link": "https://arxiv.org/abs/2602.17730",
+      "arxiv": "https://arxiv.org/abs/2602.17730",
+      "doi": null,
+      "summary": "Machine learning can accelerate materials discovery. Models perform impressively on many benchmarks. However, strong benchmark performance does not imply that a model learned chemistry. I test a concrete alternative hypothesis: that property prediction can be driven by bibliographic confounding. Across five tasks spanning MOFs (thermal and solvent stability), perovskite solar cells (efficiency), batteries (capacity), and TADF emitters (emission wavelength), models trained on standard chemical descriptors predict author, journal, and publication year well above chance. When these predicted metadata (\"bibliographic fingerprints\") are used as the sole input to a second model, performance is sometimes competitive with conventional descriptor-based predictors. These results show that many datasets do not rule out non-chemical explanations of success. Progress requires routine falsification tests (e.g., group/time splits and metadata ablations), datasets designed to resist spurious correlations, and explicit separation of two goals: predictive utility versus evidence of chemical understanding."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Diverse regulation of functional dimerization of a sugar transporter by different interfacial lipids",
+      "authors": [
+        "Yan Zhang",
+        "Weijing Zhao",
+        "Mojie Duan",
+        "Yang Shen",
+        "Jianping Li",
+        "Huayong Xie",
+        "Qiong Tong",
+        "Yongxiang Zhao",
+        "Jun Yang"
+      ],
+      "date": "2026-02-23T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-69804-3",
+      "doi": "10.1038/s41467-026-69804-3",
+      "summary": "Nature Communications, Published online: 23 February 2026; doi:10.1038/s41467-026-69804-3 The molecular mechanisms of lipid regulation of membrane proteins remain unclear. Here, authors combine solid-state NMR, biochemistry experiments, and molecular dynamics simulations to elucidate how lipids distinctly regulate membrane protein structure and function in lipid bilayers."
+    },
     {
       "journalKey": "NatCommun",
       "journal": "Nature Communications",
@@ -739,33 +851,6 @@
       "link": "https://www.nature.com/articles/s41467-026-69852-9",
       "doi": "10.1038/s41467-026-69852-9",
       "summary": "Nature Communications, Published online: 21 February 2026; doi:10.1038/s41467-026-69852-9 Understanding interfaces at sub-nanometer scales is vital for complex chemical reactions. Here, the authors advance Pattern-enhanced Resonant Soft X-ray Scattering, enabling efficient operando probing of chemical and structural dynamics at solid-liquid interfaces."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Auditing unauthorized training data from AI generated content using information isotopes",
-      "authors": [
-        "Tao Qi",
-        "Jinhua Yin",
-        "Dongqi Cai",
-        "Yueqi Xie",
-        "Huili Wang",
-        "Zhiyang Hu",
-        "Peiru Yang",
-        "Guoshun Nan",
-        "Zhili Zhou",
-        "Chuhan Wu",
-        "Lingjuan Lyu",
-        "Shangguang Wang",
-        "Yongfeng Huang",
-        "Nicholas D. Lane"
-      ],
-      "date": "2026-02-21T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-68862-x",
-      "doi": "10.1038/s41467-026-68862-x",
-      "summary": "Nature Communications, Published online: 21 February 2026; doi:10.1038/s41467-026-68862-x Here, the authors introduce information isotopes, a novel framework for tracing unauthorized training data in black-box AI systems, offering a practical tool for auditing data provenance and protecting data rights."
     },
     {
       "journalKey": "arXivCM",
@@ -7907,22 +7992,6 @@
       "journal": "Phys. Rev. B",
       "journalShort": "PRB",
       "type": "accepted",
-      "title": "<span>Ramp Josephson junctions of Al/Ti/Sr${}_{2}$RuO${}_{4}$: Observation of single-domain quantum oscillations and the detection of chiral surface current</span>",
-      "authors": [
-        "Zixuan Li, Yiqun Alex Ying, Brian M. Zakrzewski, Yan Xin, Yu Wang, Zhiqiang Mao, and Ying Liu"
-      ],
-      "date": "2026-02-19T10:00:00+00:00",
-      "link": "https://journals.aps.org/prb/accepted/1f07cO7cU97E391064ac86f82f8de4892e38a952c",
-      "doi": "10.1103/p14l-nq8z",
-      "summary": "The determination of how the phase of the superconducting order parameter in a superconductor varies with the spatial direction, which can be done only through the Josephson-effect-based phase-sensitive measurements, is crucial for the establishment of the precise pairing symmetry of the superconduc…",
-      "citation": "Phys. Rev. B",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRB",
-      "journal": "Phys. Rev. B",
-      "journalShort": "PRB",
-      "type": "accepted",
       "title": "<span>Site-decorated model for unconventional frustrated magnets: Ultranarrow phase crossover and spin reversal transition</span>",
       "authors": [
         "Weiguo Yin"
@@ -8011,6 +8080,22 @@
       "link": "https://journals.aps.org/prb/accepted/e0070O35X451d75a70a7456423c5f4ed50bfaba07",
       "doi": "10.1103/pnl1-7vcl",
       "summary": "Unidirectional magnetoresistance (UMR) in metallic bilayers arises from nonlinear spin–charge transport mediated by broken time-reversal and inversion symmetries, yet the role of magnons remains unsettled. We develop a theoretical framework that incorporates coupled electron–magnon dynamics, reveali…",
+      "citation": "Phys. Rev. B",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRB",
+      "journal": "Phys. Rev. B",
+      "journalShort": "PRB",
+      "type": "accepted",
+      "title": "<span>Ramp Josephson junctions of Al/Ti/Sr${}_{2}$RuO${}_{4}$: Observation of single-domain quantum oscillations and the detection of chiral surface current</span>",
+      "authors": [
+        "Zixuan Li, Yiqun Alex Ying, Brian M. Zakrzewski, Yan Xin, Yu Wang, Zhiqiang Mao, and Ying Liu"
+      ],
+      "date": "2026-02-19T10:00:00+00:00",
+      "link": "https://journals.aps.org/prb/accepted/1f07cO7cU97E391064ac86f82f8de4892e38a952c",
+      "doi": "10.1103/p14l-nq8z",
+      "summary": "The determination of how the phase of the superconducting order parameter in a superconductor varies with the spatial direction, which can be done only through the Josephson-effect-based phase-sensitive measurements, is crucial for the establishment of the precise pairing symmetry of the superconduc…",
       "citation": "Phys. Rev. B",
       "publisher": "American Physical Society"
     },
@@ -10592,7 +10677,7 @@
       "date": "2026-02-18T10:00:00+00:00",
       "link": "https://journals.aps.org/prl/accepted/06075Ye4Z521cf87d974509419dc9f5daaae5a06f",
       "doi": "10.1103/fyx7-jb1d",
-      "summary": "Combining high-speed photography with direct force measurements, we investigate the impact dynamics of drops of cornstarch–water mixtures—a premier example of shear-thickening fluids—across a wide range of impact conditions. Our study identifies three distinct impact regimes. In addition to the liqu…",
+      "summary": "",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -13731,22 +13816,6 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Anisotropic upper critical field beyond the Pauli limit in a nickelate superconductor: Evidence for a quantum fluctuation driven state</span>",
-      "authors": [
-        "Xue-Yan Wang, Cheng-Xue Chen, Zi-Ming Mai, Qiang Zhao, Wen-Long Yang, Fang-Hui Zhu, Mei-Ling Yan, Rui-Fen Dou, Chang-Min Xiong, Haiwen Liu, and Jia-Cai Nie"
-      ],
-      "date": "2026-02-17T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/9c074Ye5Wa610793e10e02e728f56fb9b66fb2e42",
-      "doi": "10.1103/mmpn-gl8z",
-      "summary": "Superconductivity can be destroyed by a magnetic field with an upper bound known as the Pauli limit. Here, we report a large violation of the Pauli-limit in both in-plane and perpendicular magnetic fields in La0.8Sr0.2NiO2 infinite-layer superconducting thin films. The critical field Hc2 shows a cle…",
-      "citation": "Phys. Rev. Lett.",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRL",
-      "journal": "Phys. Rev. Lett.",
-      "journalShort": "PRL",
-      "type": "accepted",
       "title": "<span>Macro-dipole-constrained learning of atomic charges for accurate electrostatic potentials at electrochemical interfaces</span>",
       "authors": [
         "Jing Yang, Bingxin Li, Samuel Mattoso, Ahmed Abdelkawy, Mira Todorova, and Jörg Neugebauer"
@@ -13755,6 +13824,22 @@
       "link": "https://journals.aps.org/prl/accepted/cf079Y2cXc216e85c9b19b982ee2f06615dd7391f",
       "doi": "10.1103/5hh2-wypm",
       "summary": "Large thermal fluctuations of the liquid phase obscure the weak macroscopic electric field that drives electrochemical reactions, rendering the extraction of reliable interfacial charge distributions from ab initio molecular dynamics extremely challenging. We introduce SMILE (Scalar Macro-dipole Int…",
+      "citation": "Phys. Rev. Lett.",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRL",
+      "journal": "Phys. Rev. Lett.",
+      "journalShort": "PRL",
+      "type": "accepted",
+      "title": "<span>Anisotropic upper critical field beyond the Pauli limit in a nickelate superconductor: Evidence for a quantum fluctuation driven state</span>",
+      "authors": [
+        "Xue-Yan Wang, Cheng-Xue Chen, Zi-Ming Mai, Qiang Zhao, Wen-Long Yang, Fang-Hui Zhu, Mei-Ling Yan, Rui-Fen Dou, Chang-Min Xiong, Haiwen Liu, and Jia-Cai Nie"
+      ],
+      "date": "2026-02-17T10:00:00+00:00",
+      "link": "https://journals.aps.org/prl/accepted/9c074Ye5Wa610793e10e02e728f56fb9b66fb2e42",
+      "doi": "10.1103/mmpn-gl8z",
+      "summary": "Superconductivity can be destroyed by a magnetic field with an upper bound known as the Pauli limit. Here, we report a large violation of the Pauli-limit in both in-plane and perpendicular magnetic fields in La0.8Sr0.2NiO2 infinite-layer superconducting thin films. The critical field Hc2 shows a cle…",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -17106,22 +17191,6 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Paired parton trial states for the superfluid-fractional Chern insulator transition</span>",
-      "authors": [
-        "Tevz̆ Lotric̆ and Steven H. Simon"
-      ],
-      "date": "2026-02-12T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/37073Y3fRa51c193e78c5a559c6cd78cc773c6a07",
-      "doi": "10.1103/l9rp-y68y",
-      "summary": "We consider a model of hard-core bosons on a lattice, half-filling a Chern band such that the system has a continuous transition between a fractional Chern insulator (FCI) and a superfluid state (SF) depending on the bandwidth to bandspacing ratio. We construct a parton-inspired trial wavefunction a…",
-      "citation": "Phys. Rev. Lett.",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRL",
-      "journal": "Phys. Rev. Lett.",
-      "journalShort": "PRL",
-      "type": "accepted",
       "title": "<span>Machine learning-enabled ab initio study of the isotope effect in SrTi${}^{18}$O${}_{3}$</span>",
       "authors": [
         "Jonathan Schmidt and Nicola A. Spaldin"
@@ -17130,6 +17199,22 @@
       "link": "https://journals.aps.org/prl/accepted/4007eYbeWdb11c9f36b09334f4c1501bfd18f35b7",
       "doi": "10.1103/4293-1g2r",
       "summary": "We use the self-consistent harmonic approximation (SSCHA) with machine learning interatomic potentials to calculate the effect of ${}^{18}$O substitution on the properties of quantum paraelectric SrTiO${}_{3}$ (STO). We find that calculations including both quantum and anharmonic effects are able to…",
+      "citation": "Phys. Rev. Lett.",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRL",
+      "journal": "Phys. Rev. Lett.",
+      "journalShort": "PRL",
+      "type": "accepted",
+      "title": "<span>Paired parton trial states for the superfluid-fractional Chern insulator transition</span>",
+      "authors": [
+        "Tevz̆ Lotric̆ and Steven H. Simon"
+      ],
+      "date": "2026-02-12T10:00:00+00:00",
+      "link": "https://journals.aps.org/prl/accepted/37073Y3fRa51c193e78c5a559c6cd78cc773c6a07",
+      "doi": "10.1103/l9rp-y68y",
+      "summary": "We consider a model of hard-core bosons on a lattice, half-filling a Chern band such that the system has a continuous transition between a fractional Chern insulator (FCI) and a superfluid state (SF) depending on the bandwidth to bandspacing ratio. We construct a parton-inspired trial wavefunction a…",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -17154,22 +17239,6 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Cold tracer in a hot bath: In and out of equilibrium</span>",
-      "authors": [
-        "Amer Al-Hiyasat, Sunghan Ro, and Julien Tailleur"
-      ],
-      "date": "2026-02-12T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/db072Y1eP6822d02b4471fa1dfc9c7e5923c5098a",
-      "doi": "10.1103/3tg7-xlr4",
-      "summary": "We study the dynamics of a zero-temperature overdamped tracer in a bath of Brownian particles. As the bath density is increased, numerical simulations show the tracer to transition from an active dynamics, characterized by boundary accumulation and ratchet currents, to an effective equilibrium regim…",
-      "citation": "Phys. Rev. Lett.",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRL",
-      "journal": "Phys. Rev. Lett.",
-      "journalShort": "PRL",
-      "type": "accepted",
       "title": "<span>Dynamical phase evolution of Coulomb-focused electrons in strong field ionization probed by a standing light wave</span>",
       "authors": [
         "Yuan Gu, Hao Liang, Weiran Zheng, Aofan Lin, Jiaye Zhang, Zichen Li, Juan Du, Lei Ying, Peilun He, Jan-Michael Rost, Sina Jacob, Maksim Kunitski, Till Jahnke, Sebastian Eckart, Kang Lin, and Reinhard Dörner"
@@ -17178,6 +17247,22 @@
       "link": "https://journals.aps.org/prl/accepted/3307fY63Wb418f96629e72877bbe84773ada614b0",
       "doi": "10.1103/63v1-3b63",
       "summary": "We investigate the dynamical phase evolution of Coulomb-focused electrons in strong-field ionization. We diffract the electrons with an ultrashort standing light wave to track their time-dependent phase. Our findings show that low-energy electrons exhibit a unique chromosome-shaped diffraction patte…",
+      "citation": "Phys. Rev. Lett.",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRL",
+      "journal": "Phys. Rev. Lett.",
+      "journalShort": "PRL",
+      "type": "accepted",
+      "title": "<span>Cold tracer in a hot bath: In and out of equilibrium</span>",
+      "authors": [
+        "Amer Al-Hiyasat, Sunghan Ro, and Julien Tailleur"
+      ],
+      "date": "2026-02-12T10:00:00+00:00",
+      "link": "https://journals.aps.org/prl/accepted/db072Y1eP6822d02b4471fa1dfc9c7e5923c5098a",
+      "doi": "10.1103/3tg7-xlr4",
+      "summary": "We study the dynamics of a zero-temperature overdamped tracer in a bath of Brownian particles. As the bath density is increased, numerical simulations show the tracer to transition from an active dynamics, characterized by boundary accumulation and ratchet currents, to an effective equilibrium regim…",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -17510,22 +17595,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Reverse segregation and self-organization in inclined chute flows of bidisperse granular mixtures</span>",
-      "authors": [
-        "Joseph M. Monti, Joel T. Clemmer, Ishan Srivastava, Leonardo E. Silbert, Gary S. Grest, and Jeremy B. Lechman"
-      ],
-      "date": "2026-02-12T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/2407cR54X7b1952db4cb0e11ca000079211829fcb",
-      "doi": "10.1103/yqhf-vctv",
-      "summary": "In the usual segregation scenario for stable inclined chute flows of bidisperse mixtures of fine and coarse spherical particles, coarse particles rise toward the free surface, forming a coarse-rich region atop the flowing pile. Beyond a threshold coarse-to-fine diameter ratio of approximately 4, con…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Surface nanocratering by localized plasma expansion induced by slow highly charged ions</span>",
       "authors": [
         "I. S. Elkamash, W. M. Moslem, R. Heller, S. Facsko, R. A. Wilhelm, F. Aumayr, and A. S. El-Said"
@@ -17534,6 +17603,22 @@
       "link": "https://journals.aps.org/pre/accepted/20075R6eY5eE211ef1975931f3eee9115816836f8",
       "doi": "10.1103/dfjr-6t3n",
       "summary": "Ion beam technology provides a powerful means for surface modification and nanostructuring of materials. In this work, slow highly charged xenon ions were used to fabricate well-defined nano-pits in thin polymethyl methacrylate (PMMA) films. The pit surface density scales linearly with the applied i…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Reverse segregation and self-organization in inclined chute flows of bidisperse granular mixtures</span>",
+      "authors": [
+        "Joseph M. Monti, Joel T. Clemmer, Ishan Srivastava, Leonardo E. Silbert, Gary S. Grest, and Jeremy B. Lechman"
+      ],
+      "date": "2026-02-12T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/2407cR54X7b1952db4cb0e11ca000079211829fcb",
+      "doi": "10.1103/yqhf-vctv",
+      "summary": "In the usual segregation scenario for stable inclined chute flows of bidisperse mixtures of fine and coarse spherical particles, coarse particles rise toward the free surface, forming a coarse-rich region atop the flowing pile. Beyond a threshold coarse-to-fine diameter ratio of approximately 4, con…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -18378,22 +18463,6 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Curvature perturbations from first-order phase transitions: Implications to black holes and gravitational waves</span>",
-      "authors": [
-        "Gabriele Franciolini, Yann Gouttenoire, and Ryusuke Jinno"
-      ],
-      "date": "2026-02-11T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/9e075Y3eP2228a0ec0966e52926358f7bf99aa63d",
-      "doi": "10.1103/tfcx-kzqx",
-      "summary": "Understanding whether primordial black holes form during strong first-order phase transition (FOPT) is a crucial open question in cosmology. We address this using a fully covariant formalism to study cosmological perturbations, highlighting previously overlooked gauge dependencies. We show that non-…",
-      "citation": "Phys. Rev. Lett.",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRL",
-      "journal": "Phys. Rev. Lett.",
-      "journalShort": "PRL",
-      "type": "accepted",
       "title": "<span>Quantum Mpemba effect in long-range spin systems</span>",
       "authors": [
         "Shion Yamashika and Filiberto Ares"
@@ -18402,6 +18471,22 @@
       "link": "https://journals.aps.org/prl/accepted/db073YefU831889bf0c49ea85a4b960a5cffdbd8d",
       "doi": "10.1103/52y5-8kl2",
       "summary": "One of the manifestations of the quantum Mpemba effect (QME) is that a tilted ferromagnet exhibits faster restoration of the spin-rotational symmetry after a quantum quench when starting from a larger tilt angle. This phenomenon has recently been observed experimentally in an ion trap that simulates…",
+      "citation": "Phys. Rev. Lett.",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRL",
+      "journal": "Phys. Rev. Lett.",
+      "journalShort": "PRL",
+      "type": "accepted",
+      "title": "<span>Curvature perturbations from first-order phase transitions: Implications to black holes and gravitational waves</span>",
+      "authors": [
+        "Gabriele Franciolini, Yann Gouttenoire, and Ryusuke Jinno"
+      ],
+      "date": "2026-02-11T10:00:00+00:00",
+      "link": "https://journals.aps.org/prl/accepted/9e075Y3eP2228a0ec0966e52926358f7bf99aa63d",
+      "doi": "10.1103/tfcx-kzqx",
+      "summary": "Understanding whether primordial black holes form during strong first-order phase transition (FOPT) is a crucial open question in cosmology. We address this using a fully covariant formalism to study cosmological perturbations, highlighting previously overlooked gauge dependencies. We show that non-…",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -19301,22 +19386,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Controllable Trajectories of Magnetic Micro-Swimmers: Unraveling the Role of Rotational Diffusivity and Geomagnetic Fields</span>",
-      "authors": [
-        "Megha Varma, Jatin Bhumarkar, Snigdha Thakur, and Venkateshwar Rao Dugyala"
-      ],
-      "date": "2026-02-10T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/98075Rd4Q9612526a5aa2084a92aa66d70f962fad",
-      "doi": "10.1103/gzd7-n5ph",
-      "summary": "Understanding the self-propulsion behaviour of active particles and predicting their trajectories is crucial for achieving desired paths by using external stimuli, such as chemical and thermal gradients, electric and magnetic fields, etc. This phenomenon plays a vital role in various fields, such as…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Phase transitions of coupled Ising chains with resultant temperature-dependent interactions</span>",
       "authors": [
         "Jozef Sznajd"
@@ -19325,6 +19394,22 @@
       "link": "https://journals.aps.org/pre/accepted/45074R37Y4613f22a3869a2591fbe7916a6b4604d",
       "doi": "10.1103/lyyb-53t6",
       "summary": "Nature of the ordered phases and character of the phase transitions of the Ising chain model with intrachain interaction j coupled by interchain: direct j2, indirect j1 and four-spin k interactions is studied by using hybrid method; combination of transfer matrix (TM) and molecular field approximati…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Controllable Trajectories of Magnetic Micro-Swimmers: Unraveling the Role of Rotational Diffusivity and Geomagnetic Fields</span>",
+      "authors": [
+        "Megha Varma, Jatin Bhumarkar, Snigdha Thakur, and Venkateshwar Rao Dugyala"
+      ],
+      "date": "2026-02-10T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/98075Rd4Q9612526a5aa2084a92aa66d70f962fad",
+      "doi": "10.1103/gzd7-n5ph",
+      "summary": "Understanding the self-propulsion behaviour of active particles and predicting their trajectories is crucial for achieving desired paths by using external stimuli, such as chemical and thermal gradients, electric and magnetic fields, etc. This phenomenon plays a vital role in various fields, such as…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -19445,22 +19530,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Sliding of a cylindrical shell into a rigid hole</span>",
-      "authors": [
-        "Yukiho Matsumoto, Keisuke Yoshida, and Tomohiko G. Sano"
-      ],
-      "date": "2026-02-10T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/3d07eR56Ye71882bf58b31c1ab021dd2006e38922",
-      "doi": "10.1103/hv9t-3h5w",
-      "summary": "Fitting two different materials is a versatile methodology in manufacturing complex structures. One of the canonical models for fitting is the snap-fit model, in which flexible materials and rigid structures are assembled by pushing their interlocking components together. The assembly via snap-fit i…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Stationary densities and delocalized domain walls in asymmetric exclusion processes competing for finite pools of resources</span>",
       "authors": [
         "Sourav Pal, Parna Roy, and Abhik Basu"
@@ -19469,6 +19538,22 @@
       "link": "https://journals.aps.org/pre/accepted/6b076RddX1d1ff2916590b8981081076f074fec83",
       "doi": "10.1103/727p-rk6g",
       "summary": "We explore the stationary densities and domain walls in the steady states of a pair of asymmetric exclusion processes (TASEP) antiparallelly coupled to two particle reservoirs without any spatial extent by using the model in Haldar et al., Phys. Rev. E 111, 014154 (2025). We show that the model admi…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Sliding of a cylindrical shell into a rigid hole</span>",
+      "authors": [
+        "Yukiho Matsumoto, Keisuke Yoshida, and Tomohiko G. Sano"
+      ],
+      "date": "2026-02-10T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/3d07eR56Ye71882bf58b31c1ab021dd2006e38922",
+      "doi": "10.1103/hv9t-3h5w",
+      "summary": "Fitting two different materials is a versatile methodology in manufacturing complex structures. One of the canonical models for fitting is the snap-fit model, in which flexible materials and rigid structures are assembled by pushing their interlocking components together. The assembly via snap-fit i…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
