@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-09T01:42:10.188750+00:00",
+  "generatedAt": "2026-03-09T02:38:37.199135+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-03-08T00:00:00+00:00",
     "earliest": "2026-02-23T10:00:00+00:00",
-    "count": 1141
+    "count": 1142
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-03-09T01:42:10.188750+00:00",
+    "generatedAt": "2026-03-09T02:38:37.199135+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -747,6 +747,138 @@
       "link": "https://www.nature.com/articles/s41467-026-70251-3",
       "doi": "10.1038/s41467-026-70251-3",
       "summary": "Nature Communications, Published online: 07 March 2026; doi:10.1038/s41467-026-70251-3 AI is transforming protein engineering, but the immobilization of enzymes often impairs their activity. Here, the authors present a machine-learning-based workflow that can be used to identify optimal nanohybrids with high activity recovery across diverse enzymes."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "A recipe for scalable attention-based MLIPs: unlocking long-range accuracy with all-to-all node attention",
+      "authors": [
+        "Eric Qu",
+        "Brandon M. Wood",
+        "Aditi S. Krishnapriyan",
+        "Zachary W. Ulissi"
+      ],
+      "date": "2026-03-06T18:57:04+00:00",
+      "link": "https://arxiv.org/abs/2603.06567v1",
+      "arxiv": "https://arxiv.org/abs/2603.06567v1",
+      "doi": null,
+      "summary": "Machine-learning interatomic potentials (MLIPs) have advanced rapidly, with many top models relying on strong physics-based inductive biases. However, as models scale to larger systems like biomolecules and electrolytes, they struggle to accurately capture long-range (LR) interactions, leading current approaches to rely on explicit physics-based terms or components. In this work, we propose AllScAIP, a straightforward, attention-based, and energy-conserving MLIP model that scales to O(100 million) training samples. It addresses the long-range challenge using an all-to-all node attention component that is data-driven. Extensive ablations reveal that in low-data/small-model regimes, inductive biases improve sample efficiency. However, as data and model size scale, these benefits diminish or even reverse, while all-to-all attention remains critical for capturing LR interactions. Our model achieves state-of-the-art energy/force accuracy on molecular systems, as well as a number of physics-based evaluations (OMol25), while being competitive on materials (OMat24) and catalysts (OC20). Furthermore, it enables stable, long-timescale MD simulations that accurately recover experimental observables, including density and heat of vaporization predictions."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Learning the action for long-time-step simulations of molecular dynamics",
+      "authors": [
+        "Filippo Bigi",
+        "Johannes Spies",
+        "Michele Ceriotti"
+      ],
+      "date": "2026-03-06T18:42:57+00:00",
+      "link": "https://arxiv.org/abs/2508.01068v2",
+      "arxiv": "https://arxiv.org/abs/2508.01068v2",
+      "doi": null,
+      "summary": "The equations of classical mechanics can be used to model the time evolution of countless physical systems, from the astrophysical to the atomic scale. Accurate numerical integration requires small time steps, which limits the computational efficiency -- especially in cases such as molecular dynamics that span wildly different time scales. Using machine-learning (ML) algorithms to predict trajectories allows one to greatly extend the integration time step, at the cost of introducing artifacts such as lack of energy conservation and loss of equipartition between different degrees of freedom of a system. We propose learning data-driven structure-preserving (symplectic and time-reversible) maps to generate long time-step classical dynamics and show that this method is equivalent to learning the mechanical action of the system of interest. These models can be learned based on short reference trajectories, and be transferred across thermodynamic conditions and chemical composition. We show that an action-derived ML integrator eliminates the pathological behavior of non-structure-preserving ML predictors, and that the method can be applied iteratively, serving as a correction to computationally cheaper direct predictors."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Unifying description of competing chiral and nematic superconducting states in twisted bilayer graphene",
+      "authors": [
+        "Lucas Baldo",
+        "Patric Holmvall",
+        "Annica M. Black-Schaffer"
+      ],
+      "date": "2026-03-06T18:36:23+00:00",
+      "link": "https://arxiv.org/abs/2603.06550v1",
+      "arxiv": "https://arxiv.org/abs/2603.06550v1",
+      "doi": null,
+      "summary": "We reveal a striking correspondence between electron- and phonon-driven pairing in twisted bilayer graphene (TBG) by mapping an atomistic electronically driven pairing model onto an effective inter-valley, intra-Chern description, originally proposed for phonon-mediated superconductivity. Within the unified framework of intra-Chern pairing, we analyze the competition between nematic and chiral superconducting states. The latter corresponds to the extreme Chern-polarized limit and thus hosts unpaired flat bands within the superconducting gap, which generally disfavors it relative to the nematic states. Crucially, nematic order is locally preferred at each momenta, but the optimal nematic directions are incompatible across the Brillouin zone due to the broken rotation symmetry. This momentum-space frustration enables a chiral ground state at large fillings or weak interactions. Our results thereby both provide a unified understanding of superconductivity in TBG, with a natural cooperation of electron- and phonon-mediated pairing, and clarify the microscopic origin of the competition between the chiral and nematic superconducting states."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Nanoscale Electronic Phase Separation Driven by Fe-site Ordering in Fe\\textsubscript{5-x}GeTe\\textsubscript{2}",
+      "authors": [
+        "Shreyashi Sinha",
+        "Ayan Jana",
+        "Suchanda Mondal",
+        "Ravi Prakash Singh",
+        "Manoranjan Kumar",
+        "Sujit Manna"
+      ],
+      "date": "2026-03-06T18:26:35+00:00",
+      "link": "https://arxiv.org/abs/2603.06539v1",
+      "arxiv": "https://arxiv.org/abs/2603.06539v1",
+      "doi": null,
+      "summary": "Understanding how local structural order governs electronic correlations is essential for revealing the microscopic mechanism underlying emergent behavior in two-dimensional magnets. In the layered van der Waals ferromagnet Fe\\textsubscript{5-x}GeTe\\textsubscript{2}, intrinsic Fe-site disorder provides a natural platform to probe this interplay. Here, we establish a direct atomic scale correlation between Fe-site ordering and local electronic structure by combining high-resolution scanning tunneling microscopy with density functional theory calculations. Scanning tunneling microscopy resolves two coexisting surface phases, a $\\sqrt{3} \\times \\sqrt{3}$ superstructure associated with ordered Fe(1) configurations and an undistorted $1 \\times 1$ hexagonal Te lattice in Fe(1)-deficient regions. Spatially resolved spectroscopy shows that the $\\sqrt{3}$-ordered domains exhibit metallic behavior, whereas Fe(1) vacant areas display a suppressed density of states(DOS) near the Fermi level, indicative of pseudogapped electronic states. The nanoscale coexistence of these distinct electronic responses provides direct evidence of electronic phase separation driven by Fe-site ordering. First-principles calculations reveal that symmetry allowed hybridization between Fe 3d and Te 5p orbitals reconstructs the low-energy electronic structure, giving rise to the contrasting tunneling signatures of ordered and disordered phases. Bias-dependent local DOS simulations reproduce the experimentally observed contrast evolution and reveal that hybridization induced out of plane orbital character governs the spatial modulation of tunneling conductance. These results provide a microscopic framework linking atomic-scale structural order to nanoscale electronic inhomogeneity in van der Waals magnets."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Deterministic Electrical Switching in Altermagnets via Surface Antisymmetry Groups",
+      "authors": [
+        "K. D. Belashchenko"
+      ],
+      "date": "2026-03-06T18:24:47+00:00",
+      "link": "https://arxiv.org/abs/2603.06537v1",
+      "arxiv": "https://arxiv.org/abs/2603.06537v1",
+      "doi": null,
+      "summary": "A surface antisymmetry group framework is developed to establish design rules for deterministic electrical switching of the Néel vector in a film of a collinear bipartite antiferromagnet. In centrosymmetric $d$-wave altermagnets, where current-induced torques vanish in the bulk, staggered effective fields can nevertheless exist as an interfacial response, whose allowed tensor form is determined by the surface antisymmetry subgroup for the given surface orientation. Separately, the structure of the spin conductivity tensor determines which surface orientations allow transverse spin current generation via the spin-splitter effect. Taken together, these symmetry-enforced properties establish which surface orientations of $d$-wave altermagnets can serve as deterministically switchable spin current sources in spin-torque heterostructures. Because the design rules are based solely on the surface antisymmetry point group, the required staggered axial response is robust against averaging over symmetry-equivalent surface facets and equilibrium roughness."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Towards Studying Superconductivity in the Fermi-Hubbard Model on Rydberg Atoms",
+      "authors": [
+        "Kübra Yeter-Aydeniz",
+        "Nora M. Bauer"
+      ],
+      "date": "2026-03-06T18:15:24+00:00",
+      "link": "https://arxiv.org/abs/2603.06529v1",
+      "arxiv": "https://arxiv.org/abs/2603.06529v1",
+      "doi": null,
+      "summary": "We present a method for calculating the ground state energy of the Fermi-Hubbard model leveraging Rydberg atom processors and sample-based quantum diagonalization (SQD). By exploiting the perturbative relationship between the Fermi-Hubbard and Heisenberg models, the procedure samples from the Heisenberg model as prepared on the Rydberg atom processor, and uses the samples to diagonalize the Fermi-Hubbard model for large U. We include anisotropy and next-nearest-neighbor interactions and discuss the relevant regime for quasi-superconductivity in the 1-dimensional Fermi- Hubbard model. Numerical and experimental results on the Aquila quantum processor are presented for ground state energy calculations as well as the chemical potential. We find that the Heisenberg model sampling in the studied regime is sufficient to converge near to the ground state for up to 56 qubits, and we see a clear advantage of Rydberg atom sampling as opposed to random sampling even with 10x more samples for diagonalization. We also present a gate-based implementation of the gate-based SQD algorithm on IBM Quantum hardware for 56-qubit Hubbard model as a benchmark. Finally, we provide a gap analysis for studying emergent superconductivity using this method."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "All-water supercapacitor enabled by 1-nm clay channels",
+      "authors": [
+        "Vasily Artemov",
+        "Svetlana Babiy",
+        "Yunfei Teng",
+        "Jiaming Ma",
+        "Alexander Ryzhov",
+        "Tzu-Heng Chen",
+        "Lucie Navratilova",
+        "Victor Boureau",
+        "Pascal Schouwink",
+        "Mariia Liseanskaia",
+        "Patrick Huber",
+        "Fikile Brushett",
+        "Lyesse Laloui",
+        "Giulia Tagliabue",
+        "Aleksandra Radenovic"
+      ],
+      "date": "2026-03-06T18:15:20+00:00",
+      "link": "https://arxiv.org/abs/2410.11983v4",
+      "arxiv": "https://arxiv.org/abs/2410.11983v4",
+      "doi": null,
+      "summary": "Water confined to channels one nanometer thick exhibits electrochemical behavior distinct from bulk water, including enhanced protonic conductivity and large dielectric anisotropy. Here, we exploit these characteristics to design a scalable electrochemical energy-storage system (\"blue capacitor\") constructed entirely from naturally abundant materials. By assembling layered clays and conductive graphene, we produce 1-nm-thick channels in which confined water acts as the sole electrolyte. We systematically study different clay types, the electrode composition, and separator thickness using complementary physicochemical and electrochemical techniques. The device operates stably up to 1.6 V, achieves specific capacitances of up to 40 F/g, nearly 100% coulombic efficiency, and stable performance over more than 60,000 charge-discharge cycles. Structural and dynamic analyses validate the device architecture, water purity, and proton transport in the nanopores. These results demonstrate that nanoconfined water can function as an electrolyte in a macroscopic electrochemical device, providing a platform for exploring sustainable aqueous energy-storage systems."
     },
     {
       "journalKey": "arXivCM",
@@ -2137,14 +2269,14 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Empirical validation of the polarization transition in a double-random field model of elections</span>",
+      "title": "<span>Intrinsic heralding and optimal decoders for non-Abelian topological order</span>",
       "authors": [
-        "Jan Korbel, Remah Dahdoul, and Stefan Thurner"
+        "Dian Jing, Pablo Sala, Liang Jiang, and Ruben Verresen"
       ],
       "date": "2026-03-06T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/d407dY25U7015b9131f04a7829a534114ddee1080",
-      "doi": "10.1103/9gjj-1df6",
-      "summary": "We model bipartisan elections where voters are exposed to two forces: local homophilic interactions and external influence from two political campaigns. The model is mathematically equivalent to the random field Ising model with a bimodal field. When both parties exceed a critical campaign spending,…",
+      "link": "https://journals.aps.org/prl/accepted/ba07cY57Xda1c792995a7ac43ecbeaf89b070adb0",
+      "doi": "10.1103/ccj7-ctd8",
+      "summary": "Topological order (TO) provides a natural platform for storing and manipulating quantum information. However, its stability to noise has only been systematically understood for Abelian TOs. In this work, we exploit the non-deterministic fusion of non-Abelian anyons to inform active error correction …",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -2169,14 +2301,14 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Intrinsic heralding and optimal decoders for non-Abelian topological order</span>",
+      "title": "<span>Empirical validation of the polarization transition in a double-random field model of elections</span>",
       "authors": [
-        "Dian Jing, Pablo Sala, Liang Jiang, and Ruben Verresen"
+        "Jan Korbel, Remah Dahdoul, and Stefan Thurner"
       ],
       "date": "2026-03-06T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/ba07cY57Xda1c792995a7ac43ecbeaf89b070adb0",
-      "doi": "10.1103/ccj7-ctd8",
-      "summary": "Topological order (TO) provides a natural platform for storing and manipulating quantum information. However, its stability to noise has only been systematically understood for Abelian TOs. In this work, we exploit the non-deterministic fusion of non-Abelian anyons to inform active error correction …",
+      "link": "https://journals.aps.org/prl/accepted/d407dY25U7015b9131f04a7829a534114ddee1080",
+      "doi": "10.1103/9gjj-1df6",
+      "summary": "We model bipartisan elections where voters are exposed to two forces: local homophilic interactions and external influence from two political campaigns. The model is mathematically equivalent to the random field Ising model with a bimodal field. When both parties exceed a critical campaign spending,…",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -6090,113 +6222,6 @@
       "summary": "We develop a first-principles framework for evaluating the fundamental length scales of superconductivity, namely the coherence length $ξ_0$ and the magnetic penetration depth $λ_\\mathrm{L}$, within superconducting density functional theory (SCDFT). By incorporating finite-momentum Cooper pairs, we formulate a microscopic scheme that enables a consistent and parameter-free determination of $ξ_0$, $λ_\\mathrm{L}$, and the superconducting transition temperature $T_\\mathrm{c}$ on the same theoretical footing. Applying the method to representative elemental superconductors, the A15 compound V$_3$Si, and H$_3$S under high pressure, we obtain results in good agreement with available experimental data. Furthermore, the unified access to $ξ_0$ and $λ_\\mathrm{L}$ allows us to construct the Uemura plot entirely from first principles, demonstrating that conventional elemental superconductors systematically exhibit small $T_\\mathrm{c}$/$T_\\mathrm{F}$, while higher-$T_\\mathrm{c}$ systems are characterized by the simultaneous realization of strong pairing and large phase stiffness. Our results establish a predictive first-principles route to superconducting length scales and provide a microscopic interpretation of empirical correlations in superconductivity."
     },
     {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Altermagnetic Metal-Organic Frameworks",
-      "authors": [
-        "Diego López-Alcalá",
-        "Andrei Shumilin",
-        "José J. Baldoví"
-      ],
-      "date": "2026-03-05T12:30:51+00:00",
-      "link": "https://arxiv.org/abs/2603.05112v1",
-      "arxiv": "https://arxiv.org/abs/2603.05112v1",
-      "doi": null,
-      "summary": "Altermagnetism has recently emerged as a new class of spin compensated magnetic materials that exhibit momentum dependent spin splitting despite having zero net magnetization. The origin of these electronic signatures lies in symmetry operations that connect opposite spin sublattices while allowing spin splitting in momentum space. While most candidate materials identified so far belong to inorganic crystals with fixed lattice symmetries, the realization of altermagnetism ultimately requires platforms in which magnetic symmetry can be deliberately engineered. In this Perspective, we discuss how metal-organic frameworks (MOFs) provide a unique chemical platform to address this challenge. We first place altermagnetism in the broader context of magnetic and electronically active metal-organic networks, highlighting how reticular chemistry enables precise control over lattice geometry, dimensionality and electronic structure. We then discuss how these features position framework materials as promising candidates for realizing altermagnetism and highlight the key challenges that must be addressed to translate theoretical proposals into experimentally accessible systems. Finally, we critically assess current experimental challenges and outline emerging directions for realizing and controlling altermagnetism in coordination framework materials, which emerge as a versatile and powerful platform for exploring new paradigms in spintronics."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Sampling the Liquid-Gas Critical Point with Boltzmann Generators",
-      "authors": [
-        "Luigi de Santis",
-        "John Russo",
-        "Andrea Ninarello"
-      ],
-      "date": "2026-03-05T12:29:22+00:00",
-      "link": "https://arxiv.org/abs/2603.05109v1",
-      "arxiv": "https://arxiv.org/abs/2603.05109v1",
-      "doi": "10.1063/5.0314239",
-      "summary": "Generative models based on invertible transformations provide a physics-aware route to sample equilibrium configurations directly from the Boltzmann distribution, enabling efficient exploration of complex thermodynamic landscapes. Here, we evaluate their applicability in regions where conventional simulations suffer from severe dynamical bottlenecks, focusing on the liquid-gas critical point of a Lennard-Jones fluid. We show that Boltzmann Generators capture essential signatures of critical behavior, retain reliable performance when trained at or near criticality, and extrapolate across neighboring states of the phase diagram. An intriguing observation is that the model's efficiency metric closely traces the underlying phase boundaries, hinting at a connection between generative performance and thermodynamics. However, the approach remains limited by the small system sizes currently accessible, which suppress the large fluctuations that characterize critical phenomena. Our results delineate the current capabilities and boundaries of Boltzmann Generators in challenging regions of phase space, while pointing toward future applications in problems dominated by slow dynamics, such as glass formation and nucleation."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Impurity-controlled vortex mobility and pair-breaking in fermionic superfluid rings",
-      "authors": [
-        "Buğra Tüzemen",
-        "Andrea Barresi",
-        "Gabriel Wlazłowski",
-        "Piotr Magierski",
-        "Klejdja Xhani"
-      ],
-      "date": "2026-03-05T12:26:28+00:00",
-      "link": "https://arxiv.org/abs/2510.24309v2",
-      "arxiv": "https://arxiv.org/abs/2510.24309v2",
-      "doi": null,
-      "summary": "Using time-dependent density functional theory, we study how density and size of impurities govern dissipation of persistent currents of fermionic superfluid rings in the BCS regime. The critical winding number for vortex emission increases with impurity density, but this enhancement is impurity size-dependent and capped by the pair-breaking threshold. Below this vortex-emission threshold, the winding number remains constant while flow energy dissipates through impurity-enhanced pair-breaking. Above the threshold, vortex-impurity interactions produce distinct mobility regimes-deflected trajectories, individual pinning, collective pinning, and inter-site hopping, controlled by the impurity size and density, which determine the dominant dissipation channel. These findings provide design principles for ultracold-atom experiments and insights into vortex-pinning dynamics in neutron-star crusts and superconductors."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Entropy Has No Direction: A Mirror-State Paradox Against Universal Monotonic Entropy Increase and a First-Principles Proof that Constraints Reshape the Entropy Distribution $P_{\\infty}(S;λ)$",
-      "authors": [
-        "Ting Peng"
-      ],
-      "date": "2026-03-05T12:22:21+00:00",
-      "link": "https://arxiv.org/abs/2602.15369v4",
-      "arxiv": "https://arxiv.org/abs/2602.15369v4",
-      "doi": null,
-      "summary": "We revisit textbook claims that entropy must increase and show that, under time-reversal invariant microscopic dynamics, no universal trajectory-wise or statistical assertion that the coarse-grained entropy $S(t)$ is non-decreasing can hold. The core is a mirror-state construction: for any microstate $A$ one constructs its time-reversed partner $B$ (momenta inverted); requiring $S(t)$ to be non-decreasing for both $A$ and $B$ forces every time to be a local minimum of $S$ and hence makes $S(t)$ constant along the trajectory. The consistent picture is that entropy is a stochastic variable described by a probability distribution $P(S)$ whose shape depends on constraints and boundary conditions; entropy-based regularities are emergent summaries of constraint-dependent microscopic dynamics, and in practice it is constraints and boundaries -- not entropy itself -- that one manipulates to achieve mixing, separation, or self-organization. Working with Boltzmann (coarse-grained) entropy on the energy shell, we then derive from first principles how constraints reshape the long-time entropy distribution $P_{\\infty}(S;λ)$ by altering the invariant measure through changes in the Hamiltonian and/or the accessible phase space. In the microcanonical setting we obtain a sharp criterion: the \\emph{only} way $P_{\\infty}^{(E)}(S;λ)$ can remain the same up to translation is when all accessible macrostate volumes are scaled by a common factor; otherwise the distribution changes structurally. We connect this framework to experiments on asymmetric nanopores and molecular gates, to macroscopic examples from civil engineering (windbreak forests, dikes, vortex suppression, traffic-flow control), and to natural phenomena such as lightning guided to lightning rods, snowflake and mineral-veil growth, and the sudden crystallisation of supercooled water."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Universality in driven open quantum matter",
-      "authors": [
-        "Lukas M. Sieberer",
-        "Michael Buchhold",
-        "Jamir Marino",
-        "Sebastian Diehl"
-      ],
-      "date": "2026-03-05T12:21:50+00:00",
-      "link": "https://arxiv.org/abs/2312.03073v2",
-      "arxiv": "https://arxiv.org/abs/2312.03073v2",
-      "doi": "10.1103/RevModPhys.97.025004",
-      "summary": "Universality is a powerful concept, which enables making qualitative and quantitative predictions in systems with extensively many degrees of freedom. It finds realizations in almost all branches of physics, including in the realm of nonequilibrium systems. Our focus here is on its manifestations within a specific class of nonequilibrium stationary states: driven open quantum matter. Progress in this field is fueled by a number of uprising platforms ranging from light-driven quantum materials over synthetic quantum systems like cold atomic gases to the functional devices of the noisy intermediate scale quantum era. These systems share in common that, on the microscopic scale, they obey the laws of quantum mechanics, while detailed balance underlying thermodynamic equilibrium is broken due to the simultaneous presence of Hamiltonian unitary dynamics and nonunitary drive and dissipation. The challenge is then to connect this microscopic physics to macroscopic observables, and to identify universal collective phenomena that uniquely witness the breaking of equilibrium conditions, thus having no equilibrium counterparts. In the framework of a Lindblad-Keldysh field theory, we discuss on the one hand the principles delimiting thermodynamic equilibrium from driven open stationary states, and on the other hand show how unifying concepts such as symmetries, the purity of states, and scaling arguments are implemented. We then present instances of universal behavior structured into three classes: new realizations of paradigmatic nonequilibrium phenomena, including a survey of first experimental realizations; novel instances of nonequilibrium universality found in these systems made of quantum ingredients; and genuinely quantum phenomena out of equilibrium, including in fermionic systems. We also discuss perspectives for future research on driven open quantum matter."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Domain-Direct Band Gaps: Classification and Material Realization",
-      "authors": [
-        "Yalan Wei",
-        "Hairui Ding",
-        "Shifang Li",
-        "Yuke Song",
-        "Chi Ren",
-        "Xiao Dong",
-        "Chaoyu He"
-      ],
-      "date": "2026-03-05T12:15:48+00:00",
-      "link": "https://arxiv.org/abs/2603.05103v1",
-      "arxiv": "https://arxiv.org/abs/2603.05103v1",
-      "doi": null,
-      "summary": "The conventional classification of direct band-gap semiconductors relies on point-like extrema in momentum space. Here, we introduce the concept of domain-direct band gaps, where the conduction-band minimum (CBM) and valence-band maximum (VBM) form extended manifolds in the Brillouin zone. We demonstrate this concept through the material realization of an extreme two-dimensional-two-dimensional (2D-2D) domain-direct band gap in twisted diamond. First-principles calculations show that both the CBM and VBM exhibit nearly flat 2D manifolds in the kx-ky plane with minimal energy variation (a few meV), yielding a direct band gap of 3.264 eV. In contrast, strong dispersion along the out-of-plane kz direction induces anisotropic carrier dynamics, with strongly suppressed in-plane Fermi velocities (down to about 10$^1$-10$^3$ m/s in certain directions) and much larger out-of-plane velocities (about 10$^6$ m/s). The nearly flat CBM and VBM manifolds enhance the joint density of states, leading to a pronounced optical absorption peak at the band gap onset. This new type of domain-direct gap, coupled with strong directional anisotropy, opens up opportunities for anisotropic optoelectronic applications. Our results establish domain-direct band gaps as a new class of semiconductors, demonstrating their feasibility in real materials."
-    },
-    {
       "journalKey": "PRL",
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
@@ -10052,22 +10077,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Tracer diffusion in granular suspensions: Testing the Enskog Kinetic theory with DSMC and molecular dynamics</span>",
-      "authors": [
-        "Antonio M. Puertas and Rubén Gómez González"
-      ],
-      "date": "2026-03-04T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/ce07aRa6Xc217a2f56b6072797d54b78fcd190b30",
-      "doi": "10.1103/q1vm-13xl",
-      "summary": "We investigate the diffusion of an intruder in a granular gas, with both components modeled as smooth hard spheres, both immersed in a low viscosity carrier fluid to form a particle-laden suspension. In this system, dissipative particle collisions coexist with the action of a solvent. The latter is …",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Elasticity and plasticity of epithelial gap closure</span>",
       "authors": [
         "Maryam Setoudeh and Pierre A. Haas"
@@ -10076,6 +10085,22 @@
       "link": "https://journals.aps.org/pre/accepted/0b07bYdbW2c1868ea8cd98f235523ad0d1de1dc8c",
       "doi": "10.1103/qtcv-gk3y",
       "summary": "Epiboly, during which a tissue closes around the surface of the egg, pervades animal development. This epithelial gap closure involves cell intercalations at the edge of the gap, but the interplay between these plastic cell rearrangements and the elasticity of the tissue is not understood. Here, ins…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Tracer diffusion in granular suspensions: Testing the Enskog Kinetic theory with DSMC and molecular dynamics</span>",
+      "authors": [
+        "Antonio M. Puertas and Rubén Gómez González"
+      ],
+      "date": "2026-03-04T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/ce07aRa6Xc217a2f56b6072797d54b78fcd190b30",
+      "doi": "10.1103/q1vm-13xl",
+      "summary": "We investigate the diffusion of an intruder in a granular gas, with both components modeled as smooth hard spheres, both immersed in a low viscosity carrier fluid to form a particle-laden suspension. In this system, dissipative particle collisions coexist with the action of a solvent. The latter is …",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -12105,22 +12130,6 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Observation of charmonium sequential suppression in heavy-ion collisions at the Relativistic Heavy Ion Collider</span>",
-      "authors": [
-        "B. E. Aboona et al."
-      ],
-      "date": "2026-03-03T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/6807bYfbWac1649255049de13ff9d8205662f180a",
-      "doi": "10.1103/ghzh-kv8z",
-      "summary": "We report measurements of charmonium sequential suppression in Ru+Ru and Zr+Zr collisions at $\\sqrt{{s}_{NN}}$ = 200 GeV with the STAR experiment at the Relativistic Heavy Ion Collider (RHIC). The inclusive yield ratio of $ψ$(2S) to J/$ψ$ as a function of transverse momentum is reported, along with …",
-      "citation": "Phys. Rev. Lett.",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRL",
-      "journal": "Phys. Rev. Lett.",
-      "journalShort": "PRL",
-      "type": "accepted",
       "title": "<span>Fractional quantum multiferroics from coupling of fractional quantum ferroelectricity and altermagnetism</span>",
       "authors": [
         "M. Q. Dong, B. Liu, Z. H. Dai, Zhi-Xin Guo, Hongjun Xiang, and Xin-Gao Gong"
@@ -12129,6 +12138,22 @@
       "link": "https://journals.aps.org/prl/accepted/0a071Y35X6a1ed99d5ff2e90a10e5f8f9135babb0",
       "doi": "10.1103/twhq-32db",
       "summary": "Multiferroics, which combine ferroelectric and magnetic order, offer a transformative platform for next-generation electronic devices. However, the intrinsic competition between the mechanisms driving ferroelectricity and magnetism in single-phase materials severely limits their performance, typical…",
+      "citation": "Phys. Rev. Lett.",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRL",
+      "journal": "Phys. Rev. Lett.",
+      "journalShort": "PRL",
+      "type": "accepted",
+      "title": "<span>Observation of charmonium sequential suppression in heavy-ion collisions at the Relativistic Heavy Ion Collider</span>",
+      "authors": [
+        "B. E. Aboona et al."
+      ],
+      "date": "2026-03-03T10:00:00+00:00",
+      "link": "https://journals.aps.org/prl/accepted/6807bYfbWac1649255049de13ff9d8205662f180a",
+      "doi": "10.1103/ghzh-kv8z",
+      "summary": "We report measurements of charmonium sequential suppression in Ru+Ru and Zr+Zr collisions at $\\sqrt{{s}_{NN}}$ = 200 GeV with the STAR experiment at the Relativistic Heavy Ion Collider (RHIC). The inclusive yield ratio of $ψ$(2S) to J/$ψ$ as a function of transverse momentum is reported, along with …",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -14139,22 +14164,6 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Direct Raman observation of the quantum metric in a quantum magnet</span>",
-      "authors": [
-        "Chao-Fan Wang, Han Ge, Jun-Yang Chen, Liusuo Wu, Xiaobin Chen, Jia-Wei Mei, and Mingyuan Huang"
-      ],
-      "date": "2026-03-02T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/9d072YacYb219f96679848a8ab898128c8c3fab62",
-      "doi": "10.1103/vh43-n1l1",
-      "summary": "The quantum geometric tensor (QGT) unifies the Berry curvature (its imaginary part) and the quantum metric (its real part), yet Raman studies of chiral phonons have so far accessed only the former. We perform circularly polarized Raman spectroscopy on the quantum magnet K${}_{2}$Co(SeO${}_{3}$)${}_{…",
-      "citation": "Phys. Rev. Lett.",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRL",
-      "journal": "Phys. Rev. Lett.",
-      "journalShort": "PRL",
-      "type": "accepted",
       "title": "<span>Geometry-driven lattice of photonic spin-meron tubes in free space</span>",
       "authors": [
         "Anand Hegde, Komal Gupta, Yanan Dai, and Chen-Bin Huang"
@@ -14163,6 +14172,22 @@
       "link": "https://journals.aps.org/prl/accepted/dd07fY1bU821b191c737275656a4d6f24f09a4296",
       "doi": "10.1103/rsyn-vysg",
       "summary": "We theoretically demonstrate the first photonic spin-meron tube lattice in free space using spin-angular momentum vectors. Square-block diffraction creates C4-symmetric beams with π/2 phase steps. Non-paraxial spin–orbit coupling then forms forms finite-length meron tubes (Nsk ≈±1/2), whose length i…",
+      "citation": "Phys. Rev. Lett.",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRL",
+      "journal": "Phys. Rev. Lett.",
+      "journalShort": "PRL",
+      "type": "accepted",
+      "title": "<span>Direct Raman observation of the quantum metric in a quantum magnet</span>",
+      "authors": [
+        "Chao-Fan Wang, Han Ge, Jun-Yang Chen, Liusuo Wu, Xiaobin Chen, Jia-Wei Mei, and Mingyuan Huang"
+      ],
+      "date": "2026-03-02T10:00:00+00:00",
+      "link": "https://journals.aps.org/prl/accepted/9d072YacYb219f96679848a8ab898128c8c3fab62",
+      "doi": "10.1103/vh43-n1l1",
+      "summary": "The quantum geometric tensor (QGT) unifies the Berry curvature (its imaginary part) and the quantum metric (its real part), yet Raman studies of chiral phonons have so far accessed only the former. We perform circularly polarized Raman spectroscopy on the quantum magnet K${}_{2}$Co(SeO${}_{3}$)${}_{…",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -19427,6 +19452,22 @@
       "journal": "Phys. Rev. Applied",
       "journalShort": "PR Applied",
       "type": "accepted",
+      "title": "<span>Pulse reversal in adiabatically modulated plasmonic waveguides</span>",
+      "authors": [
+        "Luca Stefanini, Jacob Khurgin, and Andrea Alú"
+      ],
+      "date": "2026-02-24T10:00:00+00:00",
+      "link": "https://journals.aps.org/prapplied/accepted/2c071Y1cX921c99780d04ce99f155e4ac201c795c",
+      "doi": "10.1103/qm62-c6m6",
+      "summary": "Time reflection emerges as the dual phenomenon of conventional reflection at a spatial interface, and it is induced by an abrupt and spatially uniform change in time of the optical properties of a material, forming a temporal interface. Strong time reflections require ultrafast processes and large m…",
+      "citation": "Phys. Rev. Applied",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRApplied",
+      "journal": "Phys. Rev. Applied",
+      "journalShort": "PR Applied",
+      "type": "accepted",
       "title": "<span>Sampling-driven training of deep belief networks using a coherent ising machine with spiking neural network</span>",
       "authors": [
         "Xing-Yu Wu, Chen-Rui Fan, Yusen Wu, and Chuan Wang"
@@ -19451,22 +19492,6 @@
       "link": "https://journals.aps.org/prapplied/accepted/b9075A17Hca1510d03892f69fd853a76c62b536ca",
       "doi": "10.1103/51tt-dr1t",
       "summary": "We present an analytical model for power transfer in a magnetoelectric film bulk acoustic resonator (FBAR) comprising a piezoelectric-magnetostrictive bilayer. The model describes the power flow between the elastic and magnetic systems, quantifying the transduction efficiency when the FBAR operates …",
-      "citation": "Phys. Rev. Applied",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRApplied",
-      "journal": "Phys. Rev. Applied",
-      "journalShort": "PR Applied",
-      "type": "accepted",
-      "title": "<span>Pulse reversal in adiabatically modulated plasmonic waveguides</span>",
-      "authors": [
-        "Luca Stefanini, Jacob Khurgin, and Andrea Alú"
-      ],
-      "date": "2026-02-24T10:00:00+00:00",
-      "link": "https://journals.aps.org/prapplied/accepted/2c071Y1cX921c99780d04ce99f155e4ac201c795c",
-      "doi": "10.1103/qm62-c6m6",
-      "summary": "Time reflection emerges as the dual phenomenon of conventional reflection at a spatial interface, and it is induced by an abrupt and spatially uniform change in time of the optical properties of a material, forming a temporal interface. Strong time reflections require ultrafast processes and large m…",
       "citation": "Phys. Rev. Applied",
       "publisher": "American Physical Society"
     },
