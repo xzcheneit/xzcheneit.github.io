@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-23T02:43:59.850432+00:00",
+  "generatedAt": "2026-03-23T04:23:42.111151+00:00",
   "windowDays": 14,
   "coverage": {
-    "latest": "2026-03-21T00:00:00+00:00",
+    "latest": "2026-03-23T04:00:00+00:00",
     "earliest": "2026-03-09T10:00:00+00:00",
-    "count": 1119
+    "count": 1124
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-03-23T02:43:59.850432+00:00",
+    "generatedAt": "2026-03-23T04:23:42.111151+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -545,10 +545,10 @@
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
-        "ok": false,
+        "ok": true,
         "status": 200,
         "contentType": "application/rss+xml",
-        "entries": 0,
+        "entries": 130,
         "bozo": false,
         "error": "",
         "key": "arXivCM",
@@ -559,6 +559,81 @@
     ]
   },
   "items": [
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Transient Thermodynamic Efficiency of Adaptive Inference in Continuously Nonstationary Environments",
+      "authors": [
+        "Aditya Gupta"
+      ],
+      "date": "2026-03-23T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2603.19324",
+      "arxiv": "https://arxiv.org/abs/2603.19324",
+      "doi": null,
+      "summary": "Adaptive physical and biological systems continually process fluctuating information from their environments. When the environment is nonstationary, inference itself becomes a nonequilibrium process with thermodynamic cost. We analyse a minimal stochastic model which is an overdamped particle in an adaptive double well potential whose control parameter tracks a drifting Ornstein Uhlenbeck signal. Using stochastic energetics, we derive explicit expressions for entropy production, mutual information rate, and a time dependent learning efficiency. High precision Langevin simulations reveal transient peaks in learning efficiency during rapid environmental shifts, absent in steady state averages. These results identify transient adaptive regimes as moments of maximal information to energy conversion, highlighting that maximal thermodynamic learning performance arises transiently rather than in steady state. Throughout this work, the environment is treated as an externally driven stochastic signal rather than a thermodynamic subsystem under control, and its intrinsic entropy production is therefore excluded from the thermodynamic accounting."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Unidirectionality of spin waves in Synthetic Antiferromagnets",
+      "authors": [
+        "F. Millo, J. -P. Adam, C. Chappert, J. -V. Kim, A. Mouhoub, A. Solignac, T. Devolder"
+      ],
+      "date": "2026-03-23T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2306.05259",
+      "arxiv": "https://arxiv.org/abs/2306.05259",
+      "doi": "10.1103/PhysRevApplied.20.054051",
+      "summary": "We study the frequency non-reciprocity of the spin waves in symmetric CoFeB/Ru/CoFeB synthetic antiferromagnets stacks set in the scissors state by in-plane applied fields. Using a combination of Brillouin Light Scattering and propagating spin wave spectroscopy experiments, we show that the acoustical spin waves in synthetic antiferromagnets possess a unique feature if their wavevector is parallel to the applied field: the frequency non-reciprocity due to layer-to-layer dipolar interactions can be so large that the acoustical spin waves transfer energy in a unidirectional manner for a wide and bipolar interval of wavevectors. Analytical modeling and full micromagnetic calculations are conducted to account for the dispersion relations of the optical and acoustical spin waves for arbitrary field orientations. Our formalism provides a simple and direct method to understand and design devices harnessing unidirectional propagation of spin waves in synthetic antiferromagnets."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Symmetry of the dissipation of surface acoustic waves by ferromagnetic resonance",
+      "authors": [
+        "Florian Millo, Rafael Lopes Seeger, Claude Chappert, Aur\\'elie Solignac, Thibaut Devolder"
+      ],
+      "date": "2026-03-23T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2412.10847",
+      "arxiv": "https://arxiv.org/abs/2412.10847",
+      "doi": null,
+      "summary": "We study the symmetry of the coupling between surface acoustic waves and ferromagnetic resonance in a thin magnetic film of CoFeB deposited on top of a piezoelectric Z-cut LiNbO3 substrate. We vary the orientation of the applied magnetic field with respect to the wavevector of the surface acoustic wave. Experiments indicate an unexpected 2-fold symmetry of the absorption of the SAW energy by the magnetic film. We discuss whether this symmetry can arise from the magnetoelastic torque of the longitudinal strain and the magnetic susceptibility of ferromagnetic resonance. We find that one origin of the 2-fold symmetry can be the weak in-plane uniaxial anisotropy present within the magnetic film. This phenomena adds to the previously identified other source of 2-fold symmetry but shall persist for ultrathin films when the dipolar interactions cease to contribute to the anisotropy of the slope of the spin wave dispersion relation."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Analytically tractable model of synaptic crowding explains emergent small-world structure and network dynamics",
+      "authors": [
+        "Makoto Fukushima"
+      ],
+      "date": "2026-03-23T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2603.19320",
+      "arxiv": "https://arxiv.org/abs/2603.19320",
+      "doi": null,
+      "summary": "Neural circuits must balance local connectivity constraints against the need for global integration. Here we introduce a minimal wiring rule motivated by synaptic crowding: as a neuron accumulates incoming connections, each additional synapse becomes progressively harder to form. This single-parameter model admits an exact finite-size solution for the induced in-degree distribution and yields simple scaling laws: mean connectivity grows only logarithmically with network size while variance remains bounded -- consistent with homeostatic regulation of synaptic density. When candidates are encountered in order of spatial proximity, the crowding rule produces a broad, approximately power-law distribution of connection lengths without prescribing any explicit distance-dependent wiring law; combined with shortcut rewiring, this yields networks with small-world characteristics. We further show that the induced degree statistics largely determine attractor basin boundaries in threshold network dynamics, while local clustering primarily modulates the prevalence of long-lived non-absorbing outcomes near these boundaries. The model provides testable predictions linking local developmental constraints to macroscopic network organization and dynamics."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Benchmarking Cross-Scale Perception Ability of Large Multimodal Models in Material Science",
+      "authors": [
+        "Yuting Zheng, Zijian Chen, Qi Jia"
+      ],
+      "date": "2026-03-23T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2603.19327",
+      "arxiv": "https://arxiv.org/abs/2603.19327",
+      "doi": null,
+      "summary": "Unraveling the hierarchical structure-property relationships is the central challenge of materials science, necessitating the interpretation of data across vast physical scales from micro to macro. Despite the rapid integration of Large Multimodal Models (LMMs) into scientific workflows, existing scientific benchmarks primarily focus on general chart interpretation or isolated common-sense reasoning, failing to capture reasoning ability across intricate physical dimensions. To address this, we introduce CSMBench, a dataset comprising 1,041 high-quality figures curated from premier journals up to September 2025. CSMBench categorizes data into four scientifically distinct regimes: atomic, micro, meso, and macro scales, strictly aligning with the focus and definitions in materials study. Through open-ended figure description and multiple-choice caption matching tasks, we evaluate state-of-the-art open-source and closed-source models. Our analysis identifies that performance varies significantly across physical scales due to the distinct visual characteristics, highlighting the limitations of current generalist models and identifying critical directions for achieving hierarchical and accurate understanding in materials research. The CSMBench is publicly released at: https://huggingface.co/datasets/lututu/CSMBench."
+    },
     {
       "journalKey": "NatCommun",
       "journal": "Nature Communications",
