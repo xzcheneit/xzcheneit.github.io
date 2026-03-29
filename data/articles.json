@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-29T05:48:59.690094+00:00",
+  "generatedAt": "2026-03-29T06:56:26.905158+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-03-29T00:00:00+00:00",
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-03-29T05:48:59.690094+00:00",
+    "generatedAt": "2026-03-29T06:56:26.905158+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -537,11 +537,11 @@
         "origin": "api",
         "url": "http://export.arxiv.org/api/query?search_query=cat:cond-mat*&sortBy=lastUpdatedDate&sortOrder=descending&start=0&max_results=200",
         "ok": false,
-        "status": null,
-        "contentType": null,
+        "status": 429,
+        "contentType": "text/html",
         "entries": 0,
-        "bozo": false,
-        "error": "The read operation timed out"
+        "bozo": true,
+        "error": ""
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
@@ -1570,22 +1570,6 @@
       "journal": "Phys. Rev. B",
       "journalShort": "PRB",
       "type": "accepted",
-      "title": "<span>Correlated $5f$ electronic states in americium under high pressure: A DFT+DMFT study</span>",
-      "authors": [
-        "Haiyan Lu"
-      ],
-      "date": "2026-03-27T10:00:00+00:00",
-      "link": "https://journals.aps.org/prb/accepted/ef076O66Z1011e5112c946e4bc2655649a532b419",
-      "doi": "10.1103/ltjx-b3j2",
-      "summary": "We investigate the electronic structure of americium (Am) across its four experimentally confirmed high-pressure phases Am-I (P63/mmc), Am-II (Fm-3m), Am-III (Fddd), and Am-IV (Pnma) up to 100 GPa, using density functional theory combined with embedded dynamical mean-field approach. Our calculated d…",
-      "citation": "Phys. Rev. B",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRB",
-      "journal": "Phys. Rev. B",
-      "journalShort": "PRB",
-      "type": "accepted",
       "title": "<span>Magnetic penetration depth in topological superconductors: Effect of Majorana surface states and application for UTe${}_{2}$</span>",
       "authors": [
         "Kazuki Akuzawa, Jushin Tei, Ryoi Ohashi, Satoshi Fujimoto, and Takeshi Mizushima"
@@ -1602,14 +1586,14 @@
       "journal": "Phys. Rev. B",
       "journalShort": "PRB",
       "type": "accepted",
-      "title": "<span>Engineering subgap states in superconductors by the symmetry of altermagnetism</span>",
+      "title": "<span>Correlated $5f$ electronic states in americium under high pressure: A DFT+DMFT study</span>",
       "authors": [
-        "Bo Lu, Phillip Mercebach, Pablo Burset, Keiji Yada, Jorge Cayao, Yukio Tanaka, and Yuri Fukaya"
+        "Haiyan Lu"
       ],
       "date": "2026-03-27T10:00:00+00:00",
-      "link": "https://journals.aps.org/prb/accepted/10075Y50Uae12a9ca6c1447988cb6b3738c2f6b83",
-      "doi": "10.1103/fz2b-5sp7",
-      "summary": "Combining superconducting and magnetic materials is a promising path to generate exotic interface subgap states. In this regard, altermagnetism is particularly interesting because it lifts spin degeneracy while providing tailored anisotropy of spin splittings. Here, we investigate the realization an…",
+      "link": "https://journals.aps.org/prb/accepted/ef076O66Z1011e5112c946e4bc2655649a532b419",
+      "doi": "10.1103/ltjx-b3j2",
+      "summary": "We investigate the electronic structure of americium (Am) across its four experimentally confirmed high-pressure phases Am-I (P63/mmc), Am-II (Fm-3m), Am-III (Fddd), and Am-IV (Pnma) up to 100 GPa, using density functional theory combined with embedded dynamical mean-field approach. Our calculated d…",
       "citation": "Phys. Rev. B",
       "publisher": "American Physical Society"
     },
@@ -1634,14 +1618,14 @@
       "journal": "Phys. Rev. B",
       "journalShort": "PRB",
       "type": "accepted",
-      "title": "<span>Collective excitations and divergent spin currents in noncentrosymmetric superconductors</span>",
+      "title": "<span>Engineering subgap states in superconductors by the symmetry of altermagnetism</span>",
       "authors": [
-        "Markus Lysne, Philipp Werner, and Nikolaj Bittner"
+        "Bo Lu, Phillip Mercebach, Pablo Burset, Keiji Yada, Jorge Cayao, Yukio Tanaka, and Yuri Fukaya"
       ],
       "date": "2026-03-27T10:00:00+00:00",
-      "link": "https://journals.aps.org/prb/accepted/4307cOffYbf1354418c70f73f4a2b200fbe88524f",
-      "doi": "10.1103/tsk3-m7v3",
-      "summary": "We study the collective modes in a non-centrosymmetric superconductor with Rashba spin-orbit coupling under laser irradiation. The concept of Anderson Pseudospin Resonance allows to reveal how laser driving gives rise not only to the established resonant enhancement of third harmonic response, but a…",
+      "link": "https://journals.aps.org/prb/accepted/10075Y50Uae12a9ca6c1447988cb6b3738c2f6b83",
+      "doi": "10.1103/fz2b-5sp7",
+      "summary": "Combining superconducting and magnetic materials is a promising path to generate exotic interface subgap states. In this regard, altermagnetism is particularly interesting because it lifts spin degeneracy while providing tailored anisotropy of spin splittings. Here, we investigate the realization an…",
       "citation": "Phys. Rev. B",
       "publisher": "American Physical Society"
     },
@@ -1658,6 +1642,22 @@
       "link": "https://journals.aps.org/prb/accepted/fc076O95U301e855628a5934e16b44452c3fd7dbb",
       "doi": "10.1103/48j6-8w7z",
       "summary": "We revisit the effective theory for fluctuating spin stripes coupled to a Fermi surface, and consider the parameter regime where a spin nematic phase intervenes between the spin density wave state and the symmetric state. It is shown that adding potential disorder to this theory, which acts as an un…",
+      "citation": "Phys. Rev. B",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRB",
+      "journal": "Phys. Rev. B",
+      "journalShort": "PRB",
+      "type": "accepted",
+      "title": "<span>Collective excitations and divergent spin currents in noncentrosymmetric superconductors</span>",
+      "authors": [
+        "Markus Lysne, Philipp Werner, and Nikolaj Bittner"
+      ],
+      "date": "2026-03-27T10:00:00+00:00",
+      "link": "https://journals.aps.org/prb/accepted/4307cOffYbf1354418c70f73f4a2b200fbe88524f",
+      "doi": "10.1103/tsk3-m7v3",
+      "summary": "We study the collective modes in a non-centrosymmetric superconductor with Rashba spin-orbit coupling under laser irradiation. The concept of Anderson Pseudospin Resonance allows to reveal how laser driving gives rise not only to the established resonant enhancement of third harmonic response, but a…",
       "citation": "Phys. Rev. B",
       "publisher": "American Physical Society"
     },
@@ -1762,22 +1762,6 @@
       "journal": "Phys. Rev. B",
       "journalShort": "PRB",
       "type": "accepted",
-      "title": "<span>Noncentrosymmetric superconductor BaRhSi${}_{2}$</span>",
-      "authors": [
-        "Masaaki Isobe, Koji Kimoto, Masao Arai, Taras Kolodiazhnyi, and Eiji Takayama-Muromachi"
-      ],
-      "date": "2026-03-27T10:00:00+00:00",
-      "link": "https://journals.aps.org/prb/accepted/eb07fO59Z5412a35263f9cf7a405940e65ee9b202",
-      "doi": "10.1103/rx78-l97k",
-      "summary": "Barium-rhodium silicide BaRhSi2 has been successfully synthesized using a high-pressure technique at 6GPa. X-ray Rietveld analysis and scanning transmission electron microscopy studies revealed that BaRhSi2 is isostructural to BaIrSi2, within the noncentrosymmetric space group C2221 with the lattice…",
-      "citation": "Phys. Rev. B",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRB",
-      "journal": "Phys. Rev. B",
-      "journalShort": "PRB",
-      "type": "accepted",
       "title": "<span>Emergent quantum valley Hall insulator from electron interactions in transition-metal dichalcogenide heterobilayers</span>",
       "authors": [
         "Palash Saha and Michał Zegrodnik"
@@ -1786,6 +1770,22 @@
       "link": "https://journals.aps.org/prb/accepted/0107bO39Z9e1254e680c7460bc58d2c49fc4650a0",
       "doi": "10.1103/v5h1-2syy",
       "summary": "We explore the emergence of topological phases in moir'{e} MoTe${}_{2}$/WSe${}_{2}$ bilayer, highlighting the crucial role of spin-orbit coupling and Coulomb interactions at two holes per moir'e unit cell (v = 2). Our analysis uncovers robust Quantum Valley Hall Insulating (QVHI) phase and reveals t…",
+      "citation": "Phys. Rev. B",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRB",
+      "journal": "Phys. Rev. B",
+      "journalShort": "PRB",
+      "type": "accepted",
+      "title": "<span>Noncentrosymmetric superconductor BaRhSi${}_{2}$</span>",
+      "authors": [
+        "Masaaki Isobe, Koji Kimoto, Masao Arai, Taras Kolodiazhnyi, and Eiji Takayama-Muromachi"
+      ],
+      "date": "2026-03-27T10:00:00+00:00",
+      "link": "https://journals.aps.org/prb/accepted/eb07fO59Z5412a35263f9cf7a405940e65ee9b202",
+      "doi": "10.1103/rx78-l97k",
+      "summary": "Barium-rhodium silicide BaRhSi2 has been successfully synthesized using a high-pressure technique at 6GPa. X-ray Rietveld analysis and scanning transmission electron microscopy studies revealed that BaRhSi2 is isostructural to BaIrSi2, within the noncentrosymmetric space group C2221 with the lattice…",
       "citation": "Phys. Rev. B",
       "publisher": "American Physical Society"
     },
@@ -1842,6 +1842,22 @@
       "journal": "Phys. Rev. B",
       "journalShort": "PRB",
       "type": "accepted",
+      "title": "<span>Controlled polarization switch in a polariton Josephson junction</span>",
+      "authors": [
+        "Valeria A. Maslova and Nina S. Voronova"
+      ],
+      "date": "2026-03-27T10:00:00+00:00",
+      "link": "https://journals.aps.org/prb/accepted/c0077Ye6W1f12d94f3e64ea4a8c5c81f3041350d7",
+      "doi": "10.1103/jtbw-qgsq",
+      "summary": "The interaction between a particle’s spin and momentum—known as spin-orbit (SO) coupling—is the cornerstone of modern spintronics. In Bose-Einsten condensates of ultracold atoms, SO coupling can be implemented and precisely controlled experimentally; photonic systems, on the other hand, possess an i…",
+      "citation": "Phys. Rev. B",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRB",
+      "journal": "Phys. Rev. B",
+      "journalShort": "PRB",
+      "type": "accepted",
       "title": "<span>Dynamics of wavepackets and entanglement in many-body kicked rotors under quantum resonance</span>",
       "authors": [
         "Yangshuo Zhou and Jiao Wang"
@@ -1866,22 +1882,6 @@
       "link": "https://journals.aps.org/prb/accepted/0b075Y0eEb71db8616481a07d470a401bfbbca211",
       "doi": "10.1103/23dz-rm1v",
       "summary": "Spintronic, spin caloritronic, and magnonic phenomena arise from complex interactions between charge, spin, and structural degrees of freedom that are challenging to model and even more difficult to predict. This situation is compounded by the relative scarcity of magnetically-ordered materials with…",
-      "citation": "Phys. Rev. B",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRB",
-      "journal": "Phys. Rev. B",
-      "journalShort": "PRB",
-      "type": "accepted",
-      "title": "<span>Controlled polarization switch in a polariton Josephson junction</span>",
-      "authors": [
-        "Valeria A. Maslova and Nina S. Voronova"
-      ],
-      "date": "2026-03-27T10:00:00+00:00",
-      "link": "https://journals.aps.org/prb/accepted/c0077Ye6W1f12d94f3e64ea4a8c5c81f3041350d7",
-      "doi": "10.1103/jtbw-qgsq",
-      "summary": "The interaction between a particle’s spin and momentum—known as spin-orbit (SO) coupling—is the cornerstone of modern spintronics. In Bose-Einsten condensates of ultracold atoms, SO coupling can be implemented and precisely controlled experimentally; photonic systems, on the other hand, possess an i…",
       "citation": "Phys. Rev. B",
       "publisher": "American Physical Society"
     },
@@ -2042,22 +2042,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Hydrostatic Newton-Cartan membranes</span>",
-      "authors": [
-        "Domingo Gallegos and Carlos Málaga"
-      ],
-      "date": "2026-03-27T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/6c07bRe1P031f921070b4742f0aa003e1470aa7d7",
-      "doi": "10.1103/5jr4-vv8f",
-      "summary": "An application of the Newton-Cartan framework to the study of membranes is presented. Specifically, for membranes of co-dimension one in hydrostatic equilibrium embedded in a flat ambient Newton-Cartan spacetime. For such membranes, the corresponding equilibrium partition function at second order in…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Analytical solution for diffusiophoretic mobility of soft particles considering finite ion size effect</span>",
       "authors": [
         "Rahul Kumar Singh, Partha Sarathi Majee, and Hiroyuki Ohshima"
@@ -2066,6 +2050,22 @@
       "link": "https://journals.aps.org/pre/accepted/cb072R4cYbe1402d43528f789abeb9826892a8976",
       "doi": "10.1103/gsyz-nd37",
       "summary": "We present a theoretical study of the diffusiophoretic motion of a core-shell-structured soft particle, consisting of a hard inner core encapsulated by a fluid- and ion-permeable polyelectrolyte layer (PEL), while accounting for the ion steric exclusion effect. The dielectric permittivity of the per…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Hydrostatic Newton-Cartan membranes</span>",
+      "authors": [
+        "Domingo Gallegos and Carlos Málaga"
+      ],
+      "date": "2026-03-27T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/6c07bRe1P031f921070b4742f0aa003e1470aa7d7",
+      "doi": "10.1103/5jr4-vv8f",
+      "summary": "An application of the Newton-Cartan framework to the study of membranes is presented. Specifically, for membranes of co-dimension one in hydrostatic equilibrium embedded in a flat ambient Newton-Cartan spacetime. For such membranes, the corresponding equilibrium partition function at second order in…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -4146,22 +4146,6 @@
       "journal": "Phys. Rev. B",
       "journalShort": "PRB",
       "type": "accepted",
-      "title": "<span>Krylov space dynamics of ergodic and dynamically frozen Floquet systems</span>",
-      "authors": [
-        "Luke Staszewski, Asmi Haldar, Pieter W. Claeys, and Alexander Wietek"
-      ],
-      "date": "2026-03-26T10:00:00+00:00",
-      "link": "https://journals.aps.org/prb/accepted/5407bYcbY731509cf1e921a15ff7a19c20dd1281e",
-      "doi": "10.1103/3vgd-y39w",
-      "summary": "In isolated quantum many-body systems periodically driven in time, the asymptotic dynamics at late times can exhibit distinct behavior such as thermalization or dynamical freezing. Understanding the properties of and the convergence towards infinite-time (nonequilibrium) steady states however remain…",
-      "citation": "Phys. Rev. B",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRB",
-      "journal": "Phys. Rev. B",
-      "journalShort": "PRB",
-      "type": "accepted",
       "title": "<span>Experimental observation of topological disclination states in lossy electric circuits</span>",
       "authors": [
         "Jin Liu, Wei-Wu Jin, Zhao-Fan Cai, Xin Wang, Yu-Ran Zhang, Xiaomin Wei, Wenbo Ju, Zhongmin Yang, and Tao Liu"
@@ -4170,6 +4154,22 @@
       "link": "https://journals.aps.org/prb/accepted/1e070Y7cOdf12693738479041644683ca79dcfa06",
       "doi": "10.1103/svww-ycws",
       "summary": "Topological phase transitions can be remarkably induced purely by manipulating gain and loss mechanisms, offering a novel approach to engineering topological properties. Recent theoretical studies have revealed gain-loss-induced topological disclination states, along with the associated fractional c…",
+      "citation": "Phys. Rev. B",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRB",
+      "journal": "Phys. Rev. B",
+      "journalShort": "PRB",
+      "type": "accepted",
+      "title": "<span>Krylov space dynamics of ergodic and dynamically frozen Floquet systems</span>",
+      "authors": [
+        "Luke Staszewski, Asmi Haldar, Pieter W. Claeys, and Alexander Wietek"
+      ],
+      "date": "2026-03-26T10:00:00+00:00",
+      "link": "https://journals.aps.org/prb/accepted/5407bYcbY731509cf1e921a15ff7a19c20dd1281e",
+      "doi": "10.1103/3vgd-y39w",
+      "summary": "In isolated quantum many-body systems periodically driven in time, the asymptotic dynamics at late times can exhibit distinct behavior such as thermalization or dynamical freezing. Understanding the properties of and the convergence towards infinite-time (nonequilibrium) steady states however remain…",
       "citation": "Phys. Rev. B",
       "publisher": "American Physical Society"
     },
@@ -4430,22 +4430,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Erratum: Carbon ionization from a quantum average-atom model up to gigabar pressures [Phys. Rev. E <strong>104</strong>, 025209 (2021)]</span>",
-      "authors": [
-        "Gérald Faussurier, Christophe Blancard, and Mandy Bethkenhagen"
-      ],
-      "date": "2026-03-26T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/1c072R34Da5R5d1000db34c75b8389f70a4ba53d8",
-      "doi": "10.1103/fj37-w7zs",
-      "summary": "",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Impact of fluctuations on particle systems described by Dean-Kawasaki-type equations</span>",
       "authors": [
         "Nathan O. Silvano, Emilio Hernández-García, and Cristóbal López"
@@ -4454,6 +4438,22 @@
       "link": "https://journals.aps.org/pre/accepted/d0077RafX861c725f65d12e40bf32607df2122fb6",
       "doi": "10.1103/nt3t-jhxr",
       "summary": "We study the role of fluctuations in particle systems modeled by Dean-Kawasaki-type equations, which describe the evolution of particle densities in systems with Brownian motion. By comparing microscopic simulations, stochastic partial differential equations, and their deterministic counterparts, we…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Erratum: Carbon ionization from a quantum average-atom model up to gigabar pressures [Phys. Rev. E <strong>104</strong>, 025209 (2021)]</span>",
+      "authors": [
+        "Gérald Faussurier, Christophe Blancard, and Mandy Bethkenhagen"
+      ],
+      "date": "2026-03-26T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/1c072R34Da5R5d1000db34c75b8389f70a4ba53d8",
+      "doi": "10.1103/fj37-w7zs",
+      "summary": "",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -4478,22 +4478,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Quantitative analysis of crack patterns in coatings</span>",
-      "authors": [
-        "Tristan Schweiss and Ludovic Pauchard"
-      ],
-      "date": "2026-03-26T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/be072Zd8T0413d0f63149bc58aa43c203926dfad1",
-      "doi": "10.1103/93w4-6xc6",
-      "summary": "Crack networks in thin films often emerge through a sequential process governed by the temporal ordering of fracture events. However, experimental observations frequently reveal disconnected patterns, characterized by incomplete junctions and fragmented pathways, that deviate from this idealized sce…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Field-induced alignment dynamics in suspensions of polarizable rods</span>",
       "authors": [
         "I. M. Zerón, A. Iturbe-Jabaloyes, A. Escañuela-Copado, A. Moncho-Jordá, and A. Patti"
@@ -4502,6 +4486,22 @@
       "link": "https://journals.aps.org/pre/accepted/6e071R53Te81e92b29c23e7298f5baf0d08d3672f",
       "doi": "10.1103/6xfz-s9q9",
       "summary": "Fluids composed of polarizable particles exhibit tunable structural and functional properties when subjected to external electric fields, as the particles tend to reorient and align along the field direction. This field-induced anisotropy leads to pronounced changes in macroscopic properties, render…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Quantitative analysis of crack patterns in coatings</span>",
+      "authors": [
+        "Tristan Schweiss and Ludovic Pauchard"
+      ],
+      "date": "2026-03-26T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/be072Zd8T0413d0f63149bc58aa43c203926dfad1",
+      "doi": "10.1103/93w4-6xc6",
+      "summary": "Crack networks in thin films often emerge through a sequential process governed by the temporal ordering of fracture events. However, experimental observations frequently reveal disconnected patterns, characterized by incomplete junctions and fragmented pathways, that deviate from this idealized sce…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -6576,22 +6576,6 @@
       "journal": "Phys. Rev. B",
       "journalShort": "PRB",
       "type": "accepted",
-      "title": "<span>Josephson effect of pseudospin-1 fermions in a dice lattice based superconducting junction</span>",
-      "authors": [
-        "Zixuan Ding, Yuheng Xing, Mengyao Li, and Hao Fu"
-      ],
-      "date": "2026-03-25T10:00:00+00:00",
-      "link": "https://journals.aps.org/prb/accepted/b1075Oe4Wac1cf5d04cc08e6339043e3a2867ce7a",
-      "doi": "10.1103/k3ph-hpnb",
-      "summary": "We investigate the Josephson effect of pseudospin-1 fermions in a superconductor/normal/superconductor (S/N/S) junction based on the dice lattice, where the supercurrent is mediated by topological edge states. Two types of staggered magnetizations are applied in the middle N region, respectively. It…",
-      "citation": "Phys. Rev. B",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRB",
-      "journal": "Phys. Rev. B",
-      "journalShort": "PRB",
-      "type": "accepted",
       "title": "<span>Optical response of the Dirac semimetals GdSb${}_{0.56}$Te${}_{1.35}$ and GdSb${}_{0.45}$Te${}_{1.50}$: Influence of charge density wave distortion and magnetic order</span>",
       "authors": [
         "S. Rojewski, R. Borkenhagen, Runhan Li, Diego García Ovalle, Stepan S. Tsirkin, Harish Kumar, K. Raju, Raman Sankar, S. Lei, L. M. Schoop, Maia G. Vergniory, and C. A. Kuntscher"
@@ -6616,6 +6600,22 @@
       "link": "https://journals.aps.org/prb/accepted/2e07dK28Yf91000a59b961f58a3fba15e425847da",
       "doi": "10.1103/g479-np3l",
       "summary": "Flat-band breathing Kagome lattices host strong Coulomb interactions that can fundamentally alter the nature of their low-energy degrees of freedom. Here we show, using first-principles Density Functional Theory (DFT)-GW–Bethe–Salpeter theory, that single-layer Nb3Cl8 realizes a spintriplet Frenkel …",
+      "citation": "Phys. Rev. B",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRB",
+      "journal": "Phys. Rev. B",
+      "journalShort": "PRB",
+      "type": "accepted",
+      "title": "<span>Josephson effect of pseudospin-1 fermions in a dice lattice based superconducting junction</span>",
+      "authors": [
+        "Zixuan Ding, Yuheng Xing, Mengyao Li, and Hao Fu"
+      ],
+      "date": "2026-03-25T10:00:00+00:00",
+      "link": "https://journals.aps.org/prb/accepted/b1075Oe4Wac1cf5d04cc08e6339043e3a2867ce7a",
+      "doi": "10.1103/k3ph-hpnb",
+      "summary": "We investigate the Josephson effect of pseudospin-1 fermions in a superconductor/normal/superconductor (S/N/S) junction based on the dice lattice, where the supercurrent is mediated by topological edge states. Two types of staggered magnetizations are applied in the middle N region, respectively. It…",
       "citation": "Phys. Rev. B",
       "publisher": "American Physical Society"
     },
@@ -9699,22 +9699,6 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Collapse of nuclear collectivity along the $N=Z$ line</span>",
-      "authors": [
-        "M. A. Bentley et al."
-      ],
-      "date": "2026-03-24T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/ae077Y4cY021ed9779a602237b5ada1c6e315c0d9",
-      "doi": "10.1103/r6ns-ypw8",
-      "summary": "The lifetime of the ${J}^{π}={2}^{+}$ state in the self-conjugate ${}^{88}$Ru nucleus has been determined in an experiment performed using rare-isotope beams provided by the new Facility for Rare Isotope Beams. This is the heaviest $N=Z$ nucleus for which such a measurement has been achieved. ${}^{8…",
-      "citation": "Phys. Rev. Lett.",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRL",
-      "journal": "Phys. Rev. Lett.",
-      "journalShort": "PRL",
-      "type": "accepted",
       "title": "<span>Probing the three-body force in hadronic systems with specific charge parity</span>",
       "authors": [
         "Ya-Wen Pan, Ming-Zhu Liu, and Li-Sheng Geng"
@@ -9723,6 +9707,22 @@
       "link": "https://journals.aps.org/prl/accepted/88077Y21Z5b14694484a5a8985f59d59c9e8936d4",
       "doi": "10.1103/vl2y-8xdn",
       "summary": "Three-body forces, a type of non-perturbative strong interaction, are widely studied in nuclear physics. However, whether their inclusion is necessary in nuclear systems remains a topic of intense debate. In this letter, we propose that the existence of three-body forces in certain three-body hadron…",
+      "citation": "Phys. Rev. Lett.",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRL",
+      "journal": "Phys. Rev. Lett.",
+      "journalShort": "PRL",
+      "type": "accepted",
+      "title": "<span>Collapse of nuclear collectivity along the $N=Z$ line</span>",
+      "authors": [
+        "M. A. Bentley et al."
+      ],
+      "date": "2026-03-24T10:00:00+00:00",
+      "link": "https://journals.aps.org/prl/accepted/ae077Y4cY021ed9779a602237b5ada1c6e315c0d9",
+      "doi": "10.1103/r6ns-ypw8",
+      "summary": "The lifetime of the ${J}^{π}={2}^{+}$ state in the self-conjugate ${}^{88}$Ru nucleus has been determined in an experiment performed using rare-isotope beams provided by the new Facility for Rare Isotope Beams. This is the heaviest $N=Z$ nucleus for which such a measurement has been achieved. ${}^{8…",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -10409,22 +10409,6 @@
       "journal": "Phys. Rev. B",
       "journalShort": "PRB",
       "type": "accepted",
-      "title": "<span>Interface engineering of FeNi/Pt/Bi${}_{2}$Se${}_{3}$ heterostructures boosts broadband spin-to-charge conversion</span>",
-      "authors": [
-        "Qi Zhang, Yalu Zuo, Xu Liu, Pengcheng Ji, Yiwen Song, Chenxia Guo, Yang Ren, Kun Tao, Lan Ding, Baoshan Cui, Zongzhi Zhang, Chenglong Jia, Xiaoxi Liu, and Li Xi"
-      ],
-      "date": "2026-03-24T10:00:00+00:00",
-      "link": "https://journals.aps.org/prb/accepted/5b071O23Tbd1de51173b1d742c1e2ad09b37ef349",
-      "doi": "10.1103/48sy-dmsc",
-      "summary": "Efficient spin-to-charge is crucial for developing high-performance spintronic devices, such as terahertz (THz) emitters and spin batteries. Here, we demonstrate that precise engineering of the Pt layer in FeNi/Pt/Bi₂Se₃, using scalable magnetron sputtering, significantly enhances conversion efficie…",
-      "citation": "Phys. Rev. B",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRB",
-      "journal": "Phys. Rev. B",
-      "journalShort": "PRB",
-      "type": "accepted",
       "title": "<span>Local-moment magnetism in Mn-based pnictides</span>",
       "authors": [
         "Matteo Crispino, Niklas Witt, Tommaso Gorni, Giorgio Sangiovanni, and Luca de’ Medici"
@@ -10449,6 +10433,22 @@
       "link": "https://journals.aps.org/prb/accepted/6307cO79Ma41ca49075e5d262aae4797ef19e598f",
       "doi": "10.1103/w1lf-837b",
       "summary": "We present a combined experimental and theoretical investigation of the spin dynamics in the iron-based superconductor Ba${}_{0.75}$K${}_{0.25}$Fe${}_{2}$As${}_{2}$. Time-of-flight inelastic neutron scattering measurements reveal the three-dimensional (3D) nature of the spin fluctuations, manifested…",
+      "citation": "Phys. Rev. B",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRB",
+      "journal": "Phys. Rev. B",
+      "journalShort": "PRB",
+      "type": "accepted",
+      "title": "<span>Interface engineering of FeNi/Pt/Bi${}_{2}$Se${}_{3}$ heterostructures boosts broadband spin-to-charge conversion</span>",
+      "authors": [
+        "Qi Zhang, Yalu Zuo, Xu Liu, Pengcheng Ji, Yiwen Song, Chenxia Guo, Yang Ren, Kun Tao, Lan Ding, Baoshan Cui, Zongzhi Zhang, Chenglong Jia, Xiaoxi Liu, and Li Xi"
+      ],
+      "date": "2026-03-24T10:00:00+00:00",
+      "link": "https://journals.aps.org/prb/accepted/5b071O23Tbd1de51173b1d742c1e2ad09b37ef349",
+      "doi": "10.1103/48sy-dmsc",
+      "summary": "Efficient spin-to-charge is crucial for developing high-performance spintronic devices, such as terahertz (THz) emitters and spin batteries. Here, we demonstrate that precise engineering of the Pt layer in FeNi/Pt/Bi₂Se₃, using scalable magnetron sputtering, significantly enhances conversion efficie…",
       "citation": "Phys. Rev. B",
       "publisher": "American Physical Society"
     },
@@ -10793,22 +10793,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Optimization of sequential therapies to maximize extinction of resistant bacteria through collateral sensitivity</span>",
-      "authors": [
-        "Javier Molina-Hernández, José A. Cuesta, Beatriz Pascual-Escudero, Saúl Ares, and Pablo Catalán"
-      ],
-      "date": "2026-03-24T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/18070I5eYec10707c0542614fa506d652b520deef",
-      "doi": "10.1103/zty8-yj5p",
-      "summary": "Antimicrobial resistance (AMR) threatens global health. A promising and underexplored strategy to tackle this problem are sequential therapies exploiting collateral sensitivity (CS), whereby resistance to one drug increases sensitivity to another. Here, we develop a four-genotype stochastic birth–de…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Constraint effective action and critical correlation functions at fixed magnetization</span>",
       "authors": [
         "Félix Rose, Adam Rançon, and Ivan Balog"
@@ -10817,6 +10801,22 @@
       "link": "https://journals.aps.org/pre/accepted/ea07aRf4Wdc1312394c33c999531e822fde19d78f",
       "doi": "10.1103/yqjz-kdlj",
       "summary": "We present an extension of the functional renormalization group (FRG) framework developed to compute critical probability distributions of the order parameter to momentum‐dependent observables. Focusing on the constraint effective action at fixed magnetization for the Ising universality class, we de…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Optimization of sequential therapies to maximize extinction of resistant bacteria through collateral sensitivity</span>",
+      "authors": [
+        "Javier Molina-Hernández, José A. Cuesta, Beatriz Pascual-Escudero, Saúl Ares, and Pablo Catalán"
+      ],
+      "date": "2026-03-24T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/18070I5eYec10707c0542614fa506d652b520deef",
+      "doi": "10.1103/zty8-yj5p",
+      "summary": "Antimicrobial resistance (AMR) threatens global health. A promising and underexplored strategy to tackle this problem are sequential therapies exploiting collateral sensitivity (CS), whereby resistance to one drug increases sensitivity to another. Here, we develop a four-genotype stochastic birth–de…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -13717,22 +13717,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Comparative study of indicators of chaos in the closed and open Dicke model</span>",
-      "authors": [
-        "Prasad Pawar, Arpan Bhattacharyya, and B. Prasanna Venkatesh"
-      ],
-      "date": "2026-03-19T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/af07eR4aR9f14a27961e351439fb0d423b96d3895",
-      "doi": "10.1103/786l-8zx4",
-      "summary": "The Dicke model, renowned for its superradiant quantum phase transition, also exhibits a transition from regular to chaotic dynamics. In this work, we provide a systematic, comparative study of static and dynamical indicators of chaos for the closed and open Dicke model. In the closed Dicke model, w…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Influence of turbulence on the triboelectric charging of granular materials carried by an airflow</span>",
       "authors": [
         "Thomas Gemine, Simon Dehareng, Thomas Andrianne, and Geoffroy Lumay"
@@ -13741,6 +13725,22 @@
       "link": "https://journals.aps.org/pre/accepted/1407bR3eYab1782123a95a67a0218d00e96604e56",
       "doi": "10.1103/pyfj-qtgp",
       "summary": "Electric charge transfer in particles transported by airflow is investigated using a custom 3Dprinted small-scale wind tunnel. Particles are initially at rest in a dune-like bed and collide with a metallic plate while moving, enabling charge transfer measurements under controlled airflow conditions.…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Comparative study of indicators of chaos in the closed and open Dicke model</span>",
+      "authors": [
+        "Prasad Pawar, Arpan Bhattacharyya, and B. Prasanna Venkatesh"
+      ],
+      "date": "2026-03-19T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/af07eR4aR9f14a27961e351439fb0d423b96d3895",
+      "doi": "10.1103/786l-8zx4",
+      "summary": "The Dicke model, renowned for its superradiant quantum phase transition, also exhibits a transition from regular to chaotic dynamics. In this work, we provide a systematic, comparative study of static and dynamical indicators of chaos for the closed and open Dicke model. In the closed Dicke model, w…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
