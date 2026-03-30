@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-30T01:56:40.741436+00:00",
+  "generatedAt": "2026-03-30T02:56:22.860293+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-03-29T00:00:00+00:00",
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-03-30T01:56:40.741436+00:00",
+    "generatedAt": "2026-03-30T02:56:22.860293+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -537,11 +537,11 @@
         "origin": "api",
         "url": "http://export.arxiv.org/api/query?search_query=cat:cond-mat*&sortBy=lastUpdatedDate&sortOrder=descending&start=0&max_results=200",
         "ok": false,
-        "status": null,
-        "contentType": null,
+        "status": 429,
+        "contentType": "text/html",
         "entries": 0,
-        "bozo": false,
-        "error": "The read operation timed out"
+        "bozo": true,
+        "error": ""
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
@@ -2042,22 +2042,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Hydrostatic Newton-Cartan membranes</span>",
-      "authors": [
-        "Domingo Gallegos and Carlos Málaga"
-      ],
-      "date": "2026-03-27T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/6c07bRe1P031f921070b4742f0aa003e1470aa7d7",
-      "doi": "10.1103/5jr4-vv8f",
-      "summary": "An application of the Newton-Cartan framework to the study of membranes is presented. Specifically, for membranes of co-dimension one in hydrostatic equilibrium embedded in a flat ambient Newton-Cartan spacetime. For such membranes, the corresponding equilibrium partition function at second order in…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Analytical solution for diffusiophoretic mobility of soft particles considering finite ion size effect</span>",
       "authors": [
         "Rahul Kumar Singh, Partha Sarathi Majee, and Hiroyuki Ohshima"
@@ -2066,6 +2050,22 @@
       "link": "https://journals.aps.org/pre/accepted/cb072R4cYbe1402d43528f789abeb9826892a8976",
       "doi": "10.1103/gsyz-nd37",
       "summary": "We present a theoretical study of the diffusiophoretic motion of a core-shell-structured soft particle, consisting of a hard inner core encapsulated by a fluid- and ion-permeable polyelectrolyte layer (PEL), while accounting for the ion steric exclusion effect. The dielectric permittivity of the per…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Hydrostatic Newton-Cartan membranes</span>",
+      "authors": [
+        "Domingo Gallegos and Carlos Málaga"
+      ],
+      "date": "2026-03-27T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/6c07bRe1P031f921070b4742f0aa003e1470aa7d7",
+      "doi": "10.1103/5jr4-vv8f",
+      "summary": "An application of the Newton-Cartan framework to the study of membranes is presented. Specifically, for membranes of co-dimension one in hydrostatic equilibrium embedded in a flat ambient Newton-Cartan spacetime. For such membranes, the corresponding equilibrium partition function at second order in…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -2228,6 +2228,22 @@
       "journal": "Phys. Rev. Applied",
       "journalShort": "PR Applied",
       "type": "accepted",
+      "title": "<span>Semiconductor photon Bose-Einstein condensate as a practical light source for range finding</span>",
+      "authors": [
+        "Ross C. Schofield, Daniel Lim, Nathan R. Gemmell, Edmund Clarke, Ian Farrer, Aristotelis Trapalis, Jon Heffernan, and Rupert F. Oulton"
+      ],
+      "date": "2026-03-27T10:00:00+00:00",
+      "link": "https://journals.aps.org/prapplied/accepted/bc075A15X38E261be0746ec59a366afe1974c3113",
+      "doi": "10.1103/1zxb-jyrf",
+      "summary": "Here we report the measurement of thermal photon statistics from a semiconductor photon Bose-Einstein condensate operating just above the condensation threshold. We identify a regime where coherent, single mode emission occurs while still demonstrating significant photon bunching. Taking advantage o…",
+      "citation": "Phys. Rev. Applied",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRApplied",
+      "journal": "Phys. Rev. Applied",
+      "journalShort": "PR Applied",
+      "type": "accepted",
       "title": "<span>Alternative approach to time-delay interferometry with an optical frequency comb</span>",
       "authors": [
         "Kohei Yamamoto, Hannah Tomio, Charlotte Zehnder, Kenji Numata, and Holly Leopardi"
@@ -2268,22 +2284,6 @@
       "link": "https://journals.aps.org/prapplied/accepted/3f079Ad9U271d50754d93305436e7fd92f1c78d8f",
       "doi": "10.1103/ws8k-sd58",
       "summary": "Deep frequency modulation interferometry (DFMI) resolves phase ambiguity in absolute distance measurements by jointly estimating two length-encoding parameters: the coarse and unambiguous effective modulation depth ($m$), and the fine but ambiguous interferometric phase ($ϕ$). We establish a compreh…",
-      "citation": "Phys. Rev. Applied",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRApplied",
-      "journal": "Phys. Rev. Applied",
-      "journalShort": "PR Applied",
-      "type": "accepted",
-      "title": "<span>Semiconductor photon Bose-Einstein condensate as a practical light source for range finding</span>",
-      "authors": [
-        "Ross C. Schofield, Daniel Lim, Nathan R. Gemmell, Edmund Clarke, Ian Farrer, Aristotelis Trapalis, Jon Heffernan, and Rupert F. Oulton"
-      ],
-      "date": "2026-03-27T10:00:00+00:00",
-      "link": "https://journals.aps.org/prapplied/accepted/bc075A15X38E261be0746ec59a366afe1974c3113",
-      "doi": "10.1103/1zxb-jyrf",
-      "summary": "Here we report the measurement of thermal photon statistics from a semiconductor photon Bose-Einstein condensate operating just above the condensation threshold. We identify a regime where coherent, single mode emission occurs while still demonstrating significant photon bunching. Taking advantage o…",
       "citation": "Phys. Rev. Applied",
       "publisher": "American Physical Society"
     },
@@ -4430,22 +4430,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Erratum: Carbon ionization from a quantum average-atom model up to gigabar pressures [Phys. Rev. E <strong>104</strong>, 025209 (2021)]</span>",
-      "authors": [
-        "Gérald Faussurier, Christophe Blancard, and Mandy Bethkenhagen"
-      ],
-      "date": "2026-03-26T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/1c072R34Da5R5d1000db34c75b8389f70a4ba53d8",
-      "doi": "10.1103/fj37-w7zs",
-      "summary": "",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Impact of fluctuations on particle systems described by Dean-Kawasaki-type equations</span>",
       "authors": [
         "Nathan O. Silvano, Emilio Hernández-García, and Cristóbal López"
@@ -4454,6 +4438,22 @@
       "link": "https://journals.aps.org/pre/accepted/d0077RafX861c725f65d12e40bf32607df2122fb6",
       "doi": "10.1103/nt3t-jhxr",
       "summary": "We study the role of fluctuations in particle systems modeled by Dean-Kawasaki-type equations, which describe the evolution of particle densities in systems with Brownian motion. By comparing microscopic simulations, stochastic partial differential equations, and their deterministic counterparts, we…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Erratum: Carbon ionization from a quantum average-atom model up to gigabar pressures [Phys. Rev. E <strong>104</strong>, 025209 (2021)]</span>",
+      "authors": [
+        "Gérald Faussurier, Christophe Blancard, and Mandy Bethkenhagen"
+      ],
+      "date": "2026-03-26T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/1c072R34Da5R5d1000db34c75b8389f70a4ba53d8",
+      "doi": "10.1103/fj37-w7zs",
+      "summary": "",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -4478,22 +4478,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Quantitative analysis of crack patterns in coatings</span>",
-      "authors": [
-        "Tristan Schweiss and Ludovic Pauchard"
-      ],
-      "date": "2026-03-26T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/be072Zd8T0413d0f63149bc58aa43c203926dfad1",
-      "doi": "10.1103/93w4-6xc6",
-      "summary": "Crack networks in thin films often emerge through a sequential process governed by the temporal ordering of fracture events. However, experimental observations frequently reveal disconnected patterns, characterized by incomplete junctions and fragmented pathways, that deviate from this idealized sce…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Field-induced alignment dynamics in suspensions of polarizable rods</span>",
       "authors": [
         "I. M. Zerón, A. Iturbe-Jabaloyes, A. Escañuela-Copado, A. Moncho-Jordá, and A. Patti"
@@ -4502,6 +4486,22 @@
       "link": "https://journals.aps.org/pre/accepted/6e071R53Te81e92b29c23e7298f5baf0d08d3672f",
       "doi": "10.1103/6xfz-s9q9",
       "summary": "Fluids composed of polarizable particles exhibit tunable structural and functional properties when subjected to external electric fields, as the particles tend to reorient and align along the field direction. This field-induced anisotropy leads to pronounced changes in macroscopic properties, render…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Quantitative analysis of crack patterns in coatings</span>",
+      "authors": [
+        "Tristan Schweiss and Ludovic Pauchard"
+      ],
+      "date": "2026-03-26T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/be072Zd8T0413d0f63149bc58aa43c203926dfad1",
+      "doi": "10.1103/93w4-6xc6",
+      "summary": "Crack networks in thin films often emerge through a sequential process governed by the temporal ordering of fracture events. However, experimental observations frequently reveal disconnected patterns, characterized by incomplete junctions and fragmented pathways, that deviate from this idealized sce…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -10793,22 +10793,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Optimization of sequential therapies to maximize extinction of resistant bacteria through collateral sensitivity</span>",
-      "authors": [
-        "Javier Molina-Hernández, José A. Cuesta, Beatriz Pascual-Escudero, Saúl Ares, and Pablo Catalán"
-      ],
-      "date": "2026-03-24T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/18070I5eYec10707c0542614fa506d652b520deef",
-      "doi": "10.1103/zty8-yj5p",
-      "summary": "Antimicrobial resistance (AMR) threatens global health. A promising and underexplored strategy to tackle this problem are sequential therapies exploiting collateral sensitivity (CS), whereby resistance to one drug increases sensitivity to another. Here, we develop a four-genotype stochastic birth–de…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Constraint effective action and critical correlation functions at fixed magnetization</span>",
       "authors": [
         "Félix Rose, Adam Rançon, and Ivan Balog"
@@ -10817,6 +10801,22 @@
       "link": "https://journals.aps.org/pre/accepted/ea07aRf4Wdc1312394c33c999531e822fde19d78f",
       "doi": "10.1103/yqjz-kdlj",
       "summary": "We present an extension of the functional renormalization group (FRG) framework developed to compute critical probability distributions of the order parameter to momentum‐dependent observables. Focusing on the constraint effective action at fixed magnetization for the Ising universality class, we de…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Optimization of sequential therapies to maximize extinction of resistant bacteria through collateral sensitivity</span>",
+      "authors": [
+        "Javier Molina-Hernández, José A. Cuesta, Beatriz Pascual-Escudero, Saúl Ares, and Pablo Catalán"
+      ],
+      "date": "2026-03-24T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/18070I5eYec10707c0542614fa506d652b520deef",
+      "doi": "10.1103/zty8-yj5p",
+      "summary": "Antimicrobial resistance (AMR) threatens global health. A promising and underexplored strategy to tackle this problem are sequential therapies exploiting collateral sensitivity (CS), whereby resistance to one drug increases sensitivity to another. Here, we develop a four-genotype stochastic birth–de…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -13717,22 +13717,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Comparative study of indicators of chaos in the closed and open Dicke model</span>",
-      "authors": [
-        "Prasad Pawar, Arpan Bhattacharyya, and B. Prasanna Venkatesh"
-      ],
-      "date": "2026-03-19T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/af07eR4aR9f14a27961e351439fb0d423b96d3895",
-      "doi": "10.1103/786l-8zx4",
-      "summary": "The Dicke model, renowned for its superradiant quantum phase transition, also exhibits a transition from regular to chaotic dynamics. In this work, we provide a systematic, comparative study of static and dynamical indicators of chaos for the closed and open Dicke model. In the closed Dicke model, w…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Influence of turbulence on the triboelectric charging of granular materials carried by an airflow</span>",
       "authors": [
         "Thomas Gemine, Simon Dehareng, Thomas Andrianne, and Geoffroy Lumay"
@@ -13741,6 +13725,22 @@
       "link": "https://journals.aps.org/pre/accepted/1407bR3eYab1782123a95a67a0218d00e96604e56",
       "doi": "10.1103/pyfj-qtgp",
       "summary": "Electric charge transfer in particles transported by airflow is investigated using a custom 3Dprinted small-scale wind tunnel. Particles are initially at rest in a dune-like bed and collide with a metallic plate while moving, enabling charge transfer measurements under controlled airflow conditions.…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Comparative study of indicators of chaos in the closed and open Dicke model</span>",
+      "authors": [
+        "Prasad Pawar, Arpan Bhattacharyya, and B. Prasanna Venkatesh"
+      ],
+      "date": "2026-03-19T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/af07eR4aR9f14a27961e351439fb0d423b96d3895",
+      "doi": "10.1103/786l-8zx4",
+      "summary": "The Dicke model, renowned for its superradiant quantum phase transition, also exhibits a transition from regular to chaotic dynamics. In this work, we provide a systematic, comparative study of static and dynamical indicators of chaos for the closed and open Dicke model. In the closed Dicke model, w…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -15034,14 +15034,14 @@
       "journal": "Phys. Rev. Applied",
       "journalShort": "PR Applied",
       "type": "accepted",
-      "title": "<span>Broadband electromagnetic transparency induced by magnon drag effect</span>",
+      "title": "<span>Spin and orbital Rashba response in ferroelectric polarized PtSe${}_{2}$/MoSe${}_{2}$/LiNbO${}_{3}$ heterostructures</span>",
       "authors": [
-        "Lijun Yan, Xinlin Mi, Jiale Zhao, Yitong Sun, Yue Zhao, Jinwei Rao, and Lihui Bai"
+        "A. Pezo, S. Massabeau, F. Miljevic, J. -M. George, H. Jaffrés, J. Li, F. Ibrahim, M. Jamet, and M. Chshiev"
       ],
       "date": "2026-03-17T10:00:00+00:00",
-      "link": "https://journals.aps.org/prapplied/accepted/a4076Y49Xf81d593540e1000dc6d36655056b6b5f",
-      "doi": "10.1103/lhhs-xszx",
-      "summary": "Electromagnetically induced transparency has become a significant method for manipulating the propagation of electromagnetic waves. However, due to its resonant nature, it typically suffers from a narrow bandwidth and limited tunability. Here, we employ a pump-induced magnon mode (PIM) to manipulate…",
+      "link": "https://journals.aps.org/prapplied/accepted/76073A5bWca15b0d35670f0409504da4721eebe07",
+      "doi": "10.1103/t91s-h9ql",
+      "summary": "Recent studies using Terahertz Time-Domain Spectroscopy (THz-TDS) with spintronic emitters as a source have revealed distinct signatures of the Rashba effect. This effect, which arises from the breaking of inversion symmetry in low-dimensional materials, has been recently investigated in CoFeB/PtSe2…",
       "citation": "Phys. Rev. Applied",
       "publisher": "American Physical Society"
     },
@@ -15050,14 +15050,14 @@
       "journal": "Phys. Rev. Applied",
       "journalShort": "PR Applied",
       "type": "accepted",
-      "title": "<span>Driving and tailoring skyrmion dynamics via strain-mediated magnetoelectric coupling in multiferroic heterostructures</span>",
+      "title": "<span>Broadband electromagnetic transparency induced by magnon drag effect</span>",
       "authors": [
-        "Guoliang Yu, Yifeng Zheng, Longhuan Feng, Mingmin Zhu, Yang Qiu, Jiawei Wang, Yan Li, Aijun Song, and Haomiao Zhou"
+        "Lijun Yan, Xinlin Mi, Jiale Zhao, Yitong Sun, Yue Zhao, Jinwei Rao, and Lihui Bai"
       ],
       "date": "2026-03-17T10:00:00+00:00",
-      "link": "https://journals.aps.org/prapplied/accepted/37077A2eT0e1440b95204678b41eba5e68b266731",
-      "doi": "10.1103/qyzd-mhy2",
-      "summary": "Voltage-programmable transistor and diode operations are demonstrated within a single skyrmionic device structure via strain-mediated magnetoelectric coupling. Based on electromechanical and micromagnetic simulations, the spatial strain distributions are precisely tuned through gate voltages to achi…",
+      "link": "https://journals.aps.org/prapplied/accepted/a4076Y49Xf81d593540e1000dc6d36655056b6b5f",
+      "doi": "10.1103/lhhs-xszx",
+      "summary": "Electromagnetically induced transparency has become a significant method for manipulating the propagation of electromagnetic waves. However, due to its resonant nature, it typically suffers from a narrow bandwidth and limited tunability. Here, we employ a pump-induced magnon mode (PIM) to manipulate…",
       "citation": "Phys. Rev. Applied",
       "publisher": "American Physical Society"
     },
@@ -15082,14 +15082,14 @@
       "journal": "Phys. Rev. Applied",
       "journalShort": "PR Applied",
       "type": "accepted",
-      "title": "<span>Spin and orbital Rashba response in ferroelectric polarized PtSe${}_{2}$/MoSe${}_{2}$/LiNbO${}_{3}$ heterostructures</span>",
+      "title": "<span>Driving and tailoring skyrmion dynamics via strain-mediated magnetoelectric coupling in multiferroic heterostructures</span>",
       "authors": [
-        "A. Pezo, S. Massabeau, F. Miljevic, J. -M. George, H. Jaffrés, J. Li, F. Ibrahim, M. Jamet, and M. Chshiev"
+        "Guoliang Yu, Yifeng Zheng, Longhuan Feng, Mingmin Zhu, Yang Qiu, Jiawei Wang, Yan Li, Aijun Song, and Haomiao Zhou"
       ],
       "date": "2026-03-17T10:00:00+00:00",
-      "link": "https://journals.aps.org/prapplied/accepted/76073A5bWca15b0d35670f0409504da4721eebe07",
-      "doi": "10.1103/t91s-h9ql",
-      "summary": "Recent studies using Terahertz Time-Domain Spectroscopy (THz-TDS) with spintronic emitters as a source have revealed distinct signatures of the Rashba effect. This effect, which arises from the breaking of inversion symmetry in low-dimensional materials, has been recently investigated in CoFeB/PtSe2…",
+      "link": "https://journals.aps.org/prapplied/accepted/37077A2eT0e1440b95204678b41eba5e68b266731",
+      "doi": "10.1103/qyzd-mhy2",
+      "summary": "Voltage-programmable transistor and diode operations are demonstrated within a single skyrmionic device structure via strain-mediated magnetoelectric coupling. Based on electromechanical and micromagnetic simulations, the spatial strain distributions are precisely tuned through gate voltages to achi…",
       "citation": "Phys. Rev. Applied",
       "publisher": "American Physical Society"
     },
@@ -16005,6 +16005,22 @@
       "journal": "Phys. Rev. Applied",
       "journalShort": "PR Applied",
       "type": "accepted",
+      "title": "<span>Engineering relaxation spectra via feature-conditioned disorder in a transverse-field Ising model</span>",
+      "authors": [
+        "Mingyang Zhao, Hairong Li, Yanshi Zhang, Jizheng Duan, Yanwei Chen, Weining Liu, Zhao Liu, Baoyu Li, and Lei Yang"
+      ],
+      "date": "2026-03-16T10:00:00+00:00",
+      "link": "https://journals.aps.org/prapplied/accepted/62074A84Wda18b02b584368231bef66c01b468e81",
+      "doi": "10.1103/mtz6-fs2n",
+      "summary": "We investigate how feature-space dimensionality, under controlled homogeneity fluctuations, reshapes the energy landscape of transverse‑field Ising spin glasses via their anisotropic (2+1)D classical counterparts. Using Suzuki–Trotter quantum–to–classical mapping and large-Lτ simulations on L × L × …",
+      "citation": "Phys. Rev. Applied",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRApplied",
+      "journal": "Phys. Rev. Applied",
+      "journalShort": "PR Applied",
+      "type": "accepted",
       "title": "<span>Wideband dual-polarized scattering suppression of a dihedral corner structure with an engineered metagrating diffuser</span>",
       "authors": [
         "Shaojie Wang, Jing Ning, Weixu Yang, Xiangrui Zhang, Junming Zhao, Tian Jiang, Ke Chen, and Yijun Feng"
@@ -16029,22 +16045,6 @@
       "link": "https://journals.aps.org/prapplied/accepted/bf076A66Rcc1190f65955d269ede864e5c40ae7b5",
       "doi": "10.1103/vj7j-jp9y",
       "summary": "The coherence properties of optical emitters in crystals are crucial for quantum technologies and optical frequency metrology. Cooling to sub-kelvin temperatures can markedly enhance coherence, making it important to identify the parameters governing emitter and host crystal behavior in this regime.…",
-      "citation": "Phys. Rev. Applied",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRApplied",
-      "journal": "Phys. Rev. Applied",
-      "journalShort": "PR Applied",
-      "type": "accepted",
-      "title": "<span>Engineering relaxation spectra via feature-conditioned disorder in a transverse-field Ising model</span>",
-      "authors": [
-        "Mingyang Zhao, Hairong Li, Yanshi Zhang, Jizheng Duan, Yanwei Chen, Weining Liu, Zhao Liu, Baoyu Li, and Lei Yang"
-      ],
-      "date": "2026-03-16T10:00:00+00:00",
-      "link": "https://journals.aps.org/prapplied/accepted/62074A84Wda18b02b584368231bef66c01b468e81",
-      "doi": "10.1103/mtz6-fs2n",
-      "summary": "We investigate how feature-space dimensionality, under controlled homogeneity fluctuations, reshapes the energy landscape of transverse‑field Ising spin glasses via their anisotropic (2+1)D classical counterparts. Using Suzuki–Trotter quantum–to–classical mapping and large-Lτ simulations on L × L × …",
       "citation": "Phys. Rev. Applied",
       "publisher": "American Physical Society"
     },
