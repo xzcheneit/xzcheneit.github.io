@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-29T22:23:53.670120+00:00",
+  "generatedAt": "2026-03-30T01:56:40.741436+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-03-29T00:00:00+00:00",
-    "earliest": "2026-03-16T00:00:00+00:00",
-    "count": 899
+    "earliest": "2026-03-16T10:00:00+00:00",
+    "count": 896
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-03-29T22:23:53.670120+00:00",
+    "generatedAt": "2026-03-30T01:56:40.741436+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -537,11 +537,11 @@
         "origin": "api",
         "url": "http://export.arxiv.org/api/query?search_query=cat:cond-mat*&sortBy=lastUpdatedDate&sortOrder=descending&start=0&max_results=200",
         "ok": false,
-        "status": 429,
-        "contentType": "text/html",
+        "status": null,
+        "contentType": null,
         "entries": 0,
-        "bozo": true,
-        "error": ""
+        "bozo": false,
+        "error": "The read operation timed out"
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
@@ -16133,55 +16133,6 @@
       "pages": "010353",
       "citation": "PRX Quantum 7, 010353",
       "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "NatPhys",
-      "journal": "Nature Physics",
-      "journalShort": "Nat Phys.",
-      "type": "published",
-      "title": "Calm melt",
-      "authors": [
-        "Bart Verberck"
-      ],
-      "date": "2026-03-16T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41567-026-03234-2",
-      "doi": "10.1038/s41567-026-03234-2",
-      "summary": "Nature Physics, Published online: 16 March 2026; doi:10.1038/s41567-026-03234-2 Calm melt"
-    },
-    {
-      "journalKey": "NatPhys",
-      "journal": "Nature Physics",
-      "journalShort": "Nat Phys.",
-      "type": "published",
-      "title": "Relevant recoil",
-      "authors": [
-        "Stefanie Reichert"
-      ],
-      "date": "2026-03-16T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41567-026-03194-7",
-      "doi": "10.1038/s41567-026-03194-7",
-      "summary": "Nature Physics, Published online: 16 March 2026; doi:10.1038/s41567-026-03194-7 Relevant recoil"
-    },
-    {
-      "journalKey": "NatNano",
-      "journal": "Nature Nanotechnology",
-      "journalShort": "Nat Nano.",
-      "type": "published",
-      "title": "Hybrid perovskite–nanograting photonic architecture enables supersolidity at room temperature",
-      "authors": [
-        "Yilin Meng",
-        "Wei Li",
-        "Kai Peng",
-        "Chaoyang Ti",
-        "Jianchen Dang",
-        "Xiaolong Wu",
-        "Xu Han",
-        "Wei Bao"
-      ],
-      "date": "2026-03-16T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41565-026-02141-0",
-      "doi": "10.1038/s41565-026-02141-0",
-      "summary": "Nature Nanotechnology, Published online: 16 March 2026; doi:10.1038/s41565-026-02141-0 A single-crystal halide perovskite integrated in an exciton–polariton nanograting supports the formation of a supersolid phase at room temperature."
     }
   ]
 }
