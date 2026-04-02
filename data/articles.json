@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-02T16:50:02.634084+00:00",
+  "generatedAt": "2026-04-02T16:51:27.852789+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-04-02T10:00:00+00:00",
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-04-02T16:50:02.634084+00:00",
+    "generatedAt": "2026-04-02T16:51:27.852789+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -537,11 +537,11 @@
         "origin": "api",
         "url": "http://export.arxiv.org/api/query?search_query=cat:cond-mat*&sortBy=lastUpdatedDate&sortOrder=descending&start=0&max_results=200",
         "ok": false,
-        "status": 429,
-        "contentType": "text/html",
+        "status": null,
+        "contentType": null,
         "entries": 0,
-        "bozo": true,
-        "error": ""
+        "bozo": false,
+        "error": "The read operation timed out"
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
