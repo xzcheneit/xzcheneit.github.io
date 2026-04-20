@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-20T03:28:22.318464+00:00",
+  "generatedAt": "2026-04-20T06:10:25.530706+00:00",
   "windowDays": 14,
   "coverage": {
-    "latest": "2026-04-20T00:00:00+00:00",
+    "latest": "2026-04-20T04:00:00+00:00",
     "earliest": "2026-04-06T10:00:00+00:00",
-    "count": 1063
+    "count": 1066
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-04-20T03:28:22.318464+00:00",
+    "generatedAt": "2026-04-20T06:10:25.530706+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -545,10 +545,10 @@
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
-        "ok": false,
+        "ok": true,
         "status": 200,
         "contentType": "application/rss+xml",
-        "entries": 0,
+        "entries": 139,
         "bozo": false,
         "error": "",
         "key": "arXivCM",
@@ -559,6 +559,51 @@
     ]
   },
   "items": [
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Exascale Multi-Task Graph Foundation Models for Imbalanced, Multi-Fidelity Atomistic Data",
+      "authors": [
+        "Massimiliano Lupo Pasini, Jong Youl Choi, Kshitij Mehta, Richard Messerly, Rylie Weaver, Linda Ungerboeck, Isaac Lyngaas, Benajmin Stump, Ashwin M. Aji, Karl W. Schulz, Jorda Polo"
+      ],
+      "date": "2026-04-20T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2604.15380",
+      "arxiv": "https://arxiv.org/abs/2604.15380",
+      "doi": null,
+      "summary": "We present an exascale workflow for materials discovery using atomistic graph foundation models built on HydraGNN. We jointly train on 16 open first-principles datasets (544+ million structures covering 85+ elements) using a multi-task architecture with per-dataset heads and a scalable ADIOS2/DDStore data pipeline. On Frontier, we execute six large-scale DeepHyper hyperparameter optimization campaigns in FP64 and promote the top-performing message-passing models to sustained 2,048-node training, yielding a PaiNN-based lead model. The resulting model enables billion-scale screening, evaluating 1.1 billion atomistic structures in 50 seconds, compressing a workload that would require years of first-principles computation, and supports data-scarce fine-tuning across diverse downstream tasks. We quantify precision-performance tradeoffs (BF16/FP32/FP64), demonstrate transfer across twelve chemically diverse downstream tasks, and establish seamless strong- and weak-scaling across Frontier, Aurora, and Perlmutter. This work allows fast and reliable exploration of vast chemical design spaces that are otherwise inaccessible to first-principles methods."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Atomic-scale order enables high thermal boundary conductance at $\\beta$-Ga$_2$O$_3$/4H-SiC interfaces",
+      "authors": [
+        "Hongao Yang, Yongtao Yang, Yuanbin Liu, Tao Ding, Yang Shen, Jiawei Huang, Weigang Ma, Linfeng Fei, Zhenping Wu, G\\'abor Cs\\'anyi, Bingyang Cao"
+      ],
+      "date": "2026-04-20T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2604.15394",
+      "arxiv": "https://arxiv.org/abs/2604.15394",
+      "doi": null,
+      "summary": "Thermal boundary conductance (TBC) at dissimilar interfaces imposes a fundamental limit on electronic device performance, yet predicting and understanding heat transport across realistic, disordered boundaries remains elusive. Here, we develop a computational framework that combines machine-learned interatomic potentials with lattice dynamics to address the long-standing problem of how interfacial structure, from disordered to atomically sharp, affects thermal transport in the technologically important $\\beta$-Ga$_2$O$_3$/4H-SiC heterostructure. By explicitly accounting for phonon wave-particle duality, we show that interfacial disorder introduces additional interfacial phonon modes that facilitate vibrational impedance matching between the two highly dissimilar crystals, yet it simultaneously disrupts interfacial phonon coherence and limits the potential heat-transport benefit. Our atomistic simulations further indicate that restoring atomic-scale order preserves coherence and yields markedly higher conductance. These insights motivate the controlled epitaxial growth of $\\beta$-Ga$_2$O$_3$/4H-SiC heterostructures with systematically tuned interfacial order. Experimental measurements validate our predictions, achieving a record-high TBC of 231 MW m$^{-2}$ K$^{-1}$ at atomically sharp junctions. Beyond the immediate implications for $\\beta$-Ga$_2$O$_3$-based power electronics, our results establish the preservation of interfacial phonon coherence as an effective strategy for mitigating thermal bottlenecks in mismatched systems."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Contribution of remote bands to orbital magnetization in twisted bilayer graphene",
+      "authors": [
+        "Pinzhuo Li, Kun Jiang, Ziqiang Wang, Jian Kang, Yi Zhang"
+      ],
+      "date": "2026-04-20T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2603.03702",
+      "arxiv": "https://arxiv.org/abs/2603.03702",
+      "doi": null,
+      "summary": "Motivated by recent theoretical and experimental works on orbital magnetization $M_{\\mathrm{orb}}$ for the interacting system, we develop a gauge-invariant framework to compute $M_{\\mathrm{orb}}$ for correlated phases of magic-angle twisted bilayer graphene within self-consistent Hartree-Fock approximation. Based on the projector formulation of the theory of orbital magnetization, we evaluate both $M_{\\mathrm{orb}}$ and the self-rotation contribution $m_{\\mathrm{SR}}$ directly from the Hartree-Fock Hamiltonian. We demonstrate that, in contrast to topological invariants such as the Chern number, both $M_{\\mathrm{orb}}$ and $m_{\\mathrm{SR}}$ obtain substantial contributions from remote bands and thus require careful convergence with respect to the number of included remote bands. Applying this approach to correlated phases at integer fillings, we obtain converged $M_{\\mathrm{orb}}$ and $m_{\\mathrm{SR}}$ for time reversal symmetry broken Chern insulating states at $\\nu=\\pm3$ and for competing correlated phases at other integer fillings. Our results establish a systematic and controlled approach for evaluating orbital magnetization in correlated moir\\'e systems and clarify the crucial role of remote bands in determining their magnetic response."
+    },
     {
       "journalKey": "NatCommun",
       "journal": "Nature Communications",
