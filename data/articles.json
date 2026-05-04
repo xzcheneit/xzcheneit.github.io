@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-05-04T03:41:29.669886+00:00",
+  "generatedAt": "2026-05-04T06:34:37.732691+00:00",
   "windowDays": 14,
   "coverage": {
-    "latest": "2026-05-04T00:00:00+00:00",
+    "latest": "2026-05-04T04:00:00+00:00",
     "earliest": "2026-04-20T10:00:00+00:00",
-    "count": 1082
+    "count": 1084
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-05-04T03:41:29.669886+00:00",
+    "generatedAt": "2026-05-04T06:34:37.732691+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -545,10 +545,10 @@
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
-        "ok": false,
+        "ok": true,
         "status": 200,
         "contentType": "application/rss+xml",
-        "entries": 0,
+        "entries": 102,
         "bozo": false,
         "error": "",
         "key": "arXivCM",
@@ -559,6 +559,53 @@
     ]
   },
   "items": [
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Cross-fluctuation phase transitions reveal sampling dynamics in diffusion models",
+      "authors": [
+        "Sai Niranjan Ramachandran, Manish Krishan Lal, Suvrit Sra"
+      ],
+      "date": "2026-05-04T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2511.00124",
+      "arxiv": "https://arxiv.org/abs/2511.00124",
+      "doi": null,
+      "summary": "We analyse how the sampling dynamics of distributions evolve in score-based diffusion models using cross-fluctuations, a centered-moment statistic from statistical physics. Specifically, we show that starting from an unbiased isotropic normal distribution, samples undergo sharp, discrete transitions, eventually forming distinct events of a desired distribution while progressively revealing finer structure. As this process is reversible, these transitions also occur in reverse, where intermediate states progressively merge, tracing a path back to the initial distribution. We demonstrate that these transitions can be detected as discontinuities in $n^{\\text{th}}$-order cross-fluctuations. For variance-preserving SDEs, we derive a closed-form for these cross-fluctuations that is efficiently computable for the reverse trajectory. We find that detecting these transitions directly boosts sampling efficiency, accelerates class-conditional and rare-class generation, and improves two zero-shot tasks--image classification and style transfer--without expensive grid search or retraining. We also show that this viewpoint unifies classical coupling and mixing from finite Markov chains with continuous dynamics while extending to stochastic SDEs and non Markovian samplers. Our framework therefore bridges discrete Markov chain theory, phase analysis, and modern generative modeling."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Understanding Energy Flow and Inefficiency of a Thermomagnetic Generator by Transient Multi-Physics Modelling",
+      "authors": [
+        "Ali Izadi, Bruno Neumann, Sebastian F\\\"ahler"
+      ],
+      "date": "2026-05-04T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2605.00017",
+      "arxiv": "https://arxiv.org/abs/2605.00017",
+      "doi": null,
+      "summary": "Waste heat recovery improves energy efficiency and reduces greenhouse gas emissions; however, much industrial and environmental heat is wasted at low temperature. Thermomagnetic recovery of waste heat has a high potential for sustainable production of electric energy, especially for low-grade waste heat where conventional technology is inefficient or infeasible. Of particular interest are thermomagnetic generators (TMG) as they require almost no mechanically moving parts, which is beneficial for high reliability. However, all existing prototypes have two remaining challenges: low efficiency and low cycle frequency. In this work, we develop a digital twin of a recent TMG with genus 3 by using multi-physics simulations. We identify shortcomings of previous simulation approaches, and describe why simulations in three dimensions are necessary, which consider coupling between magnetic, thermal, fluid flow, and electrical physics domains. We validate our model, which only uses known geometry and material parameters, by experimental data of the TMG with highest power density today, and attain 96% accuracy in open-circuit voltage and 95% accuracy in power output. This high accuracy allows us to identify the origin of both challenges for TMGs, which are not accessible by experiments. First, we uncover inefficiencies by analyzing the energy flow within a Sankey diagram. Second, we trace the transient heat flow through the generator, which identifies the factors limiting frequency. This paves the way for more efficient and faster TMGs, and their development will be accelerated by our validated digital twin."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Atlantic meridional overturning circulation slowdown modulates atmospheric rivers in a warmer climate",
+      "authors": [
+        "Mohima Sultana Mimi",
+        "Wei Liu",
+        "Weiming Ma",
+        "Gang Chen"
+      ],
+      "date": "2026-05-04T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-72555-w",
+      "doi": "10.1038/s41467-026-72555-w",
+      "summary": "Nature Communications, Published online: 04 May 2026; doi:10.1038/s41467-026-72555-w Using twenty-first-century climate model projections, this study shows that a weakening of the Atlantic meridional overturning circulation will increase the frequency of atmospheric rivers in the mid-latitudes, especially along North America’s west coast, leading to significant increase of atmospheric river–driven winter precipitation in California."
+    },
     {
       "journalKey": "NatCommun",
       "journal": "Nature Communications",
@@ -575,6 +622,77 @@
       "link": "https://www.nature.com/articles/s41467-026-72807-9",
       "doi": "10.1038/s41467-026-72807-9",
       "summary": "Nature Communications, Published online: 04 May 2026; doi:10.1038/s41467-026-72807-9 Hydrous magnesium silicates are key mantle water reservoirs. Here, the authors show a hydrogen site transfer in wadsleyite reduces conductivity, indicating higher transition zone water storage, and discover a double superionic state."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "NH600001, an etomidate analogue, provides gastrointestinal endoscopy sedation/anesthesia and reduces adrenocortical depression: two randomized controlled trials",
+      "authors": [
+        "Yingyong Zhou",
+        "Kaiming Duan",
+        "Shichao Luo",
+        "Shengping Liu",
+        "Qiongcan Li",
+        "Songhua Liu",
+        "Huajing Guo",
+        "Haitao Jiang",
+        "Guyan Wang",
+        "Huijun Wang",
+        "Zhiping Wang",
+        "Xiaobao Zhang",
+        "Canlin Sun",
+        "Qiang Wang",
+        "Wei Gao",
+        "Wangning Shangguan",
+        "Zhongyuan Xia",
+        "Ailin Luo",
+        "Chun Chen",
+        "Mengchang Yang",
+        "Wenjie Su",
+        "Xiaohua Zou",
+        "Yalan Li",
+        "Hao Wang",
+        "Yanjuan Huang",
+        "Ruping Dai",
+        "Qian Zhao",
+        "Shuan Jing",
+        "Linzhong Zhang",
+        "Wenjun Yan",
+        "Xingang Qin",
+        "Juan Wang",
+        "Jingli Chen",
+        "Jun Cao",
+        "Minsheng Zhang",
+        "Shuchun Yu",
+        "Wen Ouyang",
+        "Saiying Wang"
+      ],
+      "date": "2026-05-04T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-72614-2",
+      "doi": "10.1038/s41467-026-72614-2",
+      "summary": "Nature Communications, Published online: 04 May 2026; doi:10.1038/s41467-026-72614-2 The authors conducted two trials to evaluate the efficacy and safety of NH600001, an etomidate derivative, in gastrointestinal endoscopy. The results showed NH600001 has a sedative effect while reducing the risk of adrenocortical depression."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Mechanically-driven expandable patch promotes tracheal defect reconstruction via synergistic microcurrent and mechanical force cascades",
+      "authors": [
+        "Zhenyu Zhao",
+        "Jing Liao",
+        "Long Wang",
+        "Jijun Sun",
+        "Yujie Xie",
+        "Yu Chen",
+        "Chang Chen"
+      ],
+      "date": "2026-05-04T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-72593-4",
+      "doi": "10.1038/s41467-026-72593-4",
+      "summary": "Nature Communications, Published online: 04 May 2026; doi:10.1038/s41467-026-72593-4 Poor vascularization and weak regenerative signaling limit tracheal repair. Here, the authors develop a mechanically-driven expandable patch to angiogenesis tracheal repair through electromechanical stimulation."
     },
     {
       "journalKey": "NatCommun",
@@ -668,57 +786,6 @@
       "link": "https://www.nature.com/articles/s41467-026-72684-2",
       "doi": "10.1038/s41467-026-72684-2",
       "summary": "Nature Communications, Published online: 02 May 2026; doi:10.1038/s41467-026-72684-2 The development of chemoenzymatic dynamic kinetic resolution has long been constrained by principal limitations, which need precise synchronization of racemization and resolution steps for rate matching. Here, the authors introduce a membrane-modulated strategy that circumvents the mandatory requirement for strict rate matching."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Synergistic Fe/Ni catalysis for electrochemical 1,1-difunctionalization of alkenes",
-      "authors": [
-        "Pengwei Hu",
-        "Chao Yang",
-        "Lin Guo",
-        "Wujiong Xia"
-      ],
-      "date": "2026-05-02T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-72546-x",
-      "doi": "10.1038/s41467-026-72546-x",
-      "summary": "Nature Communications, Published online: 02 May 2026; doi:10.1038/s41467-026-72546-x Alkene 1,1- difunctionalization holds significant importance in organic synthesis due to its ability to effectively enhance the complexity and functionality of molecular frameworks. Here, the authors report an electrochemical strategy for 1,1-difunctionalization of halogenated aromatics with unactivated alkenes, using synergistic Fe/Ni catalysis."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Transversely pumped laser driven particle accelerator",
-      "authors": [
-        "Tanner Nutting",
-        "Nicholas Ernst",
-        "Alexander G. R. Thomas",
-        "Karl Krushelnick"
-      ],
-      "date": "2026-05-02T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-72697-x",
-      "doi": "10.1038/s41467-026-72697-x",
-      "summary": "Nature Communications, Published online: 02 May 2026; doi:10.1038/s41467-026-72697-x Spatiotemporally structured laser fields are attracting interest for laser-based particle acceleration schemes. Here, the authors introduce transversely pumped acceleration, demonstrating potential practical advantage over previously established schemes and opening towards compact accelerators for applications."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Swimming with robots: investigating fish locomotion, sensing, and schooling behavior with robotic swimmers",
-      "authors": [
-        "Auke Ijspeert",
-        "Francesco Mondada",
-        "Emily Standen",
-        "Guy Theraulaz"
-      ],
-      "date": "2026-05-02T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-72478-6",
-      "doi": "10.1038/s41467-026-72478-6",
-      "summary": "Nature Communications, Published online: 02 May 2026; doi:10.1038/s41467-026-72478-6 Robotic fish are shifting from engineering curiosities to experimental partners in biology. This Perspective highlights how adaptive, closed-loop robots enable controlled tests of neuromechanical, sensorimotor and social feedback underlying fish behavior."
     },
     {
       "journalKey": "arXivCM",
