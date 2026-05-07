@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-05-07T19:29:11.550431+00:00",
+  "generatedAt": "2026-05-07T20:59:57.359639+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-05-07T10:00:00+00:00",
     "earliest": "2026-04-24T10:00:00+00:00",
-    "count": 972
+    "count": 976
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-05-07T19:29:11.550431+00:00",
+    "generatedAt": "2026-05-07T20:59:57.359639+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -537,11 +537,11 @@
         "origin": "api",
         "url": "http://export.arxiv.org/api/query?search_query=cat:cond-mat*&sortBy=lastUpdatedDate&sortOrder=descending&start=0&max_results=200",
         "ok": false,
-        "status": null,
-        "contentType": null,
+        "status": 429,
+        "contentType": "text/html",
         "entries": 0,
-        "bozo": false,
-        "error": "The read operation timed out"
+        "bozo": true,
+        "error": ""
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
@@ -829,6 +829,78 @@
       "doi": "10.1103/cwg4-sfp6",
       "summary": "We investigate heat conduction in a one-dimensional chain of rigid rotors. The rotors are constrained to rotate in a plane about fixed pivot points and coupled by springs, such that in equilibrium, the neighboring rotors lie on opposite sides of the chain axis. The linearized limit of this model val…",
       "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRApplied",
+      "journal": "Phys. Rev. Applied",
+      "journalShort": "PR Applied",
+      "type": "published",
+      "title": "Diamond-based magnetometer aboard the International Space Station",
+      "authors": [
+        "Yarne Beerden, Boo Carmans, Remy Vandebosch, Dries Hendrikx, Sam Bammens, Musa Aydogan, Siemen Achten, Jeffrey Gorissen, Sebastiaan Vanspauwen, Siemen Vandervoort, Teoman Köseoglu, Jens Mannaerts, Stijn Jacobs, Daphne Box, Milos Nesladek, and Jaroslav Hruby"
+      ],
+      "date": "2026-05-07T10:00:00+00:00",
+      "link": "https://link.aps.org/doi/10.1103/483m-8hfc",
+      "doi": "10.1103/483m-8hfc",
+      "summary": "Precise mapping of the geomagnetic field is essential for geophysics, space weather, and navigation, but current magnetometers are limited by sensitivity, dynamic range, and compactness. The authors present the OSCAR-QUBE quantum magnetometer based on nitrogen-vacancy centers in diamond, achieving vector magnetic-field measurements aboard the International Space Station in a compact device with sensitivity below 300 nT/√Hz. They further validate its performance through direct comparison to geomagnetic field models, showing good agreement with the expected field in low Earth orbit. This establishes diamond-based quantum magnetometry as viable for compact, high-performance space missions.",
+      "volume": "25",
+      "pages": "054017",
+      "citation": "Phys. Rev. Applied 25, 054017",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRApplied",
+      "journal": "Phys. Rev. Applied",
+      "journalShort": "PR Applied",
+      "type": "published",
+      "title": "Defect, phase coexistence, and electromechanical properties of ${\\mathrm{K}}_{0.5}{\\mathrm{Na}}_{0.5}{\\mathrm{Nb}\\mathrm{O}}_{3}$ thin films with intentional and unintentional $\\mathrm{Ti}$ doping",
+      "authors": [
+        "Jueyu Chen, Shashidhara Acharya, Mingsheng Zhang, Ming Lin, Poh Chong Lim, Jianwei Chai, Milan Shrestha, Edwin Hang Tong Teo, and Kui Yao"
+      ],
+      "date": "2026-05-07T10:00:00+00:00",
+      "link": "https://link.aps.org/doi/10.1103/3s5n-nkcp",
+      "doi": "10.1103/3s5n-nkcp",
+      "summary": "The $\\mathrm{Pt}/\\mathrm{Ti}/{\\mathrm{Si}\\mathrm{O}}_{2}/\\mathrm{Si}$ stack is the most widely adopted substrate for integrating piezoelectric oxide thin films with silicon-based devices. In this work, we demonstrate that lead-free potassium sodium niobate (KNN) piezoelectric thin films fabricated b…",
+      "volume": "25",
+      "pages": "054018",
+      "citation": "Phys. Rev. Applied 25, 054018",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRApplied",
+      "journal": "Phys. Rev. Applied",
+      "journalShort": "PR Applied",
+      "type": "published",
+      "title": "Highly linear proximity-based double-loop SQUID operating above 4 K",
+      "authors": [
+        "G. Trupiano, E. Riccardi, C. Puglia, M. Kiczynski, A. Gardin, G. De Simoni, G. C. Tettamanzi, and F. Giazotto"
+      ],
+      "date": "2026-05-07T10:00:00+00:00",
+      "link": "https://link.aps.org/doi/10.1103/m4wn-d31t",
+      "doi": "10.1103/m4wn-d31t",
+      "summary": "We demonstrate a highly linear superconducting quantum interference device (SQUID) interferometer based on a double-loop (Bi-SQUID) architecture incorporating three superconductor-normal metal-superconductor ($S$-$N$-$S$) junctions. Fabricated using niobium-gold technology, the device exhibits robus…",
+      "volume": "25",
+      "pages": "054019",
+      "citation": "Phys. Rev. Applied 25, 054019",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRApplied",
+      "journal": "Phys. Rev. Applied",
+      "journalShort": "PR Applied",
+      "type": "published",
+      "title": "Reconfigurable oxide nanoelectronics by tip-induced electron delocalization",
+      "authors": [
+        "Chengyuan Huang, Changjian Ma, Mengke Ha, Longbing Shang, Zhenlan Chen, Qing Xiao, Zhiyuan Qin, Danqing Liu, Haoyuan Wang, Dawei Qiu, Qianyi Zhao, Ziliang Guo, Yanling Liu, Dingbang Chen, Chengxuan Ye, Zhenhao Li, Chang-Kui Duan, and Guanglei Cheng"
+      ],
+      "date": "2026-05-07T10:00:00+00:00",
+      "link": "https://link.aps.org/doi/10.1103/pv6m-63fz",
+      "doi": "10.1103/pv6m-63fz",
+      "summary": "Reconfigurable lithography based on conductive atomic force microscopy on oxide interfaces has long been limited to ambient conditions. This Letter reports a mechanism that overcomes this constraint, enabling the writing, measuring, and erasing of quantum devices in situ at 100 mK with ultrafine resolution. This capability establishes a versatile “Hubbard toolbox” for correlated oxides, providing a platform to engineer and simulate programmable quantum phases in the solid state.",
+      "volume": "25",
+      "pages": "L051003",
+      "citation": "Phys. Rev. Applied 25, L051003",
       "publisher": "American Physical Society"
     },
     {
