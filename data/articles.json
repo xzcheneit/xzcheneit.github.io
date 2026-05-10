@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T13:04:06.303295+00:00",
+  "generatedAt": "2026-05-10T14:46:09.670638+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-05-10T00:00:00+00:00",
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-05-10T13:04:06.303295+00:00",
+    "generatedAt": "2026-05-10T14:46:09.670638+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -7371,6 +7371,23 @@
       "journal": "arXiv: cond-mat",
       "journalShort": "arXiv cond-mat",
       "type": "preprint",
+      "title": "Universal Neural Propagator: Learning Time Evolution in Many-Body Quantum Systems",
+      "authors": [
+        "Zihao Qi",
+        "Christopher Earls",
+        "Yang Peng"
+      ],
+      "date": "2026-05-06T18:00:01+00:00",
+      "link": "https://arxiv.org/abs/2605.05299v1",
+      "arxiv": "https://arxiv.org/abs/2605.05299v1",
+      "doi": null,
+      "summary": "Conventional approaches to simulating quantum many-body dynamics produce a single trajectory: if the Hamiltonian or the initial state is changed, the computation must be re-performed. Recent efforts toward foundation models have begun to address this limitation, yet existing methods transfer across either Hamiltonians or initial states, but not both. In this work, we introduce the Universal Neural Propagator (UNP), a single, unified model that learns the functional mapping from driving protocols to time-evolution propagators. Trained in an entirely self-supervised way, a single UNP model predicts dynamics across a function space of driving protocols and an exponentially large Hilbert space of initial states simultaneously. We benchmark on a two-dimensional driven Ising model and demonstrate the UNP's accuracy and transferability across product and entangled initial states, as well as for both in- and out-of-distribution driving protocols. The UNP remains accurate at system sizes beyond exact diagonalization, and can be efficiently fine-tuned across all initial states using observable data. By shifting the object of learning from quantum states to operators, this work opens a route toward transferable simulation of driven quantum matter."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
       "title": "Systematic construction of quantum many-body scars in frustrated Rydberg arrays",
       "authors": [
         "Jean-Yves Desaules",
@@ -7383,23 +7400,6 @@
       "arxiv": "https://arxiv.org/abs/2605.05297v1",
       "doi": null,
       "summary": "Quantum many-body scars in Rydberg atom arrays have thus far only been observed on bipartite lattices, leaving open the question of whether and how they survive frustration, and what the appropriate initial states are that lead to nonthermal dynamics. We introduce a graph-theoretic framework to find suitable candidates for scarring on arbitrary lattices. Our framework predicts two distinct mechanisms: type-I scars generalize the bipartite case by using locally entangled states to overcome mild frustration, while type-II scars exploit strong frustration to pin part of the lattice, leaving the remainder to oscillate freely. We numerically demonstrate both mechanisms and uncover an exponential family of scarred trajectories on the hexagonal lattice that can encode information protected from thermalization. Our results establish scarring as a generic feature of Rydberg systems beyond one dimension and provide an experimentally accessible route to systematically probing non-thermal dynamics in quantum simulators."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Universal Neural Propagator: Learning Time Evolution in Many-Body Quantum Systems",
-      "authors": [
-        "Zihao Qi",
-        "Christopher Earls",
-        "Yang Peng"
-      ],
-      "date": "2026-05-06T18:00:01+00:00",
-      "link": "https://arxiv.org/abs/2605.05299v1",
-      "arxiv": "https://arxiv.org/abs/2605.05299v1",
-      "doi": null,
-      "summary": "Conventional approaches to simulating quantum many-body dynamics produce a single trajectory: if the Hamiltonian or the initial state is changed, the computation must be re-performed. Recent efforts toward foundation models have begun to address this limitation, yet existing methods transfer across either Hamiltonians or initial states, but not both. In this work, we introduce the Universal Neural Propagator (UNP), a single, unified model that learns the functional mapping from driving protocols to time-evolution propagators. Trained in an entirely self-supervised way, a single UNP model predicts dynamics across a function space of driving protocols and an exponentially large Hilbert space of initial states simultaneously. We benchmark on a two-dimensional driven Ising model and demonstrate the UNP's accuracy and transferability across product and entangled initial states, as well as for both in- and out-of-distribution driving protocols. The UNP remains accurate at system sizes beyond exact diagonalization, and can be efficiently fine-tuned across all initial states using observable data. By shifting the object of learning from quantum states to operators, this work opens a route toward transferable simulation of driven quantum matter."
     },
     {
       "journalKey": "arXivCM",
