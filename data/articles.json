@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T16:45:57.630562+00:00",
+  "generatedAt": "2026-05-10T18:52:43.180390+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-05-10T00:00:00+00:00",
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-05-10T16:45:57.630562+00:00",
+    "generatedAt": "2026-05-10T18:52:43.180390+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -7371,23 +7371,6 @@
       "journal": "arXiv: cond-mat",
       "journalShort": "arXiv cond-mat",
       "type": "preprint",
-      "title": "Universal Neural Propagator: Learning Time Evolution in Many-Body Quantum Systems",
-      "authors": [
-        "Zihao Qi",
-        "Christopher Earls",
-        "Yang Peng"
-      ],
-      "date": "2026-05-06T18:00:01+00:00",
-      "link": "https://arxiv.org/abs/2605.05299v1",
-      "arxiv": "https://arxiv.org/abs/2605.05299v1",
-      "doi": null,
-      "summary": "Conventional approaches to simulating quantum many-body dynamics produce a single trajectory: if the Hamiltonian or the initial state is changed, the computation must be re-performed. Recent efforts toward foundation models have begun to address this limitation, yet existing methods transfer across either Hamiltonians or initial states, but not both. In this work, we introduce the Universal Neural Propagator (UNP), a single, unified model that learns the functional mapping from driving protocols to time-evolution propagators. Trained in an entirely self-supervised way, a single UNP model predicts dynamics across a function space of driving protocols and an exponentially large Hilbert space of initial states simultaneously. We benchmark on a two-dimensional driven Ising model and demonstrate the UNP's accuracy and transferability across product and entangled initial states, as well as for both in- and out-of-distribution driving protocols. The UNP remains accurate at system sizes beyond exact diagonalization, and can be efficiently fine-tuned across all initial states using observable data. By shifting the object of learning from quantum states to operators, this work opens a route toward transferable simulation of driven quantum matter."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
       "title": "Systematic construction of quantum many-body scars in frustrated Rydberg arrays",
       "authors": [
         "Jean-Yves Desaules",
@@ -7400,6 +7383,23 @@
       "arxiv": "https://arxiv.org/abs/2605.05297v1",
       "doi": null,
       "summary": "Quantum many-body scars in Rydberg atom arrays have thus far only been observed on bipartite lattices, leaving open the question of whether and how they survive frustration, and what the appropriate initial states are that lead to nonthermal dynamics. We introduce a graph-theoretic framework to find suitable candidates for scarring on arbitrary lattices. Our framework predicts two distinct mechanisms: type-I scars generalize the bipartite case by using locally entangled states to overcome mild frustration, while type-II scars exploit strong frustration to pin part of the lattice, leaving the remainder to oscillate freely. We numerically demonstrate both mechanisms and uncover an exponential family of scarred trajectories on the hexagonal lattice that can encode information protected from thermalization. Our results establish scarring as a generic feature of Rydberg systems beyond one dimension and provide an experimentally accessible route to systematically probing non-thermal dynamics in quantum simulators."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Universal Neural Propagator: Learning Time Evolution in Many-Body Quantum Systems",
+      "authors": [
+        "Zihao Qi",
+        "Christopher Earls",
+        "Yang Peng"
+      ],
+      "date": "2026-05-06T18:00:01+00:00",
+      "link": "https://arxiv.org/abs/2605.05299v1",
+      "arxiv": "https://arxiv.org/abs/2605.05299v1",
+      "doi": null,
+      "summary": "Conventional approaches to simulating quantum many-body dynamics produce a single trajectory: if the Hamiltonian or the initial state is changed, the computation must be re-performed. Recent efforts toward foundation models have begun to address this limitation, yet existing methods transfer across either Hamiltonians or initial states, but not both. In this work, we introduce the Universal Neural Propagator (UNP), a single, unified model that learns the functional mapping from driving protocols to time-evolution propagators. Trained in an entirely self-supervised way, a single UNP model predicts dynamics across a function space of driving protocols and an exponentially large Hilbert space of initial states simultaneously. We benchmark on a two-dimensional driven Ising model and demonstrate the UNP's accuracy and transferability across product and entangled initial states, as well as for both in- and out-of-distribution driving protocols. The UNP remains accurate at system sizes beyond exact diagonalization, and can be efficiently fine-tuned across all initial states using observable data. By shifting the object of learning from quantum states to operators, this work opens a route toward transferable simulation of driven quantum matter."
     },
     {
       "journalKey": "arXivCM",
@@ -16754,22 +16754,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Memory uncertainty relation and harmonic memory in random recurrent networks</span>",
-      "authors": [
-        "Taichi Haruna and Kohei Nakajima"
-      ],
-      "date": "2026-04-30T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/e9073Yf5Q701579bf8060506226bf04f1aa846b79",
-      "doi": "10.1103/2vtp-m1yk",
-      "summary": "We present an inequality that bounds the short-term memory capability of dynamical systems from below. It can be interpreted as an uncertainty relation between a measure of short-term memory and that of the size of state fluctuations induced by input signals. The lower bound can be achieved by a rea…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Vector resonant relaxation and statistical closure theory. II. One-loop closure</span>",
       "authors": [
         "Sofia Flores and Jean-Baptiste Fouvry"
@@ -16778,6 +16762,22 @@
       "link": "https://journals.aps.org/pre/accepted/0607aR1bWf818624658e49b4a7f5dbd2453ace78d",
       "doi": "10.1103/q4fc-76k1",
       "summary": "We use stellar dynamics as a testbed for statistical closure theory. We focus on the process of “Vector Resonant Relaxation,’’ a long-range, non-linear, and correlated relaxation mechanism that drives the reorientation of stellar orbital planes around a supermassive black hole. This process provides…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Memory uncertainty relation and harmonic memory in random recurrent networks</span>",
+      "authors": [
+        "Taichi Haruna and Kohei Nakajima"
+      ],
+      "date": "2026-04-30T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/e9073Yf5Q701579bf8060506226bf04f1aa846b79",
+      "doi": "10.1103/2vtp-m1yk",
+      "summary": "We present an inequality that bounds the short-term memory capability of dynamical systems from below. It can be interpreted as an uncertainty relation between a measure of short-term memory and that of the size of state fluctuations induced by input signals. The lower bound can be achieved by a rea…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -17926,22 +17926,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Effects of cell-cell communication on bacterial chemotaxis</span>",
-      "authors": [
-        "Soutick Saha, Sean Fancher, and Andrew Mugler"
-      ],
-      "date": "2026-04-29T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/95075R1fZ731fb25132672c95504ea8927957513f",
-      "doi": "10.1103/jgm1-2lcd",
-      "summary": "Bacteria track chemical gradients using a biased random walk, a process called chemotaxis. Experiments suggest that bacteria also communicate during this process. Using a mathematical model, we find that sufficiently strong communication succeeds in keeping a population of bacteria together but slow…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Renewal theory for a run-and-tumble particle with stochastic resetting and a sticky boundary</span>",
       "authors": [
         "Paul C. Bressloff and Samantha Linn"
@@ -17951,6 +17935,22 @@
       "doi": "10.1103/dcnh-bhwc",
       "summary": "We consider a run-and-tumble particle (RTP) with stochastic resetting confined to the half line $",
       "citation": "0,∞)$ with a sticky boundary at $x=0$. In the bulk the RTP tumbles at a constant rate $α&gt;0$ between velocity states $±v$ with $v&gt;0$ and randomly resets to its initial position and orientation $({x…</span><br />[Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Effects of cell-cell communication on bacterial chemotaxis</span>",
+      "authors": [
+        "Soutick Saha, Sean Fancher, and Andrew Mugler"
+      ],
+      "date": "2026-04-29T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/95075R1fZ731fb25132672c95504ea8927957513f",
+      "doi": "10.1103/jgm1-2lcd",
+      "summary": "Bacteria track chemical gradients using a biased random walk, a process called chemotaxis. Experiments suggest that bacteria also communicate during this process. Using a mathematical model, we find that sufficiently strong communication succeeds in keeping a population of bacteria together but slow…",
+      "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
     {
