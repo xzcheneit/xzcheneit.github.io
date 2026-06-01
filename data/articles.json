@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-01T09:19:06.659112+00:00",
+  "generatedAt": "2026-06-01T09:33:49.760541+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-06-01T04:00:00+00:00",
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-06-01T09:19:06.659112+00:00",
+    "generatedAt": "2026-06-01T09:33:49.760541+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -537,11 +537,11 @@
         "origin": "api",
         "url": "http://export.arxiv.org/api/query?search_query=cat:cond-mat*&sortBy=lastUpdatedDate&sortOrder=descending&start=0&max_results=200",
         "ok": false,
-        "status": 429,
-        "contentType": "text/html",
+        "status": null,
+        "contentType": null,
         "entries": 0,
-        "bozo": true,
-        "error": ""
+        "bozo": false,
+        "error": "The read operation timed out"
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
@@ -2750,6 +2750,20 @@
       "summary": "-cross Abstract: We elucidate the Bures metric in quantum state space near a rank-changing point of the density matrix and show contrasting behavior for two-level ($N=2$) systems versus higher-level systems. Due to the smooth pure-state boundary for $N=2$, we prove the apparent metric divergences to be merely coordinate artifacts and present three Lindblad processes exhibiting qualitatively different evolution near rank-changing points, showing geodesic approach, power-law scaling, and pure-state escape law. For higher-dimensional ($N\\ge 3$) systems, the geometry near a rank-changing point differs fundamentally. Under suitable restrictions of the density matrix and its approach towards a pure state, the Bures metric reduces to a conical metric with the pure state at the cone tip. Such a conic geometry leads to genuine curvature singularities: A two-dimensional cone exhibits a Dirac delta-function curvature near the tip while a higher-dimensional cone shows a power-law divergence of the curvature towards the cone tip. A construction of Lindblad evolution for $N=3$ systems with conic singularities is presented, along with possible implications for future experimental and theoretical research."
     },
     {
+      "journalKey": "Nature",
+      "journal": "Nature",
+      "journalShort": "Nature",
+      "type": "published",
+      "title": "Obesity doesn’t equate to ill health: why the ‘disease’ label doesn’t always fit",
+      "authors": [
+        "Francesco Rubino"
+      ],
+      "date": "2026-06-01T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/d41586-026-01729-9",
+      "doi": "10.1038/d41586-026-01729-9",
+      "summary": "Nature, Published online: 01 June 2026; doi:10.1038/d41586-026-01729-9 Excess body weight affects individuals’ health differently. Taking this variation into account is crucial for effective health care, policy and research."
+    },
+    {
       "journalKey": "NatCommun",
       "journal": "Nature Communications",
       "journalShort": "Nat Commun.",
@@ -2814,6 +2828,29 @@
       "link": "https://www.nature.com/articles/s41467-026-73331-6",
       "doi": "10.1038/s41467-026-73331-6",
       "summary": "Nature Communications, Published online: 01 June 2026; doi:10.1038/s41467-026-73331-6 The authors report real-time quantum error correction on Rigetti’s Ankaa-2 by integrating a scalable FPGA decoder into the control stack achieving sub-1 μs mean decoding per round and 9.6 us feedback latency. This work provides a concrete advancement on scalable fault-tolerant computing"
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Decoupling of hygromechanical stimuli without cross-interference enabled by distinct ion-electron charge transport",
+      "authors": [
+        "Joo Sung Kim",
+        "Yusuke Ebihara",
+        "Lulu Sun",
+        "Du Baocai",
+        "Daishi Inoue",
+        "Daisuke Hashizume",
+        "Tomoyuki Yokota",
+        "Kenjiro Fukuda",
+        "Sunghoon Lee",
+        "Takao Someya"
+      ],
+      "date": "2026-06-01T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-73678-w",
+      "doi": "10.1038/s41467-026-73678-w",
+      "summary": "Nature Communications, Published online: 01 June 2026; doi:10.1038/s41467-026-73678-w Accurately decoupling mechanical stimuli and environmental factors such as humidity remains a challenge for tactile sensors. Here, the authors show distinct ion–electron charge transport kinetics, enabling cross-interference-free hygromechanical sensing for safer, adaptive human–machine interaction in robotic systems."
     },
     {
       "journalKey": "NatCommun",
@@ -2985,39 +3022,6 @@
       "link": "https://www.nature.com/articles/s41467-026-73801-x",
       "doi": "10.1038/s41467-026-73801-x",
       "summary": "Nature Communications, Published online: 30 May 2026; doi:10.1038/s41467-026-73801-x Genome-wide association studies (GWAS) have identified over 200 genetic risk loci for breast cancer, but the target genes in these loci remain largely unknown. Here, the authors conduct multi-ancestry transcriptome-wide association studies to discover potential breast cancer susceptibility genes, which are further explored with single-cell sequencing and in vitro experiments."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Pan-cancer single-cell atlases of mouse and human tumor-associated dendritic cells",
-      "authors": [
-        "Aarushi A. Caro",
-        "Daliya Kancheva",
-        "Eva Hadadi",
-        "Bram Boeckx",
-        "Clint De Nolf",
-        "Pauline M. R. Bardet",
-        "Kevin Verstaen",
-        "Luqing Li",
-        "Lobna Oueslati",
-        "Nil Figueras-Duch",
-        "Yvon Elkrim",
-        "Niels Vandamme",
-        "Sofie Deschoemaeker",
-        "Arnaud Blomme",
-        "Pierre Close",
-        "Sophie Janssens",
-        "Michele De Palma",
-        "Diether Lambrechts",
-        "An Coosemans",
-        "Damya Laoui"
-      ],
-      "date": "2026-05-30T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-73721-w",
-      "doi": "10.1038/s41467-026-73721-w",
-      "summary": "Nature Communications, Published online: 30 May 2026; doi:10.1038/s41467-026-73721-w Multiple lineages and functional states of tumor-associated dendritic cells (TADCs), as essential inducers of anti-tumor immunity, have been reported. Here, the authors have generated single-cell RNA sequencing atlases of pan-cancer mouse and human TADCs, illustrating heterogeneity and evolution of dendritic cells with tumor progression."
     },
     {
       "journalKey": "NSR",
@@ -6224,6 +6228,20 @@
       "journal": "Nature",
       "journalShort": "Nature",
       "type": "published",
+      "title": "Daily briefing: Gene-activity ‘clock’ predicts biological ageing",
+      "authors": [
+        "Jacob Smith"
+      ],
+      "date": "2026-05-28T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/d41586-026-01734-y",
+      "doi": "10.1038/d41586-026-01734-y",
+      "summary": "Nature, Published online: 28 May 2026; doi:10.1038/d41586-026-01734-y The new tool can predict ageing in rodents and monkeys — and time to death in people. Plus, zebrafish sleep in stages, similarly to humans, and the race to intercept lung cancer before it starts."
+    },
+    {
+      "journalKey": "Nature",
+      "journal": "Nature",
+      "journalShort": "Nature",
+      "type": "published",
       "title": "Gene therapies to fix failing hearts gain steam after years in the doldrums",
       "authors": [
         "Edward Chen"
@@ -9081,35 +9099,6 @@
       "link": "https://www.nature.com/articles/d41586-026-01713-3",
       "doi": "10.1038/d41586-026-01713-3",
       "summary": "Nature, Published online: 27 May 2026; doi:10.1038/d41586-026-01713-3 A new AI tool has generated an atlas of more than one billion predicted protein structures. Plus, a biology lab run by ten robots and whether we can truly trust eyewitness accounts during criminal trials."
-    },
-    {
-      "journalKey": "Nature",
-      "journal": "Nature",
-      "journalShort": "Nature",
-      "type": "published",
-      "title": "Organ formation in early human embryos captured in spatial cell atlas",
-      "authors": [
-        "Varun K. A. Sreenivasan",
-        "Malte Spielmann"
-      ],
-      "date": "2026-05-27T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/d41586-026-01416-9",
-      "doi": "10.1038/d41586-026-01416-9",
-      "summary": "Nature, Published online: 27 May 2026; doi:10.1038/d41586-026-01416-9 Spatial maps of gene expression in whole human embryos across several weeks of early development offer insights into the molecular programs that drive organogenesis."
-    },
-    {
-      "journalKey": "Nature",
-      "journal": "Nature",
-      "journalShort": "Nature",
-      "type": "published",
-      "title": "Scraping",
-      "authors": [
-        "Laura O’Meara"
-      ],
-      "date": "2026-05-27T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/d41586-026-01089-4",
-      "doi": "10.1038/d41586-026-01089-4",
-      "summary": "Nature, Published online: 27 May 2026; doi:10.1038/d41586-026-01089-4 Supply and demand."
     },
     {
       "journalKey": "NatPhys",
