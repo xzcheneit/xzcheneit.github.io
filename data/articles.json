@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-15T03:33:27.390657+00:00",
+  "generatedAt": "2026-06-15T04:57:04.723925+00:00",
   "windowDays": 14,
   "coverage": {
-    "latest": "2026-06-15T00:00:00+00:00",
+    "latest": "2026-06-15T04:00:00+00:00",
     "earliest": "2026-06-01T10:00:00+00:00",
-    "count": 1050
+    "count": 1052
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-06-15T03:33:27.390657+00:00",
+    "generatedAt": "2026-06-15T04:57:04.723925+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -545,10 +545,10 @@
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
-        "ok": false,
+        "ok": true,
         "status": 200,
         "contentType": "application/rss+xml",
-        "entries": 0,
+        "entries": 147,
         "bozo": false,
         "error": "",
         "key": "arXivCM",
@@ -559,6 +559,36 @@
     ]
   },
   "items": [
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Controlling Defects and Probing Dynamics in Active Nematics with Deep Reinforcement Learning",
+      "authors": [
+        "Russ Islam, Kyogo Kawaguchi, Yuto Ashida"
+      ],
+      "date": "2026-06-15T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2606.13721",
+      "arxiv": "https://arxiv.org/abs/2606.13721",
+      "doi": null,
+      "summary": "Topological defects govern much of the flow behavior and orientational order in active nematics, making their control relevant for active matter physics, smart materials, and microfluidics. Applied activity patterns can induce self-propulsion of active nematic defects, but general-purpose methods for exploiting this effect to control defects remain largely unexplored. Here we use deep reinforcement learning (RL) to perform minimum-time position control of +1/2 defects in hybrid lattice Boltzmann simulations of active nematodynamics. Spatiotemporally patterned activity, implemented as a control field in the active stress, steers defects through microchannel geometries and reveals finite-time reachable regions of defect position space. Reachability is shaped by director anisotropy, homeotropic wall anchoring, and the allowed activity patterns: local patterns steer defects in free domains but fail in junctions, whereas global patterns open otherwise inaccessible channels. In constrained geometries, the original defect may be unable to reach some goals intact, but controlled pair creation enlarges the effective reachable set by transferring control to a newly created +1/2 defect. The trained RL controllers outperform static and rule-based baselines, and controllers trained only on simple junctions can be combined without fine-tuning into a meta-controller that successfully steers defects through a larger test maze. Free energy visualizations show that guided defects write persistent, history-dependent distortions into the director field that can later be partially erased by -1/2 defects. Thus, RL-based control uncovers how confinement, anchoring, actuation geometry, and defect creation determine reachable motion in active nematics, providing a framework for other control tasks in soft and active matter."
+    },
+    {
+      "journalKey": "arXivCM",
+      "journal": "arXiv: cond-mat",
+      "journalShort": "arXiv cond-mat",
+      "type": "preprint",
+      "title": "Emission of time-ordered photon pairs from a coherently-driven Kerr microcavity",
+      "authors": [
+        "Ferdinand Claude, Yueguang Zhou, Sylvain Ravets, Jacqueline Bloch, Martina Morassi, Aristide Lema\\^itre, Alberto Bramati, Anna Minguzzi, Iacopo Carusotto, Ir\\'en\\'ee Fr\\'erot, Maxime Richard"
+      ],
+      "date": "2026-06-15T04:00:00+00:00",
+      "link": "https://arxiv.org/abs/2601.06468",
+      "arxiv": "https://arxiv.org/abs/2601.06468",
+      "doi": null,
+      "summary": "Weakly-interacting many-body systems possess remarkable quantum properties that are essential components of quantum technologies, and constitute a topic of fundamental interest. Here we show that in a solid-state nonlinear microcavity embedding discrete modes of exciton-dressed photons, we can isolate a single eigenmode of quantum fluctuations from the much brighter coherent fraction of the field. In this regime, we perform frequency- and time-resolved correlations measurements between photons on the red and blue side of the fluctuations spectrum. When the average number of fluctuation quanta is smaller than one, we observe the formation of large pairwise time-ordered correlations: red photon first and blue photon second. We show that this peculiar time-ordering correlation emerges spontaneously from the interplay between frequency-resolved detection, and the non-trivial internal quantum structure of the elementary fluctuations."
+    },
     {
       "journalKey": "Nature",
       "journal": "Nature",
