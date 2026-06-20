@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-20T02:46:23.977230+00:00",
+  "generatedAt": "2026-06-20T04:08:29.362193+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-06-20T00:00:00+00:00",
     "earliest": "2026-06-08T10:00:00+00:00",
-    "count": 1029
+    "count": 1026
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-06-20T02:46:23.977230+00:00",
+    "generatedAt": "2026-06-20T04:08:29.362193+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -545,10 +545,10 @@
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
-        "ok": true,
+        "ok": false,
         "status": 200,
         "contentType": "application/rss+xml",
-        "entries": 155,
+        "entries": 0,
         "bozo": false,
         "error": "",
         "key": "arXivCM",
@@ -576,6 +576,38 @@
       "link": "https://www.nature.com/articles/s41467-026-74668-8",
       "doi": "10.1038/s41467-026-74668-8",
       "summary": "Nature Communications, Published online: 20 June 2026; doi:10.1038/s41467-026-74668-8 Acyclic Schiff base atropisomers have remained inaccessible because of longstanding synthetic and stereocontrol challenges. Here, the authors report a palladium-catalysed asymmetric N-allylation enabled by substrate guided catalyst evolution, delivering Z selective atropisomeric Schiff bases with high yields and enantioselectivities."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Biomimetic ferroelectric-semiconductor transistor enables neuronal multisensory integration",
+      "authors": [
+        "Shuo Liu",
+        "Ligong Zhang",
+        "Ruiqing Xie",
+        "Zhiyuan Wu",
+        "Aojie Chen",
+        "Lixia Han",
+        "Linbo Shan",
+        "Zuoyuan Dong",
+        "Junling Liu",
+        "Xinrui Guo",
+        "Yu Zhu",
+        "Zhenghua Zhou",
+        "Fei Liu",
+        "Linxiao Shen",
+        "Peng Huang",
+        "Xinran Wang",
+        "Zongwei Wang",
+        "Yimao Cai",
+        "Ming He"
+      ],
+      "date": "2026-06-20T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-74648-y",
+      "doi": "10.1038/s41467-026-74648-y",
+      "summary": "Nature Communications, Published online: 20 June 2026; doi:10.1038/s41467-026-74648-y Replicating the brain’s multisensory integration is vital for artificial intelligences. Liu et al. have developed biomimetic ferroelectric-semiconductor field-effect transistors to mimick the brain’s audiovisual integration driven by hardware-native multi-physics coupling."
     },
     {
       "journalKey": "NatCommun",
@@ -752,72 +784,6 @@
       "link": "https://www.nature.com/articles/s41467-026-74093-x",
       "doi": "10.1038/s41467-026-74093-x",
       "summary": "Nature Communications, Published online: 20 June 2026; doi:10.1038/s41467-026-74093-x This study presents a tropical temperature record across the last deglaciation using stalagmites from central-eastern South America. Tropical temperature broadly tracks atmospheric CO₂ and ocean circulation."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Solvent-triggered reconfiguration of optical physical unclonable functions",
-      "authors": [
-        "Ji Hoon Kim",
-        "Jihee Kim",
-        "Jung Gun Bae",
-        "Junsik Choi",
-        "Seongsu Cho",
-        "Daeyeon Lee",
-        "Hyunsik Yoon",
-        "Won Bo Lee"
-      ],
-      "date": "2026-06-20T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-74463-5",
-      "doi": "10.1038/s41467-026-74463-5",
-      "summary": "Nature Communications, Published online: 20 June 2026; doi:10.1038/s41467-026-74463-5 Researchers report a reconfigurable optical anti-counterfeiting tag whose microscopic fingerprint can be rewritten on demand by a droplet of volatile solvent, enabling renewable security without heat, light, or special equipment."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Physics-Informed Discovery of Yield Functions in Plasticity via Convex Neural Representations",
-      "authors": [
-        "Hyeonbin Moon, Donghyuk Cho, Jecheon Yu, Jeong Whan Yoon, Seunghwa Ryu"
-      ],
-      "date": "2026-06-19T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2606.19375",
-      "arxiv": "https://arxiv.org/abs/2606.19375",
-      "doi": null,
-      "summary": "Identifying anisotropic yield functions remains challenging since yielding is not directly observed in full-field mechanical measurements, directional calibration can require many loading directions, and selecting an appropriate analytical form is nontrivial. This study proposes a physics-informed framework for discovering yield functions from full-field displacement data and reaction force data, without stress observations, plastic strain measurements, direct yield surface data, or a prescribed parametric yield function. The framework identifies the yield function as a mechanically constrained constitutive component inside elastoplastic stress integration, rather than through direct stress-space supervision. The yield function is represented by a convex neural network that enforces convexity and positive homogeneity of degree one while imposing the assumed tension-compression symmetry, and this neural yield function is trained with a differentiable stress update and a physics-informed force equilibrium loss across multiple loading cases. The proposed framework is validated using finite element (FE) benchmark studies with von Mises, Hill 1948, and Yld2000-2d yield functions, assessing yield contour agreement, displacement-noise sensitivity, identifiability through plastically active stress states, epistemic uncertainty, and polynomial-surrogate deployment. This study provides a mechanics-constrained pathway for discovering anisotropic yield functions from displacement and force data while keeping the identified component within the structure of elastoplastic stress integration."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "A Hybrid GNN-FEM Framework for Phase-Field Fracture Simulation. Physics-Preserving Hybridization for Generalizable Surrogate Modeling",
-      "authors": [
-        "Hyeonbin Moon, Yongjin Choi, Seunghwa Ryu"
-      ],
-      "date": "2026-06-19T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2606.19378",
-      "arxiv": "https://arxiv.org/abs/2606.19378",
-      "doi": null,
-      "summary": "Scientific machine learning (SciML) has emerged as a promising approach for accelerating simulations of complex physical systems, yet achieving physically consistent and generalizable predictions for nonlinear, history-dependent problems remains a central challenge. In this study, we propose a hybrid GNN--FEM framework for efficient and generalizable phase-field fracture modeling. While phase-field approaches provide a robust variational framework for simulating complex crack evolution, their high computational cost limits practical applications because they require solving coupled, nonlinear, and history-dependent systems within an incremental finite element procedure. To address this challenge, a graph neural network surrogate is integrated into the conventional staggered scheme, replacing the phase-field update at each load increment while retaining the FEM-based displacement solver to enforce mechanical equilibrium and boundary conditions. By preserving the incremental solution structure, the framework remains consistent with history-dependent fracture evolution without requiring the surrogate to approximate the full solution trajectory. This selective surrogate strategy emphasizes the identification of a physically meaningful and incrementally structured learning target, rather than relying on brute-force data generation to learn the full fracture process. The proposed framework achieves strong generalization across varying geometries, loading conditions, material properties, and discretizations through dimensionless feature design, a graph-based formulation on mesh-based domains, and a physics-informed loss derived from the governing phase-field equation. Numerical experiments demonstrate that the hybrid approach reduces computational cost while maintaining accuracy compared with conventional FEM, and exhibits robust predictive performance across diverse problem settings."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Generating function and Bloch representation for quantum Fisher tensor",
-      "authors": [
-        "Felipe P. Abreu, Wei Chen"
-      ],
-      "date": "2026-06-19T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2511.05260",
-      "arxiv": "https://arxiv.org/abs/2511.05260",
-      "doi": null,
-      "summary": "-cross Abstract: The Uhlmann relative amplitude between two density matrices is shown to be a generating function, through which the quantum Fisher tensor that contains both the quantum Fisher information matrix and the mean Uhlmann curvature can be obtained via differentiation over system parameters. In the pure state limit, our generating function recovers that of the quantum geometric tensor proposed by Het\\'{e}nyi and L\\'{e}vay, and also clarifies the fidelity and phase between two quantum states as the generating functions of the quantum metric and Berry curvature, respectively. A generic expression for the quantum Fisher tensor in terms of the Bloch representation of density matrices is derived, which facilitates the calculation of the tensor, mean Uhlmann curvature, and geometric properties derived from the quantum Fisher information matrix. Canonical ensembles of spins are adopted to demonstrate our formalism, which reveals a constant Ricci scalar, a vacuum Einstein equation, and a cosmological constant on the 3D Euclidean manifold of the magnetic field"
     },
     {
       "journalKey": "Nature",
