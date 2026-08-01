@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-01T03:24:41.832999+00:00",
+  "generatedAt": "2026-08-01T06:22:46.674871+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-08-01T00:00:00+00:00",
     "earliest": "2026-07-20T10:00:00+00:00",
-    "count": 1123
+    "count": 1115
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-08-01T03:24:41.832999+00:00",
+    "generatedAt": "2026-08-01T06:22:46.674871+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -545,10 +545,10 @@
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
-        "ok": true,
+        "ok": false,
         "status": 200,
         "contentType": "application/rss+xml",
-        "entries": 187,
+        "entries": 0,
         "bozo": false,
         "error": "",
         "key": "arXivCM",
@@ -559,6 +559,36 @@
     ]
   },
   "items": [
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "The transcription factor C/EBPβ promotes hyperglycemia-elicited glycolysis and liver cancer progression",
+      "authors": [
+        "Yifan Luo",
+        "Zhengjiang Qian",
+        "Guandou Yuan",
+        "Shuai Yang",
+        "Wei Gong",
+        "Yangyang Zhai",
+        "Wenting Dai",
+        "Jiawei An",
+        "Yuchu Liu",
+        "Qiuyue Jiang",
+        "Yang Su",
+        "Ning Ren",
+        "Min Guan",
+        "Yongfeng Yang",
+        "Feng Rao",
+        "Kunyan He",
+        "Keqiang Ye"
+      ],
+      "date": "2026-08-01T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-76209-9",
+      "doi": "10.1038/s41467-026-76209-9",
+      "summary": "Nature Communications, Published online: 01 August 2026; doi:10.1038/s41467-026-76209-9 High blood sugar in diabetes is linked to faster cancer growth, but the mechanisms remain unclear. Here, the authors show that the transcription factor C/EBPβ is activated by high glucose to enhance glycolysis and HRAS-driven proliferation, promoting liver cancer progression and revealing a potential therapeutic target."
+    },
     {
       "journalKey": "NatCommun",
       "journal": "Nature Communications",
@@ -1170,126 +1200,6 @@
       "publisher": "American Physical Society"
     },
     {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Coordinate and Momentum Distributions of a Small Composite System",
-      "authors": [
-        "Dmitry Naplekov, Yury Bezruk, Vladimir Yanovsky"
-      ],
-      "date": "2026-07-31T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2607.27244",
-      "arxiv": "https://arxiv.org/abs/2607.27244",
-      "doi": null,
-      "summary": "An isolated small system consisting of a movable shell and a finite number of internal particles is considered. Exact distributions of the shell coordinates and momenta are obtained for various types of internal particle motion under the conditions of conservation of the total energy and momentum of the system. The coordinate distribution consists of a finite number of branches and may contain plateau regions. The momentum distribution corresponds to a non-uniform distribution of energy among the degrees of freedom of the system. It is shown that the coordinate distribution depends on the number of internal particles and remains unchanged when the dimensionality of their motion varies, whereas the momentum distribution depends on the number of degrees of freedom. Consequently, comparison of the coordinate and momentum distributions of the shell makes it possible to draw conclusions about the internal structure of the system. The chaotic motion of the shell caused by impacts from the internal particles is analyzed; unlike Brownian motion, it persists even in the absence of an external medium. A universal expression for the root-mean-square deviation of the shell is obtained explicitly, depending on the number of internal particles and their masses."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "MatCreatioNN: Machine learning-guided computational discovery of photocatalysts for environmental applications",
-      "authors": [
-        "Satya Kokonda"
-      ],
-      "date": "2026-07-31T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2607.27295",
-      "arxiv": "https://arxiv.org/abs/2607.27295",
-      "doi": "10.1016/j.cattod.2026.115725",
-      "summary": "The rational design of photocatalysts for environmental remediation and CO2 conversion remains limited by the high computational cost and sparse experimental data describing multi-parameter photocatalytic behavior. This work presents an integrated machine-learning framework that couples reinforcement learning-based metal-organic framework (MOF) generation with a multi-stage Crystal Graph Convolutional Neural Network (CGCNN) prediction funnel to identify photocatalysts optimized across multiple electronic and structural features. 120,000 MOF candidates were generated and screened using 13 key descriptors, including band-gap suitability, CO2/H2O selectivity, adsorption energy, and structural stability. The funnel approach reduced computational cost by 4.13-fold while maintaining predictive robustness. Two top candidates, a Cr-based and a Zn-based MOF, exhibited predicted photocatalytic fitness values of 1.70 +/- 0.25 and 1.20 +/- 0.05 fold higher respectively than benchmark materials such as PCN-224(Zr), demonstrating simultaneous improvements in light absorption, redox energetics, and framework durability. Simulated X-ray diffraction patterns confirmed strong structural agreement with experimentally synthesized MOFs, indicating high synthesizability. Post-hoc analysis revealed recurring structural motifs, such as the N262 metal cluster, that correlated strongly with high predicted photocatalytic activity. These results highlight the potential of data-driven methods to accelerate discovery of efficient and durable photocatalysts for environmental and energy-related transformations, providing a foundation for experimental realization and large-scale implementation of computationally designed MOFs."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "When trajectory-based bounds fail: information thermodynamics under noisy feedback",
-      "authors": [
-        "Natalia Ruiz-Pino, Ludovic Bellon, Antonio Prados"
-      ],
-      "date": "2026-07-31T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2607.27299",
-      "arxiv": "https://arxiv.org/abs/2607.27299",
-      "doi": null,
-      "summary": "Information engines exploit feedback to extract work from thermal fluctuations, extending the second law of thermodynamics through information-theoretic bounds. While several such bounds have been proposed, their relative performance under realistic conditions---where measurements are noisy and feedback is temporally correlated---remains largely unclear. Here, we experimentally and theoretically investigate this problem in an underdamped feedback-controlled system with Markovian measurements but non-Markovian control sequences. We compare three representative bounds derived from transfer entropy, unavailable information, and Markovian mutual information, and find that none is universally optimal. Instead, measurement noise preferentially affects information measures that rely on detailed trajectory statistics, while leaving quantities based on instantaneous correlations comparatively robust. As a consequence, trajectory-dependent bounds deteriorate rapidly, giving rise to a crossover in which the Markovian mutual-information bound becomes tighter than the unavailable-information bound over a broad range of measurement noise. Our results reveal a general limitation of information-theoretic descriptions that rely on detailed trajectory statistics in realistic settings and provide a unified perspective on information thermodynamics beyond idealised feedback protocols."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Depth-Resolved Lattice Distortions in a Silicon-Germanium Qubit Host",
-      "authors": [
-        "Jonathan C. Marcks, E. S. Joseph, J. Reily, Talise Oh, Abigail Postlewaite, Tao Zhou, M. A. Eriksson, Mark Friesen, Martin V. Holt"
-      ],
-      "date": "2026-07-31T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2607.26962",
-      "arxiv": "https://arxiv.org/abs/2607.26962",
-      "doi": null,
-      "summary": "Semiconductor qubits, promising for quantum computation, inherit properties from their host lattice. Quantum dot spins, occupying the local lowest energy states in the conduction band, necessarily couple to structural disorder and interfaces. While silicon-based systems promise low noise alongside industrially compatible manufacturing, the growth of SiGe---a leading platform---unavoidably introduces lattice dislocations, inhomogeneous strain, and crosshatch patterns, expected to cause fluctuations between devices, qubit failure, and subsequently higher operational overhead. Through X-ray nano-structural mapping of an Intel Si/SiGe chip, we reveal, with 30$~$nm lateral and 200$~$nm functional depth resolution, how extended lattice defects introduced during growth propagate through the heterostructure, creating permanently distorted lattice planes and strain. We correlate these at the $\\approx1~\\mu$m scale of a quantum dot device and calculate the impact on qubit energy spectra. We observe crosshatch fine structure and find that substrate miscut and growth correlate with the final crosshatch pattern."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Equilibrium Training of Energy-Based Models with Parallel Trajectory Tempering",
-      "authors": [
-        "Nicolas B\\'ereux, Aur\\'elien Decelle, Cyril Furtlehner, Beatriz Seoane"
-      ],
-      "date": "2026-07-31T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2607.27077",
-      "arxiv": "https://arxiv.org/abs/2607.27077",
-      "doi": null,
-      "summary": "Energy-Based Models (EBMs) provide an interpretable framework for generative modeling of scientific data, but poor Markov Chain Monte Carlo mixing often limits their reliability. We introduce a training algorithm based on Parallel Trajectory Tempering (PTT), which exploits the continuity of the optimization path to maintain equilibrium sampling throughout learning. This enables stable and fast training on highly multimodal and data-scarce scientific datasets. Combined with reservoir sampling and adaptive optimization, PTT has a computational cost comparable to Persistent Contrastive Divergence, making it a practical replacement for standard training methods. It also provides direct estimates of thermalization times, equilibrium samples from trained models, and accurate log-likelihoods at essentially no additional cost. Experiments on Restricted Boltzmann Machines show that PTT consistently outperforms existing EBM training approaches. On discrete tabular data, it also surpasses state-of-the-art deep generative models, yielding higher-quality samples and greater robustness to overfitting and limited data. Our results make equilibrium maximum-likelihood training of EBMs practical and computationally efficient."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Data Field Theory: Theory and Applications of the Functional Renormalization Group for Signal Detection",
-      "authors": [
-        "Riccardo Finotello, Vincent Lahoche, Dine Ousmane Samary, Parham Radpay"
-      ],
-      "date": "2026-07-31T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2607.27236",
-      "arxiv": "https://arxiv.org/abs/2607.27236",
-      "doi": null,
-      "summary": "We review the renormalization group framework for signal detection in high-dimensional data, tailored to the regime where the signal may be of extensive rank and does not separate from the noise bulk as isolated spikes. The framework provides a conceptually simple criterion for distinguishing signal from noise within a quasi-continuous spectral region near a random-matrix universality class. This scenario lies beyond the reach of standard methods such as the Baik-Ben Arous-P\\'ech\\'e threshold, which requires eigenvalues to be cleanly separated from the bulk. The renormalization group approach, by contrast, directly tracks spectral deformations and consistently yields a lower limit of detection without relying on spike separation. We review results that identify the presence of a signal by testing the stability of the Gaussian fixed point of an effective field theory for the collective behaviour of the degrees of freedom in the spectral tail, where the signal resides. We also discuss how the scale dependence of the canonical dimension, induced by the signal, manifests as a dimensional phase transition."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Multibranched parametric resonance and swallowtail catastrophe in electromechanical oscillators with nonlinear friction",
-      "authors": [
-        "P. Y. Chan, L. Huang, X. Dong, M. I. Dykman, H. B. Chan"
-      ],
-      "date": "2026-07-31T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2607.27242",
-      "arxiv": "https://arxiv.org/abs/2607.27242",
-      "doi": null,
-      "summary": "Parametric resonance underpins the operation of a wide range of physical systems, from nanomechanical resonators to quantum-information systems and Ising machines. As an archetypal class of driven-dissipative systems, parametric oscillators are generally expected to exhibit a single pair of stable period-two states with opposite phases. This bistable behavior enables both the simulation of spin Hamiltonians and the preparation of superconducting cat states. Whether multiple pairs of such states can coexist in a single oscillator, however, remains an open question. Here, we show experimentally and theoretically that conventional controlled nonlinear friction can induce the coexistence of two distinct pairs of period-two states in a micromechanical oscillator. The friction is implemented via a canonical approach, utilizing a drive-induced resonant coupling that transfers two vibrational quanta from the oscillatory mode to a faster decaying mode. We demonstrate that the onset of multistability is governed by a swallowtail catastrophe and quantitatively map the associated bifurcation structure. Our results broaden the understanding of parametric resonance and establish micro- and nano-mechanical oscillators as a versatile platform for studying catastrophe theory and multistable nonequilibrium dynamics."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Hybrid light-matter excitations and spontaneous time-reversal symmetry breaking in two-dimensional Josephson Junctions",
-      "authors": [
-        "V. Varrica, G. Falci, E. Paladino, F. M. D. Pellegrino"
-      ],
-      "date": "2026-07-31T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2603.07256",
-      "arxiv": "https://arxiv.org/abs/2603.07256",
-      "doi": "10.1103/npcs-dl1q",
-      "summary": "In the context of hybrid superconductor-semiconductor systems, Josephson junctions based on two-dimensional materials, such as graphene, offer promising opportunities because of their scalability and gate-tunable electronic properties. In this work, we investigate the inductive coupling between a quantum LC resonator and a superconducting loop embedding a short, ballistic, planar Josephson junction, with the graphene-based case as a representative example. Within a mean-field formalism, we analyze how the properties of the global system depend on the light-matter interaction coupling, the Fermi level of the two-dimensional material, and temperature. Our findings reveal that the current-phase relation can show features indicative of spontaneous time-reversal symmetry breaking. Furthermore, starting from the mean-field theory, we determine the low-energy spectrum of collective hybridized light-matter excitations."
-    },
-    {
       "journalKey": "Nature",
       "journal": "Nature",
       "journalShort": "Nature",
@@ -1590,27 +1500,6 @@
       "link": "https://www.nature.com/articles/s41467-026-75961-2",
       "doi": "10.1038/s41467-026-75961-2",
       "summary": "Nature Communications, Published online: 31 July 2026; doi:10.1038/s41467-026-75961-2 By comparing RNA, DNA, and chemically modified RNA, this study demonstrates that the ribose 2′-OH group regulates nucleic acid condensation and determines the formation and material properties of RNA condensates."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Curving transparent ceramics via force-driven sintering",
-      "authors": [
-        "Xincheng Cai",
-        "Xiaoqiang Li",
-        "Tiecheng Lu",
-        "Zhuoying Jia",
-        "Shengquan Yu",
-        "Bin Kang",
-        "Qiwu Shi",
-        "Jianqi Qi"
-      ],
-      "date": "2026-07-31T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-76167-2",
-      "doi": "10.1038/s41467-026-76167-2",
-      "summary": "Nature Communications, Published online: 31 July 2026; doi:10.1038/s41467-026-76167-2 Force-driven sintering enables highly curved transparent ceramics with near-theoretical transparency, allowing fabrication of complex optical components. The process also reveals curvature reversal driven by stress-modulated grain growth."
     },
     {
       "journalKey": "NatMater",
