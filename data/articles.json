@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-05T23:29:09.100142+00:00",
+  "generatedAt": "2026-09-06T02:22:59.295732+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-09-06T00:00:00+00:00",
     "earliest": "2026-08-24T00:00:00+00:00",
-    "count": 1254
+    "count": 1114
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-09-05T23:29:09.100142+00:00",
+    "generatedAt": "2026-09-06T02:22:59.295732+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -428,11 +428,11 @@
       },
       {
         "url": "https://www.science.org/action/showFeed?feed=rss&jc=science&type=etoc",
-        "ok": true,
-        "status": 200,
-        "contentType": "application/xml;charset=UTF-8",
-        "entries": 39,
-        "bozo": false,
+        "ok": false,
+        "status": 403,
+        "contentType": "text/html; charset=UTF-8",
+        "entries": 0,
+        "bozo": true,
         "error": "",
         "key": "Science",
         "journal": "Science",
@@ -441,11 +441,11 @@
       },
       {
         "url": "https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=sciadv",
-        "ok": true,
-        "status": 200,
-        "contentType": "application/xml;charset=UTF-8",
-        "entries": 86,
-        "bozo": false,
+        "ok": false,
+        "status": 403,
+        "contentType": "text/html; charset=UTF-8",
+        "entries": 0,
+        "bozo": true,
         "error": "",
         "key": "SciAdv",
         "journal": "Science Advances",
@@ -587,262 +587,6 @@
       "link": "https://www.nature.com/articles/s41467-026-77155-2",
       "doi": "10.1038/s41467-026-77155-2",
       "summary": "Nature Communications, Published online: 06 September 2026; doi:10.1038/s41467-026-77155-2 Cytotoxic T cells (CTL) are successfully employed in tumour therapy but understanding how their expansion and effector function is regulated might result in further improvements. Here the authors show by a T-cell-specific deletion of Prmt7 and by developing a PRMT7-targeting PROTAC degrader that PRMT7 is a negative regulator of the NF-κB pathway in CTL, removing of which improves anti-tumour function of CTL."
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Unconventional entanglement scaling and quantum criticality in the long-range spin-one Heisenberg chain with single-ion anisotropy</span>",
-      "authors": [
-        "Patrick Adelhardt, Sean R. Muleady, Kai P. Schmidt, and Alexey V. Gorshkov"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/8a072Je3E681b80da2ea97009775d63dad198c811",
-      "doi": "10.1103/3cyg-8wsw",
-      "summary": "Long-range interactions can fundamentally reshape the low-energy properties of low-dimensional quantum matter, altering both continuous symmetry breaking and topological phenomena. However, their impact on the quantum criticality separating these regimes remains poorly understood. We determine the g…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Vorticity induced by non-frontal collisions of quantum droplets</span>",
-      "authors": [
-        "J. E. Alba-Arroyo, Santiago F. Caballero-Benitez, and Rocio Jáuregui"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/fe070Y65G251049af9fd5b98491d5dc7983f7e3e0",
-      "doi": "10.1103/x7vj-t725",
-      "summary": "The rotational dynamics induced by the non-frontal binary collisions of quantum droplets composed of ultracold alkali atoms are analyzed. A theoretical study is presented within the extended Gross-Pitaevskii equation framework, using experimentally feasible conditions. Numerical experiments elucidat…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Universal squeezing-enhanced readout approach for bosonic qubits</span>",
-      "authors": [
-        "Yuan Qiu, Yiming Yu, Ye-Hong Chen, and Yan-Xia"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/4507fDc2E7513a0bb1919f400fa2df2552d85d8a1",
-      "doi": "10.1103/xv37-xwmk",
-      "summary": "In this manuscript, we propose a squeezing-enhanced protocol for the efficient readout of bosonic qubits, whose encoding states can be first mapped onto a multi-level atom and then read out via dispersive coupling. We demonstrate that by simultaneously applying intracavity and external squeezing for…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Turning graphene into an intensity gauge for ARPES</span>",
-      "authors": [
-        "Cedric Schmitt, Hans Kirschner, Jonas Erhardt, Lukas Gehrig, Philipp Keßler, Kilian Strauß, Merit Spring, Bing Liu, Stefan Enzner, Alexander Gottwald, Vitaliy Feyer, Timur Kim, Cephise Cacho, Chris Jozwiak, Aaron Bostwick, Eli Rotenberg, Lukasz Plucinski, F. Stefan Tautz, Ralph Claessen, Serguei Soubatch, and Simon Moser"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/26079K06D7d1d012918e8747f85258ab0a205dcea",
-      "doi": "10.1103/7ddz-xy1y",
-      "summary": "Angle-resolved photoemission spectroscopy (ARPES) provides the most direct experimental access to electronic band structures and many-body interactions in solids. Beyond energy and momentum, the measured intensity also carries detailed information about the initial-state wavefunction through the com…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Spontaneous breaking of a continuous symmetry at a nonconformal quantum critical point in one dimension</span>",
-      "authors": [
-        "R. Flores-Calderón and M. Zündel"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/5107aYc7A231059ad4ea2bb882970dc1184ea0c4d",
-      "doi": "10.1103/yhpf-7451",
-      "summary": "In this work, we present evidence for the spontaneous breaking of a continuous symmetry in a nearestneighbour interacting spin-1 chain tuned to a quantum critical point at T = 0 between two XY quasi-long-range order phases differing by the spontaneous breaking of a Z2 symmetry. Despite the one-dimen…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Evolution of mutating pathogens in networked populations</span>",
-      "authors": [
-        "Aviel Ivry, Reuven Cohen, and Amikam Patron"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/c2077R7fKc11c82061d87b64c065b21a37d7ec5a0",
-      "doi": "10.1103/c9vq-tclt",
-      "summary": "Epidemic spreading over populations networks has been an important subject of research for several decades, and especially during the Covid-19 pandemic. Most epidemic outbreaks are likely to create multiple mutations during their spreading over the population. In this paper, we study the evolution o…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Subdimensional entanglement entropy: From geometric-topological response to entanglement-induced mixed-state landscape</span>",
-      "authors": [
-        "Meng-Yuan Li and Peng Ye"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/07078Y7cZd718b9488c23cf637c8ce5ecabf71ece",
-      "doi": "10.1103/kds6-fvp4",
-      "summary": "We introduce the subdimensional entanglement entropy (SEE), defined on subdimensional entanglement subsystems (SESs) embedded in the bulk, as an entanglement-based probe of how geometry and topology jointly shape universal properties of quantum matter. By varying the dimension, geometry, and topolog…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Formation of cavity-polaritons via high-order van hove singularities</span>",
-      "authors": [
-        "Igor Gianardi, Michele Pini, and Francesco Piazza"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/e007fJ5eWfe1dd0c12468cf206c3f4f7b10666d25",
-      "doi": "10.1103/9c1j-kqf4",
-      "summary": "We consider polaritons formed by hybridizing particle-hole excitations of an insulating phase with a cavity photon at sub-gap frequencies, where absorption is suppressed. The strength of the hybridization is driven by the Van Hove singularity in the joint density of states (JDOS) at the band gap: th…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Middle-range-energy structures in Ti L2,3-edge X-ray absorption spectra of titanium oxides</span>",
-      "authors": [
-        "Saki Imada, Yves Joly, and Frank M. F. de Groot"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/7007fJaeH6a19f0f410c69283631e4154f243bcad",
-      "doi": "10.1103/36kd-rnvd",
-      "summary": "The Ti L2,3-edge X-ray absorption spectra of various titanium oxides, including perovskite SrTiO3, rutile and anatase TiO2, and ilmenite CoTiO3, are analyzed with particular attention to the energy range beyond the near-edge/charge-transfer region and up to the oxygen K-edge. We found that the spect…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Stressing and probing with light: A thermooptical investigation of soft solids</span>",
-      "authors": [
-        "Rafael Gervasone, Arianna Erba, Roberto Piazza, and Stefano Buzzaccaro"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/cd07dJd6E9e1c400739e08a3835271ecc225910f2",
-      "doi": "10.1103/5m7y-k8kc",
-      "summary": "Internal stresses in arrested soft solids can be generated not only by mechanical loading but also by spatially non-uniform temperature fields, which impose incompatible thermal strains and activate coupled thermoelastic and poroelastic responses. Here we introduce an all-optical stress-and-probe pr…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Symmetric mass generation of interacting chiral fermions on a one-dimensional lattice without fermion doubling</span>",
-      "authors": [
-        "V. A. Zakharov, Atsushi Ueda, Frank Verstraete, and C. W. J. Beenakker"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/68070J64G7919c07b4550d1886bf59a292cecb84d",
-      "doi": "10.1103/2v9h-25qs",
-      "summary": "Symmetric mass generation is the interaction-induced opening of a fermion gap without spontaneous symmetry breaking. The anomaly-free 3–4–5–0 model of Wang and Wen provides a minimal one-dimensional setting for this phenomenon, but a direct lattice realization faces two obstacles: fermion doubling f…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Active interference suppression in frequency-division-multiplexed quantum gates via off-resonant microwave tones</span>",
-      "authors": [
-        "Haruki Mitarai, Yukihiro Tadokoro, and Hiroya Tanaka"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/4b076J44Dce15105025f2e8560568f89fa56060be",
-      "doi": "10.1103/gcf3-f89t",
-      "summary": "The increasing number of control lines connecting quantum processors to external electronics constitutes a major bottleneck in the realization of large-scale quantum computers. Frequency-division multiplexing is expected to enable control of multiple qubits through a single microwave cable; however,…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Spatiotemporal ionization dynamics in nonthermal copper plasma pumped by femtosecond relativistic laser pulse</span>",
-      "authors": [
-        "Yuichi Inubushi, Yuya Kubota, Yasuhiko Sentoku, Toshinori Yabuuchi, Kohei Miyanishi, Keiichi Sueda, Ichiro Inoue, and Makina Yabashi"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/2207fY35Acf15990444b13c9103272ec603431d07",
-      "doi": "10.1103/sgyf-lrw1",
-      "summary": "Understanding ultrafast ionization dynamics in high-density plasmas is essential for applications such as particle acceleration, short-pulse X-ray generation, and laser fusion. However, resolving ionization states inside optically opaque plasmas with femtosecond resolution remains challenging. Using…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>SINAPSE: A lightweight deep learning framework for accurate and explainable neutron-$γ$ discrimination</span>",
-      "authors": [
-        "Thomas Carreau, Adrien Matta, Owen Syrett, Benoît Mauss, David Etasse, Cyril Lenain, Pierre Morfouace, Julien Taieb, David Regnier, Patrick Copp, Matthew Devlin, Charlène Surault, and Jason Surbrook"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/3807aU4eG4a17e01a0280102b174fc25485bdda87",
-      "doi": "10.1103/qd3v-7j5p",
-      "summary": "Traditionally, neutron-γ discrimination in organic scintillators relies on techniques such as time-of-flight (ToF) selection and pulse-shape discrimination (PSD). However, particle identification through graphical cuts remains challenging in the low-charge regime due to poor signal-to-noise ratios (…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Quantum anomaly for benchmarking quantum computing</span>",
-      "authors": [
-        "Tomoya Hayata and Arata Yamamoto"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/f3079Y59D1d1399f18163dc9ae794fad3f94125f6",
-      "doi": "10.1103/l8w6-pk4m",
-      "summary": "Given the rapid advances in quantum computing hardware, establishing strategies for verifying the correctness of quantum computations has become increasingly important. Exploiting the fact that the axial anomaly in gauge theories is exact to all orders in perturbation theory, we propose the axial an…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
-      "title": "<span>Emerging structures at the linear stage of evolution of an unstable dispersive modulated wave field</span>",
-      "authors": [
-        "Evgeny Mogilevskiy and Lev Shemer"
-      ],
-      "date": "2026-09-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/d3079Y36Dbb17f90e9163e19531e55c415a9f5c0e",
-      "doi": "10.1103/fstd-8wwj",
-      "summary": "We study the spatiotemporal evolution of small disturbances developing in an unstable dispersive system. At the initial linear stage, the slow modulation of an unstable harmonic is analyzed subject to prescribed initial and boundary conditions. A theoretical model based on a modified linearized Ginz…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
     },
     {
       "journalKey": "NatCommun",
@@ -2084,22 +1828,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Emergent Wigner-Dyson statistics and self-attention-inspired prediction in driven Bose-Hubbard chains</span>",
-      "authors": [
-        "Chen-Huan Wu"
-      ],
-      "date": "2026-09-04T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/9f07bR3eZf81e827739c7333cdd3f4be6cd567fe4",
-      "doi": "10.1103/zg1t-1r6s",
-      "summary": "We propose an algorithm based on modulable hidden variables and adaptive step lengths, inspired by statistical physics and renormalization group principles, to study the emergent Wigner-Dyson level statistics in a driven many-body system. We apply this method to the boundary-driven Bose-Hubbard chai…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Cone-guided phase-space control of laser-driven proton beams</span>",
       "authors": [
         "S. Chintalwad and David J. Stark"
@@ -2116,6 +1844,22 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
+      "title": "<span>Emergent Wigner-Dyson statistics and self-attention-inspired prediction in driven Bose-Hubbard chains</span>",
+      "authors": [
+        "Chen-Huan Wu"
+      ],
+      "date": "2026-09-04T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/9f07bR3eZf81e827739c7333cdd3f4be6cd567fe4",
+      "doi": "10.1103/zg1t-1r6s",
+      "summary": "We propose an algorithm based on modulable hidden variables and adaptive step lengths, inspired by statistical physics and renormalization group principles, to study the emergent Wigner-Dyson level statistics in a driven many-body system. We apply this method to the boundary-driven Bose-Hubbard chai…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
       "title": "<span>Curvature in infectious disease network: A metric for vaccination and control</span>",
       "authors": [
         "Sara Najem"
@@ -2124,6 +1868,54 @@
       "link": "https://journals.aps.org/pre/accepted/6107eRc7A641312ad4550894cefa781ad09c58f7e",
       "doi": "10.1103/c44l-89p7",
       "summary": "We investigate the geometric structure of evolving infectious-disease networks using a notion of node curvature, which is based on the heat kernel expansion that naturally extends to edges. Applying this measure to networks reconstructed from infection counts whose degree and strength distributions …",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Anomalous scaling in redirection networks</span>",
+      "authors": [
+        "Harrison Hartle, P. L. Krapivsky, S. Redner, and Yuanzhao Zhang"
+      ],
+      "date": "2026-09-04T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/53076R34E0918522f4337ad500b4ccab0521dee21",
+      "doi": "10.1103/9lmp-pydp",
+      "summary": "In networks that grow by isotropic redirection (IR), a new node selects an initial target node uniformly at random and attaches to a randomly chosen neighbor of the target. The emerging networks exhibit leaf proliferation, in which the number of nonleaves scales sublinearly as ${N}^{μ}$ and the degr…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Universal classical and quantum fluctuations in the large deviations of current of noisy quantum systems: The case of QSSEP and QSSIP</span>",
+      "authors": [
+        "Mathias Albert, Denis Bernard, Tony Jin, Stefano Scopa, and Shiyi Wei"
+      ],
+      "date": "2026-09-04T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/91072D9cCa41200ae1182e89881e9be5871935950",
+      "doi": "10.1103/dt4c-tz98",
+      "summary": "We study the fluctuation statistics of integrated currents in noisy quantum diffusive systems, focusing on the Quantum Symmetric Simple Exclusion and Inclusion Processes (QSSEP/QSSIP). These one-dimensional fermionic (QSSEP) and bosonic (QSSIP) models feature stochastic nearest-neighbor hopping driv…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Competition between nonlinearity and inhomogeneities in discrete-time quantum walks</span>",
+      "authors": [
+        "N. Amaral, A. R. C. Buarque, and W. S. Dias"
+      ],
+      "date": "2026-09-04T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/cf07dRc0Dd91ad24d6422cf0f29c70c0fd830d7d9",
+      "doi": "10.1103/1n6s-mmqn",
+      "summary": "We investigate the competition between nonlinearity and inhomogeneities in discrete-time quantum walks on one-dimensional lattices and their impact on transport and localization. Nonlinear effects are introduced through a Kerr-like, intensity-dependent local phase, while spatial and temporal inhomog…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -2212,22 +2004,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Polarized neutrons for the study of individual and collective fast dynamics in proteins</span>",
-      "authors": [
-        "Agathe Nidriche, Jacques Ollivier, J Ross Stewart, and Judith Peters"
-      ],
-      "date": "2026-09-04T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/41076R56F8617a2328182cd01f391e4b05f554959",
-      "doi": "10.1103/g381-dcfq",
-      "summary": "Neutron scattering is a powerful technique to investigate atomic structures and molecular dynamics of proteins at the nano-scale. When it comes to dynamics, incoherent and coherent scattering respectively provide information on the single and collective dynamics of nuclei. In proteins, hydrogen has …",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Instability of solutions in a mass-conserving reaction diffusion system</span>",
       "authors": [
         "R. Marangell, J. J. Wylie, and B. H. Bradshaw-Hajek"
@@ -2244,46 +2020,14 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Anomalous scaling in redirection networks</span>",
+      "title": "<span>Polarized neutrons for the study of individual and collective fast dynamics in proteins</span>",
       "authors": [
-        "Harrison Hartle, P. L. Krapivsky, S. Redner, and Yuanzhao Zhang"
+        "Agathe Nidriche, Jacques Ollivier, J Ross Stewart, and Judith Peters"
       ],
       "date": "2026-09-04T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/53076R34E0918522f4337ad500b4ccab0521dee21",
-      "doi": "10.1103/9lmp-pydp",
-      "summary": "In networks that grow by isotropic redirection (IR), a new node selects an initial target node uniformly at random and attaches to a randomly chosen neighbor of the target. The emerging networks exhibit leaf proliferation, in which the number of nonleaves scales sublinearly as ${N}^{μ}$ and the degr…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>Universal classical and quantum fluctuations in the large deviations of current of noisy quantum systems: The case of QSSEP and QSSIP</span>",
-      "authors": [
-        "Mathias Albert, Denis Bernard, Tony Jin, Stefano Scopa, and Shiyi Wei"
-      ],
-      "date": "2026-09-04T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/91072D9cCa41200ae1182e89881e9be5871935950",
-      "doi": "10.1103/dt4c-tz98",
-      "summary": "We study the fluctuation statistics of integrated currents in noisy quantum diffusive systems, focusing on the Quantum Symmetric Simple Exclusion and Inclusion Processes (QSSEP/QSSIP). These one-dimensional fermionic (QSSEP) and bosonic (QSSIP) models feature stochastic nearest-neighbor hopping driv…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>Competition between nonlinearity and inhomogeneities in discrete-time quantum walks</span>",
-      "authors": [
-        "N. Amaral, A. R. C. Buarque, and W. S. Dias"
-      ],
-      "date": "2026-09-04T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/cf07dRc0Dd91ad24d6422cf0f29c70c0fd830d7d9",
-      "doi": "10.1103/1n6s-mmqn",
-      "summary": "We investigate the competition between nonlinearity and inhomogeneities in discrete-time quantum walks on one-dimensional lattices and their impact on transport and localization. Nonlinear effects are introduced through a Kerr-like, intensity-dependent local phase, while spatial and temporal inhomog…",
+      "link": "https://journals.aps.org/pre/accepted/41076R56F8617a2328182cd01f391e4b05f554959",
+      "doi": "10.1103/g381-dcfq",
+      "summary": "Neutron scattering is a powerful technique to investigate atomic structures and molecular dynamics of proteins at the nano-scale. When it comes to dynamics, incoherent and coherent scattering respectively provide information on the single and collective dynamics of nuclei. In proteins, hydrogen has …",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -2610,594 +2354,6 @@
       "pages": "033046",
       "citation": "PRX Quantum 7, 033046",
       "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Impaired liver-muscle lactate metabolism causes sarcopenia via lactic acidosis in skeletal muscle in mice",
-      "authors": [
-        "Takahiro Eguchi, Nozomi Hayashiji, Sho Tabata, Keiko Kabetani, Yasunori Shintani, Hideki Makinoshima, Naoki Ito"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeb4011?af=R",
-      "doi": "10.1126/sciadv.aeb4011",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Abalone genomics reveals an ancient asymmetry axis and the multifunctionality of the mantle",
-      "authors": [
-        "Xiaotong Wang, Chunhui Li, Peidong Xin, Meiwei Zhang, Baoyu Huang, Tiantian Chen, Siyi Li, Yijing Han, Lei Wei, Xuekai Zhang, Yaqiong Liu, Chenglong Zhu, Wenjie Xu, Zhiyong Yue, Wenshi Xue, Wenchao Yu, Peng Zhang, Lingling Li, Mengqiang Yuan, Deyang Tian, Jiyan Qi, Qiang Qiu, Kun Wang, Ximing Guo, Chenguang Feng"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeb8392?af=R",
-      "doi": "10.1126/sciadv.aeb8392",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Identifying the principal mechanism of star formation feedback",
-      "authors": [
-        "Chong Li, Rouyu Li, Keping Qiu, Marko Krco, Di Li, Hongchi Wang, Xin Lyu, Yan Duan, Min Fang, Xuepeng Chen, Lile Wang, Haoran Feng, Shuinai Zhang, Miaomiao Zhang, Shaobo Zhang, Yue Cao, Yao Wang, Yan Gong, Fujun Du, Zhiwei Chen, Yang Su, Yuehui Ma, Yuchen Xing, Yinghui Zheng, Tianwei Zhang, Shu Niu, Chenrui Li, Jiawei Liu, Zhijun Zhang, Yulian Guo"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec0787?af=R",
-      "doi": "10.1126/sciadv.aec0787",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Glycemic and bodyweight effects of GIPR coding variation reflect differences in surface expression and intrinsic functional impairment",
-      "authors": [
-        "Yusman Manchanda, Rofaida Desoki, Eugene J. Gardner, John R. B. Perry, David B. Wainscott, Cynthia Stutsman, Claudia Langenberg, Matthew Coghlan, Pallav Bhatnagar, Joseph D. Ho, Michael Yonkunas, Kyle W. Sloop, Ken K. Ong, Nicholas J. Wareham, Alejandra Tomas, Ben Jones"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec3372?af=R",
-      "doi": "10.1126/sciadv.aec3372",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Few-shot neuromorphic vision in a nonlinear photonic network laser",
-      "authors": [
-        "Wai Kit Ng, Jakub Dranczewski, Anna Fischer, T. V. Raziman, Dhruv Saxena, Tobias Farchy, Kilian Stenning, Jonathan Peters, Heinz Schmid, Will R. Branford, Mauricio Barahona, Kirsten Moselund, Riccardo Sapienza, Jack C. Gartside"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec6546?af=R",
-      "doi": "10.1126/sciadv.aec6546",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Cardiomyocyte-intrinsic somatic mtDNA mutations induce an OXPHOS-dependent immune response and promote progressive heart failure",
-      "authors": [
-        "Kristina Bubb, Giovanni Rigoni, Polyxeni Papadea, Gianluigi Pironti, Jelena Misic, Shan Jiang, David Alsina, Diana Rubalcava-Gracia, Daniel C. Andersson, Roberta Filograna, Camilla Koolmeister, Patrick Giavalisco, Anna Wredenberg, Matthias Mann, Florian A. Rosenberger, Nils-Göran Larsson"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec8606?af=R",
-      "doi": "10.1126/sciadv.aec8606",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Variable redox states of sulfur in porphyry copper–fertile arc magmas",
-      "authors": [
-        "Xuyang Meng, Adam C. Simon, Jingwen Mao, Brian A. Konecke, Kouki Kitajima, Owen K. Neill"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aed1386?af=R",
-      "doi": "10.1126/sciadv.aed1386",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Elastic quantum coupling between free electrons and photons",
-      "authors": [
-        "Dingguo Zheng and Ofer Kfir"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aed3278?af=R",
-      "doi": "10.1126/sciadv.aed3278",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Structural basis for modulation of group III mGlu receptors by transsynaptic interactions",
-      "authors": [
-        "William G. Ludlam, Chu-Ting Chang, Kristina Cechova, Brandon W. Liauw, Hwa-Jin Cho, Safoura Salar, Anjelique Sawh-Gopal, Afroza Parvin, Simrat K. Dhaliwal, Simran K. Dhaliwal, Tina Izard, Huan Bao, Anne M. Brown, Henry A. Dunn, Reza Vafabakhsh, Kirill A. Martemyanov"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aed3793?af=R",
-      "doi": "10.1126/sciadv.aed3793",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Observation of localization-driven zero-threshold fermionic superradiance",
-      "authors": [
-        "Jijie Fan, Zimo Yang, Xue Zhang, Jiansheng Qi, Longlong Huo, Haibin Wu"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aee0634?af=R",
-      "doi": "10.1126/sciadv.aee0634",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Supramolecular immunomodulatory hydrogelator potentiates CAR-T therapy with long-lasting endogenous immunity toward solid tumor eradication",
-      "authors": [
-        "Chenwei Jiang, Minglu Tang, Mingmei Guo, Qi Shang, Qi Chen, Xiaoran An, Junjie Xie, Kangqi Zheng, Bing Feng, Feihu Wang"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aee2120?af=R",
-      "doi": "10.1126/sciadv.aee2120",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "CTCF aligns single-cell TAD-like domain boundaries and stabilizes long-range active chromatin clusters",
-      "authors": [
-        "Ziyin Chen, Xuan Li, Yunpeng Dai, Kaiwen Shao, Haolun Sun, Nan Wu, Jian Yan, Yanxiao Zhang, Miao Yu"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aee2863?af=R",
-      "doi": "10.1126/sciadv.aee2863",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "The fitness landscape of a form II rubisco in a photosynthetic bacterium guides engineering of oxygen tolerance",
-      "authors": [
-        "Ute A. Hoffmann, Axel F. Knave, Anna Z. Schuppe, Sebastià Capó-Bauçà, Pere Aguiló Nicolau, Karen Schriever, Anna Karlsson, Michele Russo, Emil Sporre, Mami Matsuda, Rui Miao, Tomohisa Hasunuma, Jeroni Galmés, Per-Olof Syrén, Elton P. Hudson"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aee9222?af=R",
-      "doi": "10.1126/sciadv.aee9222",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Learning induces activation-mechanism–dependent neural plasticity in an intracortical microstimulation task",
-      "authors": [
-        "Robin Kim, Roy Lycke, Pavlo Zolotavin, Jon Montes, Chong Xie, Lan Luan"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef0343?af=R",
-      "doi": "10.1126/sciadv.aef0343",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Database-guided thermodynamic-kinetic regulation for PtNi-based intermetallic electrocatalysts",
-      "authors": [
-        "Anran Song, Yi Li, Jiakang Tian, Zhen Fang, Zhenpeng Yao, Wencong Zhang, Jianbo Wu"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef5266?af=R",
-      "doi": "10.1126/sciadv.aef5266",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "A designer pore-blocking peptide reveals an electrostatic complementation mechanism for the inhibition-resistant Kv1.5 channel",
-      "authors": [
-        "Ruiming Zhao, Maha Nayak, Rong Shen, Hui Dai, Punyanuch Hua, Eduardo Perozo, Steve A. N. Goldstein"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef6020?af=R",
-      "doi": "10.1126/sciadv.aef6020",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Mitochondrial superoxide–induced mitohormesis is mediated by citrate and cardioprotective",
-      "authors": [
-        "Matthew P. Donnelly, Kailash Chandra Mangalhara, Yuening Liu, Kathryn Lande, Gladys R. Rojas, Kym J. Grae, Mack B. Reynolds, Sagnika Ghosh, Neva Olliffe, Pau B. Esparza-Moltó, Melissa A. Johnson, Suzanne Dufresne, Allison Y. Louie, Alexandra G. Moyzis, Deann Guan, Åsa B. Gustafsson, Christina G. Towers, Pallav Kosuri, Christian M. Metallo, Diana C. Hargreaves, Gerald S. Shadel"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef8132?af=R",
-      "doi": "10.1126/sciadv.aef8132",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Sub-4-nm Pt4FeCoNiCu HEI nanocrystals via borophene-mediated co-anchoring for efficient and durable electrocatalysis",
-      "authors": [
-        "Xiaoxiao Zeng, Zhen Fang, Jiakang Tian, Ziran Xu, Hairui Cai, Huijie He, Yulong Zhang, Bin Wang, Chao Liang, Feng Liu, Bingbao Mei, Fumin Li, Chi He, Jianbo Wu, Shengchun Yang"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg1088?af=R",
-      "doi": "10.1126/sciadv.aeg1088",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Superoxide formation upon photochemical aging of secondary organic aerosols derived from biomass burning precursors",
-      "authors": [
-        "Lena Gerritz, Meredith Schervish, Pascale S. J. Lakey, Sergey A. Nizkorodov, Manabu Shiraiwa"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg1621?af=R",
-      "doi": "10.1126/sciadv.aeg1621",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Reconstitution of multistep recruitment of ULK1 to membranes in autophagy",
-      "authors": [
-        "Yongjia Duan, Ye Lu, Sanjoy Paul, Johannes Betz, Léa P. Wilhelm, Annan S. I. Cook, Xuefeng Ren, Elias Adriaenssens, Sascha Martens, Ian G. Ganley, Gerhard Hummer, James H. Hurley"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg3201?af=R",
-      "doi": "10.1126/sciadv.aeg3201",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "AMPK phosphorylation proceeds through hierarchical proteoform cascades revealed by integrated mass spectrometry",
-      "authors": [
-        "Boris Krichel, Hsin-Ju Chan, Liam Bandura, Zhan Gao, Man-Di Wang, Holden T. Rogers, Sean J. Mcilwain, Charlotte Uetrecht, Ying Ge"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg5294?af=R",
-      "doi": "10.1126/sciadv.aeg5294",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Dorsoventral gradient of theta sweeps in the medial entorhinal cortex",
-      "authors": [
-        "Zilong Ji, Huiwen Zhang, Callum Marshall, Rokas Stonis, Neil Burgess"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg6797?af=R",
-      "doi": "10.1126/sciadv.aeg6797",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "De novo coassembly of functional chlorophyll- and carotenoid-protein complexes in Saccharomyces cerevisiae",
-      "authors": [
-        "Chenhao Li and Guangyu E. Chen"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg6969?af=R",
-      "doi": "10.1126/sciadv.aeg6969",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Natural variation in SL6 determines fatty acid components and seed longevity in rice",
-      "authors": [
-        "Yifeng Wang, Jiezheng Ying, Jia Li, Xinyong Liu, Qianya Zhou, Shuang Jia, Guanghao Li, Wanning Liu, Zhenghao Tao, Hongzhou Li, Zhiyong Li, Jie Huang, Xiaohong Tong, Xixi Liu, Yu Cheng, Yuxuan Hou, Guangheng Zhang, Yangjun Zhang, Kun Zhou, Xiaoshan Zeng, Jian Zhang"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg8609?af=R",
-      "doi": "10.1126/sciadv.aeg8609",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Glucose-TOR-PDCB signaling restricts cell-to-cell communication through callose deposition",
-      "authors": [
-        "Michael Busche, Anne M. Runkel, Min Xu, Katherine A. Klimpel, Sannidhi Menon, Katherine M. Lund, Kyle Koch, Snigdha Chatterjee, Erin R. Alberts, Ryan E. Martinez, M. Regina Scarpin, Jacob O. Brunkard"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg9566?af=R",
-      "doi": "10.1126/sciadv.aeg9566",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Upconverted nanoparticle for 2D nanomapping of excitation energy transfer in conjugated polymer",
-      "authors": [
-        "Syoji Ito, Hirotaka Kageyama, Takato Mizoguchi, Bhagya Lakshmi S. B., Hikaru Sotome, Ali Eftekhari, Aude Bouchet, Michel Sliwa, Hiroshi Miyasaka"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeh0615?af=R",
-      "doi": "10.1126/sciadv.aeh0615",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Direct observation of quantum scattering oscillations in the controlled Kr* + Rb cold collision",
-      "authors": [
-        "Yu-Chan Wang, Rui-Fan Wu, Hao Li, Zhao-Cong Shi, Guo-Min Yang, Ya-Fu Guan, Bin Zhao, Wei Jiang"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeh1789?af=R",
-      "doi": "10.1126/sciadv.aeh1789",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Amplification of RNA for identification of Zika and HCV in whole blood",
-      "authors": [
-        "Jongwon Lim, Hankeun Lee, Matthew Wester, Katherine Koprowski, An Bao Van, Enrique Valera, Brian T. Cunningham, Rashid Bashir"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeb6129?af=R",
-      "doi": "10.1126/sciadv.aeb6129",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Can a public information campaign increase trust in American elections?",
-      "authors": [
-        "Thad Kousser, Seth J. Hill, Neil Malhotra, Robert M. Stein"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec8703?af=R",
-      "doi": "10.1126/sciadv.aec8703",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Ultrafast Faraday rotation probe of chiral phonon-polaritons in LiNbO3",
-      "authors": [
-        "Megan F. Biggs, Sin-hang (Enoch) Ho, Aldair Alejandro, Matthew J. Lutz, Clayton D. Moss, Jeremy A. Johnson"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec8970?af=R",
-      "doi": "10.1126/sciadv.aec8970",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "All-optical accelerometer enabled by metasurface",
-      "authors": [
-        "Haofeng Zang, Yichen Wang, Tianchen Zhang, Yonghua Lu, Pei Wang"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef8922?af=R",
-      "doi": "10.1126/sciadv.aef8922",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Branched-chain amino acid assimilation enables mixotrophy of ammonia-oxidizing archaeal sponge symbionts",
-      "authors": [
-        "Bettina Glasl, Katharina Kitzinger, Heidi M. Luter, Anton Legin, Stefan Schuster, Erika Salas, Nathalie Heldwein, Katarina Damjanovic, Marie Rutsch, Bram Vekeman, Nicole M. J. Geerlings, Petra Pjevac, Joana Séneca, Margarete Watzka, Wolfgang Wanek, Daan R. Speth, Michael Wagner"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef9450?af=R",
-      "doi": "10.1126/sciadv.aef9450",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Bioinspired strong and rigid fusion-spun graphene fibers for harsh robotics",
-      "authors": [
-        "Yiwei Zhang, Senping Liu, Dan Chang, Bo Wang, Xin Ming, Jiahao Lu, Lidan Wang, Peng Li, Chendong Ge, Yue Gao, Yingjun Liu, Zhen Xu, Chao Gao"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg6444?af=R",
-      "doi": "10.1126/sciadv.aeg6444",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Discovery of CDK8/19 inhibitors as lead compounds for IL-6–dependent lymphoma enabled by the formal synthesis of cortistatin A",
-      "authors": [
-        "Wenjun Wang, Nan Zhang, Baicheng Chen, Zijing Chen, Guihua Zeng, Tuoping Luo"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg8852?af=R",
-      "doi": "10.1126/sciadv.aeg8852",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Messenger RNA delivery of a dual CD25/CD122 affinity-tuned IL-2 variant prolongs exposure and potentiates antitumor T cell immunity",
-      "authors": [
-        "Mathias Vormehr, Lena M. Kranz, Alexander Muik, Sina Fellermeier-Kopf, Jan D. Beck, David Eisel, Nadja Salomon, Bonny Gaby Lui, Jan Diekmann, Özlem Türeci, Ugur Sahin"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeh9215?af=R",
-      "doi": "10.1126/sciadv.aeh9215",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Synthetic long peptide and DNA personalized cancer vaccines induce robust neoantigen-specific T cell responses in pancreatic cancer",
-      "authors": [
-        "Felicia Zhang Perkins, Xiuli Zhang, Yik Yeung Lawrence Yu, Yilin Yang, Darren Cullinan, Kartik Singhal, Carlos A. Parra-Lopez, Christopher A. Miller, Binghan Yan, Julia W. Angkeow, Jinglun Li, Nancy B. Myers, Tammi Vickery, John Herndon, Rashmi Mishra, Stephanie Myles, Dominic Sanford, Elizabeth M. Jaffee, Daniel A. Laheru, Andrea Wang-Gillam, Marianna B. Ruzinova, Ian S. Hagemann, Sherri R. Davies, Timothy P. Fleming, Shelby Namen, Carl J. DeSelm, Lijin Li, Roheena Z. Panni, Feng Gao, Kian-Huat Lim, Obi L. Griffith, Malachi Griffith, Robert D. Schreiber, S. Peter Goedegebuure, William G. Hawkins, William E. Gillanders"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aei1190?af=R",
-      "doi": "10.1126/sciadv.aei1190",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Landau level and active manipulation of elastic waves in topological robotic metamaterials",
-      "authors": [
-        "Ling-Fan Cui and Yi-Ze Wang"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec6487?af=R",
-      "doi": "10.1126/sciadv.aec6487",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Associations between pyrethroid insecticide concentrations and dyslipidemia: Findings from the Dongfeng-Tongji cohort",
-      "authors": [
-        "Zhen Yin, Yi Guo, Yutong You, Xin Guan, Guorong Zhong, Chengyong Jia, Wenhui Wang, Qin Jiang, Yuying Wen, Wenhui Li, Yu Yin, Hui Zhao, Shengli Chen, Xi Wang, Tao Jing, Huan Guo, Yu Yuan, Meian He, Tangchun Wu, Pinpin Long"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec1001?af=R",
-      "doi": "10.1126/sciadv.aec1001",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "A Li metal-SiOx hybrid anode enabling synergistic plating/alloying dual-mechanism lithium storage",
-      "authors": [
-        "Chao-Hui Zhang, Juan Zhang, Yu-Hao Wang, Shuang-Jie Tan, Yu-Jie Guo, Jun-Chen Guo, Xiao-Xi Luo, Jian-Song Wu, Sen Xin, Li-Jun Wan, Yu-Guo Guo"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aea3247?af=R",
-      "doi": "10.1126/sciadv.aea3247",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Assessing cellular metabolic dynamics with two-photon NAD(P)H fluorescence polarization microscopy",
-      "authors": [
-        "Lu Ling, Jack C. Crowley, Matthew L. Tan, Jennie A. M. R Kunitake, Adrian A. Shimpi, Rebecca M. Williams, Lara A. Estroff, Claudia Fischbach, Warren R. Zipfel"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aed6844?af=R",
-      "doi": "10.1126/sciadv.aed6844",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "The convergent evolution of the pelvic suction cup: A unique key innovation in spiny-finned fishes",
-      "authors": [
-        "Emily P. McFarland, Aline P. M. Medeiros, Carmen D. R. Pedraza-Marrón, Lily C. Hughes, Stacy Pirro, Elizabeth C. Santos, Aintzane Santaquiteria, William T. White, Masaki Miya, Guillermo Ortí, Thomas D. Linley, Carole C. Baldwin, James W. Orr, Dahiana Arcila, Luke M. Tornabene, Ricardo Betancur-R"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeh7851?af=R",
-      "doi": "10.1126/sciadv.aeh7851",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "A full-range sweat rate sensor with superhydrophobic heterophase shunt for psychology, skin health and body dehydration evaluating",
-      "authors": [
-        "Hao Shen, Siyuan Liu, Mengyuan Liu, Yujie Liu, Feng Wen, Mingxu Wang, Yongfeng Wang, Qiang Gao, Jun Ma, Lianhui Li, Dengfeng Zhou, Zuoping Xiong, Zhen Zhou, Shuqi Wang, Ting Zhang"
-      ],
-      "date": "2026-09-04T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aed8456?af=R",
-      "doi": "10.1126/sciadv.aed8456",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
     },
     {
       "journalKey": "Nature",
@@ -7041,142 +6197,6 @@
       "summary": "The standard mean-field treatment of low-temperature superconductors leads to a square-root divergent density of states at the gap value. This feature can lead to unphysical logarithmic divergences in various quantities, such as currents and qubit transition rates. We revisit their possible regularization based on the proximity effect between two superconducting films with different gaps. We derive analytical approximations for the density of states in each superconducting film. We find that the smearing of the density of states grows with the gap asymmetry. As a concrete example, we discuss the regularization of transition rates in qubits with frequency close to resonance with the gap asymmetry between the two films, and the consequent smoothening of the jump discontinuity in the qubit frequency shift. Our results could also aid the development of superconducting detectors and related devices based on superconducting bilayers."
     },
     {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Spatially resolved single-cell atlas reveals the macroevolutionary trajectory of animal hearts",
-      "authors": [
-        "Shanshan Lian, Wei Wang, Yaoxin Liu, Meina Lu, Wentao Han, Jiaxin Luo, Xuejiao Zhang, Yue Pang, Yuru Li, Yufeng Li, Xin Dang, Peiyan Wang, Yating Qin, Ning Tan, Fang Zhang, Jin Zhang, Shuai Gao, Runyi Zhang, Lidong Guo, Lei Jiang, Pengchong Zhang, Yuehuan Zhang, Zhe Qu, Shanshan Pan, Yue Zhang, Naina Hu, Yadong Chen, Yun Cao, Wenbin Li, Xiaomei Chen, Junjie Shi, Shuaiqi Yang, Yiran Li, Qiuyun Song, Lisui Bao, Yuli Li, Xiawei Liu, Jing Wang, Lingling Zhang, Rui Li, Xin Yu, Tao Yang, Jing Chen, Ling Li, Mengqi Zhang, Lei Li, Ruihua Zhang, Hongyan Li, Ying Gu, Xun Xu, Huanming Yang, Zhenmin Bao, C. Geoffrey Burns, Caroline E. Burns, Robert G. Kelly, Jianxun Wang, Yang Zhao, Ying Su, Guangyi Fan, Qun Liu, Shi Wang, Ji-Feng Fei, Silin Pan, Long Zhao"
-      ],
-      "date": "2026-09-03T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.adw0855?af=R",
-      "doi": "10.1126/science.adw0855",
-      "summary": "Science, Volume 393, Issue 6815, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Uneven TCR chain pairing constraints govern epitope recognition",
-      "authors": [
-        "Anastasia A. Minervina, Mikhail V. Pogorelyy, Koshlan Mayer-Blackwell, Ricky Tirtakusuma, Stefan A. Schattgen, Andrew Fiore-Gartland, Aleksandra M. Walczak, Thierry Mora, Philip Bradley, Paul G. Thomas"
-      ],
-      "date": "2026-09-03T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.adx3863?af=R",
-      "doi": "10.1126/science.adx3863",
-      "summary": "Science, Volume 393, Issue 6815, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Thalamic NRXN1-mediated input to human cortical progenitors drives excitatory neurogenesis",
-      "authors": [
-        "Claudia V. Nguyen, Antoni Martija, Daniel C. Jaklic, Rista White, Marty G. Yang, Patricia R. Nano, Jose A. Soto, Jessenya Mil, Dakshesh Rana, Jacqueline M. Martin, Hunter E. Schweiger, Sebastian Hernandez, Elisa Fazzari, Yu Liu, Jack M. Parent, Mohammed A. Mostajo-Radji, Daniel H. Geschwind, Aparna Bhaduri"
-      ],
-      "date": "2026-09-03T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.ady5180?af=R",
-      "doi": "10.1126/science.ady5180",
-      "summary": "Science, Volume 393, Issue 6815, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Psilocybin prevents chemotherapy-induced peripheral neuropathy through mitochondrial trafficking preservation",
-      "authors": [
-        "Mario Heles, Lilach Pasvolsky, Hinduja Sathishkumar, Shorook Naara, Yen Vu, Caitlyn L. Stewart, Tongxin Xie, Frederico O. Gleber-Netto, William McCarthy, Dan Yaniv, Shashank S. Kamal, Hajira Elahi, Pengyu Zhu, Megan L. Uhelski, Jordan Chatwin, Andrew Lara, Danielle L. Stolley, Michael R. Migden, Z-Hye Lee, Shiyanth Thevasagayampillai, Preethi H. Gunaratne, Kaoutar Ait-Ahmad, M. J. Kuykendall, Sebnem Ece Eksi, Lorenzo Cohen, Jeremy C. Borniger, Eyal Gottlieb, Gregory H. Jones, Patrick M. Dougherty, Moran Amit"
-      ],
-      "date": "2026-09-03T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aec6116?af=R",
-      "doi": "10.1126/science.aec6116",
-      "summary": "Science, Volume 393, Issue 6815, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Longitudinal dynamics of gene expression and metabolomics in an aging population cohort",
-      "authors": [
-        "Julia S. El-Sayed Moustafa, Anna Ramisch, Yasrab N. Raza, Gwenael G. R. Leday, Yunlong Jiao, Dongmeng Wang, Michael Stevens, Amy L. Roberts, Max Tomlinson, Xinyu Yan, Elizabeth Ing-Simmons, Samuel Wadge, Moustafa Abdalla, Mario Falchi, Christopher C. Holmes, Cristina Menni, George Nicholson, Mark I. McCarthy, Emmanouil T. Dermitzakis, Sylvia Richardson, Tim D. Spector, Kerrin S. Small"
-      ],
-      "date": "2026-09-03T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aed6452?af=R",
-      "doi": "10.1126/science.aed6452",
-      "summary": "Science, Volume 393, Issue 6815, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Conformational asymmetry of replicated human chromosomes",
-      "authors": [
-        "Flavia Corsi, Thomas L. Steinacker, Sofia Kolesnikova, Zsuzsanna Takács, Paul Batty, Michael Mitter, Daniel W. Gerlich, Anton Goloborodko"
-      ],
-      "date": "2026-09-03T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aea4611?af=R",
-      "doi": "10.1126/science.aea4611",
-      "summary": "Science, Volume 393, Issue 6815, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Programmable design of synthetic plant immune receptors for pathogen protein recognition",
-      "authors": [
-        "Haocheng Zhu, Dandan Jiang, Qiao Zhang, Kang Zhang, Kevin Tianmeng Zhao, Jin-Long Qiu, Caixia Gao"
-      ],
-      "date": "2026-09-03T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aee1792?af=R",
-      "doi": "10.1126/science.aee1792",
-      "summary": "Science, Volume 393, Issue 6815, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Erratum for the Research Article “Hypothalamic clock governs circadian pain”",
-      "authors": [],
-      "date": "2026-09-03T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.ael2773?af=R",
-      "doi": "10.1126/science.ael2773",
-      "summary": "Science, Volume 393, Issue 6815, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Erratum for the Research Article “Supergene control of chiral development in mirror-image flowers”",
-      "authors": [],
-      "date": "2026-09-03T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.ael9089?af=R",
-      "doi": "10.1126/science.ael9089",
-      "summary": "Science, Volume 393, Issue 6815, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "When treatments create new conditions",
-      "authors": [
-        "Jackie Leach Scully"
-      ],
-      "date": "2026-09-03T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aek8358?af=R",
-      "doi": "10.1126/science.aek8358",
-      "summary": "Science, Volume 393, Issue 6815, September 2026."
-    },
-    {
       "journalKey": "arXivCM",
       "journal": "arXiv: cond-mat",
       "journalShort": "arXiv cond-mat",
@@ -7236,398 +6256,6 @@
       "arxiv": "https://arxiv.org/abs/2505.17709v2",
       "doi": "10.1038/s41467-026-75082-w",
       "summary": "Dissipative sensors typically use linear resonators with impedance matching to achieve maximal signal and fast operation. The impedance matching, however, sets an upper limit to the bandwidth of the readout. In this paper, we present a nonlinear resonator performing the readout of a double quantum dot charge state via a charge-sensing quantum dot. We show that by driving the resonator in the nonlinear regime, we achieve a near-unity signal for a dissipative sensor. This despite not satisfying the sensor impedance matching requirements necessary for such large signals in the linear regime. Our experiments, supported by numerical calculations, demonstrate that the signal increase stems from the sensor dissipation shifting the onset of the nonlinear resonator response. By lifting the matching requirement, we open up an avenue to ultrafast charge detectors as the resonator input-output coupling - setting the detector bandwidth - does not have to match to the typically much slower sensor dissipation rate."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Fall Books 2026",
-      "authors": [
-        "Chelsea Marcho, Gifford J. Wong, Adejare (Jay) Atanda, Neha Kaul Pankow, Taylor Winkleman, Margaret Linak, E. David Litwack, Caroly Shumway, and Ruthanna Emrys Gordon"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.ael0869?af=R",
-      "doi": "10.1126/science.ael0869",
-      "summary": "Science, Volume 393, Issue 6815, Page 968-974, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Early-life colonization with Clostridioides difficile remodels the developing gut",
-      "authors": [
-        "Alexa Semon, Haider S. Manzer, Orlaith Keenan, Tiffany H. Zhou, Connor Tiffany, Qianxuan She, Montana Knight, Ashley S. Weiss, Kassy Donohoe, Brendan T. Morrow, Rochelle C. Glover, Maria E. Kovalik, Ceylan Tanes, Kyle Bittinger, Babette S. Zemel, Gary D. Wu, Michael A. Silverman, Jeffrey S. Gerber, Rubén Cano Rodríguez, D. Borden Lacy, Tatiana A. Karakasheva, Mohamad-Gabriel Alameh, Drew Weissman, Stacey L. Schultz-Cherry, Jason W. Rosch, Paul J. Planet, Ahmed M. Moustafa, Emma E. Furth, Michael C. Abt, Judith R. Kelsen, Maire A. Conrad, Kathryn E. Hamilton, Joseph P. Zackular"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.ady2886?af=R",
-      "doi": "10.1126/science.ady2886",
-      "summary": "Science, Volume 393, Issue 6815, Page 1045-1052, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Autothermal methane pyrolysis: Scalable heat integration for hydrogen and graphite production",
-      "authors": [
-        "Henry Moise, Sebastian Moll, Shailesh Pathak, Joshua Martinez-Navarro, Sai Varanasi, Kun Xu, Eric McFarland, Arun Majumdar, Matteo Cargnello"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aed4911?af=R",
-      "doi": "10.1126/science.aed4911",
-      "summary": "Science, Volume 393, Issue 6815, Page 1014-1020, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "An embryo-derived peptide signal directs endosperm polarity in Arabidopsis",
-      "authors": [
-        "Audrey Creff, Jack Rhodes, Camille Salaün, Julien Larive, Vincent Bayle, Maialen Garmendia-Calvo, Emma Turley, Tatsuya Nobori, Duarte D. Figueiredo, Benoit Landrein, Cyril Zipfel, Gwyneth Ingram"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aed6035?af=R",
-      "doi": "10.1126/science.aed6035",
-      "summary": "Science, Volume 393, Issue 6815, Page 1002-1008, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Monomer-biased manufacture of industrial-scale colloidal photonic films",
-      "authors": [
-        "Huateng Li, Junying Yang, Guowei Zhao, Hanwen Huang, Lulu Chen, Ruoqi Lan, Feng Tian, Weihua Li, Jade A. McCune, Oren A. Scherman, Changchun Wang"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aed8723?af=R",
-      "doi": "10.1126/science.aed8723",
-      "summary": "Science, Volume 393, Issue 6815, Page 1009-1013, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Spontaneous polarization in chemical vapor–deposited polymer films creates large electric fields",
-      "authors": [
-        "Stefan Schröder, Torge Hartig, Kai Uwe Clausen, Thomas Strunskus, Franz Faupel"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aeg9547?af=R",
-      "doi": "10.1126/science.aeg9547",
-      "summary": "Science, Volume 393, Issue 6815, Page 1031-1035, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Measurement of the Λ electric dipole moment with an entangled baryon-antibaryon system",
-      "authors": [
-        "BESIII Collaboration†M. Ablikim, M. N. Achasov, P. Adlarson, X. C. Ai, R. Aliberti, A. Amoroso, Q. An, Y. Bai, O. Bakina, Y. Ban, H.-R. Bao, S. S. Bao, V. Batozskaya, K. Begzsuren, N. Berger, M. Berlowski, M. Bertani, D. Bettoni, F. Bianchi, E. Bianco, A. Bortone, I. Boyko, R. A. Briere, A. Brueggemann, H. Cai, M. H. Cai, X. Cai, A. Calcaterra, G. F. Cao, N. Cao, S. A. Cetin, X. Y. Chai, J. F. Chang, G. R. Che, Y. Z. Che, C. H. Chen, Chao Chen, G. Chen, H. S. Chen, H. Y. Chen, M. L. Chen, S. J. Chen, S. L. Chen, S. M. Chen, T. Chen, X. R. Chen, X. T. Chen, X. Y. Chen, Y. B. Chen, Y. Q. Chen, Y. Q. Chen, Z. J. Chen, Z. K. Chen, S. K. Choi, X. Chu, G. Cibinetto, F. Cossio, J. Cottee-Meldrum, J. J. Cui, H. L. Dai, J. P. Dai, A. Dbeyssi, R. E. de Boer, D. Dedovich, C. Q. Deng, Z. Y. Deng, A. Denig, I. Denysenko, M. Destefanis, F. De Mori, B. Ding, X. X. Ding, Y. Ding, Y. Ding, Y. X. Ding, J. Dong, L. Y. Dong, M. Y. Dong, X. Dong, M. C. Du, S. X. Du, S. X. Du, Y. Y. Duan, P. Egorov, G. F. Fan, J. J. Fan, Y. H. Fan, J. Fang, J. Fang, S. S. Fang, W. X. Fang, Y. Q. Fang, R. Farinelli, L. Fava, F. Feldbauer, G. Felici, C. Q. Feng, J. H. Feng, L. Feng, Q. X. Feng, Y. T. Feng, M. Fritsch, C. D. Fu, J. L. Fu, Y. W. Fu, H. Gao, X. B. Gao, Y. Gao, Y. N. Gao, Y. N. Gao, Y. Y. Gao, S. Garbolino, I. Garzia, P. T. Ge, Z. W. Ge, C. Geng, E. M. Gersabeck, A. Gilman, K. Goetzen, J. D. Gong, L. Gong, W. X. Gong, W. Gradl, S. Gramigna, M. Greco, M. H. Gu, Y. T. Gu, C. Y. Guan, A. Q. Guo, L. B. Guo, M. J. Guo, R. P. Guo, Y. P. Guo, A. Guskov, J. Gutierrez, K. L. Han, T. T. Han, F. Hanisch, K. D. Hao, X. Q. Hao, F. A. Harris, K. K. He, K. L. He, F. H. Heinsius, C. H. Heinz, Y. K. Heng, C. Herold, P. C. Hong, G. Y. Hou, X. T. Hou, Y. R. Hou, Z. L. Hou, H. M. Hu, J. F. Hu, Q. P. Hu, S. L. Hu, T. Hu, Y. Hu, Z. M. Hu, G. S. Huang, K. X. Huang, L. Q. Huang, P. Huang, X. T. Huang, Y. P. Huang, Y. S. Huang, T. Hussain, N. Hüsken, N. in der Wiesche, J. Jackson, Q. Ji, Q. P. Ji, W. Ji, X. B. Ji, X. L. Ji, Y. Y. Ji, Z. K. Jia, D. Jiang, H. B. Jiang, P. C. Jiang, S. J. Jiang, T. J. Jiang, X. S. Jiang, Y. Jiang, J. B. Jiao, J. K. Jiao, Z. Jiao, S. Jin, Y. Jin, M. Q. Jing, X. M. Jing, T. Johansson, S. Kabana, N. Kalantar-Nayestanaki, X. L. Kang, X. S. Kang, M. Kavatsyuk, B. C. Ke, V. Khachatryan, A. Khoukaz, R. Kiuchi, O. B. Kolcu, B. Kopf, M. Kuessner, X. Kui, N. Kumar, A. Kupsc, W. Kühn, Q. Lan, W. N. Lan, T. T. Lei, M. Lellmann, T. Lenz, C. Li, C. Li, C. Li, C. H. Li, C. K. Li, D. M. Li, F. Li, G. Li, H. B. Li, H. J. Li, H. N. Li, Hui Li, J. R. Li, J. S. Li, K. Li, K. L. Li, K. L. Li, L. J. Li, Lei Li, M. H. Li, M. R. Li, P. L. Li, P. R. Li, Q. M. Li, Q. X. Li, R. Li, S. X. Li, T. Li, T. Y. Li, W. D. Li, W. G. Li, X. Li, X. H. Li, X. L. Li, X. Y. Li, X. Z. Li, Y. Li, Y. G. Li, Y. P. Li, Z. J. Li, Z. Y. Li, H. Liang, Y. F. Liang, Y. T. Liang, G. R. Liao, L. B. Liao, M. H. Liao, Y. P. Liao, J. Libby, A. Limphirat, C. C. Lin, D. X. Lin, L. Q. Lin, T. Lin, B. J. Liu, B. X. Liu, C. Liu, C. X. Liu, F. Liu, F. H. Liu, Feng Liu, G. M. Liu, H. Liu, H. B. Liu, H. H. Liu, H. M. Liu, Huihui Liu, J. B. Liu, J. J. Liu, K. Liu, K. Liu, K. Y. Liu, Ke Liu, L. C. Liu, Lu Liu, M. H. Liu, P. L. Liu, Q. Liu, S. B. Liu, T. Liu, W. K. Liu, W. M. Liu, W. T. Liu, X. Liu, X. Liu, X. K. Liu, X. Y. Liu, Y. Liu, Y. Liu, Y. Liu, Y. B. Liu, Z. A. Liu, Z. D. Liu, Z. Q. Liu, X. C. Lou, F. X. Lu, H. J. Lu, J. G. Lu, X. L. Lu, Y. Lu, Y. H. Lu, Y. P. Lu, Z. H. Lu, C. L. Luo, J. R. Luo, J. S. Luo, M. X. Luo, T. Luo, X. L. Luo, Z. Y. Lv, X. R. Lyu, Y. F. Lyu, Y. H. Lyu, F. C. Ma, H. L. Ma, J. L. Ma, L. L. Ma, L. R. Ma, Q. M. Ma, R. Q. Ma, R. Y. Ma, T. Ma, X. T. Ma, X. Y. Ma, Y. M. Ma, F. E. Maas, I. MacKay, M. Maggiora, S. Malde, Q. A. Malik, H. X. Mao, Y. J. Mao, Z. P. Mao, S. Marcello, A. Marshall, F. M. Melendi, Y. H. Meng, Z. X. Meng, G. Mezzadri, H. Miao, T. J. Min, R. E. Mitchell, X. H. Mo, B. Moses, N. Yu. Muchnoi, J. Muskalla, Y. Nefedov, F. Nerling, L. S. Nie, I. B. Nikolaev, Z. Ning, S. Nisar, Q. L. Niu, W. D. Niu, C. Normand, S. L. Olsen, Q. Ouyang, S. Pacetti, X. Pan, Y. Pan, A. Pathak, Y. P. Pei, M. Pelizaeus, H. P. Peng, X. J. Peng, Y. Y. Peng, K. Peters, K. Petridis, J. L. Ping, R. G. Ping, S. Plura, V. Prasad, F. Z. Qi, H. R. Qi, M. Qi, S. Qian, W. B. Qian, C. F. Qiao, J. H. Qiao, J. J. Qin, J. L. Qin, L. Q. Qin, L. Y. Qin, P. B. Qin, X. P. Qin, X. S. Qin, Z. H. Qin, J. F. Qiu, Z. H. Qu, J. Rademacker, C. F. Redmer, A. Rivetti, M. Rolo, G. Rong, S. S. Rong, F. Rosini, Ch. Rosner, M. Q. Ruan, N. Salone, A. Sarantsev, Y. Schelhaas, K. Schoenning, M. Scodeggio, K. Y. Shan, W. Shan, X. Y. Shan, Z. J. Shang, J. F. Shangguan, L. G. Shao, M. Shao, C. P. Shen, H. F. Shen, W. H. Shen, X. Y. Shen, B. A. Shi, H. Shi, J. L. Shi, J. Y. Shi, S. Y. Shi, X. Shi, H. L. Song, J. J. Song, T. Z. Song, W. M. Song, Y. J. Song, Y. X. Song, S. Sosio, S. Spataro, F. Stieler, S. S Su, Y. J. Su, G. B. Sun, G. X. Sun, H. Sun, H. K. Sun, J. F. Sun, K. Sun, L. Sun, S. S. Sun, T. Sun, Y. C. Sun, Y. H. Sun, Y. J. Sun, Y. Z. Sun, Z. Q. Sun, Z. T. Sun, C. J. Tang, G. Y. Tang, J. Tang, J. J. Tang, L. F. Tang, Y. A. Tang, L. Y. Tao, M. Tat, J. X. Teng, J. Y. Tian, W. H. Tian, Y. Tian, Z. F. Tian, I. Uman, B. Wang, B. Wang, Bo Wang, C. Wang, C. Wang, Cong Wang, D. Y. Wang, H. J. Wang, J. J. Wang, K. Wang, L. L. Wang, L. W. Wang, M. Wang, M. Wang, N. Y. Wang, S. Wang, T. Wang, T. J. Wang, W. Wang, W. Wang, W. P. Wang, X. Wang, X. F. Wang, X. J. Wang, X. L. Wang, X. N. Wang, Y. Wang, Y. D. Wang, Y. F. Wang, Y. H. Wang, Y. J. Wang, Y. L. Wang, Y. N. Wang, Y. Q. Wang, Yaqian Wang, Yi Wang, Yuan Wang, Z. Wang, Z. L. Wang, Z. L. Wang, Z. Q. Wang, Z. Y. Wang, D. H. Wei, H. R. Wei, F. Weidner, S. P. Wen, Y. R. Wen, U. Wiedner, G. Wilkinson, M. Wolke, C. Wu, J. F. Wu, L. H. Wu, L. J. Wu, L. J. Wu, Lianjie Wu, S. G. Wu, S. M. Wu, X. Wu, X. H. Wu, Y. J. Wu, Z. Wu, L. Xia, X. M. Xian, B. H. Xiang, D. Xiao, G. Y. Xiao, H. Xiao, Y. L. Xiao, Z. J. Xiao, C. Xie, K. J. Xie, X. H. Xie, Y. Xie, Y. G. Xie, Y. H. Xie, Z. P. Xie, T. Y. Xing, C. F. Xu, C. J. Xu, G. F. Xu, H. Y. Xu, H. Y. Xu, M. Xu, Q. J. Xu, Q. N. Xu, T. D. Xu, W. Xu, W. L. Xu, X. P. Xu, Y. Xu, Y. Xu, Y. C. Xu, Z. S. Xu, F. Yan, H. Y. Yan, L. Yan, W. B. Yan. , W. C. Yan, W. H. Yan, W. P. Yan, X. Q. Yan, H. J. Yang, H. L. Yang, H. X. Yang, J. H. Yang, R. J. Yang, T. Yang, Y. Yang, Y. F. Yang, Y. H. Yang, Y. Q. Yang, Y. X. Yang, Y. Z. Yang, M. Ye, M. H. Ye, Z. J. Ye, Junhao Yin, Y. You, B. X. Yu, C. X. Yu, G. Yu, J. S. Yu, L. Q. Yu, M. C. Yu, T. Yu, X. D. Yu, Y. C. Yu, C. Z. Yuan, H. Yuan, J. Yuan, J. Yuan, L. Yuan, S. C. Yuan, X. Q. Yuan, Y. Yuan, Z. Y. Yuan, C. X. Yue, Ying Yue, A. A. Zafar, S. H. Zeng, X. Zeng, Y. Zeng, Y. J. Zeng, Y. J. Zeng, X. Y. Zhai, Y. H. Zhan, A. Q. Zhang, B. L. Zhang, B. X. Zhang, D. H. Zhang, G. Y. Zhang, G. Y. Zhang, H. Zhang, H. Zhang, H. C. Zhang, H. H. Zhang, H. Q. Zhang, H. R. Zhang, H. Y. Zhang, J. Zhang, J. Zhang, J. J. Zhang, J. L. Zhang, J. Q. Zhang, J. S. Zhang, J. W. Zhang, J. X. Zhang, J. Y. Zhang, J. Z. Zhang, Jianyu Zhang, L. M. Zhang, Lei Zhang, N. Zhang, P. Zhang, Q. Zhang, Q. Y. Zhang, R. Y. Zhang, S. H. Zhang, Shulei Zhang, X. M. Zhang, X. Y Zhang, X. Y. Zhang, Y. Zhang, Y. Zhang, Y. T. Zhang, Y. H. Zhang, Y. M. Zhang, Y. P. Zhang, Z. D. Zhang, Z. H. Zhang, Z. L. Zhang, Z. L. Zhang, Z. X. Zhang, Z. Y. Zhang, Z. Y. Zhang, Z. Z. Zhang, Zh. Zh. Zhang, G. Zhao, J. Y. Zhao, J. Z. Zhao, L. Zhao, L. Zhao, M. G. Zhao, N. Zhao, R. P. Zhao, S. J. Zhao, Y. B. Zhao, Y. L. Zhao, Y. X. Zhao, Z. G. Zhao, A. Zhemchugov, B. Zheng, B. M. Zheng, J. P. Zheng, W. J. Zheng, X. R. Zheng, Y. H. Zheng, B. Zhong, C. Zhong, H. Zhou, J. Q. Zhou, J. Y. Zhou, S. Zhou, X. Zhou, X. K. Zhou, X. R. Zhou, X. Y. Zhou, Y. X. Zhou, Y. Z. Zhou, A. N. Zhu, J. Zhu, K. Zhu, K. J. Zhu, K. S. Zhu, L. Zhu, L. X. Zhu, S. H. Zhu, T. J. Zhu, W. D. Zhu, W. D. Zhu, W. J. Zhu, W. Z. Zhu, Y. C. Zhu, Z. A. Zhu, X. Y. Zhuang, J. H. Zou, J. Zu"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.adx7334?af=R",
-      "doi": "10.1126/science.adx7334",
-      "summary": "Science, Volume 393, Issue 6815, Page 1027-1030, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Tumor-derived antioxidants suppress immunity by depriving T cells of reactive oxygen species",
-      "authors": [
-        "Alexander J. Wesolowski, Ardon M. Pillay, Panagiota Vardaka, Rabab Nasrallah, Randy Greaves, Housaiyin Li, Iliana Loffreda, Chelsea Jenkin, Andrew M. James, Alica Nübling, Christopher J. Ward, Teresa von Linde, Alberto G. Conti, Sheue-Fen Tzeng, Layla Dahmani, Alexander C. Evans, Sarah K. Whiteside, Yumi Yamashita-Kanemaru, Charlotte J. Imianowski, Jie Yang, Ignacio Moraga Gonzalez, Jack Chapman, Aws Al-Deka, Klaus Okkenhaug, Michael P. Murphy, Bartlomiej Swiatczak, Geoffrey Guittard, Enrico Lugli, Lukas Flatz, Ping-Chih Ho, Robert L. Eil, Rahul Roychoudhuri"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.adz8203?af=R",
-      "doi": "10.1126/science.adz8203",
-      "summary": "Science, Volume 393, Issue 6815, Page 1036-1044, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Rising plant extinction rates on European mountain summits",
-      "authors": [
-        "Johannes Wessely, Kryštof Chytrý, Andreas Gattringer, Johannes Hausharter, Norbert Helm, Karl Hülber, Dietmar Moser, Otar Abdaladze, Christopher Andrews, Elena Barni, Debora Barolin, José-Luis Benito-Alonso, Raphael S. von Büren, Michele Carbognani, Pau Carnicero, Valter Di Cecco, Philippe Choler, Jan Dick, Rosa Fernández-Calzado, Pieter De Frenne, Mary Carolina García Lino, Dany Ghosn, Khatuna Gigauri, Bente J. Graae, Andreas Hilpold, Juan J. Jiménez, Katharina Kagerl, Róbert Kanka, Jozef Kollár, Andrea Lamprecht, Jonas Lembrechts, Jonathan Lenoir, Juan Lorite, Panagiotis Nyktas, Mihai Pușcaș, Christophe F. Randin, Christian Rixen, Graziano Rossi, Patrick Saccone, Tudor Mihai Ursu, Thomas Vanneste, Marco Varricchione, Pascal Vittoz, Manuela Winkler, Sonja Wipf, Harald Pauli, Stefan Dullinger"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aed2974?af=R",
-      "doi": "10.1126/science.aed2974",
-      "summary": "Science, Volume 393, Issue 6815, Page 1021-1026, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "In Other Journals",
-      "authors": [
-        "Corinne Simonti, and Jesse Smith, Di Jiang, Sarah H. Ross, Unnati Sonawala, Phil Szuromi, Melissa McCartney, Stella M. Hurtley, and Marc S. Lavine"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aem0117?af=R",
-      "doi": "10.1126/science.aem0117",
-      "summary": "Science, Volume 393, Issue 6815, Page 989-990, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Teaching while learning",
-      "authors": [
-        "Nani Teig"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aem0118?af=R",
-      "doi": "10.1126/science.aem0118",
-      "summary": "Science, Volume 393, Issue 6815, Page 1054-1054, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Tumors steal a signal from T cells",
-      "authors": [
-        "Navdeep S. Chandel"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aek5854?af=R",
-      "doi": "10.1126/science.aek5854",
-      "summary": "Science, Volume 393, Issue 6815, Page 978-979, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Locking aligned molecular dipoles",
-      "authors": [
-        "Pengzhe Cai and Junjie Zhao"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aek6900?af=R",
-      "doi": "10.1126/science.aek6900",
-      "summary": "Science, Volume 393, Issue 6815, Page 980-980, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Not such a benign colonizer",
-      "authors": [
-        "Ashley Gilliland and Bruce A. Vallance"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aek8246?af=R",
-      "doi": "10.1126/science.aek8246",
-      "summary": "Science, Volume 393, Issue 6815, Page 977-978, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Psychedelics as prophylactic neuroprotectants",
-      "authors": [
-        "Maria Maiarú"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aek3865?af=R",
-      "doi": "10.1126/science.aek3865",
-      "summary": "Science, Volume 393, Issue 6815, Page 975-976, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Protect the Third Pole from mineral mining",
-      "authors": [
-        "Hai-Dong Li, Nan Wang, Ya-Mei Shao, Yingkui Li, and Zhe Zhang"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aej8902?af=R",
-      "doi": "10.1126/science.aej8902",
-      "summary": "Science, Volume 393, Issue 6815, Page 982-982, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Combat Galapagos marine iguana trafficking",
-      "authors": [
-        "Juan José Alava, Eliana Molineros, Franklin Vega, Jennifer Jacquet, and Gohar A. Petrossian"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aek3898?af=R",
-      "doi": "10.1126/science.aek3898",
-      "summary": "Science, Volume 393, Issue 6815, Page 981-982, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Improve response to marine natural disasters",
-      "authors": [
-        "Melinda A. Coleman and Curtis Champion"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aek9910?af=R",
-      "doi": "10.1126/science.aek9910",
-      "summary": "Science, Volume 393, Issue 6815, Page 981-981, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "How scientists unraveled the causes of the devastating flood in Tibet and Nepal",
-      "authors": [
-        "Hannah Richter"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aem0437?af=R",
-      "doi": "10.1126/science.aem0437",
-      "summary": "Science, Volume 393, Issue 6815, Page 954-955, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Supermale fish become new tactic for vanquishing invaders",
-      "authors": [
-        "Erik Stokstad"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aem0438?af=R",
-      "doi": "10.1126/science.aem0438",
-      "summary": "Science, Volume 393, Issue 6815, Page 956-957, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "California to vote on $16 billion to boost research",
-      "authors": [
-        "Jeffrey Mervis"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aem0439?af=R",
-      "doi": "10.1126/science.aem0439",
-      "summary": "Science, Volume 393, Issue 6815, Page 957-958, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Russia bets on new research facilities to build foreign ties",
-      "authors": [
-        "Ilya Ferapontov"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aem0440?af=R",
-      "doi": "10.1126/science.aem0440",
-      "summary": "Science, Volume 393, Issue 6815, Page 958-959, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Fearing seal die-off from bird flu, Australia moves to evacuate sub-Antarctic research station",
-      "authors": [
-        "Erik Stokstad"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aem0441?af=R",
-      "doi": "10.1126/science.aem0441",
-      "summary": "Science, Volume 393, Issue 6815, Page 960-961, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Brain stimulation takes aim at improving women’s health",
-      "authors": [
-        "Jennie Erin Smith"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aem0442?af=R",
-      "doi": "10.1126/science.aem0442",
-      "summary": "Science, Volume 393, Issue 6815, Page 961-962, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Ready for the robot reviewers?",
-      "authors": [
-        "Jeffrey Brainard"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aem0443?af=R",
-      "doi": "10.1126/science.aem0443",
-      "summary": "Science, Volume 393, Issue 6815, Page 963-967, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "(Un)intended consequences of mass-prescribing GLP-1s",
-      "authors": [
-        "Luc L. Hagenaars and Laura A. Schmidt"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.ael8715?af=R",
-      "doi": "10.1126/science.ael8715",
-      "summary": "Science, Volume 393, Issue 6815, Page 953-953, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "Building a scalable climate coalition for heavy industry",
-      "authors": [
-        "Catherine Wolfram, Joseph Aldy, Candido Bracher, Gregory Casey, Vaibhav Chaturvedi, Kimberly Clausing, Carolyn Fischer, Christian Gollier, Allan Hsiao, Frank Jotzo, Marcelo Medeiros, Kyle Meng, Athiphat Muthitacharoen, Axel Ockenfels, Mari Pangestu, Marilyn Pereboom, Arathi Rao, Ivan Rudik, Daouda Sembene, Naomi Shimberg, E. Somanathan, Dustin Tingley, and Jennifer Winter"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aef7190?af=R",
-      "doi": "10.1126/science.aef7190",
-      "summary": "Science, Volume 393, Issue 6815, Page 984-987, September 2026."
-    },
-    {
-      "journalKey": "Science",
-      "journal": "Science",
-      "journalShort": "Science",
-      "type": "published",
-      "title": "In Science Journals",
-      "authors": [
-        "Michael Funk, and Marc S. Lavine, Keith T. Smith, Unnati Sonawala, Madeleine Seale, Yevgeniya Nusinovich, Phil Szuromi, Jessica Hullman, Seth Thomas Scanlon, Bianca Lopez, Di Jiang, Corinne Simonti, Sarah H. Ross, Mattia Maroso, Jelena Stajic, Priscilla N. Kelly, Cheri Sirois, Wei Wong, and Ruirui Qiao"
-      ],
-      "date": "2026-09-03T06:00:09+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/science.aem0116?af=R",
-      "doi": "10.1126/science.aem0116",
-      "summary": "Science, Volume 393, Issue 6815, Page 988-990, September 2026."
     },
     {
       "journalKey": "arXivCM",
@@ -11051,24 +9679,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Exact interpolation between Fick and Cattaneo diffusion in relativistic kinetic theory</span>",
-      "authors": [
-        "L. Gavassino"
-      ],
-      "date": "2026-09-02T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/77077RaeE801b62e157e160433f0e6882aff6c88f",
-      "doi": "10.1103/6tl5-nggj",
-      "summary": "We construct a family of exactly solvable relativistic kinetic theories in $1+1$ dimensions whose hydrodynamic sector continuously interpolates between Fick’s and Cattaneo’s laws of diffusion. The interpolation is controlled by a single parameter $a∈[0,1]$, which tunes the microscopic scattering dyn…",
-      "volume": "0",
-      "pages": "1",
-      "citation": "0,1",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Activity-enhanced ordering in fluctuation-induced first-order transitions</span>",
       "authors": [
         "Suvendra K. Sahoo"
@@ -11094,6 +9704,24 @@
       "doi": "10.1103/4dhv-8xd7",
       "summary": "Bridging the gap between atomistic detail and continuum mechanics is a central challenge in modeling biological membranes, particularly for mesoscopic phenomena spanning large length and time scales. In this work, we introduce a new, solvent-free, one-particle-thick, coarse-grained model for lipid b…",
       "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Exact interpolation between Fick and Cattaneo diffusion in relativistic kinetic theory</span>",
+      "authors": [
+        "L. Gavassino"
+      ],
+      "date": "2026-09-02T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/77077RaeE801b62e157e160433f0e6882aff6c88f",
+      "doi": "10.1103/6tl5-nggj",
+      "summary": "We construct a family of exactly solvable relativistic kinetic theories in $1+1$ dimensions whose hydrodynamic sector continuously interpolates between Fick’s and Cattaneo’s laws of diffusion. The interpolation is controlled by a single parameter $a∈[0,1]$, which tunes the microscopic scattering dyn…",
+      "volume": "0",
+      "pages": "1",
+      "citation": "0,1",
       "publisher": "American Physical Society"
     },
     {
@@ -11451,622 +10079,6 @@
       "summary": "Harnessing the interaction between light and matter at the quantum level has been a central theme in atomic physics and quantum optics, with applications from quantum computation to quantum metrology. Combining complex interactions with photonic synthetic materials provides an opportunity to investi…",
       "citation": "PRX Quantum",
       "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Defective EV-mediated transport of SHH alters neural fate specification in EPM1 epilepsy",
-      "authors": [
-        "Andrea Forero, Veronica Pravata, Fabrizia Pipicelli, Elisa Frenna, Alessandro Soloperto, Marta Ianni, Natalia Abate, Francesco Di Matteo, Zagorka Bekjarova, Laura Canafoglia, Francesca Ragona, Giuseppina Maccarrone, Mariano Gonzalez Pisfil, Christian Whal-Schott, Filippo M. Cernilogar, Matthias Eder, Rossella Di Giaimo, Silvia Cappello"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.adu3955?af=R",
-      "doi": "10.1126/sciadv.adu3955",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Critical role for the TGF-β1/mTORC1 signaling axis in defining the transcriptional identity of CTHRC1+ pathologic fibroblasts",
-      "authors": [
-        "Jo-Anne AM Wilson, Rachel Walters, Greg Contento, Madeleine Rossanese, Delphine Guillotin, Alexander I. Ward, Robert E. Hynds, Mariam Jamal-Hanjani, Naftali Kaminski, Silvia Parolo, Manuela Platé, Rachel C. Chambers"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.adx9868?af=R",
-      "doi": "10.1126/sciadv.adx9868",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Moon’s farside near-zero paleomagnetic field suggests a global lunar dynamo cessation",
-      "authors": [
-        "Xuelong Jiang, Fei Su, Huapei Wang, Runchuan Liu, Ting Cao, Shaochen Hu, Haijun Li, Chen Wen, Yu-Min Chou, Huafeng Qin, Kaixian Qi, Fei Han, Yiming Ma, Jiabo Liu"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.adz6195?af=R",
-      "doi": "10.1126/sciadv.adz6195",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Recovering the precolonial population structure of Khoe-San descendant populations",
-      "authors": [
-        "Stacy L. Edington, Dana R. Al-Hindi, Neus Font-Porterias, Alexandra Surowiec, William J. Palmer, Justin W. Myrick, Paul J. Norman, Caitlin Uren, Marlo Möller, Brenna M. Henn, Austin W. Reynolds"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.adz7115?af=R",
-      "doi": "10.1126/sciadv.adz7115",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Electrical control of induced magnetism in an air-stable two-dimensional semiconductor",
-      "authors": [
-        "Qi Zhang, Mithun Ghosh, Yaroslav Zhumagulov, Oldřich Cicvárek, Yuan Chen, Fangchao Long, Yijie Lin, Ali Al Mejamai, Johan Félisaz, Iva Plutnarová, Jianmin Yang, Hue Thi Bich Do, Jan Plutnar, Michel Bosman, Shengqiang Zhou, Goki Eda, Oleg V. Yazyev, Zdeněk Sofer, Ahmet Avsar"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeb0659?af=R",
-      "doi": "10.1126/sciadv.aeb0659",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "A male-biased hypothalamic circuit modulates postmating sleep suppression in mice",
-      "authors": [
-        "Jin Zhao, Linhao Jiang, Qian Zhang, Shajin Huang, Xueping Gao, Minghui Song, Xue Lu, Siwen Pan, Xi Zha, Lei Jin, Xiaohong Xu, Huateng Cao, Qianzi Yang, Zhe Zhang"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeb6839?af=R",
-      "doi": "10.1126/sciadv.aeb6839",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Estimating the carcinogenesis timelines in early-onset versus late-onset cancers and changes across birth cohorts",
-      "authors": [
-        "Navid Mohammad Mirzaei and Wan Yang"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec2357?af=R",
-      "doi": "10.1126/sciadv.aec2357",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Combinatorial action of regulatory systems generates colistin heteroresistance",
-      "authors": [
-        "Jacob E. Choby, Emily K. Crispell, Muqing Ma, Linda M. Vu, Mary-Kate Key, Robert K. Ernst, Minsu Kim, David S. Weiss"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec7052?af=R",
-      "doi": "10.1126/sciadv.aec7052",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Sea nettle jellyfish venom targets proteoglycans to cause cell death and pain",
-      "authors": [
-        "Christopher E. Denes, Tian Y. D'Araujo, Felicity Chung, Man-Tat Lau, Adam Cole, Nicholas R. Casewell, Eivind A. B. Undheim, G. Gregory Neely"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec7585?af=R",
-      "doi": "10.1126/sciadv.aec7585",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "A newly established reverse genetic system for a circular RNA virus reveals new requirements for infection and its biocontrol potential",
-      "authors": [
-        "Yi Guo, Marco Forgia, Nadia Serale, Beatriz Navarro, Virgilio Balmas, Safa Oufensou, Quirico Migheli, Cristina Formiglia, Stefania Daghino, Antonio Prodi, Simon Schiwek, Federica Bono, Niccolò Miotti, Massimo Turina"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aed1511?af=R",
-      "doi": "10.1126/sciadv.aed1511",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Activation of transposable elements is linked to a region- and cell type–specific interferon response in Parkinson’s disease",
-      "authors": [
-        "Raquel Garza, Anita Adami, Arun Thiruvalluvan, Sasvi Wijesinghe, Annabel Curle, Oliver Tam, Talitha Forcier, Danai A. Lagka, Nina L. Kazakou, Diahann A. M. Atacho, Yogita Sharma, Vivien Horvath, Sara Bermudez, Jenny Johansson, Daniel B. Rainbow, Laura Castilla-Vallmanya, Joanne L. Jones, Annelies Quaegebeur, Molly Gale Hammell, Agnete Kirkeby, Roger A. Barker, Johan Jakobsson"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aed2952?af=R",
-      "doi": "10.1126/sciadv.aed2952",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Intra-cluster receptor density (IRD): A molecular switch for TNFR1 clusters’ signaling",
-      "authors": [
-        "Subhamoy Jana, Priyanka Roy, Jibitesh Das, Basab Bijayee Bera, Parijat Biswas, Nandana Nanda, Bidisha Sinha, Deepak Kumar Sinha"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aed3734?af=R",
-      "doi": "10.1126/sciadv.aed3734",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Delayed submarine caldera subsidence creates extreme tsunami hazard",
-      "authors": [
-        "Shane J. Cronin, Bastian Steinke, Jose C. Borrero, Emile A. Okal, Marta Ribó, Jie Wu, James D. L. White, Marco Brenna, Joali Paredes-Mariño, Mila Huebsch, Rachael Baxter, Ulrich Speidel, Alexa R. Van Eaton, Larry G. Mastin, Michael A. Clare, Isobel A. Yeo, James E. Hunt, Jacob Nash, James B. Garvin, Rennie Vaiomounga, Taaniela Kula, Sung-Hyun Park"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aed4934?af=R",
-      "doi": "10.1126/sciadv.aed4934",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Lenacapavir allosterically remodels the HIV-1 capsid",
-      "authors": [
-        "Nayara F. B. dos Santos, Jacob A. Lewis, Mason Hansen, Miguel J. B. Pereira, Devin E. Christensen, Wesley I. Sundquist, Barbie K. Ganser-Pornillos, Owen Pornillos"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aed8384?af=R",
-      "doi": "10.1126/sciadv.aed8384",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Self-adaptive and configurable transfer printing of flexible electronics via rheology of liquid foam",
-      "authors": [
-        "Xiaoguang Hu, Shengzhao Wang, Yike Zhu, Jinxiu Liu, Weiqiang Hong, Xinran Yan, Lixuan Che, Ming Li, Zehan Liu, Hailong Liu, Zhuoqing Yang, Xuewen Wang, Jian Yin, Zhaoqian Xie, Mengxi Wu, Junshan Liu"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aee2721?af=R",
-      "doi": "10.1126/sciadv.aee2721",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Mechanical cues of an interpenetrating polysaccharide matrix regulate self-assembly of collagen fibers",
-      "authors": [
-        "Fatemeh Tavakoli Joorabi, Nicholas J. Derr, Zecheng Li, Bryan A. Nerger, Chris H. Rycroft, David J. Mooney, Kyle H. Vining"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aee3256?af=R",
-      "doi": "10.1126/sciadv.aee3256",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Tetrabutoxy-substituted quintulene: A missing bowl-shaped cycloarene",
-      "authors": [
-        "Mingxin He, Yuguang Sui, Jiawei Shao, Zipeng Wang, Yanwei Gu, Haiping Xia, Yong Ni"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aee3923?af=R",
-      "doi": "10.1126/sciadv.aee3923",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "A single-point mutation in TRPA1 drives heat resilience in oviparous embryos",
-      "authors": [
-        "Tian-Yu Feng, Wenqi Dong, Dong Zheng, Lei Han, Jiatong Chen, Xuanye Wu, Xiancui Lu, Shilong Yang, Wei-Guo Du"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aee3948?af=R",
-      "doi": "10.1126/sciadv.aee3948",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "A decagon wave around Saturn’s south pole",
-      "authors": [
-        "Agustín Sánchez-Lavega, Amy A. Simon, Michael H. Wong, Leigh N. Fletcher, Arrate Antuñano, Ricardo Hueso, Peio Iñurrigarro, Aida Flix-Bellmunt, Arnau Miró, Enrique García-Melendo, Trevor Barry, Jean-Paul Oger, Glenn S. Orton, Itziar Garate-Lopez"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aee4251?af=R",
-      "doi": "10.1126/sciadv.aee4251",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Enhanced carbon loss in the Southern Ocean under mitigation scenarios",
-      "authors": [
-        "Huiji Lee, Jong-Seong Kug, Yechul Shin, Dong-Geon Lee, Nadine Goris, Friederike Fröb, Jerry F. Tjiputra, Timothée Bourgeois, Jörg Schwinger"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aee9228?af=R",
-      "doi": "10.1126/sciadv.aee9228",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Hijacking pre-tRNA enables LTR-retrotransposon–initiated constitutive heterochromatin formation",
-      "authors": [
-        "Yazi Deng, Yu Liang, Yi Ni Luo, Luoqi Ma, Wei Wu, Wei Wu, Lu Wang"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef2333?af=R",
-      "doi": "10.1126/sciadv.aef2333",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Human cortical networks trade communication efficiency for computational reliability",
-      "authors": [
-        "Kayson Fakhar, Danyal Akarca, Andrea I. Luppi, Stuart Oldham, Fatemeh Hadaeghi, Petra E. Vértes, Ed Bullmore, Claus Hilgetag, Duncan Astle"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef2894?af=R",
-      "doi": "10.1126/sciadv.aef2894",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "A MAP-SNARE interaction links cortical microtubules to the exocytic fusion machinery during auxin-dependent growth remodeling",
-      "authors": [
-        "Jia Deng, Jing Qin, Panpan Wang, Xiaojing Zhao, Xinyuan Zhang, Jingyan Fu, Tonglin Mao, Xiangfeng Wang"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef5793?af=R",
-      "doi": "10.1126/sciadv.aef5793",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "The OsUVR8-OsNAC3-OsERF117 signaling module mediates metabolic acclimation and climate adaptation in rice",
-      "authors": [
-        "Wenxin Liu, Dongxiao Zhou, Jianying Xing, Shangyong Xue, Tian-Jing Wang, Peng Guo, Yutong Liu, Zheng-Yi Xu"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef5945?af=R",
-      "doi": "10.1126/sciadv.aef5945",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Fluorescent protein ticker tape (FPTT): Multiplexed recording of transcriptional dynamics in living cells and in vivo",
-      "authors": [
-        ", , Zhuoyuan Li, Tianning Liu, Yangdong Wang, Mingqi Xie, Kiryl D. Piatkevich"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef9406?af=R",
-      "doi": "10.1126/sciadv.aef9406",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "The larval Drosophila mushroom body balances lateralized sensing and interhemispheric integration",
-      "authors": [
-        "David M. Zimmerman, Benjamin L. de Bivort, Aravinthan D. T. Samuel"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg1229?af=R",
-      "doi": "10.1126/sciadv.aeg1229",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Aortic disease-linked mutations reveal unexpected convergent allosteric mechanisms of protein kinase G misregulation",
-      "authors": [
-        "Karla Martinez Pomier, Leopold Jahn, Bryan VanSchouwen, Hebatallah Mohamed, Madoka Akimoto, Sun Woo Jung, Daniela Bertinetti, Johannes Mehringer, Leonardo Della Libera, Friederike Cuello, Friedrich W. Herberg, Giuseppe Melacini"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg1640?af=R",
-      "doi": "10.1126/sciadv.aeg1640",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Muscle coactivation-inspired stiffness-driven control strategy for antagonistic soft robots",
-      "authors": [
-        "Jie Pan, Tianyu Chen, Junwei Li, Yifan Wang"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg3346?af=R",
-      "doi": "10.1126/sciadv.aeg3346",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "KRAS is required for plexiform neurofibroma formation and represents a targetable vulnerability in established tumors",
-      "authors": [
-        "Liang Hu, Niousha Ahmari, Abby Schaeper, Jay Pundavela, Mi-Ok Kim, Eva Dombi, Jianqiang Wu, Julia Brunmair, Özlem Yüce Petronczki, Nancy Ratner"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg3475?af=R",
-      "doi": "10.1126/sciadv.aeg3475",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Complex effects of sex reversal on reproductive success in wild frogs",
-      "authors": [
-        "Veronika Bókony, Emese Balogh, Nikolett Ujhegyi, Zsanett Mikó, Andrea Kásler, János Ujszegi, Attila Hettyey, Dávid Herczeg, Tibor Papp, Edina Nemesházi"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg3488?af=R",
-      "doi": "10.1126/sciadv.aeg3488",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Electrified thermochemical reaction engineering with metamaterial reactors",
-      "authors": [
-        "Ariana B. Höfelmann, Chenghao Wan, Calvin H. Lin, Dolly L. Mantle, Zhennan Ru, Connor Cremers, Kesha Tamakuwala, Matthew W. Kanan, Juan Rivas-Davila, Jonathan A. Fan"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg7217?af=R",
-      "doi": "10.1126/sciadv.aeg7217",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Bifidobacterium animalis subsp. lactis V9 overcomes CYFRA 21-1–linked immunochemotherapy resistance in NSCLC via microbial metabolites",
-      "authors": [
-        "Cuijiao Feng, Guangqi Gao, Qiuwen He, Lai-Yu Kwok, Cong Liu, Chang Li, Li Dong, Zhihong Sun, Heping Zhang"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg8202?af=R",
-      "doi": "10.1126/sciadv.aeg8202",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Light-tunable charge dynamics enable ultralow-power bidirectional lead-free perovskite synapses for intelligent vision",
-      "authors": [
-        "Tingting Mei, Bowei Zhang, Tanzeela Yousaf, Jan Seidel, Dawei Su, Zijian Feng, Tianxu Huang, Fandi Chen, Zhi Li, Chun Hui Wang, Wenlong Cheng, Yuerui Lu, Yichen Liu, Tom Wu, Long Hu, Miaoqiang Lyu, Chun-Ho Lin, Lianzhou Wang, Dewei Chu"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeh3751?af=R",
-      "doi": "10.1126/sciadv.aeh3751",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Hillslope memory of sequential earthquakes",
-      "authors": [
-        "Xin Wang, John D. Jansen, Li Chen, Lanxin Dai, Kushanav Bhuyan, Chengyong Fang, Lorenzo Nava, Filippo Catani, Xuanmei Fan"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeh3921?af=R",
-      "doi": "10.1126/sciadv.aeh3921",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "AKT5 is a bona fide potassium channel and controls petiole growth in Arabidopsis",
-      "authors": [
-        "Yuki Muraoka, Shunsuke Kobayashi, Lisa Oskam, Michihiro Tateyama, Ayumu Masago, Yoshikazu Tanaka, Takeshi Yokoyama, Tadaomi Furuta, Hinano Takase, Ellen Tanudjaja, Shota Terashima, Haruto Shimizukawa, Taro Yamanashi, Shunya Saito, Hiroki Ijima, Miyuki Tanaka, Atsushi Miyamoto, Megumi Kato, Kanane Sato, Masaru Tsujii, Taishi Umezawa, Francisco J. Quintero, Francisco Rubio, Jörg Kudla, Masaaki Ito, Yoshihiro Kubo, Yasuhiro Ishimaru, Ronald Pierik, Nobuyuki Uozumi"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeh7630?af=R",
-      "doi": "10.1126/sciadv.aeh7630",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Digital twins are funhouse mirrors: Five systematic distortions",
-      "authors": [
-        "Tianyi Peng, Melanie Brucks, George Gui, Daniel J. Merlau, Grace Jiarui Fan, Malek Ben Sliman, Eric J. Johnson, Abdullah Althenayyan, Silvia Bellezza, Dante Donati, Hortense Fong, Elizabeth Friedman, Ariana Guevara, Mohamed Hussein, Kinshuk Jerath, Bruce Kogut, Akshit Kumar, Kristen Lane, Hannah Li, Vicki Morwitz, Oded Netzer, Patryk Perkowski, Olivier Toubia"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeh8260?af=R",
-      "doi": "10.1126/sciadv.aeh8260",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Functional mapping and engineering of the Sec translocon unlocked by a cell-free system",
-      "authors": [
-        "Markus Meier, Scott A. Scholz, Leo von Bank, João E. Levandoski, Mosche Lückhof, Maximilian Schaaf, Nataliya Safronova, Nathan F. Greenwood, Shutian Si, Ingo Lieberwirth, Anna Lena Jung, Katharina Landfester, Arnold J. M. Driessen, Tobias J. Erb"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aej0987?af=R",
-      "doi": "10.1126/sciadv.aej0987",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Observation of the quantum phase of free fall and the consistency with the equivalence principle",
-      "authors": [
-        "Or Dobkowski, Barak Trok, Peter Skakunenko, Yonathan Japha, David Groswasser, Maxim Efremov, Chiara Marletto, Ivette Fuentes Guridi, Roger Penrose, Vlatko Vedral, Wolfgang P. Schleich, Ron Folman"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec8045?af=R",
-      "doi": "10.1126/sciadv.aec8045",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Sequential clearance of neutrophil extracellular traps for precision therapy of sepsis",
-      "authors": [
-        "Nan Wang, Yuqin Jin, Jian Song, Miaomiao Fei, Tan Wu, Hui Zhang, Changwei Wei, Qian Chen, Cheng Li"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef3930?af=R",
-      "doi": "10.1126/sciadv.aef3930",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "The actomyosin cortex controls t-tubule remodeling in skeletal muscle",
-      "authors": [
-        "Ana Raquel Pereira, Silvia Di Francescantonio, Ana da Rosa Soares, Tianyang Liu, Filomena A. Carvalho, Josie Liane Ferreira, Graciano Leal, Inês Faleiro, Naoko Kogata, Beatrice Labella, Teresinha Evangelista, Nuno C. Santos, Michael Way, Carolyn A. Moores, Edgar R. Gomes"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeb3209?af=R",
-      "doi": "10.1126/sciadv.aeb3209",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Three thousand five hundred years of sheeppox virus evolution inferred from archaeological and codicological genomes",
-      "authors": [
-        "Louis L’Hôte, Luisa Sacristán, Róisín Ferguson, Alex Siekmann, Leland Rogers, Barbara Richter, Herbert Weissenböck, Jenny Lorke, Lara Artemis, Élodie Lévêque, Richard Hark, Patricia Engel, Mary Teresa Josephine Webber, Madison Bennett, Kristine Rose-Beers, Emma Nichols, Marta Munoz Alegre, Max Ramsøe, Sarah Fiddyment, Laura C. Viñas-Caron, Dimitry V. Papin, Ian C. Light-Maka, Felix M. Key, Jonas Albarnaz, Tim Downing, Jonathan Pekar, Philippe Lemey, Daniel G. Bradley, Jiří Vnouček, Cheryl A. Makarewicz, Joanna Story, Matthew Collins, Matthew D. Teasdale, Annelise Binois-Roman, Sébastien Calvignac-Spencer, Kevin G. Daly"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeh3571?af=R",
-      "doi": "10.1126/sciadv.aeh3571",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Shallow creep and confined ruptures in frictionally unstable mica schist",
-      "authors": [
-        "Sezim E. Güvercin, Sylvain Barbot, Lei Zhang, Mehmet Köküm, Zekang Yang, Cengiz Zabcı"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef6076?af=R",
-      "doi": "10.1126/sciadv.aef6076",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Restoring pre-osteoarthritis cartilage matrix integrity via Col9 mRNA halts osteoarthritis progression",
-      "authors": [
-        "Jun Zhou, Jingrui Hu, Erica Yada, Jingxiao Zhong, Yuki Terai, C. Peter Winlove, Junning Chen, Yo Shibata, Keiji Itaka"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aef9739?af=R",
-      "doi": "10.1126/sciadv.aef9739",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
-    },
-    {
-      "journalKey": "SciAdv",
-      "journal": "Science Advances",
-      "journalShort": "Sci Adv.",
-      "type": "published",
-      "title": "Abrupt declines in fish productivity often precede stock collapses in marine fisheries",
-      "authors": [
-        "Mathieu Pélissié, Vincent Devictor, Olaf P. Jensen, Vasilis Dakos"
-      ],
-      "date": "2026-09-02T07:00:00+00:00",
-      "link": "https://www.science.org/doi/abs/10.1126/sciadv.aed7911?af=R",
-      "doi": "10.1126/sciadv.aed7911",
-      "summary": "Science Advances, Volume 12, Issue 36, September 2026."
     },
     {
       "journalKey": "Nature",
@@ -14171,22 +12183,6 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>High hole doping redirects pressure-induced phase transformation of silicon</span>",
-      "authors": [
-        "Tong Zhao, Shulin Zhong, Yuxin Sun, Defan Wu, Zhidan Zeng, Yilun Wang, Chunyi Zhang, Rui Shi, Hao Chen, Qunlin Nie, Zhenyi Ni, Xiaodong Pi, Xiangyang Ma, Yunhao Lu, and Deren Yang"
-      ],
-      "date": "2026-09-01T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/35077Y15Zfc1a387a91e7b9037c74dfd549e147f0",
-      "doi": "10.1103/v636-pcxy",
-      "summary": "The pressure-induced phase transformation of semiconductors, particularly silicon (Si), has long been a fundamental problem in condensed matter physics. Decades of research have predominantly focused on the external factors such as temperature, load, and unloading rate, leaving the role of inherent …",
-      "citation": "Phys. Rev. Lett.",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRL",
-      "journal": "Phys. Rev. Lett.",
-      "journalShort": "PRL",
-      "type": "accepted",
       "title": "<span>Magnon Kerr effect in a magnetic thin film strongly coupled to a microwave resonator</span>",
       "authors": [
         "Davit Petrosyan, Hiroki Matsumoto, Hanchen Wang, Jamal Ben Youssef, Richard Schlitz, William Legrand, and Pietro Gambardella"
@@ -14195,6 +12191,22 @@
       "link": "https://journals.aps.org/prl/accepted/fc071Y9fAec1058ac9cc4579ce18ab501264169d2",
       "doi": "10.1103/x4f8-pfj2",
       "summary": "Progress in cavity magnonics relies on tunable nonlinearities in magnon–photon interactions for controlling magnon dynamics and frequency conversion. Here, we demonstrate the magnon Kerr effect in anisotropic magnonic systems comprising iron garnet thin films coupled to a loop-gap microwave resonato…",
+      "citation": "Phys. Rev. Lett.",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRL",
+      "journal": "Phys. Rev. Lett.",
+      "journalShort": "PRL",
+      "type": "accepted",
+      "title": "<span>High hole doping redirects pressure-induced phase transformation of silicon</span>",
+      "authors": [
+        "Tong Zhao, Shulin Zhong, Yuxin Sun, Defan Wu, Zhidan Zeng, Yilun Wang, Chunyi Zhang, Rui Shi, Hao Chen, Qunlin Nie, Zhenyi Ni, Xiaodong Pi, Xiangyang Ma, Yunhao Lu, and Deren Yang"
+      ],
+      "date": "2026-09-01T10:00:00+00:00",
+      "link": "https://journals.aps.org/prl/accepted/35077Y15Zfc1a387a91e7b9037c74dfd549e147f0",
+      "doi": "10.1103/v636-pcxy",
+      "summary": "The pressure-induced phase transformation of semiconductors, particularly silicon (Si), has long been a fundamental problem in condensed matter physics. Decades of research have predominantly focused on the external factors such as temperature, load, and unloading rate, leaving the role of inherent …",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -15164,22 +13176,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Dimensional formulation for the pseudopotential lattice Boltzmann method</span>",
-      "authors": [
-        "Luiz Eduardo Czelusniak, Ivan Talão Martins, and Luben Cabezas Gómez"
-      ],
-      "date": "2026-09-01T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/8907bRd8Db01922fe6f9329983221506a571a5d9b",
-      "doi": "10.1103/l7sd-fx7p",
-      "summary": "The lattice Boltzmann method (LBM) is commonly implemented in lattice units, requiring conversion procedures to relate simulation parameters to physical quantities. In the pseudopotential multiphase model, this conversion becomes particularly restrictive when attempting to reproduce real-fluid prope…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Dominance switching between substrate adhesion and curvature in directional collective cell migration</span>",
       "authors": [
         "Bing Qi, Jianwen Li, Xinxin Lv, Xi-Qiao Feng, and Jing Du"
@@ -15188,6 +13184,22 @@
       "link": "https://journals.aps.org/pre/accepted/3407aYddE0720700824d00944ba4fc234980ba4b9",
       "doi": "10.1103/79s4-d9d2",
       "summary": "Substrate curvature and cell–substrate adhesion are two key physical determinants of directional collective cell migration, yet their joint regulatory mechanism remains unresolved. Here, we establish a physical framework based on the instantaneous force balance to reveal the dominance switching mech…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Dimensional formulation for the pseudopotential lattice Boltzmann method</span>",
+      "authors": [
+        "Luiz Eduardo Czelusniak, Ivan Talão Martins, and Luben Cabezas Gómez"
+      ],
+      "date": "2026-09-01T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/8907bRd8Db01922fe6f9329983221506a571a5d9b",
+      "doi": "10.1103/l7sd-fx7p",
+      "summary": "The lattice Boltzmann method (LBM) is commonly implemented in lattice units, requiring conversion procedures to relate simulation parameters to physical quantities. In the pseudopotential multiphase model, this conversion becomes particularly restrictive when attempting to reproduce real-fluid prope…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -15630,22 +13642,6 @@
       "journal": "Phys. Rev. Research",
       "journalShort": "PRResearch",
       "type": "accepted",
-      "title": "<span>Dynamics creation through neural dynamical transfer learning</span>",
-      "authors": [
-        "He Ma, Qiyang Ge, Yu Meng, Celso Grebogi, and Wei Lin"
-      ],
-      "date": "2026-09-01T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/35073Y6bS702530303b592f51d66e94f39ba3a0d8",
-      "doi": "10.1103/ccgv-hgjb",
-      "summary": "Data-driven machine learning has established a robust foundation for reconstructing nonlinear dynamical systems from observations, primarily for the purposes of forecasting and control. However, most existing efforts focus on recovering specific observed dynamics rather than the generative synthesis…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
       "title": "<span>Loop expansion in polymer field theory: Application to phase separation</span>",
       "authors": [
         "Kiyoharu Kawana and Kyosuke Adachi"
@@ -15654,6 +13650,22 @@
       "link": "https://journals.aps.org/prresearch/accepted/b8074JfbF5018d0192bf2039c237fd71ff91ebfe3",
       "doi": "10.1103/pz3r-hjkc",
       "summary": "Liquid-liquid phase separation underlies phenomena ranging from protein condensate formation to the phase coexistence of synthetic polymers. Although the random phase approximation (RPA) is widely used to predict such phase behavior, its quantitative accuracy for binodals of polymer solutions, parti…",
+      "citation": "Phys. Rev. Research",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRResearch",
+      "journal": "Phys. Rev. Research",
+      "journalShort": "PRResearch",
+      "type": "accepted",
+      "title": "<span>Dynamics creation through neural dynamical transfer learning</span>",
+      "authors": [
+        "He Ma, Qiyang Ge, Yu Meng, Celso Grebogi, and Wei Lin"
+      ],
+      "date": "2026-09-01T10:00:00+00:00",
+      "link": "https://journals.aps.org/prresearch/accepted/35073Y6bS702530303b592f51d66e94f39ba3a0d8",
+      "doi": "10.1103/ccgv-hgjb",
+      "summary": "Data-driven machine learning has established a robust foundation for reconstructing nonlinear dynamical systems from observations, primarily for the purposes of forecasting and control. However, most existing efforts focus on recovering specific observed dynamics rather than the generative synthesis…",
       "citation": "Phys. Rev. Research",
       "publisher": "American Physical Society"
     },
@@ -15678,22 +13690,6 @@
       "journal": "Phys. Rev. Research",
       "journalShort": "PRResearch",
       "type": "accepted",
-      "title": "<span>Spin qubit leapfrogging: Dynamics of shuttling electrons on top of another</span>",
-      "authors": [
-        "Nicklas Meineke and Guido Burkard"
-      ],
-      "date": "2026-09-01T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/e707fD5aE4218903c2f5088052c5bf50b448187fb",
-      "doi": "10.1103/l1vq-9zhr",
-      "summary": "Spin shuttling has crystalized as a powerful and promising tool for establishing intermediate-range connectivity in semiconductor spin-qubit devices. Although experimental demonstrations have performed exceptionally well on different materials platforms, the question of how to handle areas of low va…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
       "title": "<span>Inherent altermagnetism in minimal tight-binding models of regular hyperbolic lattices</span>",
       "authors": [
         "Eric Petermann, Kristian Mæland, Haye Hinrichsen, and Björn Trauzettel"
@@ -15702,6 +13698,22 @@
       "link": "https://journals.aps.org/prresearch/accepted/9a07dJabFcc1860c32983fe1beca4df08e8fcbd0c",
       "doi": "10.1103/h2ys-c3rz",
       "summary": "Altermagnets are a novel class of magnetic systems characterized by their momentum-dependent spin splitting without net magnetization. In this work, we extend established Euclidean tight-binding models of altermagnets to regular hyperbolic lattices in two spatial dimensions defined on a discretized …",
+      "citation": "Phys. Rev. Research",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRResearch",
+      "journal": "Phys. Rev. Research",
+      "journalShort": "PRResearch",
+      "type": "accepted",
+      "title": "<span>Spin qubit leapfrogging: Dynamics of shuttling electrons on top of another</span>",
+      "authors": [
+        "Nicklas Meineke and Guido Burkard"
+      ],
+      "date": "2026-09-01T10:00:00+00:00",
+      "link": "https://journals.aps.org/prresearch/accepted/e707fD5aE4218903c2f5088052c5bf50b448187fb",
+      "doi": "10.1103/l1vq-9zhr",
+      "summary": "Spin shuttling has crystalized as a powerful and promising tool for establishing intermediate-range connectivity in semiconductor spin-qubit devices. Although experimental demonstrations have performed exceptionally well on different materials platforms, the question of how to handle areas of low va…",
       "citation": "Phys. Rev. Research",
       "publisher": "American Physical Society"
     },
@@ -17115,22 +15127,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Lattice Boltzmann methods with anisotropic equilibrium distributions</span>",
-      "authors": [
-        "Benjamin Kellers, Julius Weinmiller, Arnulf Latz, and Timo Danner"
-      ],
-      "date": "2026-08-31T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/28070R60Fc01572357ed57580248b6ae097b8c292",
-      "doi": "10.1103/zc7w-jk88",
-      "summary": "Lattice Boltzmann methods are usually derived under the assumption of isotropy. In this work, we present a derivation of a Lattice Boltzmann method for anisotropic fluid flow. Starting from an anisotropic equilibrium distribution, we show a full derivation of the resulting lattice Boltzmann method. …",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Leveling of MHD turbulence imbalance in shear flows</span>",
       "authors": [
         "Mariami Kavtaradze, George Mamatsashvili, George Chagelishvili, and Elene Uchava"
@@ -17139,6 +15135,22 @@
       "link": "https://journals.aps.org/pre/accepted/8207bY24Cd01509fc02e2ce66729e9d0035ceb937",
       "doi": "10.1103/q54v-ld7z",
       "summary": "We investigate magnetohydrodynamic (MHD) turbulence in plane shear flows with a streamwise background magnetic field in the super-Alfv'enic regime, i.e., when the flow velocity is larger than the local Alfv'en speed. In this regime, turbulence is energetically supplied by large-scale shear of the fl…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Lattice Boltzmann methods with anisotropic equilibrium distributions</span>",
+      "authors": [
+        "Benjamin Kellers, Julius Weinmiller, Arnulf Latz, and Timo Danner"
+      ],
+      "date": "2026-08-31T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/28070R60Fc01572357ed57580248b6ae097b8c292",
+      "doi": "10.1103/zc7w-jk88",
+      "summary": "Lattice Boltzmann methods are usually derived under the assumption of isotropy. In this work, we present a derivation of a Lattice Boltzmann method for anisotropic fluid flow. Starting from an anisotropic equilibrium distribution, we show a full derivation of the resulting lattice Boltzmann method. …",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -18318,6 +16330,22 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
+      "title": "<span>Stochastic thermodynamics of quantum-induced stochastic dynamics</span>",
+      "authors": [
+        "Pedro Ventura Paraguassú"
+      ],
+      "date": "2026-08-28T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/0407dR8cC821c22883cc6d7884e313ddd860465a7",
+      "doi": "10.1103/tgsz-1mm9",
+      "summary": "Quantum-Induced Stochastic Dynamics arises when a quantum system, strongly decohered by its coupling to a quantum environment, evolves as a genuine classical stochastic process. Depending on the environment’s quantum state, the environment can act as a dynamic bath, capable of simultaneously exchang…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
       "title": "<span>Evidence of the de Almeida–Thouless transition in three-dimensional spin glasses</span>",
       "authors": [
         "L. H. Miranda-Filho and Yuliang Jin"
@@ -18350,22 +16378,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Stochastic thermodynamics of quantum-induced stochastic dynamics</span>",
-      "authors": [
-        "Pedro Ventura Paraguassú"
-      ],
-      "date": "2026-08-28T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/0407dR8cC821c22883cc6d7884e313ddd860465a7",
-      "doi": "10.1103/tgsz-1mm9",
-      "summary": "Quantum-Induced Stochastic Dynamics arises when a quantum system, strongly decohered by its coupling to a quantum environment, evolves as a genuine classical stochastic process. Depending on the environment’s quantum state, the environment can act as a dynamic bath, capable of simultaneously exchang…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Spectral form factor and power spectrum for trapped interacting rotating bosons: Crossover from integrability to quantum chaos</span>",
       "authors": [
         "Mohd Talib and M. A. H. Ahsan"
@@ -18382,22 +16394,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Role of asymmetric time delay and its structure in one-dimensional swarmalators</span>",
-      "authors": [
-        "Rommel Tchinda Djeudjo, Gourab Kumar Sar, and Timoteo Carletti"
-      ],
-      "date": "2026-08-28T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/a6077Rd0Fe31c423256b8f888306e1a1d961cf8e1",
-      "doi": "10.1103/nvd6-pj1f",
-      "summary": "Swarmalators are a class of coupled oscillators that simultaneously self-organize in both space and phase, providing a minimal model for systems ranging from biological microswimmers to robotic swarms. Time delay is ubiquitous in such systems, arising from finite signal propagation speeds and sensor…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Scaling laws for the spread of defection in evolutionary games on networks</span>",
       "authors": [
         "M. Giles and P. K. Newton"
@@ -18406,6 +16402,22 @@
       "link": "https://journals.aps.org/pre/accepted/f2072Re2A431f221e59631b8baaeb8d46c2be16eb",
       "doi": "10.1103/25qf-sfsw",
       "summary": "We study the spread of defection in evolutionary games on networks using deterministic replicator dynamics posed on graphs. Each node hosts a mixed population of cooperators and defectors interacting through a Prisoner’s Dilemma payoff matrix, with nearest-neighbor coupling determined by the network…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Role of asymmetric time delay and its structure in one-dimensional swarmalators</span>",
+      "authors": [
+        "Rommel Tchinda Djeudjo, Gourab Kumar Sar, and Timoteo Carletti"
+      ],
+      "date": "2026-08-28T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/a6077Rd0Fe31c423256b8f888306e1a1d961cf8e1",
+      "doi": "10.1103/nvd6-pj1f",
+      "summary": "Swarmalators are a class of coupled oscillators that simultaneously self-organize in both space and phase, providing a minimal model for systems ranging from biological microswimmers to robotic swarms. Time delay is ubiquitous in such systems, arising from finite signal propagation speeds and sensor…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -18640,22 +16652,6 @@
       "journal": "Phys. Rev. Research",
       "journalShort": "PRResearch",
       "type": "accepted",
-      "title": "<span>Erratum: Trapping potentials and quantum gates for microwave-dressed Rydberg atoms on an atom chip [Phys. Rev. Research <strong>8</strong>, 013088 (2026)]</span>",
-      "authors": [
-        "Iason Tsiamis, Georgios Doultsinos, Andreas F. Tzortzakakis, Manuel Kaiser, Dominik Jakab, Andreas Günther, József Fortágh, and David Petrosyan"
-      ],
-      "date": "2026-08-28T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/60078J05I9bR921a40d300f4c74d4544c6beaadce",
-      "doi": "10.1103/48w5-zfll",
-      "summary": "",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
       "title": "<span>Neural-network quantum states for solving few-body problems: Application to Efimov physics</span>",
       "authors": [
         "Sora Yokoi, Shimpei Endo, and Hiroki Saito"
@@ -18664,6 +16660,22 @@
       "link": "https://journals.aps.org/prresearch/accepted/29075U9bE701bc0490f602664cdb4a3df31bc8268",
       "doi": "10.1103/31mv-7tz7",
       "summary": "Neural-network quantum states have been developed as an efficient method for solving quantum many-body problems, not only in lattice systems but also in systems of particles in continuous space. Here, we apply this approach to strongly interacting few-body problems in continuous space at unitarity: …",
+      "citation": "Phys. Rev. Research",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRResearch",
+      "journal": "Phys. Rev. Research",
+      "journalShort": "PRResearch",
+      "type": "accepted",
+      "title": "<span>Erratum: Trapping potentials and quantum gates for microwave-dressed Rydberg atoms on an atom chip [Phys. Rev. Research <strong>8</strong>, 013088 (2026)]</span>",
+      "authors": [
+        "Iason Tsiamis, Georgios Doultsinos, Andreas F. Tzortzakakis, Manuel Kaiser, Dominik Jakab, Andreas Günther, József Fortágh, and David Petrosyan"
+      ],
+      "date": "2026-08-28T10:00:00+00:00",
+      "link": "https://journals.aps.org/prresearch/accepted/60078J05I9bR921a40d300f4c74d4544c6beaadce",
+      "doi": "10.1103/48w5-zfll",
+      "summary": "",
       "citation": "Phys. Rev. Research",
       "publisher": "American Physical Society"
     },
@@ -19618,22 +17630,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Beyond gradient descent: Adam for analog Ising machines</span>",
-      "authors": [
-        "Stijn Van Vooren, Guy Van der Sande, and Guy Verschaffelt"
-      ],
-      "date": "2026-08-27T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/d807cR87Fd713024f8a80369daea5e843ec9c2cd2",
-      "doi": "10.1103/qg6g-nkf3",
-      "summary": "As Moore’s law reaches its limits, Ising machines offer a promising alternative computing approach for difficult optimization problems. However, many analog, time-continuous Ising machines rely on gradient-descent-like dynamics to find solutions, which can limit speed and robustness. We investigate …",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>It takes two to tribo: Stochastic charge evolution in repeated binary collisions of acoustically levitated particles</span>",
       "authors": [
         "Tom F. O’Hara, Adrian C. Barnes, James W. E. Drewitt, Nathan Croll Dawes, and Karen L. Aplin"
@@ -19642,6 +17638,22 @@
       "link": "https://journals.aps.org/pre/accepted/3907bRddId51a62c54d8894843d4a902100524f3a",
       "doi": "10.1103/p9zp-hf26",
       "summary": "The mechanisms governing triboelectric charging between insulating particles of the same material remain an open question in nonequilibrium physics, with several competing models proposed to explain observed charging behaviour. Here, we investigate charge evolution in a minimal system consisting of …",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Beyond gradient descent: Adam for analog Ising machines</span>",
+      "authors": [
+        "Stijn Van Vooren, Guy Van der Sande, and Guy Verschaffelt"
+      ],
+      "date": "2026-08-27T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/d807cR87Fd713024f8a80369daea5e843ec9c2cd2",
+      "doi": "10.1103/qg6g-nkf3",
+      "summary": "As Moore’s law reaches its limits, Ising machines offer a promising alternative computing approach for difficult optimization problems. However, many analog, time-continuous Ising machines rely on gradient-descent-like dynamics to find solutions, which can limit speed and robustness. We investigate …",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -19976,22 +17988,6 @@
       "journal": "Phys. Rev. Research",
       "journalShort": "PRResearch",
       "type": "accepted",
-      "title": "<span>Irreversible behavior and neural activity in the hippocampus</span>",
-      "authors": [
-        "Kaiyue Shi and Christopher W. Lynn"
-      ],
-      "date": "2026-08-27T10:00:00+00:00",
-      "link": "https://journals.aps.org/prresearch/accepted/af072K14A221de1510ea675392e580cbbea6f47de",
-      "doi": "10.1103/s4dl-xg31",
-      "summary": "In the brain, neural activity undergoes directed flows between states, thus breaking time-reversal symmetry. At the same time, animals also exhibit irreversible flows between behavioral states. Yet it remains unclear whether—and how—irreversibility in the brain relates to irreversibility in behavior…",
-      "citation": "Phys. Rev. Research",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRResearch",
-      "journal": "Phys. Rev. Research",
-      "journalShort": "PRResearch",
-      "type": "accepted",
       "title": "<span>First-principles-based description of VO${}_{2}$<br /> using DFT+DMFT with bond-centered orbitals</span>",
       "authors": [
         "Peter Mlkvik, Nicola A. Spaldin, and Claude Ederer"
@@ -20000,6 +17996,22 @@
       "link": "https://journals.aps.org/prresearch/accepted/c007eJ64Eae11f09623c71870b5d7a6931e134bb3",
       "doi": "10.1103/m911-zsvh",
       "summary": "We present a combined density-functional theory and dynamical mean-field theory (DFT+DMFT) study of the full structural phase space of rutile-based vanadium dioxide (VO${}_{2}$), including also the less studied M2 and T phases, using an unconventional bond-centered orbital basis. The use of bond-cen…",
+      "citation": "Phys. Rev. Research",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRResearch",
+      "journal": "Phys. Rev. Research",
+      "journalShort": "PRResearch",
+      "type": "accepted",
+      "title": "<span>Irreversible behavior and neural activity in the hippocampus</span>",
+      "authors": [
+        "Kaiyue Shi and Christopher W. Lynn"
+      ],
+      "date": "2026-08-27T10:00:00+00:00",
+      "link": "https://journals.aps.org/prresearch/accepted/af072K14A221de1510ea675392e580cbbea6f47de",
+      "doi": "10.1103/s4dl-xg31",
+      "summary": "In the brain, neural activity undergoes directed flows between states, thus breaking time-reversal symmetry. At the same time, animals also exhibit irreversible flows between behavioral states. Yet it remains unclear whether—and how—irreversibility in the brain relates to irreversibility in behavior…",
       "citation": "Phys. Rev. Research",
       "publisher": "American Physical Society"
     },
@@ -20444,22 +18456,6 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Evidence for parton energy loss in oxygen-oxygen collisions at <span class=\"math inline\">$\\sqrt{s}_{\\rm NN} = 5.36$</span> TeV</span>",
-      "authors": [
-        "D. A. H. Abdallah et al."
-      ],
-      "date": "2026-08-26T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/ec07cYd6G932030797d48c22e9d18690c0019bc7f",
-      "doi": "10.1103/d4vl-88fl",
-      "summary": "Ultra-relativistic heavy-ion collisions create a hot and dense medium of deconfined quarks and gluons, the quark–gluon plasma (QGP), in which parton energy loss (“jet quenching”) is a key probe of hot medium properties. While parton energy loss has been firmly established in large systems such as Pb…",
-      "citation": "Phys. Rev. Lett.",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRL",
-      "journal": "Phys. Rev. Lett.",
-      "journalShort": "PRL",
-      "type": "accepted",
       "title": "<span>Symmetric mass generation as a multicritical point with enhanced symmetry</span>",
       "authors": [
         "Sandip Maiti, Debasish Banerjee, Shailesh Chandrasekharan, and Marina K. Marinkovic"
@@ -20468,6 +18464,22 @@
       "link": "https://journals.aps.org/prl/accepted/6c073Yc2Ebb1d096d5e056a65f14d273cd9238361",
       "doi": "10.1103/m3pf-j37b",
       "summary": "We explore the phase diagram of a lattice fermion model that exhibits three distinct phases: a massless fermion (MF) phase; a massive fermion phase with spontaneous symmetry breaking (SSB) induced by a fermion bilinear condensate; and a massive fermion phase with symmetric mass generation (SMG). Usi…",
+      "citation": "Phys. Rev. Lett.",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRL",
+      "journal": "Phys. Rev. Lett.",
+      "journalShort": "PRL",
+      "type": "accepted",
+      "title": "<span>Evidence for parton energy loss in oxygen-oxygen collisions at <span class=\"math inline\">$\\sqrt{s}_{\\rm NN} = 5.36$</span> TeV</span>",
+      "authors": [
+        "D. A. H. Abdallah et al."
+      ],
+      "date": "2026-08-26T10:00:00+00:00",
+      "link": "https://journals.aps.org/prl/accepted/ec07cYd6G932030797d48c22e9d18690c0019bc7f",
+      "doi": "10.1103/d4vl-88fl",
+      "summary": "Ultra-relativistic heavy-ion collisions create a hot and dense medium of deconfined quarks and gluons, the quark–gluon plasma (QGP), in which parton energy loss (“jet quenching”) is a key probe of hot medium properties. While parton energy loss has been firmly established in large systems such as Pb…",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -20694,38 +18706,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Phase correlations of a strongly scintillating light wave propagating through a turbulent medium</span>",
-      "authors": [
-        "V. A. Bogachev, I. V. Kolokolov, V. V. Lebedev, A. V. Nemtseva, and F. A. Starikov"
-      ],
-      "date": "2026-08-26T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/f8070R46D341d72ef86b94514d65799aa99485b8a",
-      "doi": "10.1103/c3q7-t5tm",
-      "summary": "We investigate analytically and numerically correlation functions of the phase of light waves that propagate through turbulent media. We examine the case of strong scintillations that occur at large values of the Rytov dispersion, σR[2]. Then, it is possible to relate the pair correlation function o…",
-      "citation": "2",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>Slow mixing and emergent one-form symmetries in three-dimensional ${ℤ}_{2}$ gauge theory</span>",
-      "authors": [
-        "Charles Stahl, Benedikt Placke, Vedika Khemani, and Yaodong Li"
-      ],
-      "date": "2026-08-26T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/b0077Kb9A6b1371630011eb61db39efef95ef2ab7",
-      "doi": "10.1103/5ypm-x96s",
-      "summary": "Symmetry-breaking order at low temperatures is often accompanied by slow relaxation dynamics, due to diverging free-energy barriers arising from interfaces between different ordered states. Here, we extend this correspondence to classical topological order, where the ordered states are locally indis…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>From clustering to global synchrony: Higher-order interactions reshape ecological network dynamics</span>",
       "authors": [
         "Arzoo Narang and Partha Sharathi Dutta"
@@ -20750,6 +18730,38 @@
       "link": "https://journals.aps.org/pre/accepted/a507aR79Ye31502f25ec0cf89c80b66a0641d73d3",
       "doi": "10.1103/vfbm-w4dp",
       "summary": "We investigate the reconnection process involving a quantum vortex ring colliding at different angles with a quantum straight vortex line. The dynamics of this phenomenon is well described by the Gross-Pitaevskii equation. Two families of initial configurations are explored, one by varying the angle…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Phase correlations of a strongly scintillating light wave propagating through a turbulent medium</span>",
+      "authors": [
+        "V. A. Bogachev, I. V. Kolokolov, V. V. Lebedev, A. V. Nemtseva, and F. A. Starikov"
+      ],
+      "date": "2026-08-26T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/f8070R46D341d72ef86b94514d65799aa99485b8a",
+      "doi": "10.1103/c3q7-t5tm",
+      "summary": "We investigate analytically and numerically correlation functions of the phase of light waves that propagate through turbulent media. We examine the case of strong scintillations that occur at large values of the Rytov dispersion, σR[2]. Then, it is possible to relate the pair correlation function o…",
+      "citation": "2",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Slow mixing and emergent one-form symmetries in three-dimensional ${ℤ}_{2}$ gauge theory</span>",
+      "authors": [
+        "Charles Stahl, Benedikt Placke, Vedika Khemani, and Yaodong Li"
+      ],
+      "date": "2026-08-26T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/b0077Kb9A6b1371630011eb61db39efef95ef2ab7",
+      "doi": "10.1103/5ypm-x96s",
+      "summary": "Symmetry-breaking order at low temperatures is often accompanied by slow relaxation dynamics, due to diverging free-energy barriers arising from interfaces between different ordered states. Here, we extend this correspondence to classical topological order, where the ordered states are locally indis…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -21128,22 +19140,6 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Post-selected criticality in measurement-induced phase transitions</span>",
-      "authors": [
-        "Dolly Nambi, Kabir Khanna, Andrew Allocca, Thomas Iadecola, Ciarán Hickey, Romain Vasseur, and Justin H. Wilson"
-      ],
-      "date": "2026-08-25T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/9d072Y66Eed2970a72e271b5845f59d1618cfd275",
-      "doi": "10.1103/gx2q-9xz1",
-      "summary": "Information-theoretic phase transitions, such as the measurement-induced phase transition (MIPT), characterize the robustness of quantum dynamics to local monitoring and are naturally formulated in terms of trajectories conditioned on typical measurement outcomes, which are naively accessible only t…",
-      "citation": "Phys. Rev. Lett.",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRL",
-      "journal": "Phys. Rev. Lett.",
-      "journalShort": "PRL",
-      "type": "accepted",
       "title": "<span>Observation of vectorial phase singularities at zero-eigenvalue exceptional points</span>",
       "authors": [
         "Zijin Yang, Haoye Qin, Xinyue Gao, Heng Wei, Fulong Shi, Xinyang Mu, Jiaxin Chen, Chengzhi Zhang, Huibin Yang, Yuzhi Shi, Bo Li, Cheng-Wei Qiu, and Qinghua Song"
@@ -21152,6 +19148,22 @@
       "link": "https://journals.aps.org/prl/accepted/cd076Yc5Z1d28f09e1710ca1fcb0d6f61c058b5ae",
       "doi": "10.1103/djw2-myk2",
       "summary": "Exceptional points (EPs) in non-Hermitian photonics provide singular responses for topological light-field control. Yet, converting such singular responses into coupled control over multiple optical degrees of freedom remains a central challenge. Here, based on a plasmonic non-Hermitian metasurface …",
+      "citation": "Phys. Rev. Lett.",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRL",
+      "journal": "Phys. Rev. Lett.",
+      "journalShort": "PRL",
+      "type": "accepted",
+      "title": "<span>Post-selected criticality in measurement-induced phase transitions</span>",
+      "authors": [
+        "Dolly Nambi, Kabir Khanna, Andrew Allocca, Thomas Iadecola, Ciarán Hickey, Romain Vasseur, and Justin H. Wilson"
+      ],
+      "date": "2026-08-25T10:00:00+00:00",
+      "link": "https://journals.aps.org/prl/accepted/9d072Y66Eed2970a72e271b5845f59d1618cfd275",
+      "doi": "10.1103/gx2q-9xz1",
+      "summary": "Information-theoretic phase transitions, such as the measurement-induced phase transition (MIPT), characterize the robustness of quantum dynamics to local monitoring and are naturally formulated in terms of trajectories conditioned on typical measurement outcomes, which are naively accessible only t…",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -21796,22 +19808,6 @@
       "journal": "Phys. Rev. X",
       "journalShort": "PRX",
       "type": "accepted",
-      "title": "<span>Tomographic electron flow in confined geometries: Beyond the dual-relaxation-time approximation</span>",
-      "authors": [
-        "Nitay Ben-Shachar and Johannes Hofmann"
-      ],
-      "date": "2026-08-25T10:00:00+00:00",
-      "link": "https://journals.aps.org/prx/accepted/8c079KdfQ0c1210e07ba9de55b5550956b5dba750",
-      "doi": "10.1103/m7cy-fxy9",
-      "summary": "Hydrodynamic-like electron flows are typically modeled using the Stokes-Ohm equation or a kinetic description that is based on a dual-relaxation-time approximation. Such models assume a short intrinsic mean free path ${ℓ}_{e}$ due to momentum-conserving electronic scattering and a large extrinsic me…",
-      "citation": "Phys. Rev. X",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRX",
-      "journal": "Phys. Rev. X",
-      "journalShort": "PRX",
-      "type": "accepted",
       "title": "<span>Chaotic many-body quantum dynamics, spectral correlations, and energy diffusion</span>",
       "authors": [
         "J. T. Chalker and Dominik Hahn"
@@ -21820,6 +19816,22 @@
       "link": "https://journals.aps.org/prx/accepted/d7070K74Zf91b90839fa6d56b682bb9ed36ffd82c",
       "doi": "10.1103/bjj5-49pg",
       "summary": "We study chaotic many-body quantum dynamics in a minimal model with spatial structure and local interactions. It has a time-independent Hamiltonian, in contrast to quantum circuits and Brownian models, and is simple at the single-site level, in contrast to Sachdev-Ye-Kitaev chains. It is analyticall…",
+      "citation": "Phys. Rev. X",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRX",
+      "journal": "Phys. Rev. X",
+      "journalShort": "PRX",
+      "type": "accepted",
+      "title": "<span>Tomographic electron flow in confined geometries: Beyond the dual-relaxation-time approximation</span>",
+      "authors": [
+        "Nitay Ben-Shachar and Johannes Hofmann"
+      ],
+      "date": "2026-08-25T10:00:00+00:00",
+      "link": "https://journals.aps.org/prx/accepted/8c079KdfQ0c1210e07ba9de55b5550956b5dba750",
+      "doi": "10.1103/m7cy-fxy9",
+      "summary": "Hydrodynamic-like electron flows are typically modeled using the Stokes-Ohm equation or a kinetic description that is based on a dual-relaxation-time approximation. Such models assume a short intrinsic mean free path ${ℓ}_{e}$ due to momentum-conserving electronic scattering and a large extrinsic me…",
       "citation": "Phys. Rev. X",
       "publisher": "American Physical Society"
     },
@@ -21958,22 +19970,6 @@
       "journal": "Phys. Rev. Lett.",
       "journalShort": "PRL",
       "type": "accepted",
-      "title": "<span>Thermodynamic evidence of tetracritical topology in the $H$-$T$ phase diagram of UTe${}_{2}$ for $H$ || $b$</span>",
-      "authors": [
-        "Michal Vališka, Tetiana Haidamak, Andrej Cabala, Petr Proschek, Vladimír Sechovský, Andreas Hausprug, and Sergei Zherlitsyn"
-      ],
-      "date": "2026-08-24T10:00:00+00:00",
-      "link": "https://journals.aps.org/prl/accepted/6207aYfdF2b21002c2680771709d9051489a59d0f",
-      "doi": "10.1103/1l46-jbm6",
-      "summary": "We report ultrasound velocity measurements on an ultraclean UTe${}_{2}$ single crystal with ${T}_{c}&gt;2$~K for $H∥b$, performed up to 18~T and down to 0.33~K. The measurements provide the missing bulk thermodynamic evidence for an additional high-field phase boundary near ${μ}_{0}H∼14$–15~T. A dis…",
-      "citation": "Phys. Rev. Lett.",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRL",
-      "journal": "Phys. Rev. Lett.",
-      "journalShort": "PRL",
-      "type": "accepted",
       "title": "<span>Erratum: Temperature dependence of $ρ$- and a${}_{1}$-meson masses and mixing of vector and axial-vector correlators [Phys. Rev. Lett. <strong>88</strong>, 042002 (2002)]</span>",
       "authors": [
         "Michael Urban, Michael Buballa, and Jochen Wambach"
@@ -21982,6 +19978,22 @@
       "link": "https://journals.aps.org/prl/accepted/3d07cY6dIe4R6111d01d707659564ffdf80ae1733",
       "doi": "10.1103/6rnw-w6t1",
       "summary": "",
+      "citation": "Phys. Rev. Lett.",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRL",
+      "journal": "Phys. Rev. Lett.",
+      "journalShort": "PRL",
+      "type": "accepted",
+      "title": "<span>Thermodynamic evidence of tetracritical topology in the $H$-$T$ phase diagram of UTe${}_{2}$ for $H$ || $b$</span>",
+      "authors": [
+        "Michal Vališka, Tetiana Haidamak, Andrej Cabala, Petr Proschek, Vladimír Sechovský, Andreas Hausprug, and Sergei Zherlitsyn"
+      ],
+      "date": "2026-08-24T10:00:00+00:00",
+      "link": "https://journals.aps.org/prl/accepted/6207aYfdF2b21002c2680771709d9051489a59d0f",
+      "doi": "10.1103/1l46-jbm6",
+      "summary": "We report ultrasound velocity measurements on an ultraclean UTe${}_{2}$ single crystal with ${T}_{c}&gt;2$~K for $H∥b$, performed up to 18~T and down to 0.33~K. The measurements provide the missing bulk thermodynamic evidence for an additional high-field phase boundary near ${μ}_{0}H∼14$–15~T. A dis…",
       "citation": "Phys. Rev. Lett.",
       "publisher": "American Physical Society"
     },
@@ -22376,22 +20388,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Finite-size effects in nonlinear mean-field coupled Kuramoto oscillators</span>",
-      "authors": [
-        "Aman Mishra, V. K. Chandrasekar, and D. V. Senthilkumar"
-      ],
-      "date": "2026-08-24T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/f407fR25D501bf2b65a55803b17c890c5995f3afc",
-      "doi": "10.1103/v94v-3p18",
-      "summary": "We investigate a variant of coupled Kuramoto oscillators in which the effective coupling is modulated by the global coherence in a nonlinear fashion. In the thermodynamic limit, a self-consistency analysis reveals the manifestation of coexisting incoherent and coherent states in a finite range of th…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Noise-induced bistability of information-driven active agents in turbulence</span>",
       "authors": [
         "Chenfeng Ma and Yan Cui"
@@ -22400,6 +20396,22 @@
       "link": "https://journals.aps.org/pre/accepted/f5078Y1cD2829c00690910b293d7dc37394ca1028",
       "doi": "10.1103/kxdj-mlr5",
       "summary": "Information-driven active matter relies on continuous feedback loops subject to intrinsic processing latency. We investigate how this temporal non-locality interacts with the spatial fluctuations of homogeneous isotropic turbulence for agents operating in the dilute, non-communicating limit. This in…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Finite-size effects in nonlinear mean-field coupled Kuramoto oscillators</span>",
+      "authors": [
+        "Aman Mishra, V. K. Chandrasekar, and D. V. Senthilkumar"
+      ],
+      "date": "2026-08-24T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/f407fR25D501bf2b65a55803b17c890c5995f3afc",
+      "doi": "10.1103/v94v-3p18",
+      "summary": "We investigate a variant of coupled Kuramoto oscillators in which the effective coupling is modulated by the global coherence in a nonlinear fashion. In the thermodynamic limit, a self-consistency analysis reveals the manifestation of coexisting incoherent and coherent states in a finite range of th…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
