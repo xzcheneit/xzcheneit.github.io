@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-13T01:45:27.236642+00:00",
+  "generatedAt": "2026-10-13T06:14:56.835111+00:00",
   "windowDays": 14,
   "coverage": {
-    "latest": "2026-10-12T04:00:00+00:00",
+    "latest": "2026-10-13T00:00:00+00:00",
     "earliest": "2026-09-29T10:00:00+00:00",
-    "count": 1189
+    "count": 1185
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-10-13T01:45:27.236642+00:00",
+    "generatedAt": "2026-10-13T06:14:56.835111+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -545,10 +545,10 @@
       },
       {
         "url": "https://rss.arxiv.org/rss/cond-mat",
-        "ok": true,
+        "ok": false,
         "status": 200,
         "contentType": "application/rss+xml",
-        "entries": 157,
+        "entries": 0,
         "bozo": false,
         "error": "",
         "key": "arXivCM",
@@ -560,64 +560,23 @@
   },
   "items": [
     {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Spinodal-controlled freeze-out and nucleation at the first-order superfluid-supersolid transition of a dipolar gas",
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Scellmate enables contamination aware curation and host mobilome linkage analysis of large SAG datasets",
       "authors": [
-        "Wai Kui Wong"
+        "Yanren Wang",
+        "Xiaoqing Xu",
+        "Xi Chen",
+        "Yulin Zhang",
+        "Wenshan Zheng",
+        "Tong Zhang"
       ],
-      "date": "2026-10-12T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2610.12511",
-      "arxiv": "https://arxiv.org/abs/2610.12511",
-      "doi": null,
-      "summary": "Dipolar quantum gases in elongated traps become supersolid through a transition that is continuous at intermediate density but first order at low and high density; at the continuous point, ramps of the scattering length follow Kibble--Zurek scaling. We study ramps across the first-order superfluid--supersolid transition of $^{164}$Dy in an infinite tube using the three-dimensional extended Gross--Pitaevskii equation with truncated-Wigner noise. With quantum noise only, the uniform superfluid survives the metastable window and transforms after its spinodal, where the roton softens. For onsets occurring during the linear ramp, the delay measured from this spinodal has a fitted exponent $\\zeta = 0.36 \\pm 0.02$, close to the continuous-transition result and the mean-field value $1/3$. The quoted uncertainty combines statistical and systematic sensitivities. Reverse ramps show a comparable delay beyond the fold of the crystal branch, producing dynamical hysteresis. Initial thermal noise with nominal temperatures of 2.5--10 nK produces crystalline regions inside the metastable window during holds, with faster nucleation closer to the spinodal and at higher initial temperature. Without a heat bath these effective rates depend on preparation: ramps crossing the window at the same rate nucleate early in 2 of 32 or 11 of 16 realizations depending on their starting point. A crossover time inferred from hold rates is therefore an estimate, not a measured boundary for the ramp protocol. At low density, slower ramps select larger spacings in a crystal of separated droplets, and droplets survive far above the transition on reverse ramps."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Surface scalar plasmons on curved interfaces: a venue for analogue gravity",
-      "authors": [
-        "Matheus E. Pereira"
-      ],
-      "date": "2026-10-12T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2610.03813",
-      "arxiv": "https://arxiv.org/abs/2610.03813",
-      "doi": null,
-      "summary": "We investigate whether the geometry of a curved conductor--dielectric interface can modify the effective mass and propagation of scalar surface plasmons (SSPs). In the hydrodynamic limit, we describe SSPs as density perturbations in a semiclassical jellium electron gas. Using a thin--layer dimensional reduction procedure, we derive a massive Klein--Gordon equation for SSPs on the curved interface with a geometric potential. We find that under specific conditions, the geometric potential allows SSP propagation with a vanishing effective mass. We then apply the formalism to a well known analogue black hole configuration, determining the corresponding quasinormal mode frequencies. Our results show that interface curvature provides a geometric handle on plasmon propagation and localization, suggesting new possibilities for plasmon transport and analogue gravity experiments with surface plasmons."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Cooper Instability of a Magnetic Wigner Crystal",
-      "authors": [
-        "Wangqian Miao, Chunli Huang"
-      ],
-      "date": "2026-10-12T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2610.10710",
-      "arxiv": "https://arxiv.org/abs/2610.10710",
-      "doi": null,
-      "summary": "Recent scanning tunneling microscopy has directly imaged electronic crystals in rhombohedral hexalayer graphene, and magnetotransport measurements suggest that superconductivity and charge-density-wave order emerge from a common spin-valley-polarized ferromagnetic metal at nearby carrier densities. Motivated by these observations, we ask whether collective modes in a magnetic Wigner crystal can mediate pairing in this setting. We address this question by studying the Cooper problem for two electrons in the first conduction band of the Wigner crystal. Unlike conventional phonon-mediated pairing, the collective mode (boson) energies and single-particle (fermion) dispersion are comparable scales controlled by the electron density, leaving no small parameter for an adiabatic expansion. Moreover, because the magnetic Wigner crystal is not time-reversal invariant, the usual Cooper logarithmic divergence in the pairing susceptibility is absent, so the attraction must exceed a finite threshold for pairing to occur. These unusual features motivate a numerical experiment to see whether the crystal's own vibrations can bind electrons. We obtain the crystalline ground state and its collective mode spectrum within Hartree--Fock and time-dependent Hartree--Fock approximation, and derive the electron--phonon Hamiltonian using the quasiboson approximation. Solving the resulting two-electron problem, we find that phonon-mediated attraction exceeds the pairing threshold, with chiral $p$-wave pairing as the leading instability. Within these approximations, we show that collective modes of a Wigner crystal can indeed favor chiral pairing despite broken time-reversal symmetry. Our results provide an encouraging starting point for developing a full many-body theory to study electronic crystallization and superconductivity."
-    },
-    {
-      "journalKey": "arXivCM",
-      "journal": "arXiv: cond-mat",
-      "journalShort": "arXiv cond-mat",
-      "type": "preprint",
-      "title": "Why has PET glycolysis remained difficult to industrialize despite decades of optimization?",
-      "authors": [
-        "Xiaohui Liu"
-      ],
-      "date": "2026-10-12T04:00:00+00:00",
-      "link": "https://arxiv.org/abs/2610.12475",
-      "arxiv": "https://arxiv.org/abs/2610.12475",
-      "doi": null,
-      "summary": "Classical PET glycolysis struggles with industrial scale-up due to a research paradigm defect: uncoupled reaction optimization that ignores system-level engineering entropy. By establishing a governing reference frame, Scientific Reasoning Units (SRUs) and human-AI collaborative discovery in this article, we present a Three-Step Synergistic Reinforcement Paradigm addressing the triple failure modes of traditional systems-mass-transfer collapse, viscosity deadlock, and side-reaction accumulation. By integrating twin-screw controlled shearing, solid-state micro-homogenization, and deep depolymerization (2:1 EG/Oligomer ratio), we achieve an ultrafast kinetic regime. BHET yields surge to 80% to 95% within 10 minutes, eliminating multi-hour thermal bottlenecks and delivering an economically viable framework for closed-loop polyester recycling."
+      "date": "2026-10-13T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-78527-4",
+      "doi": "10.1038/s41467-026-78527-4",
+      "summary": "Nature Communications, Published online: 13 October 2026; doi:10.1038/s41467-026-78527-4 In this study, the authors develop a computational framework, Scellmate, that curates and analyzes large-scale microbial single-cell datasets from complex environments, and show that this helps to reveal microbial diversity and infer microbe–plasmid and microbe–phage associations in sewage."
     },
     {
       "journalKey": "Nature",
@@ -1012,27 +971,6 @@
       "link": "https://www.nature.com/articles/s41467-026-78635-1",
       "doi": "10.1038/s41467-026-78635-1",
       "summary": "Nature Communications, Published online: 12 October 2026; doi:10.1038/s41467-026-78635-1 Ionizable-lipid discovery remains largely empirical. Here, the authors integrate interpretable machine learning with modular degradable lipid chemistry to prioritize candidates for experimental testing and identify a lead lipid for hepatic mRNA delivery."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "The central coupler of ClpXP controls intersubunit communication and couples intrasubunit chemical energy with force generation",
-      "authors": [
-        "Robert P. Sosa",
-        "Alfredo Jose Florez Ariza",
-        "Jeonghoon Kim",
-        "Alexander B. Tong",
-        "Zhen-Hui Kang",
-        "Alicia Li",
-        "John Kuriyan",
-        "Carlos Bustamante"
-      ],
-      "date": "2026-10-12T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-78225-1",
-      "doi": "10.1038/s41467-026-78225-1",
-      "summary": "Nature Communications, Published online: 12 October 2026; doi:10.1038/s41467-026-78225-1 What is the mechanism by which ClpXP utilizes ATP to unfold proteins? Using single-molecule, biochemical and structural methods, the authors find that the central coupler facilitates the conversion of chemical energy into a quick motion of substrate translocating loops to generate force."
     },
     {
       "journalKey": "NatMater",
@@ -3744,38 +3682,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Autotaxis of a run-and-tumble agent via reinforcement learning</span>",
-      "authors": [
-        "Ramesh Pramanik, Shradha Mishra, and Sakuntala Chatterjee"
-      ],
-      "date": "2026-10-09T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/db07cR52C451d021f46f8e508d93dcaac83e5dbdc",
-      "doi": "10.1103/4xnp-dsn4",
-      "summary": "We study the run-tumble motion of a single autochemotactic agent that secretes and senses chemical cues using a reinforcement learning (RL) framework. In a chemical environment that changes dynamically via secretion, diffusion, and degradation of attractant chemicals, we study the effectiveness of R…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>High resolution study of the two-dimensional axial next-nearest-neighbor Ising model using a two-replica cluster algorithm and population annealing</span>",
-      "authors": [
-        "Shane Keiser and Jonathan Machta"
-      ],
-      "date": "2026-10-09T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/ff071R01H141bc2a17aa9ab20be7d01a08c349a91",
-      "doi": "10.1103/pvpn-49mz",
-      "summary": "The axial next-nearest-neighbor Ising (ANNNI) model in two dimensions is studied using population annealing combined with a two-replica cluster algorithm. We are able to fully resolve the sequence of sharp specific heat peaks that characterize the finite-size incommensurate floating phase. We also s…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Twist-driven helical flattening in nematic elastomer cylinders</span>",
       "authors": [
         "Alexia Chatzitheodorou and Christian D. Santangelo"
@@ -3800,6 +3706,38 @@
       "link": "https://journals.aps.org/pre/accepted/5e077R8bEba10925e69a9564d39311cdecf0d59ed",
       "doi": "10.1103/tczz-49lg",
       "summary": "We propose a hybrid sampling method, tensor-network population annealing (TNPA), which combines tensor-network (TN) initialization with population annealing (PA). We apply this method to the two-dimensional ±J Edwards-Anderson Ising spin glass. The approach is motivated by the limitations of existin…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Autotaxis of a run-and-tumble agent via reinforcement learning</span>",
+      "authors": [
+        "Ramesh Pramanik, Shradha Mishra, and Sakuntala Chatterjee"
+      ],
+      "date": "2026-10-09T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/db07cR52C451d021f46f8e508d93dcaac83e5dbdc",
+      "doi": "10.1103/4xnp-dsn4",
+      "summary": "We study the run-tumble motion of a single autochemotactic agent that secretes and senses chemical cues using a reinforcement learning (RL) framework. In a chemical environment that changes dynamically via secretion, diffusion, and degradation of attractant chemicals, we study the effectiveness of R…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>High resolution study of the two-dimensional axial next-nearest-neighbor Ising model using a two-replica cluster algorithm and population annealing</span>",
+      "authors": [
+        "Shane Keiser and Jonathan Machta"
+      ],
+      "date": "2026-10-09T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/ff071R01H141bc2a17aa9ab20be7d01a08c349a91",
+      "doi": "10.1103/pvpn-49mz",
+      "summary": "The axial next-nearest-neighbor Ising (ANNNI) model in two dimensions is studied using population annealing combined with a two-replica cluster algorithm. We are able to fully resolve the sequence of sharp specific heat peaks that characterize the finite-size incommensurate floating phase. We also s…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -8970,38 +8908,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Rate-sensitive attenuation of elasticity in growth-conditioned biofilms</span>",
-      "authors": [
-        "L. Dinis, M. Calero, J. Martín-Roca, V. Bianco, A. K. Monnappa, I. López-Montero, B. Orgaz, C. Valeriani, and F. Monroy"
-      ],
-      "date": "2026-10-08T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/85074ReaF6c10e2bb55f004808668843d7ecde063",
-      "doi": "10.1103/y8kn-t97b",
-      "summary": "We show that growth conditions organize the mechanics of biofilms into two separable contributions: a structural elastic backbone and a . Biofilms grown under both static and shaken conditions display weakly dispersive viscoelasticity at low frequency, . At higher frequencies, mature biofilms grown …",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>Mass generation at a fixed point: A functional renormalization group study of the tricritical O($N$) model in $d=3$ and $N=∞$</span>",
-      "authors": [
-        "Shunsuke Yabunaka and Bertrand Delamotte"
-      ],
-      "date": "2026-10-08T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/6707fRd5G891082c674901b0cda77e94e053c5f65",
-      "doi": "10.1103/7qv4-2ljh",
-      "summary": "Renormalization group (RG) fixed points are commonly associated with scale invariance and a divergent correlation length. We show that this connection can fail in the tricritical $O(N)$ model in three dimensions in the limit $N→∞$. Revisiting the line of fixed points identified by Bardeen, Moshe, an…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Unambiguous characterization of in-plane dielectric response in nanoconfined liquids: Water as a case study</span>",
       "authors": [
         "Jon Zubeltzu"
@@ -9026,6 +8932,38 @@
       "link": "https://journals.aps.org/pre/accepted/8707bR6eIed1c324e69428a09d0e7c2dc58903f0b",
       "doi": "10.1103/hyp9-zngr",
       "summary": "Persistence probability in opinion dynamics models estimates the tendency of the agents not to change their initial opinion till the present time. Here we consider two nonlinear q-voter models with binary opinions, where the dynamics are governed by a biased choice when the q panel is not unanimous.…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Rate-sensitive attenuation of elasticity in growth-conditioned biofilms</span>",
+      "authors": [
+        "L. Dinis, M. Calero, J. Martín-Roca, V. Bianco, A. K. Monnappa, I. López-Montero, B. Orgaz, C. Valeriani, and F. Monroy"
+      ],
+      "date": "2026-10-08T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/85074ReaF6c10e2bb55f004808668843d7ecde063",
+      "doi": "10.1103/y8kn-t97b",
+      "summary": "We show that growth conditions organize the mechanics of biofilms into two separable contributions: a structural elastic backbone and a . Biofilms grown under both static and shaken conditions display weakly dispersive viscoelasticity at low frequency, . At higher frequencies, mature biofilms grown …",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Mass generation at a fixed point: A functional renormalization group study of the tricritical O($N$) model in $d=3$ and $N=∞$</span>",
+      "authors": [
+        "Shunsuke Yabunaka and Bertrand Delamotte"
+      ],
+      "date": "2026-10-08T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/6707fRd5G891082c674901b0cda77e94e053c5f65",
+      "doi": "10.1103/7qv4-2ljh",
+      "summary": "Renormalization group (RG) fixed points are commonly associated with scale invariance and a divergent correlation length. We show that this connection can fail in the tricritical $O(N)$ model in three dimensions in the limit $N→∞$. Revisiting the line of fixed points identified by Bardeen, Moshe, an…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -11239,6 +11177,38 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
+      "title": "<span>Ionization-induced chirping and compression of a high-power microwave pulse. II. Theoretical analysis and numerical simulations</span>",
+      "authors": [
+        "Adi Haim, Vlad Maksimov, John G. Leopold, Yuriy P. Bliokh, and Yakov E. Krasik"
+      ],
+      "date": "2026-10-07T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/60075RaeE3519c2546ff13f5b2c574896aeeb5351",
+      "doi": "10.1103/d9gd-1jd6",
+      "summary": "This article complements a recent experimental study [Haim et al., submitted to PRE 2026] in which high-power microwave sub-ns pulses traverse a gas-filled circular waveguide and exit it as a chirped pulse. The reason for this phenomenon is that the ionization of the neutral gas propagates together …",
+      "citation": "Haim et al., submitted to PRE 2026",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Local noise shielding guides the separation of binary chiral mixtures</span>",
+      "authors": [
+        "Qi Zhou, Yuan-Rui Wang, Peng Wang, Jie Huo, and Xu-Ming Wang"
+      ],
+      "date": "2026-10-07T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/c307aRd8Z341162db4254ce77784f470cdf0c811c",
+      "doi": "10.1103/4c17-6tjh",
+      "summary": "The efficient separation of chiral particles is a crucial topic in active matter, where intrinsic rotational motion can generate rich nonequilibrium collective behaviors. So far, few investigations have explored the separation of binary chiral mixtures by guiding particle motion through local noise …",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
       "title": "<span>Experimental observation of drift acoustic cnoidal waves in a magnetized plasma</span>",
       "authors": [
         "Tanmay Karmakar, Rosh Roy, Lavkesh Lachhvani, Raju Daniel, Bhoomi Khodiyar, Prabal K. Chattopadhyay, Abhijit Sen, and Sayak Bose"
@@ -11327,38 +11297,6 @@
       "link": "https://journals.aps.org/pre/accepted/9c07cR25G6f1422298cb5591a7961fc0e6ae4f22c",
       "doi": "10.1103/9x1y-tnll",
       "summary": "We investigate the amplitude modulation of ion-acoustic wave packets in an unmagnetized electronegative plasma composed of cold positive ions, Boltzmann electrons, and negative ions following a Schamel trapped-particle distribution. The trapped-particle description is relevant to weakly collisional …",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>Ionization-induced chirping and compression of a high-power microwave pulse. II. Theoretical analysis and numerical simulations</span>",
-      "authors": [
-        "Adi Haim, Vlad Maksimov, John G. Leopold, Yuriy P. Bliokh, and Yakov E. Krasik"
-      ],
-      "date": "2026-10-07T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/60075RaeE3519c2546ff13f5b2c574896aeeb5351",
-      "doi": "10.1103/d9gd-1jd6",
-      "summary": "This article complements a recent experimental study [Haim et al., submitted to PRE 2026] in which high-power microwave sub-ns pulses traverse a gas-filled circular waveguide and exit it as a chirped pulse. The reason for this phenomenon is that the ionization of the neutral gas propagates together …",
-      "citation": "Haim et al., submitted to PRE 2026",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>Local noise shielding guides the separation of binary chiral mixtures</span>",
-      "authors": [
-        "Qi Zhou, Yuan-Rui Wang, Peng Wang, Jie Huo, and Xu-Ming Wang"
-      ],
-      "date": "2026-10-07T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/c307aRd8Z341162db4254ce77784f470cdf0c811c",
-      "doi": "10.1103/4c17-6tjh",
-      "summary": "The efficient separation of chiral particles is a crucial topic in active matter, where intrinsic rotational motion can generate rich nonequilibrium collective behaviors. So far, few investigations have explored the separation of binary chiral mixtures by guiding particle motion through local noise …",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -14547,6 +14485,22 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
+      "title": "<span>Plasma density manipulation in staged discharge capillaries for plasma-based accelerators</span>",
+      "authors": [
+        "Angelo Biagioni, Lucio Crincoli, Romain Demitra, Mario Galletti, Valerio Lollo, Donato Pellegrini, Riccardo Pompili, Massimo Ferrario, and Arie Zigler"
+      ],
+      "date": "2026-10-06T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/d9074R4eYce1992ea571345409aa636b0c871c380",
+      "doi": "10.1103/yrts-62hs",
+      "summary": "Plasma wakefield acceleration of charged particle beams relies on specialized devices for plasma generation and confinement. In both particle-driven wakefield acceleration and beam-focusing experiments, these devices are designed to precisely control plasma properties to optimize beam–plasma interac…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
       "title": "<span>Long-range social pressure and the evolution of cooperation in multiplex networks</span>",
       "authors": [
         "María Pereda and Gabrielle Muller"
@@ -14587,22 +14541,6 @@
       "link": "https://journals.aps.org/pre/accepted/4e07bRa3E5719c2466e51674270f99506d46c810f",
       "doi": "10.1103/fvx4-3b4p",
       "summary": "We present results of experiments in which a sub-ns high power microwave (HPM) pulse (600 MW peak power, 9.6 GHz, &lt;1 ns) traverses a neutral He filled waveguide (&lt;2.6 kPa) in the presence and absence of an axial external magnetic field. The pulse ionizes the gas along its track forming a temp…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>Plasma density manipulation in staged discharge capillaries for plasma-based accelerators</span>",
-      "authors": [
-        "Angelo Biagioni, Lucio Crincoli, Romain Demitra, Mario Galletti, Valerio Lollo, Donato Pellegrini, Riccardo Pompili, Massimo Ferrario, and Arie Zigler"
-      ],
-      "date": "2026-10-06T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/d9074R4eYce1992ea571345409aa636b0c871c380",
-      "doi": "10.1103/yrts-62hs",
-      "summary": "Plasma wakefield acceleration of charged particle beams relies on specialized devices for plasma generation and confinement. In both particle-driven wakefield acceleration and beam-focusing experiments, these devices are designed to precisely control plasma properties to optimize beam–plasma interac…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -16181,22 +16119,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Experimental investigation of Lévy flights for step-length distributions with a length-dependent local power exponent.</span>",
-      "authors": [
-        "Isaac C. Nunes, Jesús P. López, and Thierry Passerat de Silans"
-      ],
-      "date": "2026-10-05T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/ee075R38Df115f2d461272b59e303fb7c027c7460",
-      "doi": "10.1103/rj1x-cwgn",
-      "summary": "Light propagating in a resonant atomic vapor performs a Lévy flight random walk, in which rare long steps dominate the transport. In contrast to the ideal power-law step-length distributions usually assumed in the literature, the actual distribution in atomic vapors is characterized by a local Lévy …",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Geometric formulation of state-dependent Langevin dynamics using scalar free energy</span>",
       "authors": [
         "Kento Yasuda, Zhongqiang Xiong, Zhanglin Hou, Kenta Ishimoto, Xinpeng Xu, and Shigeyuki Komura"
@@ -16222,6 +16144,22 @@
       "doi": "10.1103/1xrx-rsxn",
       "summary": "Reentrant transitions and temperature chaos are two unusual properties of spin glasses. We recently established a general logical relation between these two phenomena [Phys. Rev. E , 044140 (2025)]. In the present paper, we provide an explicit example of this logical relation in the fully connected …",
       "citation": "Phys. Rev. E , 044140 (2025)",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Experimental investigation of Lévy flights for step-length distributions with a length-dependent local power exponent.</span>",
+      "authors": [
+        "Isaac C. Nunes, Jesús P. López, and Thierry Passerat de Silans"
+      ],
+      "date": "2026-10-05T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/ee075R38Df115f2d461272b59e303fb7c027c7460",
+      "doi": "10.1103/rj1x-cwgn",
+      "summary": "Light propagating in a resonant atomic vapor performs a Lévy flight random walk, in which rare long steps dominate the transport. In contrast to the ideal power-law step-length distributions usually assumed in the literature, the actual distribution in atomic vapors is characterized by a local Lévy …",
+      "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
     {
@@ -17246,54 +17184,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Analytical solution for mean-field theories for homo- and heterogeneous populations of parabolic bursting systems</span>",
-      "authors": [
-        "Maria V. Ageeva and Denis S. Goldobin"
-      ],
-      "date": "2026-10-02T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/be07aY41H122b50397941b550f1877b5c17e469e1",
-      "doi": "10.1103/nl4b-7sfq",
-      "summary": "We derive analytical solutions for macroscopic regimes in populations of identical and nonidentical quadratic integrate-and-fire neurons (QIFs), where the irregularity of synaptic input is represented by a continuous Gaussian noise. This amounts to the diffusion approximation well established in mat…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>Recursive behavior in a diatomic Fermi-Pasta-Ulam-Tsingou lattice</span>",
-      "authors": [
-        "Guo Deng, Andrea Pezzi, Genghong Lin, and Miguel Onorato"
-      ],
-      "date": "2026-10-02T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/68075Rb9G571a52736ce7b93f80e599640ea64ee6",
-      "doi": "10.1103/ctvj-t6s7",
-      "summary": "We study the diatomic Fermi–Pasta–Ulam–Tsingou (FPUT) lattice with cubic anharmonic potential, and analyze the recurrent behaviour of its solutions. We find that two distinct types of recurrence occur. One type is the classic FPUT recurrence; for such recurrence, we find that the relation between re…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>Maximization of nuclear fusion reactivity via optimal energy distributions</span>",
-      "authors": [
-        "Roberto Onofrio, Kamel Ourabah, and Carlo Presilla"
-      ],
-      "date": "2026-10-02T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/37070R2aG3713223c7320769d702c9050580a76fb",
-      "doi": "10.1103/xhzy-hxdw",
-      "summary": "We investigate the optimization of nuclear fusion reactivity relative to the choice of energy probability distribution. A single Maxwell-Boltzmann (MB) distribution is found to be optimal in the region where reactivity is a concave function of the average available kinetic energy, specifically near …",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Impact of quenched disorder and multiphoton interaction on the dynamics of a quantum battery</span>",
       "authors": [
         "Azam Mirzaei, Hamid Reza Baghshahi, and Mohammad Javad Faghihi"
@@ -17350,6 +17240,54 @@
       "link": "https://journals.aps.org/pre/accepted/6f077RdeE811382187d455377509ac4930c9951c8",
       "doi": "10.1103/hym1-lmwt",
       "summary": "We analyze the critical temperature of the one-dimensional Ising model with inverse-square interactions. In the Anderson-Yuval-Kosterlitz (AYK) renormalization-group (RG) framework the transition temperature depends sensitively on the bare domain-wall fugacity, which is controlled by the domain-wall…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Analytical solution for mean-field theories for homo- and heterogeneous populations of parabolic bursting systems</span>",
+      "authors": [
+        "Maria V. Ageeva and Denis S. Goldobin"
+      ],
+      "date": "2026-10-02T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/be07aY41H122b50397941b550f1877b5c17e469e1",
+      "doi": "10.1103/nl4b-7sfq",
+      "summary": "We derive analytical solutions for macroscopic regimes in populations of identical and nonidentical quadratic integrate-and-fire neurons (QIFs), where the irregularity of synaptic input is represented by a continuous Gaussian noise. This amounts to the diffusion approximation well established in mat…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Recursive behavior in a diatomic Fermi-Pasta-Ulam-Tsingou lattice</span>",
+      "authors": [
+        "Guo Deng, Andrea Pezzi, Genghong Lin, and Miguel Onorato"
+      ],
+      "date": "2026-10-02T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/68075Rb9G571a52736ce7b93f80e599640ea64ee6",
+      "doi": "10.1103/ctvj-t6s7",
+      "summary": "We study the diatomic Fermi–Pasta–Ulam–Tsingou (FPUT) lattice with cubic anharmonic potential, and analyze the recurrent behaviour of its solutions. We find that two distinct types of recurrence occur. One type is the classic FPUT recurrence; for such recurrence, we find that the relation between re…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Maximization of nuclear fusion reactivity via optimal energy distributions</span>",
+      "authors": [
+        "Roberto Onofrio, Kamel Ourabah, and Carlo Presilla"
+      ],
+      "date": "2026-10-02T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/37070R2aG3713223c7320769d702c9050580a76fb",
+      "doi": "10.1103/xhzy-hxdw",
+      "summary": "We investigate the optimization of nuclear fusion reactivity relative to the choice of energy probability distribution. A single Maxwell-Boltzmann (MB) distribution is found to be optimal in the region where reactivity is a concave function of the average available kinetic energy, specifically near …",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -18572,22 +18510,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>Phase lags induce chaos in oscillator communities with higher-order interactions</span>",
-      "authors": [
-        "Sabina Adhikari, Juan G. Restrepo, and Per Sebastian Skardal"
-      ],
-      "date": "2026-10-01T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/7807dR06Tbc11e2227be7e363eebe9f8da263895f",
-      "doi": "10.1103/y353-z8sb",
-      "summary": "We study the effects of phase-frustrated, higher-order interactions in a system of coupled phase oscillators with two communities. We use dimensionality reduction techniques to derive a lowdimensional system of ODEs to describe the macroscopic behavior of the system. By analyzing this system we show…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Resilience of hypernetworks under the impact of tolerance thresholds</span>",
       "authors": [
         "Ruijin Du, Yibo Ding, Yiwei Ren, Duxin Chen, Fan Wang, Renaud Lambiotte, and Gaogao Dong"
@@ -18628,6 +18550,22 @@
       "link": "https://journals.aps.org/pre/accepted/89071YeeDf11729de80165d106adeb44d93253f20",
       "doi": "10.1103/fdfm-njx6",
       "summary": "Nonequilibrium conditions fundamentally change how systems undergo phase separation. In lattice gases with attractive interactions under temperature gradients, particles have been shown to form periodic patterns and steady convective currents; however, a clear theoretical explanation of this convect…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Phase lags induce chaos in oscillator communities with higher-order interactions</span>",
+      "authors": [
+        "Sabina Adhikari, Juan G. Restrepo, and Per Sebastian Skardal"
+      ],
+      "date": "2026-10-01T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/7807dR06Tbc11e2227be7e363eebe9f8da263895f",
+      "doi": "10.1103/y353-z8sb",
+      "summary": "We study the effects of phase-frustrated, higher-order interactions in a system of coupled phase oscillators with two communities. We use dimensionality reduction techniques to derive a lowdimensional system of ODEs to describe the macroscopic behavior of the system. By analyzing this system we show…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
@@ -20512,54 +20450,6 @@
       "journal": "Phys. Rev. E",
       "journalShort": "PRE",
       "type": "accepted",
-      "title": "<span>First-passage times for variable-order time-fractional diffusion</span>",
-      "authors": [
-        "Wancheng Li and Daniel S. Han"
-      ],
-      "date": "2026-09-29T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/0b077Yb1E0f1799da9704772388d7b50c7a4df288",
-      "doi": "10.1103/t292-j1z5",
-      "summary": "We derive the asymptotic first passage time (FPT) distribution for space-dependent variable-order time-fractional diffusion, where the fractional exponent $α(x)$ varies with position. On a bounded interval with an absorbing and a reflecting boundary, we show that the survival probability decays as $…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>Experimental demonstration of beam-driven wakefield acceleration in laser-plasma filament</span>",
-      "authors": [
-        "M. Galletti, L. Verra, A. Biagioni, M. Carillo, L. Crincoli, R. Demitra, G. Di Pirro, G. Parise, R. Pompili, F. Stocchi, F. Villa, A. Zigler, and M. Ferrario"
-      ],
-      "date": "2026-09-29T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/a3078Y0dFde2b800277a4ef438c8fe7fdddb04a3b",
-      "doi": "10.1103/qjd9-p6dy",
-      "summary": "Self-guided femtosecond laser pulses propagating in low-pressure gas can generate plasma filaments, establishing a new framework for plasma wakefield acceleration (PWFA). This method exploits the intrinsic non-linear light-matter interaction, reducing the energy required to generate plasma while ena…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
-      "title": "<span>Constrained surrogates for arbitrary families of continuous probability distributions</span>",
-      "authors": [
-        "Jack Murdoch Moore and Eduardo G. Altmann"
-      ],
-      "date": "2026-09-29T10:00:00+00:00",
-      "link": "https://journals.aps.org/pre/accepted/8d073KfeCff1350dd9cc394153361512197ec56f3",
-      "doi": "10.1103/fs71-p5y8",
-      "summary": "Empirical regularities described by parametrized families of probability distributions can shape how complex systems are interpreted and explained. A recurring problem is to determine the extent to which these descriptions are supported by observations, and how they can be used to characterize the u…",
-      "citation": "Phys. Rev. E",
-      "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "PRE",
-      "journal": "Phys. Rev. E",
-      "journalShort": "PRE",
-      "type": "accepted",
       "title": "<span>Hidden square order through orientational-domain reorganization during nonequilibrium expansion of colloidal systems</span>",
       "authors": [
         "S. W. S. Apolinario"
@@ -20632,6 +20522,54 @@
       "link": "https://journals.aps.org/pre/accepted/b607dR70Eb519a2a652611e3f159e1411cb8cb862",
       "doi": "10.1103/z1s1-kspl",
       "summary": "The space-time correlation of a passive scalar advected by a Gaussian colored-noise velocity with wavenumber-dependent correlation times and power-law spatial spectra is investigated in the present paper. Within the inertial-convective subrange, we derive an analytical solution for the space-time co…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>First-passage times for variable-order time-fractional diffusion</span>",
+      "authors": [
+        "Wancheng Li and Daniel S. Han"
+      ],
+      "date": "2026-09-29T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/0b077Yb1E0f1799da9704772388d7b50c7a4df288",
+      "doi": "10.1103/t292-j1z5",
+      "summary": "We derive the asymptotic first passage time (FPT) distribution for space-dependent variable-order time-fractional diffusion, where the fractional exponent $α(x)$ varies with position. On a bounded interval with an absorbing and a reflecting boundary, we show that the survival probability decays as $…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Constrained surrogates for arbitrary families of continuous probability distributions</span>",
+      "authors": [
+        "Jack Murdoch Moore and Eduardo G. Altmann"
+      ],
+      "date": "2026-09-29T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/8d073KfeCff1350dd9cc394153361512197ec56f3",
+      "doi": "10.1103/fs71-p5y8",
+      "summary": "Empirical regularities described by parametrized families of probability distributions can shape how complex systems are interpreted and explained. A recurring problem is to determine the extent to which these descriptions are supported by observations, and how they can be used to characterize the u…",
+      "citation": "Phys. Rev. E",
+      "publisher": "American Physical Society"
+    },
+    {
+      "journalKey": "PRE",
+      "journal": "Phys. Rev. E",
+      "journalShort": "PRE",
+      "type": "accepted",
+      "title": "<span>Experimental demonstration of beam-driven wakefield acceleration in laser-plasma filament</span>",
+      "authors": [
+        "M. Galletti, L. Verra, A. Biagioni, M. Carillo, L. Crincoli, R. Demitra, G. Di Pirro, G. Parise, R. Pompili, F. Stocchi, F. Villa, A. Zigler, and M. Ferrario"
+      ],
+      "date": "2026-09-29T10:00:00+00:00",
+      "link": "https://journals.aps.org/pre/accepted/a3078Y0dFde2b800277a4ef438c8fe7fdddb04a3b",
+      "doi": "10.1103/qjd9-p6dy",
+      "summary": "Self-guided femtosecond laser pulses propagating in low-pressure gas can generate plasma filaments, establishing a new framework for plasma wakefield acceleration (PWFA). This method exploits the intrinsic non-linear light-matter interaction, reducing the energy required to generate plasma while ena…",
       "citation": "Phys. Rev. E",
       "publisher": "American Physical Society"
     },
