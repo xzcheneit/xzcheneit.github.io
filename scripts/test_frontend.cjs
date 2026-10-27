@@ -2,7 +2,9 @@
 const assert = require('node:assert/strict');
 const { readFileSync } = require('node:fs');
 const { join } = require('node:path');
-const { test } = require('node:test');
+const { test, before } = require('node:test');
+let scientificText;
+before(async () => { scientificText = await import('../assets/scientific-text.mjs'); });
 const vm = require('node:vm');
 
 const appPath = join(__dirname, '..', 'assets', 'app.js');
@@ -75,6 +77,7 @@ function loadApp({ stored = {}, rejectStorage = false } = {}) {
   };
   const context = vm.createContext({
     console: { log() {}, warn() {}, error() {} },
+    ...scientificText,
     URL, URLSearchParams, Map, Set, Date: TestDate,
     setTimeout, clearTimeout,
     localStorage,
@@ -91,7 +94,7 @@ function loadApp({ stored = {}, rejectStorage = false } = {}) {
     }
   });
   // Do not fetch data or run browser startup when loading the app in Node.
-  const source = readFileSync(appPath, 'utf8').replace(/\/\*\s*-+\s*Boot\s*-+\s*\*\/[\s\S]*$/, '');
+  const source = readFileSync(appPath, 'utf8').replace(/^import[^\n]+;\n/, '').replace(/\/\*\s*-+\s*Boot\s*-+\s*\*\/[\s\S]*$/, '');
   vm.runInContext(source + `
     globalThis.app = {
       normalizeItem, withinDays, filterByQuery, toBibAPS,
@@ -304,4 +307,23 @@ test('article links refuse executable URL schemes', () => {
   const { app } = loadApp();
   const link = app.bestLink(article({ doi: '', arxiv: 'javascript:alert(1)', link: 'data:text/html,unsafe' }));
   assert.doesNotMatch(link, /^(?:javascript|data):/i);
+});
+
+test('chemical search, readable digest and original BibTeX stay consistent', () => {
+  const { app } = loadApp();
+  const title = 'Candidate Ca${}_{3}$(Ru,Ti)${}_{2}$O${}_{7}$';
+  const item = app.normalizeItem(article({ title }));
+  assert.equal(app.filterByQuery([item], 'Ca3(Ru,Ti)2O7').length, 1);
+  assert.equal(app.filterByQuery([item], 'Ca₃(Ru,Ti)₂O₇').length, 1);
+  assert.ok(app.toBibAPS(item, app.PrefStore.load(), null).includes(title));
+  app.setFeed([item]);
+  app.UserStore.set(item.uid, { status: 'reading' }, item);
+  assert.ok(app.buildWeeklyDigestMarkdown().markdown.includes('Ca₃(Ru,Ti)₂O₇'));
+});
+
+test('RSS markup cleanup preserves TeX comparison operators and PDF source wrappers', () => {
+  const { app } = loadApp();
+  assert.equal(app.feedText('<span>Bounds $a<b>c$</span>'), 'Bounds $a<b>c$');
+  const title='\\texorpdfstring{$\\beta$-Ga$_2$O$_3$}{beta-Ga2O3} &amp; films';
+  assert.equal(app.feedText(title),title.replace('&amp;','&'));
 });

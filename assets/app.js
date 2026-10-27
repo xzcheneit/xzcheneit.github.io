@@ -1,3 +1,5 @@
+import { renderScientificText, scientificPlainText, scientificSearchText, splitScientificText } from './scientific-text.mjs';
+
 /* ---------- DOM helpers ---------- */
 const $ = (sel, el=document) => el.querySelector(sel);
 const $$ = (sel, el=document) => [...el.querySelectorAll(sel)];
@@ -8,10 +10,16 @@ const esc = (s)=> String(s??'').replace(/[&<>"']/g, m=>({ "&":"&amp;","<":"&lt;"
 function feedText(value){
   const text = String(value ?? '');
   if(!/[<&]/.test(text)) return text.trim();
+  const math=[];
+  const html=splitScientificText(text,{prepare:false}).map(token=>{
+    if(token.type!=='math') return token.value;
+    math.push(token.raw);
+    return `\uE000SCIMATH${math.length-1}\uE001`;
+  }).join('');
   const tpl = document.createElement('template');
-  tpl.innerHTML = text;
+  tpl.innerHTML = html;
   tpl.content.querySelectorAll('script, style').forEach(el=>el.remove());
-  return (tpl.content.textContent || '').replace(/\s+/g,' ').trim();
+  return (tpl.content.textContent || '').replace(/\uE000SCIMATH(\d+)\uE001/g,(_,index)=>math[index]??'').replace(/\s+/g,' ').trim();
 }
 function itemUID(item){
   return `${item.journalKey||''}|${item.doi?.toLowerCase() || item.arxiv || item.link || item.title || ''}`;
@@ -243,14 +251,8 @@ function withinDays(iso, days){
 }
 function filterByQuery(items, q){
   if(!q) return items;
-  const s = q.toLowerCase();
-  return items.filter(x =>
-    (x.title||'').toLowerCase().includes(s) ||
-    (x.journal||'').toLowerCase().includes(s) ||
-    (x.doi||'').toLowerCase().includes(s) ||
-    (x.summary||'').toLowerCase().includes(s) ||
-    fmtAuthorsList(x.authors,x.journalKey).join(' ').toLowerCase().includes(s)
-  );
+  const query = scientificSearchText(q);
+  return items.filter(item => itemTextForMatch(item).includes(query) || (item.journal||'').toLowerCase().includes(query));
 }
 
 /* ---------- Keywords ---------- */
@@ -259,59 +261,23 @@ function normalizeKeywords(list){
     .map(s=>String(s||'').trim())
     .filter(Boolean).map(s=>[s.toLowerCase(),s])).values()];
 }
+const searchTextCache = new WeakMap();
 function itemTextForMatch(it){
-  return `${it.title||''}\n${fmtAuthorsList(it.authors,it.journalKey).join(' ')}\n${it.summary||''}\n${it.doi||''}`.toLowerCase();
+  if(searchTextCache.has(it)) return searchTextCache.get(it);
+  const raw = `${it.title||''}\n${fmtAuthorsList(it.authors,it.journalKey).join(' ')}\n${it.summary||''}\n${it.doi||''}`;
+  const text = raw.toLowerCase() + '\n' + scientificSearchText(raw);
+  searchTextCache.set(it,text);
+  return text;
 }
 function keywordHits(it, keywords){
   const s = itemTextForMatch(it);
   const hits = [];
   for(const kw of keywords){
     if(!kw) continue;
-    if(s.includes(kw.toLowerCase())) hits.push(kw);
+    if(s.includes(scientificSearchText(kw))) hits.push(kw);
   }
   return hits;
 }
-function renderHighlighted(container, text, keywords){
-  container.textContent = '';
-  if(!text){ return; }
-  const kws = keywords.map(k=>k.trim()).filter(Boolean);
-  if(!kws.length){ container.textContent = text; return; }
-
-  const lower = text.toLowerCase();
-  // Collect matches
-  const spans = [];
-  for(const kw of kws){
-    const k = kw.toLowerCase();
-    let idx = 0;
-    while(true){
-      const pos = lower.indexOf(k, idx);
-      if(pos === -1) break;
-      spans.push({start:pos, end:pos+k.length});
-      idx = pos + k.length;
-    }
-  }
-  if(!spans.length){ container.textContent = text; return; }
-  // Merge overlaps
-  spans.sort((a,b)=>a.start-b.start);
-  const merged = [spans[0]];
-  for(const sp of spans.slice(1)){
-    const last = merged[merged.length-1];
-    if(sp.start <= last.end) last.end = Math.max(last.end, sp.end);
-    else merged.push(sp);
-  }
-  const frag = document.createDocumentFragment();
-  let cur = 0;
-  for(const m of merged){
-    if(m.start > cur) frag.append(document.createTextNode(text.slice(cur, m.start)));
-    const mark = document.createElement('mark');
-    mark.textContent = text.slice(m.start, m.end);
-    frag.append(mark);
-    cur = m.end;
-  }
-  if(cur < text.length) frag.append(document.createTextNode(text.slice(cur)));
-  container.append(frag);
-}
-
 /* ---------- Links ---------- */
 const bestLink = (it)=>{
   if (isAbs(it.arxiv)) return it.arxiv;
@@ -540,13 +506,7 @@ function cardFromItem(item, prefs){
   const link = bestLink(item);
   const a = document.createElement('a');
   a.href = link; a.target="_blank"; a.rel="noopener noreferrer nofollow";
-  if(prefs.highlight){
-    const span = document.createElement('span');
-    renderHighlighted(span, item.title||'', normalizeKeywords(prefs.keywords));
-    a.append(span);
-  }else{
-    a.textContent = item.title||'';
-  }
+  renderScientificText(a, item.title||'', prefs.highlight?normalizeKeywords(prefs.keywords):[]);
   title.textContent = "";
   title.append(a);
 
@@ -560,11 +520,7 @@ function cardFromItem(item, prefs){
   absStrong.textContent = '摘要：';
   abs.append(absStrong);
   const absSpan = document.createElement('span');
-  if(prefs.highlight && prefs.highlightSummary){
-    renderHighlighted(absSpan, item.summary || '（无摘要）', normalizeKeywords(prefs.keywords));
-  }else{
-    absSpan.textContent = item.summary || '（无摘要）';
-  }
+  renderScientificText(absSpan, item.summary || '（无摘要）', prefs.highlight && prefs.highlightSummary?normalizeKeywords(prefs.keywords):[]);
   abs.append(absSpan);
   if(item.summary){
     btnAbstract.addEventListener('click',()=>{
@@ -757,6 +713,7 @@ function openFavs(){
         <div><a href="${esc(bestLink(it))}" target="_blank" rel="noopener noreferrer nofollow">${esc(it.title||'')}</a></div>
         ${noteLine}
       `;
+      renderScientificText($('a',el),it.title||'',prefs.highlight?normalizeKeywords(prefs.keywords):[]);
       box.appendChild(el);
     }
     // handlers
@@ -891,7 +848,7 @@ function buildWeeklyDigestMarkdown(){
       const note = (u.note||'').trim();
       const hits = kws.length ? keywordHits(it, kws) : [];
       const hitLine = hits.length ? ` · Keywords: ${hits.join(', ')}` : '';
-      lines.push(`- [${it.title||''}](${bestLink(it)}) — ${it.journalShort||it.journalKey||''} — ${formatDay(it.date)}${hitLine}`);
+      lines.push(`- [${scientificPlainText(it.title||'').replace(/[\\\[\]]/g,'\\$&')}](${bestLink(it)}) — ${it.journalShort||it.journalKey||''} — ${formatDay(it.date)}${hitLine}`);
       if(note) lines.push(`  - Note: ${note.replace(/\n+/g,' ').slice(0,280)}${note.length>280?'…':''}`);
     }
     lines.push('');
@@ -1095,6 +1052,7 @@ window.addEventListener('storage',()=>{
 });
 let resizeTimer;
 window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(updateAbstractButtons,100);});
+document.fonts?.ready.then(updateAbstractButtons);
 
 /* ---------- Boot ---------- */
 load();
