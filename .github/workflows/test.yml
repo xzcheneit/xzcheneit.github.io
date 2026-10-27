@@ -1,0 +1,27 @@
+name: Check site and feed processing
+
+on:
+  push:
+    paths: ['assets/**', 'index.html', 'scripts/**', 'tests/**', '.github/workflows/**']
+  pull_request:
+    paths: ['assets/**', 'index.html', 'scripts/**', 'tests/**', '.github/workflows/**']
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install -r scripts/requirements.txt
+      - run: python -m unittest discover -s tests -p 'test_build.py' -v
+      - run: node --check assets/app.js
+      - run: node --test scripts/test_frontend.cjs

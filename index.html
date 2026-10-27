@@ -3,63 +3,69 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f8fa" />
   <title>Physics Feeds – 最近更新</title>
   <meta name="description" content="PRL、PRB、PRE、PRX、PRX Quantum、PRResearch、RMP、Nature 系列、Science/Science Advances、Nano Letters、NJP、CPL、CPB、NSR、arXiv cond-mat 等期刊与预印本聚合。">
-  <link rel="preload" href="data/articles.json" as="fetch" crossorigin>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">跳到论文列表</a>
   <header class="container">
     <div class="head-top">
-      <h1>Physics Feeds <span class="pill pill-brand">last updates</span></h1>
-      <div class="head-meta">
-        <span class="pill" id="coverage-pill">数据加载中…</span>
-        <span class="pill" id="new-pill" title="相对你上次访问新增的条目">新增 <b id="new-count">0</b></span>
-      </div>
+      <a class="brand" href="./" aria-label="Physics Feeds 首页"><span class="brand-icon" aria-hidden="true">φ</span> PHYSICS FEEDS <span class="brand-label">文献雷达</span></a>
+      <nav class="reading-tools" aria-label="阅读工具">
+        <button id="btn-prefs" class="btn soft" type="button">关键词设置</button>
+        <button id="btn-digest" class="btn soft" type="button">本周阅读</button>
+        <button id="btn-favs" class="btn accent" type="button">☆ 收藏夹 <span id="fav-count">0</span></button>
+      </nav>
     </div>
-
-    <div class="toolbar">
-      <input id="q" type="search" placeholder="关键词（标题/作者/摘要/DOI）… 回车" />
-      <select id="src" title="期刊来源（单选）"></select>
-      <select id="win" title="日期窗口（单选）">
+    <div class="intro">
+      <div><p class="eyebrow">YOUR DAILY PHYSICS READING</p><h1>物理前沿，一处追踪。</h1><p class="intro-copy">浏览期刊与预印本，收藏值得细读的研究。</p></div>
+      <div class="head-meta"><span class="pill" id="coverage-pill">正在读取文献数据…</span><span class="pill" id="new-pill" title="相对上次访问首次出现的论文">本次新增 <b id="new-count">0</b></span></div>
+    </div>
+    <div class="filter-panel" role="search" aria-label="查找论文">
+      <label class="search-field" for="q"><span aria-hidden="true">⌕</span><span class="sr-only">搜索标题、作者、摘要或 DOI</span><input id="q" type="search" autocomplete="off" placeholder="搜索标题、作者、摘要或 DOI…" /><kbd aria-hidden="true">/</kbd></label>
+      <div class="toolbar">
+      <label class="filter-field" for="src">期刊来源<select id="src"><option value="">全部来源</option></select></label>
+      <label class="filter-field" for="win">发表时间<select id="win">
         <option value="1">最近 1 天</option>
         <option value="3" selected>最近 3 天</option>
         <option value="7">最近 7 天</option>
         <option value="14">最近 14 天</option>
-        <option value="all">全部（受后端窗口限制）</option>
-      </select>
-      <select id="stat" title="状态（单选）">
+        <option value="all">全部收录</option>
+      </select></label>
+      <label class="filter-field" for="stat">发表状态<select id="stat">
         <option value="all" selected>全部状态</option>
-        <option value="published">Published</option>
-        <option value="accepted">Accepted</option>
-        <option value="preprint">Preprint</option>
-      </select>
-      <select id="view" title="视图（单选）">
-        <option value="all" selected>全部</option>
+        <option value="published">已发表 · Published</option>
+        <option value="accepted">已接收 · Accepted</option>
+        <option value="preprint">预印本 · Preprint</option>
+      </select></label>
+      <label class="filter-field" for="view">阅读视图<select id="view">
+        <option value="all" selected>全部论文</option>
         <option value="new">只看新增</option>
         <option value="kw">只看关键词命中</option>
-      </select>
-      <button id="btn-refresh" class="btn" title="重新加载数据">🔄 刷新</button>
-      <button id="btn-prefs" class="btn soft" title="设置关键词 / 高亮 / 过滤">⚙️ 关键词</button>
-      <button id="btn-digest" class="btn soft" title="基于你的阅读状态与笔记生成本周 digest">🗓️ 本周 digest</button>
-      <button id="btn-rss" class="btn soft" title="查看 RSS 抓取状态（构建报告）">🛰 RSS 状态</button>
-      <button id="btn-favs" class="btn accent" title="打开收藏夹">⭐ 收藏夹 (<span id="fav-count">0</span>)</button>
-      <button id="btn-copy-favs" class="btn" title="一键复制收藏条目的 BibTeX（含你的 note/status）">📋 复制收藏 BibTeX</button>
+      </select></label>
+      <button id="btn-reset" class="btn text-btn" type="button">重置筛选</button>
+      </div>
     </div>
-
-    <div class="legend" id="legend"></div>
-    <div class="meta-line">共 <span id="total">0</span> 篇 · 生成于 <span id="generatedAt">—</span></div>
+    <details class="sources-details"><summary>浏览收录来源 <span id="source-count"></span></summary><div class="legend" id="legend"></div></details>
+    <div id="data-notice" class="data-notice" role="status" hidden></div>
   </header>
-
-  <main class="container">
-    <section id="cards" class="cards" aria-live="polite"></section>
+  <main class="container" id="main" tabindex="-1">
+    <div class="results-head"><div class="results-title"><h2>最近论文</h2><span class="result-count" role="status" aria-live="polite" aria-atomic="true"><b id="total">0</b> 篇</span></div><div class="results-tools"><button id="btn-rss" class="btn text-btn" type="button">RSS 状态</button><button id="btn-refresh" class="btn" type="button">↻ 刷新数据</button></div></div>
+    <p class="meta-line">按发表时间排序 · 数据更新于 <time id="generatedAt">—</time></p>
+    <section id="cards" class="cards" aria-label="论文列表" aria-busy="true"><div class="empty-state"><span class="loading-dot" aria-hidden="true"></span><h3>正在加载论文</h3><p>正在读取最近收录的期刊与预印本。</p></div></section>
+    <div class="pagination" id="pagination" hidden><p id="page-info" class="hint"></p><button id="btn-more" class="btn" type="button">加载更多论文</button></div>
+    <noscript><p class="empty-state">请启用 JavaScript 以搜索论文、管理收藏与笔记。</p></noscript>
   </main>
+  <footer class="container site-footer"><span>Physics Feeds · 为日常科研阅读而建</span><span>收藏与笔记仅保存在当前浏览器 · <a href="https://github.com/xzcheneit/xzcheneit.github.io" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span></footer>
 
   <!-- Favorites -->
-  <dialog id="fav-dialog">
+  <dialog id="fav-dialog" aria-labelledby="fav-title">
     <form method="dialog">
       <header class="dlg-head">
-        <h2>⭐ 我的收藏</h2>
+        <h2 id="fav-title">我的收藏</h2>
         <menu><button class="btn" value="close">关闭</button></menu>
       </header>
       <div class="dlg-controls">
@@ -71,16 +77,17 @@
   </dialog>
 
   <!-- Preferences (keywords) -->
-  <dialog id="prefs-dialog">
+  <dialog id="prefs-dialog" aria-labelledby="prefs-title">
     <form method="dialog" class="dlg">
       <header class="dlg-head">
-        <h2>⚙️ 关键词订阅 / 高亮</h2>
+        <h2 id="prefs-title">关键词订阅 / 高亮</h2>
         <menu><button class="btn" value="close">关闭</button></menu>
       </header>
 
       <div class="dlg-body">
         <p class="hint">每行一个关键词或短语（不区分大小写）。用于 <b>高亮</b> 与 “只看关键词命中”。</p>
-        <textarea id="kw-text" rows="8" placeholder="例如：altermagnet\nSTM\nQPI\nskyrmion bag"></textarea>
+        <label for="kw-text">我的研究关键词</label>
+        <textarea id="kw-text" rows="8" placeholder="例如：altermagnet&#10;STM&#10;QPI&#10;skyrmion bag"></textarea>
 
         <div class="row">
           <label class="check"><input type="checkbox" id="kw-highlight" checked> 在标题/摘要中高亮关键词</label>
@@ -96,10 +103,10 @@
   </dialog>
 
   <!-- Weekly digest -->
-  <dialog id="digest-dialog">
+  <dialog id="digest-dialog" aria-labelledby="digest-title">
     <form method="dialog" class="dlg">
       <header class="dlg-head">
-        <h2>🗓️ 本周 digest</h2>
+        <h2 id="digest-title">本周阅读 digest</h2>
         <menu><button class="btn" value="close">关闭</button></menu>
       </header>
       <div class="dlg-body">
@@ -116,14 +123,14 @@
   </dialog>
 
   <!-- RSS status -->
-  <dialog id="rss-dialog">
+  <dialog id="rss-dialog" aria-labelledby="rss-title">
     <form method="dialog" class="dlg">
       <header class="dlg-head">
-        <h2>🛰 RSS 抓取状态</h2>
+        <h2 id="rss-title">RSS 抓取状态</h2>
         <menu><button class="btn" value="close">关闭</button></menu>
       </header>
       <div class="dlg-body">
-        <p class="hint">来自最近一次构建的 build report（用于排查某些 RSS 失效/被屏蔽）。</p>
+        <p class="hint" id="rss-summary">来自最近一次构建的抓取报告。</p>
         <div id="rss-list" class="rss-list"></div>
       </div>
     </form>
@@ -134,28 +141,29 @@
       <div class="card-head">
         <span class="badge"></span>
         <span class="type"></span>
-        <span class="time"></span>
+        <time class="time"></time>
         <span class="newtag" title="相对你上次访问新增">NEW</span>
-        <button class="star" title="加入收藏" type="button">☆</button>
+        <button class="star" title="加入收藏" aria-label="加入收藏" aria-pressed="false" type="button">☆</button>
       </div>
 
       <h3 class="title"></h3>
       <p class="meta"></p>
       <p class="abs"></p>
+      <button class="btn-abstract text-btn" type="button" aria-expanded="false" hidden>展开摘要 ↓</button>
 
       <div class="user-row">
-        <select class="status" title="阅读状态">
-          <option value="">— 状态 —</option>
-          <option value="todo">To read</option>
-          <option value="reading">Reading</option>
-          <option value="done">Done</option>
+        <select class="status" aria-label="阅读状态">
+          <option value="">阅读状态</option>
+          <option value="todo">待读 · To read</option>
+          <option value="reading">在读 · Reading</option>
+          <option value="done">已读 · Done</option>
         </select>
-        <button class="btn-note btn soft" type="button" title="添加/编辑笔记（将写入 BibTeX 的 note 字段）">🗒️ Note</button>
-        <button class="btn-copy btn" type="button" title="一键复制此条目的 BibTeX（含你的 note/status）">📋 BibTeX</button>
+        <button class="btn-note btn soft" type="button" aria-expanded="false" title="添加或编辑笔记">笔记</button>
+        <button class="btn-copy btn" type="button" title="复制此条目的 BibTeX（含笔记与阅读状态）">复制 BibTeX</button>
       </div>
 
       <div class="note-box">
-        <textarea class="note" rows="3" placeholder="你的评述/要点…（会进入 BibTeX 的 note 字段）"></textarea>
+        <textarea class="note" aria-label="论文笔记" rows="3" placeholder="记录要点、想法或待确认的问题…"></textarea>
         <div class="hint small">提示：这里的内容本地保存。复制 BibTeX 时会自动合并 status + note。</div>
       </div>
 

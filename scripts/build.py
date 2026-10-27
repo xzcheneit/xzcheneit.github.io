@@ -9,7 +9,10 @@ Physics Feeds build script
 """
 
 import json, re, time, sys, html, urllib.parse, os
-from urllib.parse import urlparse, urljoin
+import tempfile
+from pathlib import Path
+from html.parser import HTMLParser
+from urllib.parse import urljoin
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
@@ -17,20 +20,21 @@ import feedparser
 import httpx
 
 ASIA_TAIPEI = ZoneInfo("Asia/Taipei")
+ROOT = Path(__file__).resolve().parents[1]
 
 # Output window (the frontend can further filter, but we always provide up to this many days)
 OUTPUT_WINDOW_DAYS = 14
 
 ARXIV_SEARCH_BY_TITLE = (
-    "http://export.arxiv.org/api/query?search_query={query}&start=0&max_results=1"
+    "https://export.arxiv.org/api/query?search_query={query}&start=0&max_results=1"
 )
 ARXIV_COND_MAT_API = (
-    "http://export.arxiv.org/api/query?"
+    "https://export.arxiv.org/api/query?"
     "search_query=cat:cond-mat*&sortBy=lastUpdatedDate&sortOrder=descending&start=0&max_results=200"
 )
 ARXIV_COND_MAT_RSS = "https://rss.arxiv.org/rss/cond-mat"
 
-with open("data/sources.json", "r", encoding="utf-8") as f:
+with open(ROOT / "data/sources.json", "r", encoding="utf-8") as f:
     SOURCES = json.load(f)
 
 UA = {"User-Agent": "physics-feeds/1.2 (+github actions)"}
@@ -39,14 +43,32 @@ client = httpx.Client(timeout=30, follow_redirects=True)
 def log(*a): print("[build]", *a, file=sys.stderr)
 def iso(dt): return dt.astimezone(timezone.utc).isoformat() if isinstance(dt, datetime) else dt
 
+def atomic_json_write(path, value):
+    """Publish complete JSON only, so an interrupted run keeps the previous data."""
+    path = Path(path)
+    temp_path = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                         prefix=f".{path.name}.", suffix=".tmp", delete=False) as f:
+            temp_path = f.name
+            json.dump(value, f, ensure_ascii=False, indent=2)
+            f.write("\n")
+        os.replace(temp_path, path)
+    finally:
+        if temp_path and os.path.exists(temp_path):
+            os.unlink(temp_path)
+
 DOI_PAT   = re.compile(r"10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.I)
 ARXIV_NUM = re.compile(r"(\d{4}\.\d{4,5})(?:v\d+)?", re.I)  # 2408.01234
-TAG_PAT   = re.compile(r"<[^>]+>")
+TAG_PAT   = re.compile(r"</?[A-Za-z][^>]*>")
 DATE_KEYS = ["dc_date","date","prism_publicationdate","prism_publicationDate","issued","dc_issued"]
 
 APS_CIT_PAT = re.compile(r"\[([^\]]+)\]\s*(?:Published|Accepted|Updated)\b.*$", re.I)
 
 # ---------------- helpers ----------------
+def plain_text(raw):
+    return re.sub(r"\s+", " ", html.unescape(TAG_PAT.sub(" ", raw or ""))).strip()
+
 def ensure_https(u: str):
     if not u: return u
     if u.startswith("//"):      return "https:" + u
@@ -79,6 +101,15 @@ def parse_author_string(s: str):
     # Remove trailing 'and' leftovers
     parts = [re.sub(r"^and\s+", "", p, flags=re.I).strip() for p in parts]
     return [p for p in parts if p]
+
+def normalize_authors(authors, src_key):
+    authors = [plain_text(name) for name in authors if name]
+    # APS puts a whole natural-language author list in one Atom author element.
+    # Requiring a conjunction avoids splitting names formatted as "family, given".
+    if (src_key.startswith("PR") or src_key == "RMP") and len(authors) == 1:
+        if re.search(r"\s+and\s+", authors[0], re.I):
+            return parse_author_string(authors[0])
+    return authors
 
 def _strip_authors_prefix(text, authors):
     s = text.lstrip()
@@ -186,7 +217,9 @@ def parse_date(entry):
     for k in ("updated","published","created"):
         s = entry.get(k)
         if isinstance(s,str):
-            try: return datetime.fromisoformat(s.replace("Z","+00:00"))
+            try:
+                dt = datetime.fromisoformat(s.replace("Z","+00:00"))
+                return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt
             except Exception: pass
     for k in DATE_KEYS:
         v = entry.get(k)
@@ -196,50 +229,75 @@ def parse_date(entry):
             try:
                 if len(v) == 10:  # YYYY-MM-DD
                     return datetime.fromisoformat(v + "T00:00:00+00:00")
-                return datetime.fromisoformat(v.replace("Z","+00:00"))
+                dt = datetime.fromisoformat(v.replace("Z","+00:00"))
+                return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt
             except Exception:
                 pass
     return None
 
 # ---- arXiv title matching cache (reduces API calls) ----
-ARX_CACHE_PATH = "data/arxiv_cache.json"
+ARX_CACHE_PATH = ROOT / "data/arxiv_cache.json"
 def load_arxiv_cache():
     try:
         with open(ARX_CACHE_PATH, "r", encoding="utf-8") as f:
             d = json.load(f)
-            return d if isinstance(d, dict) else {}
+            if not isinstance(d, dict):
+                return {}
+            normalized = {}
+            for key, value in d.items():
+                clean_key = plain_text(key).lower()
+                if clean_key not in normalized or value:
+                    normalized[clean_key] = value
+            return normalized
     except Exception:
         return {}
 
 def save_arxiv_cache(d):
     try:
-        with open(ARX_CACHE_PATH, "w", encoding="utf-8") as f:
-            json.dump(d, f, ensure_ascii=False, indent=2)
+        atomic_json_write(ARX_CACHE_PATH, d)
     except Exception as e:
         log("save arxiv_cache failed:", e)
 
 _ARX_CACHE = load_arxiv_cache()
+_ARX_SEARCH_FAILURES = 0
 
 def find_arxiv_by_title(title):
-    title = re.sub(r"\s+"," ", (title or "")).strip()
+    global _ARX_SEARCH_FAILURES
+    title = plain_text(title)
     if len(title) < 8: return None
     key = title.lower()
-    if key in _ARX_CACHE:
-        return _ARX_CACHE[key] or None
+    cached = _ARX_CACHE.get(key)
+    if isinstance(cached, str) and cached:
+        return cached
+    if isinstance(cached, dict):
+        checked = parse_date({"published": cached.get("checkedAt")})
+        if checked and datetime.now(timezone.utc) - checked < timedelta(days=7):
+            return cached.get("url") or None
+    if _ARX_SEARCH_FAILURES >= 3:
+        return None  # An optional lookup outage must not delay hundreds of articles.
 
     q = f'ti:"{title}"'
     url = ARXIV_SEARCH_BY_TITLE.format(query=urllib.parse.quote(q))
     found = None
     try:
+        time.sleep(3)  # arXiv asks for at least three seconds between API requests.
         r = client.get(url, headers=UA)
-        if r.status_code == 200:
-            m = re.search(r"<id>(https?://arxiv\.org/abs/[^<]+)</id>", r.text)
-            if m:
-                found = ensure_https(html.unescape(m.group(1)))
+        r.raise_for_status()
+        fp = feedparser.parse(r.content)
+        if not getattr(fp, "version", "") or getattr(fp, "bozo", False):
+            raise ValueError("Invalid arXiv search feed")
+        _ARX_SEARCH_FAILURES = 0
+        for entry in fp.entries:
+            candidate = entry.get("id", "")
+            if candidate.startswith(("http://arxiv.org/abs/", "https://arxiv.org/abs/")):
+                found = ensure_https(candidate)
+                break
     except Exception as e:
+        _ARX_SEARCH_FAILURES += 1
         log("arXiv title search failed:", e)
+        return None  # A temporary failure must not become a permanent negative cache hit.
 
-    _ARX_CACHE[key] = found or ""
+    _ARX_CACHE[key] = found or {"url": "", "checkedAt": iso(datetime.now(timezone.utc))}
     return found
 
 def discover_feed_from_html(url, host_hint=""):
@@ -249,11 +307,20 @@ def discover_feed_from_html(url, host_hint=""):
     """
     try:
         r = client.get(url, headers=UA); r.raise_for_status()
-        m = re.search(
-            r'rel="alternate"[^>]+type="application/(?:rss|atom)\+xml"[^>]+href="([^"]+)"',
-            r.text, re.I
-        )
-        if m: return html.unescape(m.group(1))
+        class FeedLinks(HTMLParser):
+            href = None
+
+            def handle_starttag(self, tag, attrs):
+                values = dict(attrs)
+                if (tag == "link" and "alternate" in (values.get("rel") or "").lower().split()
+                        and (values.get("type") or "").lower() in ("application/rss+xml", "application/atom+xml")
+                        and values.get("href") and self.href is None):
+                    self.href = values["href"]
+
+        links = FeedLinks()
+        links.feed(r.text)
+        if links.href:
+            return urljoin(str(r.url), links.href)
         # Nature sometimes embeds .rss links
         if "nature.com" in (host_hint or url):
             m = re.search(r'href="(https://www\.nature\.com/[^"]+\.rss[^"]*)"', r.text, re.I)
@@ -284,11 +351,19 @@ def fetch_feed_with_report(feed_url):
         r = client.get(feed_url, headers=UA)
         rep["status"] = r.status_code
         rep["contentType"] = r.headers.get("content-type", "")
-        txt = r.text or ""
-        fp = feedparser.parse(txt)
+        fp = feedparser.parse(r.content)
         rep["bozo"] = bool(getattr(fp, "bozo", False))
         rep["entries"] = len(getattr(fp, "entries", []) or [])
+        dates = [date for entry in fp.entries if (date := parse_date(entry))]
+        rep["latestArticleAt"] = iso(max(dates)) if dates else None
         rep["ok"] = (r.status_code == 200 and rep["entries"] > 0)
+        if not rep["ok"]:
+            if r.status_code != 200:
+                rep["error"] = f"HTTP {r.status_code}"
+            elif not getattr(fp, "version", ""):
+                rep["error"] = "HTTP 200 response is not a recognized RSS/Atom feed"
+            else:
+                rep["error"] = "HTTP 200 feed contained no entries"
         return fp, rep
     except Exception as e:
         rep["error"] = str(e)
@@ -298,18 +373,9 @@ def canon_link(raw_link, feed_url, doi):
     if raw_link and re.match(r"^https?://", raw_link): return raw_link
     if raw_link and raw_link.startswith("//"):         return "https:" + raw_link
     if raw_link:
-        p = urlparse(feed_url); base = f"{p.scheme}://{p.netloc}/"
-        return urljoin(base, raw_link)
+        return urljoin(feed_url, raw_link)
     if doi: return "https://doi.org/" + doi
     return ""
-
-# ---------------- main ----------------
-now_local = datetime.now(ASIA_TAIPEI)
-now_utc = now_local.astimezone(timezone.utc)
-cutoff = now_utc - timedelta(days=OUTPUT_WINDOW_DAYS)
-
-items_raw = []
-seen = set()
 
 def seen_key(doi, link):
     if doi: return ("doi", doi.lower())
@@ -317,11 +383,13 @@ def seen_key(doi, link):
     if m:  return ("arxiv", m.group(1).lower())
     return ("link", (link or "").lower())
 
-build_report = {
-    "generatedAt": iso(now_utc),
-    "windowDays": OUTPUT_WINDOW_DAYS,
-    "sources": []
-}
+def feed_urls(value):
+    """A source may combine official online-first and current-issue feeds."""
+    if isinstance(value, str):
+        return [value] if value else []
+    if isinstance(value, list):
+        return list(dict.fromkeys(url for url in value if isinstance(url, str) and url))
+    return []
 
 # ---------- Color palette (light bg + dark fg) ----------
 DEFAULT_TONES = [
@@ -351,227 +419,291 @@ def tone_for_index(i):
     t = DEFAULT_TONES[i % len(DEFAULT_TONES)]
     return (t["bg"], t["fg"])
 
-# ---------- Build sources meta (single source of truth) ----------
-sources_meta = []
-for i, src in enumerate(SOURCES):
-    bg = src.get("bg") or src.get("color") or src.get("toneBg")
-    fg = src.get("fg") or src.get("toneFg")
-    if not (bg and fg):
-        bg2, fg2 = tone_for_index(i)
-        bg = bg or bg2
-        fg = fg or fg2
+def retain_failed_source_items(previous_items, reports, cutoff, seen):
+    """Keep old articles when a source or a complementary issue/ASAP feed fails."""
+    attempts = {}
+    for report in reports:
+        pair = (report["key"], report["type"])
+        attempts.setdefault(pair, []).append(report)
+    failed = {pair for pair, rows in attempts.items()
+              if not any(row["ok"] for row in rows)
+              or any(not row["ok"] and row.get("origin") in ("recent", "accepted") for row in rows)}
+    retained = []
+    counts = {}
+    for previous in previous_items:
+        pair = (previous.get("journalKey"), previous.get("type"))
+        if pair not in failed:
+            continue
+        dt = parse_date({"published": previous.get("date")})
+        if not dt or dt < cutoff:
+            continue
+        key = seen_key(previous.get("doi"), previous.get("link"))
+        if key in seen:
+            continue
+        item = dict(previous)
+        item["title"] = plain_text(item.get("title", ""))
+        item["authors"] = normalize_authors(item.get("authors", []), item.get("journalKey", ""))
+        item["date"] = iso(dt)
+        retained.append((dt, item))
+        seen.add(key)
+        counts[pair] = counts.get(pair, 0) + 1
+    for pair, count in counts.items():
+        for report in attempts[pair]:
+            report["retainedItems"] = count
+    return retained
+
+
+def main(sources=None, output_path=None, now=None, lookup_arxiv=True):
+    global _ARX_SEARCH_FAILURES
+    _ARX_SEARCH_FAILURES = 0
+    sources = SOURCES if sources is None else sources
+    output_path = Path(output_path) if output_path is not None else ROOT / "data/articles.json"
+    now_utc = (now or datetime.now(ASIA_TAIPEI)).astimezone(timezone.utc)
+    cutoff = now_utc - timedelta(days=OUTPUT_WINDOW_DAYS)
+    items_raw = []
+    seen = set()
+    build_report = {"generatedAt": iso(now_utc), "windowDays": OUTPUT_WINDOW_DAYS, "sources": []}
+    try:
+        with output_path.open(encoding="utf-8") as f:
+            previous_items = json.load(f).get("items", [])
+    except (OSError, ValueError, AttributeError):
+        previous_items = []
+
+    # ---------- Build sources meta (single source of truth) ----------
+    sources_meta = []
+    for i, src in enumerate(sources):
+        bg = src.get("bg") or src.get("color") or src.get("toneBg")
+        fg = src.get("fg") or src.get("toneFg")
+        if not (bg and fg):
+            bg2, fg2 = tone_for_index(i)
+            bg = bg or bg2
+            fg = fg or fg2
+        sources_meta.append({
+            "key": src["key"],
+            "journal": src.get("journal", src["key"]),
+            "short": src.get("short", src["key"]),
+            "bg": bg,
+            "fg": fg
+        })
+
+    # arXiv meta (not in sources.json)
     sources_meta.append({
-        "key": src["key"],
-        "journal": src.get("journal", src["key"]),
-        "short": src.get("short", src["key"]),
-        "bg": bg,
-        "fg": fg
+        "key": "arXivCM",
+        "journal": "arXiv: cond-mat",
+        "short": "arXiv cond-mat",
+        "bg": "#e6fffb",
+        "fg": "#0e7490"
     })
 
-# arXiv meta (not in sources.json)
-sources_meta.append({
-    "key": "arXivCM",
-    "journal": "arXiv: cond-mat",
-    "short": "arXiv cond-mat",
-    "bg": "#e6fffb",
-    "fg": "#0e7490"
-})
+    # ---------- 1) sources.json feeds ----------
+    for src in sources:
+        key, journal = src["key"], src.get("journal", src["key"])
+        feeds = []
 
-# ---------- 1) sources.json feeds ----------
-for src in SOURCES:
-    key, journal = src["key"], src.get("journal", src["key"])
-    feeds = []
+        feeds.extend(("published", url, "recent") for url in feed_urls(src.get("recent")))
+        feeds.extend(("accepted", url, "accepted") for url in feed_urls(src.get("accepted")))
 
-    if src.get("recent"):
-        feeds.append(("published", src["recent"], "recent"))
-    if src.get("accepted"):
-        feeds.append(("accepted", src["accepted"], "accepted"))
+        prefetched = {}
+        # Some legacy "recentDiscover" URLs already return RSS. Try them directly first.
+        if src.get("recentDiscover"):
+            direct_url = src["recentDiscover"]
+            direct_fp, direct_rep = fetch_feed_with_report(direct_url)
+            if direct_rep["ok"]:
+                feeds.append(("published", direct_url, "direct"))
+                prefetched[direct_url] = (direct_fp, direct_rep)
+            else:
+                direct_rep.update({"key": key, "journal": journal, "type": "published", "origin": "direct"})
+                build_report["sources"].append(direct_rep)
+                found = discover_feed_from_html(direct_url, direct_url)
+                if found:
+                    feeds.append(("published", found, "discover"))
 
-    # For "recentDiscover", try to discover RSS/Atom; also optionally try common /rss endpoints
-    if src.get("recentDiscover"):
-        found = discover_feed_from_html(src["recentDiscover"], src["recentDiscover"])
-        if found:
-            feeds.append(("published", found, "discover"))
-        else:
-            # Heuristics for IOP: try "/rss" without requiring page parsing
-            try:
-                u = src["recentDiscover"].rstrip("/")
-                feeds.append(("published", u + "/rss", "heuristic"))
-            except Exception:
-                pass
+        for typ, feed_url, origin in feeds:
+            fp, rep = prefetched[feed_url] if feed_url in prefetched else fetch_feed_with_report(feed_url)
+            rep.update({"key": key, "journal": journal, "type": typ, "origin": origin})
+            build_report["sources"].append(rep)
+            log(key, typ, origin, "HTTP", rep["status"], "entries", rep["entries"])
 
-    for typ, feed_url, origin in feeds:
-        fp, rep = fetch_feed_with_report(feed_url)
-        rep.update({"key": key, "journal": journal, "type": typ, "origin": origin})
-        build_report["sources"].append(rep)
+            if not rep["ok"]:
+                continue
 
-        if not rep["ok"]:
-            continue
+            fallback_idx = 0
+            for e in (fp.entries or [])[:200]:
+                dt = parse_date(e)
+                if not dt:
+                    dt = now_utc - timedelta(hours=fallback_idx); fallback_idx += 1
 
-        fallback_idx = 0
-        for e in (fp.entries or [])[:200]:
-            dt = parse_date(e)
-            if not dt:
-                dt = now_utc - timedelta(hours=fallback_idx); fallback_idx += 1
+                # Early cut: we only keep last OUTPUT_WINDOW_DAYS
+                if dt < cutoff:
+                    continue
 
-            # Early cut: we only keep last OUTPUT_WINDOW_DAYS
+                doi = extract_doi(e)
+                raw = e.get("link") or (e.get("links",[{}])[0].get("href") if e.get("links") else "")
+                link = canon_link(raw, feed_url, doi)
+                link = ensure_https(link)
+
+                title = plain_text(e.get("title", ""))
+                if not title or not link:
+                    continue
+                sk = seen_key(doi, link)
+                if sk in seen:
+                    continue
+                seen.add(sk)
+
+                # authors
+                authors = []
+                if isinstance(e.get("authors"), list):
+                    for a in e["authors"]:
+                        nm = a.get("name") or ((a.get("given","")+" "+a.get("family","")).strip())
+                        if nm: authors.append(nm)
+                elif e.get("author"):
+                    authors = [e.get("author")]
+                authors = normalize_authors(authors, key)
+
+                raw_summary = e.get("summary") or (e.get("content",[{}])[0].get("value") if e.get("content") else "")
+
+                # APS citation extraction (helps BibTeX later)
+                cit_j, cit_vol, cit_pages, cit_text = extract_aps_citation(raw_summary)
+
+                summary = clean_summary(raw_summary, authors, key)
+
+                item = {
+                    "journalKey": key,
+                    "journal": journal,
+                    "journalShort": src.get("short", key),
+                    "type": typ,
+                    "title": title,
+                    "authors": authors,
+                    "date": iso(dt),
+                    "link": link,
+                    "doi": doi,
+                    "summary": summary,
+                }
+
+                # Optional structured fields (best-effort)
+                if cit_j and not item.get("journal"):
+                    item["journal"] = cit_j
+                if cit_vol: item["volume"] = cit_vol
+                if cit_pages: item["pages"] = cit_pages
+                if cit_text: item["citation"] = cit_text
+
+                # Publisher (APS)
+                if key.startswith("PR") or key == "RMP":
+                    item["publisher"] = "American Physical Society"
+
+                # APS accepted → try arXiv match (only for items within window)
+                if typ == "accepted" and (key.startswith("PR") or key == "RMP"):
+                    cached = _ARX_CACHE.get(title.lower())
+                    arx = find_arxiv_by_title(title) if lookup_arxiv else (cached if isinstance(cached, str) else (cached or {}).get("url"))
+                    if arx:
+                        item["arxiv"] = normalize_arxiv_abs(arx)
+
+                items_raw.append((dt, item))
+
+    # ---------- 2) arXiv cond-mat (API + RSS fallback) ----------
+    def add_arxiv_from_feed(fp):
+        for e in (fp.entries or []):
+            dt = parse_date(e) or now_utc
             if dt < cutoff:
                 continue
 
-            doi = extract_doi(e)
-            raw = e.get("link") or (e.get("links",[{}])[0].get("href") if e.get("links") else "")
-            link = canon_link(raw, feed_url, doi)
-            link = ensure_https(link)
+            title = plain_text(e.get("title", ""))
+            authors = [a.get("name") for a in e.get("authors", []) if a.get("name")]
+
+            raw = e.get("id") or e.get("link") or ""
+            doi = getattr(e, "arxiv_doi", None) or extract_doi(e)
+
+            abs_url = normalize_arxiv_abs(raw)
+            link = abs_url or canon_link(raw, ARXIV_COND_MAT_RSS, doi)
+            if not title or not link:
+                continue
 
             sk = seen_key(doi, link)
-            if sk in seen: 
+            if sk in seen:
                 continue
             seen.add(sk)
 
-            title = html.unescape(e.get("title","")).strip()
+            summary = clean_summary(e.get("summary",""), authors, "arXivCM")
 
-            # authors
-            authors = []
-            if isinstance(e.get("authors"), list):
-                for a in e["authors"]:
-                    nm = a.get("name") or ((a.get("given","")+" "+a.get("family","")).strip())
-                    if nm: authors.append(nm)
-            elif e.get("author"):
-                authors = parse_author_string(e.get("author"))
-
-            raw_summary = e.get("summary") or (e.get("content",[{}])[0].get("value") if e.get("content") else "")
-
-            # APS citation extraction (helps BibTeX later)
-            cit_j, cit_vol, cit_pages, cit_text = extract_aps_citation(raw_summary)
-
-            summary = clean_summary(raw_summary, authors, key)
-
-            item = {
-                "journalKey": key,
-                "journal": journal,
-                "journalShort": src.get("short", key),
-                "type": typ,
+            items_raw.append((dt, {
+                "journalKey": "arXivCM",
+                "journal": "arXiv: cond-mat",
+                "journalShort": "arXiv cond-mat",
+                "type": "preprint",
                 "title": title,
                 "authors": authors,
                 "date": iso(dt),
                 "link": link,
+                "arxiv": abs_url or link,
                 "doi": doi,
-                "summary": summary,
-            }
+                "summary": summary
+            }))
 
-            # Optional structured fields (best-effort)
-            if cit_j and not item.get("journal"):
-                item["journal"] = cit_j
-            if cit_vol: item["volume"] = cit_vol
-            if cit_pages: item["pages"] = cit_pages
-            if cit_text: item["citation"] = cit_text
-
-            # Publisher (APS)
-            if key.startswith("PR") or key == "RMP":
-                item["publisher"] = "American Physical Society"
-
-            # APS accepted → try arXiv match (only for items within window)
-            if typ == "accepted" and (key.startswith("PR") or key == "RMP"):
-                arx = find_arxiv_by_title(title)
-                if arx:
-                    item["arxiv"] = normalize_arxiv_abs(arx)
-                time.sleep(0.15)  # polite
-
-            items_raw.append((dt, item))
-
-# ---------- 2) arXiv cond-mat (API + RSS fallback) ----------
-def add_arxiv_from_feed(fp):
-    for e in (fp.entries or []):
-        dt = parse_date(e) or now_utc
-        if dt < cutoff:
-            continue
-
-        title = html.unescape(e.get("title","")).strip()
-        authors = [a.get("name") for a in e.get("authors", []) if a.get("name")]
-
-        raw = e.get("id") or e.get("link") or ""
-        doi = getattr(e, "arxiv_doi", None) or extract_doi(e)
-
-        abs_url = normalize_arxiv_abs(raw)
-        link = abs_url or canon_link(raw, ARXIV_COND_MAT_RSS, doi)
-
-        sk = seen_key(doi, link)
-        if sk in seen:
-            continue
-        seen.add(sk)
-
-        summary = clean_summary(e.get("summary",""), authors, "arXivCM")
-
-        items_raw.append((dt, {
-            "journalKey": "arXivCM",
-            "journal": "arXiv: cond-mat",
-            "journalShort": "arXiv cond-mat",
-            "type": "preprint",
-            "title": title,
-            "authors": authors,
-            "date": iso(dt),
-            "link": link,
-            "arxiv": abs_url or link,
-            "doi": doi,
-            "summary": summary
-        }))
-
-try:
-    r = client.get(ARXIV_COND_MAT_API, headers=UA)
-    fp = feedparser.parse(r.text)
-    build_report["sources"].append({
-        "key":"arXivCM", "journal":"arXiv: cond-mat", "type":"preprint", "origin":"api",
-        "url": ARXIV_COND_MAT_API, "ok": r.status_code==200, "status": r.status_code,
-        "contentType": r.headers.get("content-type",""), "entries": len(fp.entries or []),
-        "bozo": bool(getattr(fp,"bozo",False)), "error":""
-    })
-    add_arxiv_from_feed(fp)
-except Exception as e:
-    build_report["sources"].append({
-        "key":"arXivCM", "journal":"arXiv: cond-mat", "type":"preprint", "origin":"api",
-        "url": ARXIV_COND_MAT_API, "ok": False, "status": None, "contentType": None,
-        "entries": 0, "bozo": False, "error": str(e)
-    })
-    log("arXiv API failed:", e)
-
-try:
-    fp, rep = fetch_feed_with_report(ARXIV_COND_MAT_RSS)
-    rep.update({"key":"arXivCM", "journal":"arXiv: cond-mat", "type":"preprint", "origin":"rss"})
+    fp, rep = fetch_feed_with_report(ARXIV_COND_MAT_API)
+    rep.update({"key":"arXivCM", "journal":"arXiv: cond-mat", "type":"preprint", "origin":"api"})
     build_report["sources"].append(rep)
     if rep["ok"]:
         add_arxiv_from_feed(fp)
-except Exception as e:
-    build_report["sources"].append({
-        "key":"arXivCM", "journal":"arXiv: cond-mat", "type":"preprint", "origin":"rss",
-        "url": ARXIV_COND_MAT_RSS, "ok": False, "status": None, "contentType": None,
-        "entries": 0, "bozo": False, "error": str(e)
-    })
-    log("arXiv RSS failed:", e)
 
-# ---------- Finalize ----------
-items = [it for _, it in items_raw]
-items.sort(key=lambda x: x.get("date",""), reverse=True)
+    try:
+        fp, rep = fetch_feed_with_report(ARXIV_COND_MAT_RSS)
+        rep.update({"key":"arXivCM", "journal":"arXiv: cond-mat", "type":"preprint", "origin":"rss"})
+        build_report["sources"].append(rep)
+        if rep["ok"]:
+            add_arxiv_from_feed(fp)
+    except Exception as e:
+        build_report["sources"].append({
+            "key":"arXivCM", "journal":"arXiv: cond-mat", "type":"preprint", "origin":"rss",
+            "url": ARXIV_COND_MAT_RSS, "ok": False, "status": None, "contentType": None,
+            "entries": 0, "bozo": False, "error": str(e)
+        })
+        log("arXiv RSS failed:", e)
 
-# coverage
-dates = [datetime.fromisoformat(it["date"].replace("Z","+00:00")) for it in items if it.get("date")]
-coverage = {
-    "latest": iso(max(dates)) if dates else iso(now_utc),
-    "earliest": iso(min(dates)) if dates else iso(now_utc),
-    "count": len(items)
-}
+    # ---------- Finalize ----------
+    if not any(report["ok"] for report in build_report["sources"]):
+        raise RuntimeError("All feeds failed; keeping the previous articles.json")
+    retained = retain_failed_source_items(previous_items, build_report["sources"], cutoff, seen)
+    items_raw.extend(retained)
+    build_report["retainedItems"] = len(retained)
+    items = [it for _, it in items_raw]
+    items.sort(key=lambda x: x.get("date",""), reverse=True)
 
-out = {
-    "generatedAt": iso(now_utc),
-    "windowDays": OUTPUT_WINDOW_DAYS,
-    "coverage": coverage,
-    "sources": sources_meta,
-    "buildReport": build_report,
-    "items": items
-}
+    # coverage
+    dates = [datetime.fromisoformat(it["date"].replace("Z","+00:00")) for it in items if it.get("date")]
+    coverage = {
+        "latest": iso(max(dates)) if dates else iso(now_utc),
+        "earliest": iso(min(dates)) if dates else iso(now_utc),
+        "count": len(items)
+    }
 
-with open("data/articles.json", "w", encoding="utf-8") as f:
-    json.dump(out, f, ensure_ascii=False, indent=2)
+    out = {
+        "generatedAt": iso(now_utc),
+        "windowDays": OUTPUT_WINDOW_DAYS,
+        "coverage": coverage,
+        "sources": sources_meta,
+        "buildReport": build_report,
+        "items": items
+    }
 
-save_arxiv_cache(_ARX_CACHE)
+    if not items:
+        raise RuntimeError("No usable recent articles; keeping the previous articles.json")
+    atomic_json_write(output_path, out)
 
-log("done. items =", len(items), "windowDays =", OUTPUT_WINDOW_DAYS)
+    if lookup_arxiv:
+        save_arxiv_cache(_ARX_CACHE)
+
+    log("done. items =", len(items), "windowDays =", OUTPUT_WINDOW_DAYS)
+
+    return out
+
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--skip-arxiv-title-search", action="store_true",
+                        help="Refresh feeds using cached arXiv matches without optional per-title API queries")
+    args = parser.parse_args()
+    try:
+        main(lookup_arxiv=not args.skip_arxiv_title_search)
+    finally:
+        client.close()
