@@ -2,8 +2,11 @@ name: Fetch latest journal feeds (14-day window)
 
 on:
   workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths: ['.github/workflows/fetch.yml', 'scripts/**', 'data/sources.json']
   schedule:
-    - cron: '0 */2 * * *'  # 每 2 小时刷新一次（UTC）
+    - cron: '17 */2 * * *'  # 每 2 小时刷新一次（UTC），避开整点高峰
 
 concurrency:
   group: journal-feed-update
@@ -11,6 +14,10 @@ concurrency:
 
 permissions:
   contents: write
+  pages: write
+
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
 
 jobs:
   build:
@@ -50,3 +57,45 @@ jobs:
           git commit -m "chore(data): update articles.json"
           git pull --rebase
           git push
+
+      # GITHUB_TOKEN pushes do not trigger a branch-based Pages build.
+      # Run this even when data was unchanged, so a retry can repair a failed deployment.
+      - name: Publish data and verify the live site
+        timeout-minutes: 10
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SITE_URL="$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq .html_url)"
+          export SITE_URL
+          gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import time
+          from urllib.error import URLError
+          from urllib.request import Request, urlopen
+
+          expected = Path('data/articles.json').read_bytes()
+          digest = hashlib.sha256(expected).digest()
+          print('Waiting for published data:', json.loads(expected)['generatedAt'], flush=True)
+          deadline = time.monotonic() + 8 * 60
+          attempt = 0
+          while time.monotonic() < deadline:
+              url = (os.environ['SITE_URL'].rstrip('/') + '/data/articles.json'
+                     + f"?run={os.environ['GITHUB_RUN_ID']}-{attempt}")
+              try:
+                  request = Request(url, headers={'Cache-Control': 'no-cache'})
+                  with urlopen(request, timeout=15) as response:
+                      actual = response.read()
+                  if hashlib.sha256(actual).digest() == digest:
+                      print('Published data matches the generated file.', flush=True)
+                      break
+              except (URLError, TimeoutError) as error:
+                  print(f'Waiting for Pages: {error}', flush=True)
+              attempt += 1
+              time.sleep(10)
+          else:
+              raise SystemExit('GitHub Pages did not publish the expected data within the verification window.')
+          PY

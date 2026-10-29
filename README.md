@@ -50,7 +50,9 @@ node --test scripts/test_frontend.cjs tests/test_math.mjs
 
 ## GitHub Pages
 
-仓库 Settings → Pages 使用 **Deploy from a branch → main → /(root)**。`Fetch latest journal feeds (14-day window)` 工作流每两小时运行，也可手动触发；它只提交两个生成的数据文件。修改站点源文件后需提交并推送到部署分支，Pages 才会更新。
+仓库 Settings → Pages 使用 **Deploy from a branch → main → /(root)**。`Fetch latest journal feeds (14-day window)` 工作流每两小时运行（GitHub 调度可能延迟），也可手动触发；修改抓取脚本、来源配置或工作流时会立即触发。它只提交两个生成的数据文件，随后显式请求 Pages 构建，并校验线上数据与生成文件完全一致。修改站点源文件后需提交并推送到部署分支，Pages 才会更新。
+
+网页的「刷新数据」只重新读取已发布的 JSON，不会启动 RSS 抓取。出现超过 24 小时未更新的提示时，应检查 Actions 中抓取、提交和发布各步骤；可在该工作流页面点击 **Run workflow** 手动恢复。Python 缓存文件不应提交到仓库，工作流也禁止生成字节码，避免缓存变动阻止 Git 同步。
 
 抓取失败时先查看页面「RSS 状态」与 Actions 日志。部分出版商会返回访问限制或防机器人页面，HTTP 200 本身不能证明 RSS 正常。审阅结果及已知限制见 [REVIEW.md](REVIEW.md)。
 
