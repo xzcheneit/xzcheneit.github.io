@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-22T02:16:24.974701+00:00",
+  "generatedAt": "2026-11-22T09:54:58.646864+00:00",
   "windowDays": 14,
   "coverage": {
     "latest": "2026-11-22T00:00:00+00:00",
     "earliest": "2026-11-08T10:00:00+00:00",
-    "count": 1290
+    "count": 1288
   },
   "sources": [
     {
@@ -163,7 +163,7 @@
     }
   ],
   "buildReport": {
-    "generatedAt": "2026-11-22T02:16:24.974701+00:00",
+    "generatedAt": "2026-11-22T09:54:58.646864+00:00",
     "windowDays": 14,
     "sources": [
       {
@@ -393,17 +393,18 @@
       },
       {
         "url": "https://www.nature.com/nphys.rss",
-        "ok": true,
+        "ok": false,
         "status": 200,
-        "contentType": "application/rss+xml; charset=utf-8",
-        "entries": 8,
-        "bozo": false,
-        "error": "",
-        "latestArticleAt": "2026-11-16T00:00:00+00:00",
+        "contentType": "text/html; charset=utf-8",
+        "entries": 0,
+        "bozo": true,
+        "error": "HTTP 200 response is not a recognized RSS/Atom feed",
+        "latestArticleAt": null,
         "key": "NatPhys",
         "journal": "Nature Physics",
         "type": "published",
-        "origin": "recent"
+        "origin": "recent",
+        "retainedItems": 8
       },
       {
         "url": "https://www.nature.com/ncomms.rss",
@@ -480,10 +481,10 @@
         "ok": true,
         "status": 200,
         "contentType": "text/xml",
-        "entries": 7,
+        "entries": 5,
         "bozo": false,
         "error": "",
-        "latestArticleAt": "2026-11-20T19:00:34+00:00",
+        "latestArticleAt": "2026-11-21T15:00:35+00:00",
         "key": "NanoLett",
         "journal": "Nano Letters",
         "type": "published",
@@ -644,7 +645,7 @@
         "origin": "rss"
       }
     ],
-    "retainedItems": 75
+    "retainedItems": 83
   },
   "items": [
     {
@@ -652,22 +653,116 @@
       "journal": "Nature Communications",
       "journalShort": "Nat Commun.",
       "type": "published",
-      "title": "Episodic memory consolidation by reactivation of human concept neurons during sleep reflects contents, not sequence of events",
+      "title": "Electrically induced glass transition of polyelectrolyte complexes enables kinetic ionic diodes",
       "authors": [
-        "J. Niediek",
-        "T. P. Reber",
-        "M. Bausch",
-        "F. Schwimmbeck",
-        "H. Gast",
-        "V. A. Coenen",
-        "J. Boström",
-        "C. E. Elger",
-        "F. Mormann"
+        "Chankyu Kim",
+        "Chan-Hyuk Jeon",
+        "Jowon Shin",
+        "Younghoon Kim",
+        "Owen A. Lee",
+        "Ryan C. Hayward",
+        "Hyeong Jun Kim"
       ],
       "date": "2026-11-22T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-79544-z",
-      "doi": "10.1038/s41467-026-79544-z",
-      "summary": "Nature Communications, Published online: 22 November 2026; doi:10.1038/s41467-026-79544-z Recording from epilepsy patients during learning, recall, and sleep, the authors show that semantically tuned concept cells in the medial temporal lobe encode the content, but not the sequential order of remembered events"
+      "link": "https://www.nature.com/articles/s41467-026-79559-6",
+      "doi": "10.1038/s41467-026-79559-6",
+      "summary": "Nature Communications, Published online: 22 November 2026; doi:10.1038/s41467-026-79559-6 The glass transition induces changes in material properties, transforming a rigid glass into a soft rubber. Here the authors demonstrate an electrically induced glass transition in a polyelectrolyte complex, sandwiched between two oppositely charged ionoelastomers and applying time-temperature-salt superposition principle."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "The genetic and proteomic determinants of pediatric stature development and their link to adult height and type 2 diabetes",
+      "authors": [
+        "N. Fragoso-Bargas",
+        "AE Lupu",
+        "I. Campillo-Pereda",
+        "Y. Huang",
+        "J. Sundfjord",
+        "R. Karimi",
+        "T. Lind",
+        "JC Holm",
+        "LA Holm",
+        "A. Havdahl",
+        "OA Andreassen",
+        "S. O’Rahilly",
+        "P. Sole-Navais",
+        "B. Jacobsson",
+        "E. Bratland",
+        "G. Davey Smith",
+        "PB Juliusson",
+        "KK Ong",
+        "T. Hansen",
+        "PR Njølstad",
+        "M. Vaudel",
+        "S. Johansson"
+      ],
+      "date": "2026-11-22T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-79465-x",
+      "doi": "10.1038/s41467-026-79465-x",
+      "summary": "Nature Communications, Published online: 22 November 2026; doi:10.1038/s41467-026-79465-x Childhood growth reflects complex genetic and biological processes, but their developmental timing is not fully understood. Here, the authors identify stage‑specific genetic and proteomic influences on growth from infancy through childhood, and reveal links between early growth patterns and later type 2 diabetes risk."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "A quantitative deep-learning-based framework reveals a continuum of chromatin sensitivities across transcription factors",
+      "authors": [
+        "Lukas Burger",
+        "Noa Gil",
+        "Dirk Schübeler"
+      ],
+      "date": "2026-11-22T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-79404-w",
+      "doi": "10.1038/s41467-026-79404-w",
+      "summary": "Nature Communications, Published online: 22 November 2026; doi:10.1038/s41467-026-79404-w The authors develop a deep-learning-based framework revealing that TF binding sensitivity to chromatin is a continuum rather than a binary feature, and that binding patterns can be explained by a mixture of hierarchical and cooperative mechanisms."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Benzoxaboroles target CPSF3 for degradation through a SUMO-dependent pathway in trypanosomes",
+      "authors": [
+        "Ning Zhang",
+        "Farnaz Zahedifard",
+        "Abdul Samad",
+        "Simone Altmann",
+        "Melanie Ridgway",
+        "Richard J. Wall",
+        "Michele Tinti",
+        "Eric C. Schirmer",
+        "David Horn",
+        "Martin Zoltner",
+        "Mark C. Field"
+      ],
+      "date": "2026-11-22T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-79400-0",
+      "doi": "10.1038/s41467-026-79400-0",
+      "summary": "Nature Communications, Published online: 22 November 2026; doi:10.1038/s41467-026-79400-0 Benzoxaborole drugs, such as acoziborole, target CPSF3 and mRNA processing in multiple parasites. Here the authors find that these drugs rapidly and specifically target trypanosome CPSF3 for degradation, in a SUMO- and proteasome-dependent manner."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Foliar and floral frost damage reshape reproductive phenology with limited carry-over effects",
+      "authors": [
+        "Jianhong Lin",
+        "Nicolas Delpierre",
+        "Cyrille Rathgeber",
+        "Hai Ren",
+        "Jian-Guo Huang",
+        "Frank Berninger",
+        "Xiaobo Li",
+        "Qianqian Ma"
+      ],
+      "date": "2026-11-22T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-79723-y",
+      "doi": "10.1038/s41467-026-79723-y",
+      "summary": "Nature Communications, Published online: 22 November 2026; doi:10.1038/s41467-026-79723-y Late spring frost can damage plant tissues and disrupt reproduction. The authors show that frost damage to leaves shortens the fruit development period, whereas damage to flowers prolongs it, with limited carry-over effects into the following year."
     },
     {
       "journalKey": "NatCommun",
@@ -692,6 +787,102 @@
       "link": "https://www.nature.com/articles/s41467-026-79747-4",
       "doi": "10.1038/s41467-026-79747-4",
       "summary": "Nature Communications, Published online: 22 November 2026; doi:10.1038/s41467-026-79747-4 Surface auditory brainstem implants have poor spatial resolution and limited tonotopic access. Here, the authors develop a high-density, ultra-flexible penetrating array for frequency-selective cochlear nucleus stimulation and use-dependent plasticity in downstream auditory circuits."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Desmin filaments extend along actin filaments within the mouse skeletal muscle sarcomere",
+      "authors": [
+        "Sunu Joseph",
+        "Joon-Hyuk Ko",
+        "Nitsan Dahan",
+        "Tali Dadosh",
+        "Hana K. Pak",
+        "Jonathan A. Kirk",
+        "Wonho Jhe",
+        "Shenhav Shemer"
+      ],
+      "date": "2026-11-22T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-79344-5",
+      "doi": "10.1038/s41467-026-79344-5",
+      "summary": "Nature Communications, Published online: 22 November 2026; doi:10.1038/s41467-026-79344-5 Here, the authors use super-resolution microscopy to show that desmin filaments extend beyond Z-lines and align with actin inside mouse skeletal muscle sarcomeres, where they help support force generation when sarcomeres are stretched."
+    },
+    {
+      "journalKey": "NatCommun",
+      "journal": "Nature Communications",
+      "journalShort": "Nat Commun.",
+      "type": "published",
+      "title": "Denitrogenative glycosylations of glycosyl sulfonohydrazides",
+      "authors": [
+        "Shiyin Zhao",
+        "Shuai Chen",
+        "Han Ma",
+        "Yong Nian",
+        "Bo Yang",
+        "Feng Zhu"
+      ],
+      "date": "2026-11-22T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41467-026-79707-y",
+      "doi": "10.1038/s41467-026-79707-y",
+      "summary": "Nature Communications, Published online: 22 November 2026; doi:10.1038/s41467-026-79707-y Despite notable progress, the development of novel and efficient glycosyl radical precursors that are readily accessible, synthetically versatile, and compatible with stereoselective coupling platforms remains an ongoing challenge. Here the authors report a nickel-catalysed stereoselective denitrogenative glycosylation of redox-neutral glycosyl sulfonohydrazides via anomeric C–N bond homolysis."
+    },
+    {
+      "journalKey": "NanoLett",
+      "journal": "Nano Letters",
+      "journalShort": "Nano Lett.",
+      "type": "published",
+      "title": "Enhanced Fatigue Resistance in Nanolayered Cu/MoS 2 Films via Synergistic In-Plane and Out-of-Plane Crack Control",
+      "authors": [
+        "Jiali He, Rui Su, Yun Xia, Kai Chen, Yaqiang Wang, Kai Wu, Jinyu Zhang, Gang Liu, and Jun Sun"
+      ],
+      "date": "2026-11-21T15:00:35+00:00",
+      "link": "https://pubs.acs.org/nalefd/article/doi/10.1021/acs.nanolett.6c04902/5474460/Enhanced-Fatigue-Resistance-in-Nanolayered-Cu-MoS2",
+      "doi": "10.1021/acs.nanolett.6c04902",
+      "summary": "Abstract Metal thin films in flexible electronics often fail electrically under cyclic loading due to unrestrained fatigue cracking. Unlike conventional strategies that mainly address out-of-plane fracture, we control both out-of-plane and in-plane cracking by introducing a nanolayered (NL) Cu/MoS 2 film with alternating Cu layers and thin MoS 2 interlayers. Under cyclic loading, the resistance of the NL film saturates at a low plateau after prolonged cycling, in stark contrast to the continuous resistance rise observed in pure Cu. Systematic tuning of the MoS 2 thickness reveals that an appropriate interlayer thickness induces spontaneous surface roughening, which promotes a dense network of short microcracks that effectively arrests in-plane crack propagation. Concurrently, the Cu/MoS 2 interfaces deflect out-of-plane cracks, markedly enhancing crack propagation resistance. Electroluminescent devices employing the NL film demonstrate excellent long-term cyclic stability. This work highlights a synergistic strategy combining nanolayered architecture and self-organized surface microstructure for durable flexible electronics."
+    },
+    {
+      "journalKey": "NanoLett",
+      "journal": "Nano Letters",
+      "journalShort": "Nano Lett.",
+      "type": "published",
+      "title": "Arbitrary Wavefront Engineering of Diamond Raman Lasers Using Metasurfaces",
+      "authors": [
+        "Cheng-Long Zheng, Yong-Sheng Hu, Ke-Xue Li, Xiao-Bo Mi, Yong-Yang Zhu, Shang-Heng Li, Chen-Lu Zhang, Zhi-Peng Wei, Chong-Xin Shan, and Pei-Nan Ni"
+      ],
+      "date": "2026-11-21T15:00:35+00:00",
+      "link": "https://pubs.acs.org/nalefd/article/doi/10.1021/acs.nanolett.6c04693/5474459/Arbitrary-Wavefront-Engineering-of-Diamond-Raman",
+      "doi": "10.1021/acs.nanolett.6c04693",
+      "summary": "Abstract Diamond Raman lasers provide a powerful and versatile route to achieving high-power coherent emission across a broad spectral range. However, their dependence on complex and bulky free-space optics has posed a significant barrier to miniaturization and system level integration. In this work, we overcome this limitation by integrating a metasurface to enable an arbitrary wavefront control of a diamond Raman laser. This hybrid platform demonstrates remarkable versatility, supporting a diverse range of advanced functionalities, from grayscale display and multichannel vortex beam generation to dual-focus output with tunable intensity ratios and multiplane holography. Our approach uniquely combines the power scalability, coherence, and spectral coverage of state-of-the-art diamond lasers with the precise, ultracompact wavefront manipulation enabled by metasurfaces. By doing so, this work provides a viable route to bridging the long-standing gap between high-power laser generation and wavefront engineering, opening new avenues for transformative applications in compact communication, sensing, and imaging systems."
+    },
+    {
+      "journalKey": "NanoLett",
+      "journal": "Nano Letters",
+      "journalShort": "Nano Lett.",
+      "type": "published",
+      "title": "High-Performance Strain-Sensing Fibers via a Multidimensional Percolation Network Strategy for Intelligent Speech System",
+      "authors": [
+        "Xiao Wei, Shengxin Xiang, Zhishui Chen, Lei Liu, Huiyun Zhang, Xinkai Xie, Qiongfeng Shi, and Jun Wu"
+      ],
+      "date": "2026-11-21T15:00:35+00:00",
+      "link": "https://pubs.acs.org/nalefd/article/doi/10.1021/acs.nanolett.6c04249/5474458/High-Performance-Strain-Sensing-Fibers-via-a",
+      "doi": "10.1021/acs.nanolett.6c04249",
+      "summary": "Abstract Flexible strain sensors often face trade-offs among sensitivity, sensing range, resolution, and stability under deformation. Here, we report a multidimensional percolation strategy for high-performance strain-sensing fibers by integrating 0D Ag microparticles, 1D carbon nanotubes, and 2D carbon sheets into a ternary conductive network through wet spinning. The fibers exhibit a maximum gauge factor of 4640.1, a sensing range up to 65%, and a strain resolution of 0.025%, which is retained under 20% prestrain. Their microstrain sensitivity enables the detection of mechanical signals associated with magnetic microrobot locomotion and the identification of bionic insect model movements using a biomimetic spider-web network. Coupling the fibers with deep learning yields 98.7% recognition accuracy across 21 spoken-word classes. Integration with virtual reality further demonstrates a speech-driven interface in which recognized speech triggers predefined virtual-character responses. These results provide a route toward high-performance fiber sensors for intelligent human–machine interaction."
+    },
+    {
+      "journalKey": "NanoLett",
+      "journal": "Nano Letters",
+      "journalShort": "Nano Lett.",
+      "type": "published",
+      "title": "Orbital Occupancy as Screening Criterion for Second-Order Topology in C 3 -Derived Hexagonal Lattices",
+      "authors": [
+        "Yifan Li, Kai Zhang, Haifeng Lv, Xiaojun Wu, and Jinlong Yang"
+      ],
+      "date": "2026-11-21T15:00:35+00:00",
+      "link": "https://pubs.acs.org/nalefd/article/doi/10.1021/acs.nanolett.6c04056/5474457/Orbital-Occupancy-as-Screening-Criterion-for",
+      "doi": "10.1021/acs.nanolett.6c04056",
+      "summary": "Abstract Identifying molecular building units for two-dimensional second-order topology generally requires analyzing the assembled framework. Here we establish an orbital-occupancy criterion for centrosymmetric, spinless hexagonal lattices assembled from C 3 -symmetric motifs. Tight-binding analysis identifies Dirac, four-band, and Kagome-derived sectors, with only the occupied Kagome-derived sector contributing nontrivially to the second Stiefel–Whitney invariant ω2 . The criterion has two steps: N SOMO , the number of singly occupied molecular orbitals of the motif, must satisfy N SOMO ≡ 0 (mod 3) for a symmetry-preserving band insulator; once a gap and the required sector connectivity are confirmed, the parity of N OCC , the number of occupied bands below the target gap, determines ω 2 (odd: 1; even: 0). First-principles calculations on 30 graphene antidot lattices and 25 covalent organic frameworks validate the criterion and identify 6 flat-band second-order topological insulator candidates. This orbital-based prescreen narrows the search for second-order topology in C 3 -derived hexagonal lattices."
     },
     {
       "journalKey": "PRE",
@@ -792,149 +983,6 @@
       "summary": "Controlling the fate of photoexcited carriers at semiconductor surfaces is a central problem connecting ultrafast materials science with infrared detection, high-speed optoelectronics, and quantum-device engineering. Yet carrier lifetimes are commonly reported as intrinsic material constants. In nar…",
       "citation": "Phys. Rev. Research",
       "publisher": "American Physical Society"
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Accelerating high-throughput catalyst screening by direct generation of equilibrium adsorption structures",
-      "authors": [
-        "Songze Huo",
-        "Xiao-Ming Cao"
-      ],
-      "date": "2026-11-21T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-79243-9",
-      "doi": "10.1038/s41467-026-79243-9",
-      "summary": "Nature Communications, Published online: 21 November 2026; doi:10.1038/s41467-026-79243-9 The authors develop DBCata, a generative model trained without energy or force labels to produce near-equilibrium adsorption structures, enabling faster screening of candidate catalysts."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Greenhouse gas responses to coastal wetland land use change vary by ecosystem and conversion pathway",
-      "authors": [
-        "Zihao Wang",
-        "Feifei Yan",
-        "Can Wang",
-        "Jingyu Sun",
-        "Mingzhi Liu",
-        "Xianbiao Lin"
-      ],
-      "date": "2026-11-21T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-79685-1",
-      "doi": "10.1038/s41467-026-79685-1",
-      "summary": "Nature Communications, Published online: 21 November 2026; doi:10.1038/s41467-026-79685-1 This study shows that greenhouse gas responses to coastal wetland land use change depend on the original ecosystem and conversion pathway, highlighting the climate value of conserving vegetated wetlands and targeting restoration."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Mapping temperature using transmission Kikuchi diffraction",
-      "authors": [
-        "Yueyun Chen",
-        "Xin Yi Ling",
-        "Jared J. Lodico",
-        "Tristan P. O’Neill",
-        "B. C. Regan",
-        "Matthew Mecklenburg"
-      ],
-      "date": "2026-11-21T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-77502-3",
-      "doi": "10.1038/s41467-026-77502-3",
-      "summary": "Nature Communications, Published online: 21 November 2026; doi:10.1038/s41467-026-77502-3 Measuring nanoscale temperatures is hard: contact probes perturb samples and optical methods lack resolution. Here, authors develop Kikuchi diffraction thermometry, a non-contact electron microscopy method that maps nanoscale temperatures via tiny heat-induced lattice changes."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Entropy-engineered polar heterogeneity enables near-decoupled polarization–strain behavior for high-density energy storage",
-      "authors": [
-        "Yule Yang",
-        "Leiyang Zhang",
-        "Yunyao Huang",
-        "Fukang Chen",
-        "Yuxuan Yang",
-        "Ruiyi Jing",
-        "Zibin Chen",
-        "Liqiang He",
-        "Dong Wang",
-        "Bin Zhou",
-        "Xuefeng Chen",
-        "Yang Zhang",
-        "Haijun Wu",
-        "Hua Tan",
-        "Haibo Zhang",
-        "Gang Liu",
-        "Yan Yan",
-        "Jun Yang",
-        "Shujun Zhang",
-        "Li Jin"
-      ],
-      "date": "2026-11-21T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-79625-z",
-      "doi": "10.1038/s41467-026-79625-z",
-      "summary": "Nature Communications, Published online: 21 November 2026; doi:10.1038/s41467-026-79625-z Strong polarization–strain coupling limits the energy density and reliability of lead-free dielectric capacitors. Here, the authors show that entropy-engineered polar heterogeneity weakens this coupling, enabling ultrahigh energy storage with minimal electrostrain."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "Shape conforming Janus hydrogel for preventing anastomotic leaks",
-      "authors": [
-        "Dongjie Song",
-        "Lihao Chen",
-        "Ye Li",
-        "Chujun Ni",
-        "Hang Yang",
-        "Sheng Chen",
-        "Chenyue Yang",
-        "Xufeng Liao",
-        "Jianqing Yu",
-        "Yue Liu",
-        "Yeting Hu",
-        "Xiangxing Kong",
-        "Chuansheng Guo",
-        "Haiyan Chen",
-        "Qian Xiao",
-        "Qian Zhao",
-        "Tao Xie",
-        "Kefeng Ding"
-      ],
-      "date": "2026-11-21T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-79644-w",
-      "doi": "10.1038/s41467-026-79644-w",
-      "summary": "Nature Communications, Published online: 21 November 2026; doi:10.1038/s41467-026-79644-w Anastomotic leaks remain a major complication of gastrointestinal surgery, yet existing sealants often fail to provide durable coverage of irregular tissue surfaces. Here, the authors develop a Janus powder-derived dressing composed of an adhesive porous layer mechanically interlocked with a non-adhesive backing. The material conforms to anastomotic tissues, resists unwanted post-surgical adhesions, and provides sustained sealing, offering a promising strategy for leak prevention and repair."
-    },
-    {
-      "journalKey": "NatCommun",
-      "journal": "Nature Communications",
-      "journalShort": "Nat Commun.",
-      "type": "published",
-      "title": "A global atlas of digital dermatology to map innovation and disparities",
-      "authors": [
-        "Fabian Gröger",
-        "Simone Lionetti",
-        "Philippe Gottfrois",
-        "Alvaro Gonzalez-Jimenez",
-        "Lea Habermacher",
-        "Ludovic Amruthalingam",
-        "Matthew Groh",
-        "Marc Pouly",
-        "Alexander A. Navarini",
-        "Maximilian Böhm",
-        "Sara Cerminara",
-        "Georgios Nikolakis",
-        "Alexander Romswinkel"
-      ],
-      "date": "2026-11-21T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41467-026-78602-w",
-      "doi": "10.1038/s41467-026-78602-w",
-      "summary": "Nature Communications, Published online: 21 November 2026; doi:10.1038/s41467-026-78602-w The authors map 1.1 million dermatology images to assess the diversity of data used to train AI and find major gaps in darker skin tones and children, highlighting the importance of representation for future data collection."
     },
     {
       "journalKey": "Nature",
@@ -3758,90 +3806,6 @@
       "link": "https://www.science.org/doi/abs/10.1126/sciadv.aen2647?af=R",
       "doi": "10.1126/sciadv.aen2647",
       "summary": "Science Advances, Volume 12, Issue 47, November 2026."
-    },
-    {
-      "journalKey": "NanoLett",
-      "journal": "Nano Letters",
-      "journalShort": "Nano Lett.",
-      "type": "published",
-      "title": "From Resistive to FET-Type Gas Sensors: Enhanced Capability through the Addition of Terminals",
-      "authors": [
-        "Zhen Yuan, Qihao Wang, Lijiang Zhao, Zaihua Duan, Yadong Jiang, and Huiling Tai"
-      ],
-      "date": "2026-11-20T06:00:58+00:00",
-      "link": "https://pubs.acs.org/nalefd/article/doi/10.1021/acs.nanolett.6c04757/5473828/From-Resistive-to-FET-Type-Gas-Sensors-Enhanced",
-      "doi": "10.1021/acs.nanolett.6c04757",
-      "summary": "Abstract Embodied artificial intelligence and artificial olfaction demand highly integrated gas sensors that combine sensing and computation. Conventional two-terminal chemiresistors face limitations in active modulation, miniaturization, and monolithic circuit integration, motivating the development of multiterminal field-effect transistor (FET) gas sensors. Their gate terminals enable tunable sensitivity, signal amplification, and, in suitable architectures, nonvolatile memory, offering opportunities for integrated sensing and computing. This review traces the evolution from two-terminal chemiresistors to multiterminal FET gas sensors, first comparing their structures and sensing mechanisms. It then examines how gate engineering improves sensitivity, selectivity, and integration while enabling olfactory synaptic functions, near-sensor computing, and in-sensor computing. Finally, current limitations and future research directions are discussed to guide the development of intelligent FET gas sensors for artificial olfaction."
-    },
-    {
-      "journalKey": "NanoLett",
-      "journal": "Nano Letters",
-      "journalShort": "Nano Lett.",
-      "type": "published",
-      "title": "Edge-Selective Growth of Monodisperse PtO X on Two-Dimensional Ni(OH) 2 Nanosheets",
-      "authors": [
-        "Jingtao Wang, Qiyun Wang, Jialu Lou, Yiming Zhang, Chao Wu, Haipeng Wang, Shibo Xi, Haofeng Xiang, Ruolin Zhou, Yuanmiao Sun, Junhua Li, and Xiaopeng Wang"
-      ],
-      "date": "2026-11-20T05:00:36+00:00",
-      "link": "https://pubs.acs.org/nalefd/article/doi/10.1021/acs.nanolett.6c04135/5473815/Edge-Selective-Growth-of-Monodisperse-PtOX-on-Two",
-      "doi": "10.1021/acs.nanolett.6c04135",
-      "summary": "Abstract Precise spatial regulation of noble-metal species is crucial for maximizing metal utilization and enabling site-specific electronic interactions. Edge sites in layered hydroxides possess distinct coordination and electronic structures, yet selectively stabilizing noble-metal species at active boundaries remains challenging. We report a photoassisted edge-selective anchoring strategy to selectively anchor highly dispersed oxidized Pt species at Ni(OH) 2 nanosheet edges, forming a well-defined Ni(OH) 2 @PtO X edge heterointerface. Structural and spectroscopic analyses reveal edge-enriched, approximately octahedrally coordinated PtO X species stabilized by strong Pt–O–Ni coupling without perturbing the bulk lattice. In methanol oxidation, the edge-engineered catalyst exhibits higher activity, faster kinetics, and selective formate production than Ni(OH) 2 and non-edge-selective Pt-loaded systems. Operando spectroscopy, electrochemical analysis, and DFT show that edge-confined PtO X promotes NiOOH formation and electronically tunes adjacent unsaturated edge-Ni sites, lowering the barrier for initial methanol activation. This work establishes two-dimensional edge engineering as a strategy for constructing functionally nonequivalent heterointerfaces."
-    },
-    {
-      "journalKey": "NanoLett",
-      "journal": "Nano Letters",
-      "journalShort": "Nano Lett.",
-      "type": "published",
-      "title": "Decoding Electronic Effects of Pd through Synergistic Interstitial Alloying for Accelerated Formic Acid Oxidation",
-      "authors": [
-        "Jun Li, Jian Dong, Jiayi Ou, Yu Zhang, Siyu Zhou, Zhengyu Xiao, Shuke Huang, Lili Han, Yujie Song, Chenyang Zhao, and Dan Wang"
-      ],
-      "date": "2026-11-20T04:00:36+00:00",
-      "link": "https://pubs.acs.org/nalefd/article/doi/10.1021/acs.nanolett.6c04794/5473800/Decoding-Electronic-Effects-of-Pd-through",
-      "doi": "10.1021/acs.nanolett.6c04794",
-      "summary": "Abstract The contradictory roles of long-range strain and short-range ligand interactions have created a complex electronic landscape that hinders the rational design of high-performance formic acid oxidation reaction catalysts. To address these issues, a synergistic interstitial alloying strategy to engineer Pd catalysts with electron-rich and electron-deficient domains was deliberately designed. Due to the unique valence electron configurations of H and P, the H, P codoped Pd catalyst exhibits mass activity of 2904 mA mg –1 Pd and specific activity of 189 A m –2 , outperforming commercial Pd/C by 15.7 and 13.7 times, respectively. Microkinetic analysis, density functional theory calculations, and in situ techniques demonstrate that H doping mainly induces lattice strain, while P doping dominates the ligand effect. The synergistic H, P codoping facilitates the direct dehydrogenation and suppresses CO formation. This work provides a new idea for precisely regulating the selectivity of multipathway electrochemical reactions."
-    },
-    {
-      "journalKey": "NanoLett",
-      "journal": "Nano Letters",
-      "journalShort": "Nano Lett.",
-      "type": "published",
-      "title": "Double Quantum Spin Hall Phase in Bilayer ZrTe 5",
-      "authors": [
-        "Chao Chen Ye, Gábor Kalla, Marcio Costa, Jianting Ye, and Jagoda Sławińska"
-      ],
-      "date": "2026-11-20T04:00:36+00:00",
-      "link": "https://pubs.acs.org/nalefd/article/doi/10.1021/acs.nanolett.6c04816/5473796/Double-Quantum-Spin-Hall-Phase-in-Bilayer-ZrTe5",
-      "doi": "10.1021/acs.nanolett.6c04816",
-      "summary": "Abstract Quantum spin Hall (QSH) insulators host helical edge states that enable dissipationless transport, but realizing multiple conducting channels in experimentally accessible materials with large band gaps remains challenging. Here, we show that AB-stacked untwisted bilayer ZrTe 5 naturally realizes a double QSH phase in its energetically most stable structure, revealing an unexpected multichannel transport regime. The phase hosts two pairs of helical edge states and a doubled quantized spin Hall conductivity, with spin Chern number C s = 2 despite the conventional Z2=0 classification. Lattice deformation tunes the system through a metallic state to a conventional QSH phase with Z2=1, enabling control of the number of helical channels. Remarkably, the quantized spin Hall response persists over an energy window substantially larger than the bulk band gap, exceeding 100 meV. Our results establish bilayer ZrTe 5 as an experimentally accessible multichannel QSH system in which interlayer coupling and lattice deformation control topological edge transport."
-    },
-    {
-      "journalKey": "NanoLett",
-      "journal": "Nano Letters",
-      "journalShort": "Nano Lett.",
-      "type": "published",
-      "title": "Liquid-Phase Connectivity in Porous Membranes Enables High-Rate Acidic Zero-Gap CO 2 Electrolysis",
-      "authors": [
-        "Hao Yu, Ziwen Mei, Kang Liu, Qin Chen, and Min Liu"
-      ],
-      "date": "2026-11-20T03:00:37+00:00",
-      "link": "https://pubs.acs.org/nalefd/article/doi/10.1021/acs.nanolett.6c04556/5473793/Liquid-Phase-Connectivity-in-Porous-Membranes",
-      "doi": "10.1021/acs.nanolett.6c04556",
-      "summary": "Abstract High-current-density acidic CO 2 electrolysis in zero-gap membrane–electrode assemblies is strongly limited by coupled water and ion transport across the membrane. Here, we use a hydrophilic porous mixed cellulose ester membrane to replace conventional dense Nafion, establishing continuous liquid-filled pathways across the membrane thickness. Multiphysics simulations show that this network sustains proton supply and suppresses cathode-side K + accumulation as current density increases. Dynamic wetting, H 3 O + and K + diffusion, impedance, and in situ infrared measurements consistently verify rapid liquid-mediated transport and a more highly hydrated membrane environment. The resulting electrolyzer maintains a CO Faradaic efficiency of 93.6% at 800 mA cm –2 , operates for approximately 50 h at 500 mA cm –2 , and remains stable for more than 100 h at 100 mA cm –2 . This work presents a membrane-level strategy for engineering continuous liquid-phase pathways, offering a route to regulate coupled water and ion transport in high-current-density acidic CO 2 electrolysis."
-    },
-    {
-      "journalKey": "NanoLett",
-      "journal": "Nano Letters",
-      "journalShort": "Nano Lett.",
-      "type": "published",
-      "title": "Room-Temperature Highly Anisotropic In-Plane Electron Transport in a π-Stacked Metal–Organic Nanosheet",
-      "authors": [
-        "Qiuping Xie, Gonghua Hong, Yun Yin, Yiran Pu, Yajing Zhang, Xiaoling Wang, Yunxiang He, Ian Manners, and Junling Guo"
-      ],
-      "date": "2026-11-20T03:00:37+00:00",
-      "link": "https://pubs.acs.org/nalefd/article/doi/10.1021/acs.nanolett.6c04247/5473783/Room-Temperature-Highly-Anisotropic-In-Plane",
-      "doi": "10.1021/acs.nanolett.6c04247",
-      "summary": "Abstract Directional control of electron transport in solids is a long-standing goal in condensed-matter physics and electronic engineering. In two-dimensional systems, strongly directional chiral edge transport has so far been achieved only in quantum Hall states, which require strong magnetic fields or extremely low temperatures. We report an ultrathin metal–organic nanosheet (MPhix, ∼3.4 nm) exhibiting strong in-plane conduction anisotropy at room temperature and zero magnetic field. MPhix self-assembles from bismuth ions and bio-derived ellagic acid into a crystalline sheet, where π–π stacking of organic linkers creates unique one-dimensional electron pathways. Conductive atomic force microscopy visualizes channel-aligned high-current stripes and quantifies a 21–34× in-plane anisotropy at 298 K and 0 T. Leveraging bio-derived molecular stacking for strongly anisotropic in-plane electron transport without magnets or cryogenics, this work outlines a sustainable strategy for next-generation quantum materials."
     },
     {
       "journalKey": "NatMater",
@@ -20790,71 +20754,6 @@
       "arxiv": "https://arxiv.org/abs/2607.25783v3"
     },
     {
-      "journalKey": "NatPhys",
-      "journal": "Nature Physics",
-      "journalShort": "Nat Phys.",
-      "type": "published",
-      "title": "150 years proving fundamental science is worth the wait",
-      "authors": [
-        "Kalobaran Maiti"
-      ],
-      "date": "2026-11-16T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41567-026-03538-3",
-      "doi": "10.1038/s41567-026-03538-3",
-      "summary": "Nature Physics, Published online: 16 November 2026; doi:10.1038/s41567-026-03538-3 Founded in 1876, the Indian Association for the Cultivation of Science created an early space for Indians to pursue science. Its achievements offer valuable lessons for strengthening today’s research landscape in India."
-    },
-    {
-      "journalKey": "NatPhys",
-      "journal": "Nature Physics",
-      "journalShort": "Nat Phys.",
-      "type": "published",
-      "title": "Extension of coherence time beyond breakeven point using only drives and dissipation",
-      "authors": [
-        "Lida Sun",
-        "Yifang Xu",
-        "Yilong Zhou",
-        "Ziyue Hua",
-        "Weiting Wang",
-        "Jie Zhou",
-        "Zi-Jie Chen",
-        "Lui Zuccherelli de Paula",
-        "Qing-Xuan Jie",
-        "Guangming Xue",
-        "Haifeng Yu",
-        "Weizhou Cai",
-        "Chang-Ling Zou",
-        "Luyan Sun"
-      ],
-      "date": "2026-11-16T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41567-026-03528-5",
-      "doi": "10.1038/s41567-026-03528-5",
-      "summary": "Nature Physics, Published online: 16 November 2026; doi:10.1038/s41567-026-03528-5 An autonomous quantum error correction protocol based on engineered drives and dissipation extends the coherence time of a bosonic logical qubit beyond that of the best physical qubit in the same system."
-    },
-    {
-      "journalKey": "NatPhys",
-      "journal": "Nature Physics",
-      "journalShort": "Nat Phys.",
-      "type": "published",
-      "title": "Extending qubit lifetime beyond break-even and enhancing quantum sensing by autonomous quantum error correction",
-      "authors": [
-        "Zhongchu Ni",
-        "Ling Hu",
-        "Yanyan Cai",
-        "Libo Zhang",
-        "Jiasheng Mai",
-        "Xiaowei Deng",
-        "Pan Zheng",
-        "Song Liu",
-        "Shi-Biao Zheng",
-        "Yuan Xu",
-        "Dapeng Yu"
-      ],
-      "date": "2026-11-16T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41567-026-03493-z",
-      "doi": "10.1038/s41567-026-03493-z",
-      "summary": "Nature Physics, Published online: 16 November 2026; doi:10.1038/s41567-026-03493-z A measurement-free quantum error-correction protocol is shown to extend the lifetime of a bosonic logical qubit beyond the best physical qubit in the same system. This also offers prospects for enhanced quantum sensing."
-    },
-    {
       "journalKey": "NatMater",
       "journal": "Nature Materials",
       "journalShort": "Nat Mater.",
@@ -20926,6 +20825,71 @@
       "link": "https://www.cell.com/newton/fulltext/S2950-6360(26)00339-7?rss=yes",
       "doi": "10.1016/j.newton.2026.100737",
       "summary": "When do isolated dopants in single-atom alloys remain dispersed at surfaces or pair and segregate? Qi et al. combine first-principles calculations with interpretable data mining to identify how guest and host properties jointly govern these competing tendencies. The resulting physical rules guide large-scale alloy screening and connect materials discovery with an interpretable picture of dilute-alloy stability."
+    },
+    {
+      "journalKey": "NatPhys",
+      "journal": "Nature Physics",
+      "journalShort": "Nat Phys.",
+      "type": "published",
+      "title": "150 years proving fundamental science is worth the wait",
+      "authors": [
+        "Kalobaran Maiti"
+      ],
+      "date": "2026-11-16T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41567-026-03538-3",
+      "doi": "10.1038/s41567-026-03538-3",
+      "summary": "Nature Physics, Published online: 16 November 2026; doi:10.1038/s41567-026-03538-3 Founded in 1876, the Indian Association for the Cultivation of Science created an early space for Indians to pursue science. Its achievements offer valuable lessons for strengthening today’s research landscape in India."
+    },
+    {
+      "journalKey": "NatPhys",
+      "journal": "Nature Physics",
+      "journalShort": "Nat Phys.",
+      "type": "published",
+      "title": "Extension of coherence time beyond breakeven point using only drives and dissipation",
+      "authors": [
+        "Lida Sun",
+        "Yifang Xu",
+        "Yilong Zhou",
+        "Ziyue Hua",
+        "Weiting Wang",
+        "Jie Zhou",
+        "Zi-Jie Chen",
+        "Lui Zuccherelli de Paula",
+        "Qing-Xuan Jie",
+        "Guangming Xue",
+        "Haifeng Yu",
+        "Weizhou Cai",
+        "Chang-Ling Zou",
+        "Luyan Sun"
+      ],
+      "date": "2026-11-16T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41567-026-03528-5",
+      "doi": "10.1038/s41567-026-03528-5",
+      "summary": "Nature Physics, Published online: 16 November 2026; doi:10.1038/s41567-026-03528-5 An autonomous quantum error correction protocol based on engineered drives and dissipation extends the coherence time of a bosonic logical qubit beyond that of the best physical qubit in the same system."
+    },
+    {
+      "journalKey": "NatPhys",
+      "journal": "Nature Physics",
+      "journalShort": "Nat Phys.",
+      "type": "published",
+      "title": "Extending qubit lifetime beyond break-even and enhancing quantum sensing by autonomous quantum error correction",
+      "authors": [
+        "Zhongchu Ni",
+        "Ling Hu",
+        "Yanyan Cai",
+        "Libo Zhang",
+        "Jiasheng Mai",
+        "Xiaowei Deng",
+        "Pan Zheng",
+        "Song Liu",
+        "Shi-Biao Zheng",
+        "Yuan Xu",
+        "Dapeng Yu"
+      ],
+      "date": "2026-11-16T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41567-026-03493-z",
+      "doi": "10.1038/s41567-026-03493-z",
+      "summary": "Nature Physics, Published online: 16 November 2026; doi:10.1038/s41567-026-03493-z A measurement-free quantum error-correction protocol is shown to extend the lifetime of a bosonic logical qubit beyond the best physical qubit in the same system. This also offers prospects for enhanced quantum sensing."
     },
     {
       "journalKey": "PRL",
@@ -22251,20 +22215,6 @@
       "publisher": "American Physical Society"
     },
     {
-      "journalKey": "NatPhys",
-      "journal": "Nature Physics",
-      "journalShort": "Nat Phys.",
-      "type": "published",
-      "title": "Just publish it",
-      "authors": [
-        "James Wilsdon"
-      ],
-      "date": "2026-11-13T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41567-026-03524-9",
-      "doi": "10.1038/s41567-026-03524-9",
-      "summary": "Nature Physics, Published online: 13 November 2026; doi:10.1038/s41567-026-03524-9 Just publish it"
-    },
-    {
       "journalKey": "NJP",
       "journal": "New Journal of Physics",
       "journalShort": "NJP",
@@ -22333,6 +22283,20 @@
       "link": "https://www.cell.com/newton/fulltext/S2950-6360(26)00334-8?rss=yes",
       "doi": "10.1016/j.newton.2026.100732",
       "summary": "Density scaling successfully describes how temperature and packing jointly control molecular motion in equilibrium liquids, but whether it applies to glasses has remained open. Stavropoulou et al. simultaneously track molecular relaxation and densification during physical aging of a molecular glass and show that the two evolve in strict proportionality. The proportionality factor is predicted, without adjustable parameters, from equilibrium density scaling parameters, extending this framework to the nonequilibrium glassy state."
+    },
+    {
+      "journalKey": "NatPhys",
+      "journal": "Nature Physics",
+      "journalShort": "Nat Phys.",
+      "type": "published",
+      "title": "Just publish it",
+      "authors": [
+        "James Wilsdon"
+      ],
+      "date": "2026-11-13T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41567-026-03524-9",
+      "doi": "10.1038/s41567-026-03524-9",
+      "summary": "Nature Physics, Published online: 13 November 2026; doi:10.1038/s41567-026-03524-9 Just publish it"
     },
     {
       "journalKey": "PRL",
@@ -23427,7 +23391,7 @@
       "date": "2026-11-12T10:00:00+00:00",
       "link": "https://journals.aps.org/prapplied/accepted/53073A7bYdf1970e55712a382ee4bddaf1d13177c",
       "doi": "10.1103/8cws-j8g2",
-      "summary": "Homodyne Quadrature interferometers (HoQI) use an interferometric displacement sensing scheme with excellent noise performance, making them a strong candidate for precise sensing and control of positions of objects. All interferometers are prone to nonlinear effects when measuring dynamic displaceme…",
+      "summary": "",
       "citation": "Phys. Rev. Applied",
       "publisher": "American Physical Society",
       "arxiv": "https://arxiv.org/abs/2511.04386v1"
@@ -23713,21 +23677,6 @@
       "arxiv": "https://arxiv.org/abs/2606.25048v2"
     },
     {
-      "journalKey": "NatPhys",
-      "journal": "Nature Physics",
-      "journalShort": "Nat Phys.",
-      "type": "published",
-      "title": "Optimal learning of quantum channels in diamond distance",
-      "authors": [
-        "Antonio Anna Mele",
-        "Lennart Bittel"
-      ],
-      "date": "2026-11-12T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41567-026-03499-7",
-      "doi": "10.1038/s41567-026-03499-7",
-      "summary": "Nature Physics, Published online: 12 November 2026; doi:10.1038/s41567-026-03499-7 Quantum channels can be used to describe the evolution of quantum states, including both unitary evolution and measurement. Now the optimal number of uses needed to learn an unknown channel to any fixed accuracy has been found."
-    },
-    {
       "journalKey": "NJP",
       "journal": "New Journal of Physics",
       "journalShort": "NJP",
@@ -23802,14 +23751,15 @@
       "journal": "Nature Physics",
       "journalShort": "Nat Phys.",
       "type": "published",
-      "title": "Altermagnetism in a new light",
+      "title": "Optimal learning of quantum channels in diamond distance",
       "authors": [
-        "Zhaoju Yang"
+        "Antonio Anna Mele",
+        "Lennart Bittel"
       ],
-      "date": "2026-11-11T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41567-026-03532-9",
-      "doi": "10.1038/s41567-026-03532-9",
-      "summary": "Nature Physics, Published online: 11 November 2026; doi:10.1038/s41567-026-03532-9 Altermagnets host spin-split bands despite zero net magnetization. A photonic crystal now reproduces this symmetry-driven phenomenon using circular polarization as a spin analogue."
+      "date": "2026-11-12T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41567-026-03499-7",
+      "doi": "10.1038/s41567-026-03499-7",
+      "summary": "Nature Physics, Published online: 12 November 2026; doi:10.1038/s41567-026-03499-7 Quantum channels can be used to describe the evolution of quantum states, including both unitary evolution and measurement. Now the optimal number of uses needed to learn an unknown channel to any fixed accuracy has been found."
     },
     {
       "journalKey": "NatNano",
@@ -23850,6 +23800,20 @@
       "link": "https://www.cell.com/newton/fulltext/S2950-6360(26)00332-4?rss=yes",
       "doi": "10.1016/j.newton.2026.100730",
       "summary": "Nanoconfinement allows surface electric fields to strongly regulate ionic enrichment and transport, providing a basis for field-tunable nanofluidic devices. Zhao et al. reformulate Poisson-Boltzmann theory in dimensionless forms to establish a unified picture of confined ionic behavior. Applied to ionic transistors, the framework reveals distinct transfer characteristics and a thermodynamic subthreshold-swing limit of about 60 mV/dec, providing guidance for optimizing field-tunable ionic devices."
+    },
+    {
+      "journalKey": "NatPhys",
+      "journal": "Nature Physics",
+      "journalShort": "Nat Phys.",
+      "type": "published",
+      "title": "Altermagnetism in a new light",
+      "authors": [
+        "Zhaoju Yang"
+      ],
+      "date": "2026-11-11T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41567-026-03532-9",
+      "doi": "10.1038/s41567-026-03532-9",
+      "summary": "Nature Physics, Published online: 11 November 2026; doi:10.1038/s41567-026-03532-9 Altermagnets host spin-split bands despite zero net magnetization. A photonic crystal now reproduces this symmetry-driven phenomenon using circular polarization as a spin analogue."
     },
     {
       "journalKey": "PRL",
@@ -25596,28 +25560,6 @@
       "journal": "Phys. Rev. Applied",
       "journalShort": "PR Applied",
       "type": "accepted",
-      "title": "Sensitivity threshold defines the optimal spin subset for ensemble quantum sensing",
-      "authors": [
-        "Suwan I. Kang",
-        "Minhyeok Kim",
-        "Sanghyo Park",
-        "Heonsik Lee",
-        "Keunyoung Lee",
-        "Donggyu Kim"
-      ],
-      "date": "2026-11-09T10:00:00+00:00",
-      "link": "https://journals.aps.org/prapplied/accepted/3107eAa7Z3a122059683339667f7c5879058d2499",
-      "doi": "10.1103/xrpd-4xdg",
-      "summary": "Inhomogeneous broadening and spatial gradients in control fields inevitably produce large variations in characteristic sensitivity across spin ensembles. We derive an analytic expression for the sensitivity of an inhomogeneous ensemble and introduce a sensitivity threshold that identifies the optima…",
-      "citation": "Phys. Rev. Applied",
-      "publisher": "American Physical Society",
-      "arxiv": "https://arxiv.org/abs/2512.10549v2"
-    },
-    {
-      "journalKey": "PRApplied",
-      "journal": "Phys. Rev. Applied",
-      "journalShort": "PR Applied",
-      "type": "accepted",
       "title": "Junction-intrinsic dissipation in hybrid superconductor-semiconductor gatemon qubits",
       "authors": [
         "Zhenhai Sun",
@@ -25641,6 +25583,28 @@
       "citation": "Phys. Rev. Applied",
       "publisher": "American Physical Society",
       "arxiv": "https://arxiv.org/abs/2603.29498v1"
+    },
+    {
+      "journalKey": "PRApplied",
+      "journal": "Phys. Rev. Applied",
+      "journalShort": "PR Applied",
+      "type": "accepted",
+      "title": "Sensitivity threshold defines the optimal spin subset for ensemble quantum sensing",
+      "authors": [
+        "Suwan I. Kang",
+        "Minhyeok Kim",
+        "Sanghyo Park",
+        "Heonsik Lee",
+        "Keunyoung Lee",
+        "Donggyu Kim"
+      ],
+      "date": "2026-11-09T10:00:00+00:00",
+      "link": "https://journals.aps.org/prapplied/accepted/3107eAa7Z3a122059683339667f7c5879058d2499",
+      "doi": "10.1103/xrpd-4xdg",
+      "summary": "Inhomogeneous broadening and spatial gradients in control fields inevitably produce large variations in characteristic sensitivity across spin ensembles. We derive an analytic expression for the sensitivity of an inhomogeneous ensemble and introduce a sensitivity threshold that identifies the optima…",
+      "citation": "Phys. Rev. Applied",
+      "publisher": "American Physical Society",
+      "arxiv": "https://arxiv.org/abs/2512.10549v2"
     },
     {
       "journalKey": "PRApplied",
@@ -26010,32 +25974,6 @@
       "publisher": "American Physical Society"
     },
     {
-      "journalKey": "NatPhys",
-      "journal": "Nature Physics",
-      "journalShort": "Nat Phys.",
-      "type": "published",
-      "title": "The cost of easy answers",
-      "authors": [
-        "Mark Buchanan"
-      ],
-      "date": "2026-11-09T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41567-026-03525-8",
-      "doi": "10.1038/s41567-026-03525-8",
-      "summary": "Nature Physics, Published online: 09 November 2026; doi:10.1038/s41567-026-03525-8 The cost of easy answers"
-    },
-    {
-      "journalKey": "NatPhys",
-      "journal": "Nature Physics",
-      "journalShort": "Nat Phys.",
-      "type": "published",
-      "title": "Nobel neutrinos",
-      "authors": [],
-      "date": "2026-11-09T00:00:00+00:00",
-      "link": "https://www.nature.com/articles/s41567-026-03543-6",
-      "doi": "10.1038/s41567-026-03543-6",
-      "summary": "Nature Physics, Published online: 09 November 2026; doi:10.1038/s41567-026-03543-6 The Nobel Prize in Physics 2026 has been awarded to Francis Halzen “for decisive contributions to the IceCube Neutrino Observatory and the discovery of high-energy neutrinos of astrophysical origin”."
-    },
-    {
       "journalKey": "NatNano",
       "journal": "Nature Nanotechnology",
       "journalShort": "Nat Nano.",
@@ -26189,6 +26127,32 @@
       "link": "https://www.cell.com/newton/fulltext/S2950-6360(26)00329-4?rss=yes",
       "doi": "10.1016/j.newton.2026.100727",
       "summary": "Li et al. demonstrate a room-temperature, field-free, low-power, scalable spin-orbit torque logic device utilizing a van der Waals magnet Fe3GaTe2 bit with strong perpendicular magnetic anisotropy and a Pt channel with electric asymmetries. Current pulse width-dependent measurement reveals a low intrinsic critical magnetic-field-free switching current density of 1.8 × 107 A/cm2 and an ultralow write power of 1.5 fJ/bit at 1 ns pulse width for a typical industrial-level device dimensions. These results suggest great potential for vdW magnets in dense ultralow-power in-memory computing technologies."
+    },
+    {
+      "journalKey": "NatPhys",
+      "journal": "Nature Physics",
+      "journalShort": "Nat Phys.",
+      "type": "published",
+      "title": "The cost of easy answers",
+      "authors": [
+        "Mark Buchanan"
+      ],
+      "date": "2026-11-09T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41567-026-03525-8",
+      "doi": "10.1038/s41567-026-03525-8",
+      "summary": "Nature Physics, Published online: 09 November 2026; doi:10.1038/s41567-026-03525-8 The cost of easy answers"
+    },
+    {
+      "journalKey": "NatPhys",
+      "journal": "Nature Physics",
+      "journalShort": "Nat Phys.",
+      "type": "published",
+      "title": "Nobel neutrinos",
+      "authors": [],
+      "date": "2026-11-09T00:00:00+00:00",
+      "link": "https://www.nature.com/articles/s41567-026-03543-6",
+      "doi": "10.1038/s41567-026-03543-6",
+      "summary": "Nature Physics, Published online: 09 November 2026; doi:10.1038/s41567-026-03543-6 The Nobel Prize in Physics 2026 has been awarded to Francis Halzen “for decisive contributions to the IceCube Neutrino Observatory and the discovery of high-energy neutrinos of astrophysical origin”."
     },
     {
       "journalKey": "PRResearch",
